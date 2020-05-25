@@ -1,0 +1,11 @@
+{
+	"apptitle": "React Project Accelerator",
+	"signin": "Registrarse",
+	"signout": "Desconectar",
+	"home": "Casa",
+	"contact": "Contacto",
+	"about": "Acerca de",
+	"welcome": "Bienvenidas!",
+	"homepagewelcome":"Bienvenido a React Project Accelerator",
+	"getstartedmessage":"Para comenzar, use el menú para navegar y cambiar idiomas"
+}

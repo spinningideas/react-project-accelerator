@@ -1,0 +1,11 @@
+{
+	"apptitle": "React Project Accelerator",
+	"signin": "登入",
+	"signout": "登出",
+	"home": "家",
+	"contact": "联系",
+	"about": "关于",
+	"welcome": "欢迎",			
+	"homepagewelcome":"欢迎使用 React Project Accelerator",
+	"getstartedmessage":"要开始使用菜单，请浏览和更改语言"
+}
