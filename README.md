@@ -1,14 +1,22 @@
 This project was conceived to aid starting React projects as a reference implementation
 
+React JS project accelerator that can serve as reference for bootstrapping projects. Includes localization and authorization via services based approach using hooks to manage state
+
 There are many starter kits...this is another...here is a list of others:
 
 https://blog.bitsrc.io/11-react-application-boilerplates-for-2019-b49a8226ea54
 
-## Available Scripts
+## Get Started 
 
 In the project directory, you can run:
 
-### `npm start`
+1) Install packages
+
+`npm install`
+
+2) Start and run the application
+
+`npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
