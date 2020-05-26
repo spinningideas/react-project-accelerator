@@ -75,7 +75,7 @@ const LocalizationService = () => {
 	};
 
 	const getLocalizedData = async (localeCode) => {
-		const localizedDataFilePath = process.env.PUBLIC_URL + `i18n/${localeCode}.json`;
+		const localizedDataFilePath = `i18n/${localeCode}.json`;
 		// return await import(localizedDataFilePath);
 		// const localizedFile = await require(`${localizedDataFilePath}`);
 		// return localizedFile;
