@@ -6,6 +6,12 @@ There are many starter kits...this is another...here is a list of others:
 
 https://blog.bitsrc.io/11-react-application-boilerplates-for-2019-b49a8226ea54
 
+## 
+
+### Live Demo
+
+https://spinningideas.github.io/react-project-accelerator/
+
 ## Get Started 
 
 In the project directory, you can run:

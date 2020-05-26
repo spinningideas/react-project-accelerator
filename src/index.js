@@ -13,7 +13,7 @@ import ErrorHandler from 'components/ErrorHandler';
 const AppShell = () => (
 	<ErrorHandler>
 		<MuiThemeProvider theme={theme}>
-			<Router>
+			<Router basename="react-project-accelerator">
 				<Application />
 			</Router>
 		</MuiThemeProvider>

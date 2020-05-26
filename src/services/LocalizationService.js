@@ -60,13 +60,15 @@ const LocalizationService = () => {
 		// and extract the set of localized text values for given keys
 		let textSet = {};
 		const localizedData = await getLocalizedData(locale);
-		let localizedTextSet = localizedData;
-		const keysLocalizedTextSet = Object.keys(localizedTextSet);
-
-		for (const desiredKey of keys) {
-			for (const key of keysLocalizedTextSet) {
-				if (desiredKey === key) {
-					textSet[key] = localizedTextSet[key];
+		if(localizedData){
+			let localizedTextSet = localizedData;
+			const keysLocalizedTextSet = Object.keys(localizedTextSet);
+	
+			for (const desiredKey of keys) {
+				for (const key of keysLocalizedTextSet) {
+					if (desiredKey === key) {
+						textSet[key] = localizedTextSet[key];
+					}
 				}
 			}
 		}
@@ -75,20 +77,17 @@ const LocalizationService = () => {
 	};
 
 	const getLocalizedData = async (localeCode) => {
-		const localizedDataFilePath = `i18n/${localeCode}.json`;
+		const localizedDataFilePath = process.env.PUBLIC_URL + `/i18n/${localeCode}.json`;
 		// return await import(localizedDataFilePath);
 		// const localizedFile = await require(`${localizedDataFilePath}`);
 		// return localizedFile;
 		return fetch(localizedDataFilePath)
 			.then((response) => {
-				console.log(response);
 				return response.json();
-			})
-			.then((data) => {
-				return data;
-			})
-			.catch((err) => {
-				console.log('Error Reading data ' + err);
+			}).catch((err) => {
+				let msg = 'Error Reading data ' + err;
+				console.log(msg);
+				//return new Promise.reject(new Error(msg))
 			});
 	};
 

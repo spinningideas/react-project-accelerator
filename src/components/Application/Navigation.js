@@ -4,23 +4,22 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Drawer from '@material-ui/core/Drawer';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 // material-ui Icons
-import Search from '@material-ui/icons/Search';
-import Drawer from '@material-ui/core/Drawer';
 import Home from '@material-ui/icons/Home';
 import Info from '@material-ui/icons/Info';
 import Email from '@material-ui/icons/Email';
 import MeetingRoom from '@material-ui/icons/MeetingRoom';
+import MenuIcon from '@material-ui/icons/Menu';
 // Services
 import LocalizationService from 'services/LocalizationService';
 // Components
@@ -59,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navigation(props) {
 	const [openNavigation, setOpenNavigation] = useState(false);
 	const [locData, setLocData] = useState({});
-	const [anchorEl, setAnchorEl] = useState(null);
+	const [anchorEl, setAnchorEl] = useState(undefined);
 	const [signInDialogOpen, setSignInDialogOpen] = useState(false);
 
 	const classes = useStyles();
@@ -134,7 +133,7 @@ export default function Navigation(props) {
 						anchorEl={anchorEl}
 						keepMounted
 						open={Boolean(anchorEl)}
-						onClose={languageSelectionClose}
+						onClose={()=>languageSelectionClose}
 					>
 						<MenuItem onClick={() => languageSelectionMakeChoice('enUS')}>English</MenuItem>
 						<MenuItem onClick={() => languageSelectionMakeChoice('zhCN')}>Chinese</MenuItem>
