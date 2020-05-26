@@ -133,7 +133,7 @@ export default function Navigation(props) {
 						anchorEl={anchorEl}
 						keepMounted
 						open={Boolean(anchorEl)}
-						onClose={()=>languageSelectionClose}
+						onClose={() => languageSelectionClose}
 					>
 						<MenuItem onClick={() => languageSelectionMakeChoice('enUS')}>English</MenuItem>
 						<MenuItem onClick={() => languageSelectionMakeChoice('zhCN')}>Chinese</MenuItem>

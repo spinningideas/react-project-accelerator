@@ -14,7 +14,7 @@ class ErrorHandler extends React.Component {
 		if (this.state.hasError) {
 			return <h3>Something went wrong. Please reload the page to continue</h3>;
 		}
-		return this.props.children; 
+		return this.props.children;
 	}
 }
 

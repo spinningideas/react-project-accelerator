@@ -87,7 +87,6 @@ const LocalizationService = () => {
 			}).catch((err) => {
 				let msg = 'Error Reading data ' + err;
 				console.log(msg);
-				//return new Promise.reject(new Error(msg))
 			});
 	};
 
