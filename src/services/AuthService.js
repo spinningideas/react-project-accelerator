@@ -1,30 +1,30 @@
 ﻿const AuthService = () => {
-	const userHasSignedIn = () => {
-		let signedInVal = window.localStorage.getItem('usersignedin');
-		if (signedInVal) {
-			return signedInVal === 'true';
-		}
-		return false;
-	};
+  const userHasSignedIn = () => {
+    let signedInVal = window.localStorage.getItem('usersignedin');
+    if (signedInVal) {
+      return signedInVal === 'true';
+    }
+    return false;
+  };
 
-	const setUserHasSignedIn = (signedInVal) => {
-		window.localStorage.setItem('usersignedin', Boolean(signedInVal));
-	};
+  const setUserHasSignedIn = (signedInVal) => {
+    window.localStorage.setItem('usersignedin', Boolean(signedInVal));
+  };
 
-	const signIn = () => {
-		setUserHasSignedIn(true);
-	};
+  const signIn = () => {
+    setUserHasSignedIn(true);
+  };
 
-	const signOut = () => {
-		setUserHasSignedIn(false);
-	};
+  const signOut = () => {
+    setUserHasSignedIn(false);
+  };
 
-	return {
-		userHasSignedIn,
-		setUserHasSignedIn,
-		signIn,
-		signOut
-	};
+  return {
+    userHasSignedIn,
+    setUserHasSignedIn,
+    signIn,
+    signOut
+  };
 };
 
 export default AuthService;
