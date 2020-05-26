@@ -21,6 +21,9 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
+		"buildghpages": "set PUBLIC_URL=https://spinningideas.github.io/react-project-accelerator/&&react-scripts build",
+
+		
 		"test": "react-scripts test",
 		"deploy": "gh-pages -d build"
 	},
