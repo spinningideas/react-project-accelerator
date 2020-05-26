@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6d2664a50fca7ca28d7583072edf74ef",
+    "revision": "e53a3f865e15d6b9ac630845642d4498",
     "url": "https://spinningideas.github.io/react-project-accelerator/index.html"
   },
   {
-    "revision": "755ac43a8171d562d8fd",
+    "revision": "283e5c3155d6e2b9166f",
     "url": "https://spinningideas.github.io/react-project-accelerator/static/css/main.84388eb8.chunk.css"
   },
   {
-    "revision": "4233f44f43352a79803e",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/2.fd972722.chunk.js"
+    "revision": "af1c4c6c0f7a62cdd988",
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/2.2415a559.chunk.js"
   },
   {
     "revision": "0749163b59fbee32225059cb60c18af6",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/2.fd972722.chunk.js.LICENSE.txt"
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/2.2415a559.chunk.js.LICENSE.txt"
   },
   {
     "revision": "c984c04b7d81cdb5cb4b",
@@ -28,8 +28,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://spinningideas.github.io/react-project-accelerator/static/js/5.a5dbfe92.chunk.js"
   },
   {
-    "revision": "755ac43a8171d562d8fd",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/main.2dd73a8d.chunk.js"
+    "revision": "283e5c3155d6e2b9166f",
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/main.27a9b4e2.chunk.js"
   },
   {
     "revision": "c3b93da2f49ee503644e",
