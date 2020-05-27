@@ -1,26 +1,26 @@
-This project was conceived to aid starting React projects as a reference implementation
+React Project Accelerator was conceived to aid starting React projects and serve as a reference implementation and to serve as reference for bootstrapping projects.
 
-React JS project accelerator that can serve as reference for bootstrapping projects. Includes localization and authorization via services based approach using hooks to manage state
+The project includes localization and authorization via services based approach using hooks to manage state. The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [react material ui](https://material-ui.com/) for its UX
 
-There are many starter kits...this is another...here is a list of others:
+There are many starter kits...this is yet another...here is a list of others:
 
 https://blog.bitsrc.io/11-react-application-boilerplates-for-2019-b49a8226ea54
 
-## 
+##
 
 ### Live Demo
 
 https://spinningideas.github.io/react-project-accelerator/
 
-## Get Started 
+## Get Started
 
 In the project directory, you can run:
 
-1) Install packages
+1. Install packages
 
 `npm install`
 
-2) Start and run the application
+2. Start and run the application
 
 `npm start`
 
@@ -38,13 +38,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
