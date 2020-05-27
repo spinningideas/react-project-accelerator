@@ -12,7 +12,8 @@
   "contactdescription": "Rellene el formulario para enviar información de contacto: este es un ejemplo de uso del formulario y su estilo",
   "moreinfo": "Más Información",
   "save": "Salvar",
-  "cancel": "Cancelar",
+	"cancel": "Cancelar",
+	"close": "Cerca",
   "welcome": "Bienvenidas!",
   "homepagewelcome": "Bienvenido a React Project Accelerator",
   "getstartedmessage": "Para comenzar, use el menú para navegar y cambiar idiomas",
@@ -25,5 +26,14 @@
   "materialui": "Material-UI",
   "materialuidescription": "Componentes React visualmente atractivos que implementan el diseño de materiales de Google junto con el diseño y el soporte de temas.",
   "createreactapp": "Crear aplicación React",
-  "createreactappdescription": "Comience rápidamente a crear aplicaciones React usando un conjunto de herramientas que le permite centrarse en el desarrollo."
+  "createreactappdescription": "Comience rápidamente a crear aplicaciones React usando un conjunto de herramientas que le permite centrarse en el desarrollo.",
+	"notifications": "Notificaciones",
+	"notificationsdescription": "A continuación hay ejemplos de notificaciones.",
+	"modals": "Diálogos Modales",
+	"modalsdescription": "A continuación hay ejemplos de diálogos modales.",
+	"error": "Error",
+	"success": "Éxito",
+	"view": "Ver",
+	"authenticatedcontent": "Contenido autenticado",
+	"authenticatedcontentdescription": "Aquí se muestra el contenido solo si los usuarios han iniciado sesión"
 }

@@ -13,6 +13,7 @@
   "moreinfo": "More Info",
   "save": "Save",
   "cancel": "Cancel",
+  "close": "Close",
   "welcome": "Welcome!",
   "homepagewelcome": "Welcome to React Project Accelerator",
   "getstartedmessage": "To get started use the menu to navigate and change languages",
@@ -25,5 +26,14 @@
   "materialui": "Material-UI",
   "materialuidescription": "Visually appealing React components that implement Google's Material Design along with layout and theming support.",
   "createreactapp": "Create React App",
-  "createreactappdescription": "Quickly get started building React Apps using toolset that allows you to focus on development."
+  "createreactappdescription": "Quickly get started building React Apps using toolset that allows you to focus on development.",
+  "notifications": "Notifications",
+  "notificationsdescription": "Below are examples of notifications",
+  "modals": "Modals",
+  "modalsdescription": "Below are examples of modal dialogs",
+  "error": "错误",
+  "success": "Success",
+  "view": "View",
+  "authenticatedcontent": "Authenticated Content",
+  "authenticatedcontentdescription": "Here is content displayed only if users is signed in"
 }
