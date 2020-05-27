@@ -1,6 +1,6 @@
-React Project Accelerator was conceived to aid starting React projects and serve as a reference implementation and to serve as reference for bootstrapping projects.
+React Project Accelerator was conceived to aid starting React JS projects and provide a reference implementation for bootstrapping projects.
 
-The project includes localization and authorization via services based approach using hooks to manage state. The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [react material ui](https://material-ui.com/) for its UX
+The project aims to include most of the basic things one needs and includes localization and authorization via services based approach using hooks to manage state. The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [react material ui](https://material-ui.com/) for its UX.
 
 There are many starter kits...this is yet another...here is a list of others:
 
