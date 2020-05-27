@@ -82,41 +82,41 @@ function Navigation(props) {
 
   const toggleDrawerOpen = () => {
     setOpenNavigation(!openNavigation);
-  }
+  };
 
   const closeDrawer = () => {
     setOpenNavigation(false);
-  }
+  };
 
   const languageSelectionOpen = (event) => {
     setAnchorEl(event.currentTarget);
-  }
+  };
 
   const languageSelectionClose = () => {
     setAnchorEl(null);
-  }
+  };
 
   const languageSelectionMakeChoice = (locale) => {
     localizationService.setUserLocale(locale);
     setAnchorEl(null);
     window.location.reload();
-  }
+  };
 
   const handleSignInClick = () => {
     setSignInDialogOpen(false);
     props.handleSignIn();
-  }
+  };
 
   const handleSignOutClick = () => {
     props.handleSignOut();
-	}
-	
-	const appTitle =()=> {
-		if (isWidthUp('sm', props.width)) {
-			return <>{locData.apptitle}</>
-		}	
-		return <>RPA</>;
-	}
+  };
+
+  const appTitle = () => {
+    if (isWidthUp('sm', props.width)) {
+      return <>{locData.apptitle}</>;
+    }
+    return <>RPA</>;
+  };
 
   return (
     <div className={classes.root}>
@@ -132,7 +132,7 @@ function Navigation(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.appTitle}>
-            { appTitle() }
+            {appTitle()}
           </Typography>
           <Button aria-controls="language-menu" aria-haspopup="true" onClick={languageSelectionOpen}>
             Language
@@ -148,16 +148,8 @@ function Navigation(props) {
             <MenuItem onClick={() => languageSelectionMakeChoice('zhCN')}>Chinese</MenuItem>
             <MenuItem onClick={() => languageSelectionMakeChoice('esES')}>Spanish</MenuItem>
           </Menu>
-          {props.userSignedIn && (
-            <Button onClick={() => handleSignOutClick}>
-              {locData.signout}
-            </Button>
-          )}
-          {!props.userSignedIn && (
-            <Button onClick={() => setSignInDialogOpen(true)}>
-              {locData.signin}
-            </Button>
-          )}
+          {props.userSignedIn && <Button onClick={() => handleSignOutClick}>{locData.signout}</Button>}
+          {!props.userSignedIn && <Button onClick={() => setSignInDialogOpen(true)}>{locData.signin}</Button>}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -186,25 +178,13 @@ function Navigation(props) {
             </ListItemIcon>
             <ListItemText primary={locData.home} />
           </ListItem>
-          <ListItem
-            button
-            className={classes.sideMenuListItem}
-            onClick={closeDrawer}
-            component={Link}
-            to="/contact"
-          >
+          <ListItem button className={classes.sideMenuListItem} onClick={closeDrawer} component={Link} to="/contact">
             <ListItemIcon>
               <Email />
             </ListItemIcon>
             <ListItemText primary={locData.contact} />
           </ListItem>
-          <ListItem
-            button
-            className={classes.sideMenuListItem}
-            onClick={closeDrawer}
-            component={Link}
-            to="/about"
-          >
+          <ListItem button className={classes.sideMenuListItem} onClick={closeDrawer} component={Link} to="/about">
             <ListItemIcon>
               <Info />
             </ListItemIcon>
@@ -222,13 +202,13 @@ function Navigation(props) {
               <ListItemIcon>
                 <MeetingRoom />
               </ListItemIcon>
-              <ListItemText primary="Sign Out" />
+              <ListItemText primary={locData.signout} />
             </ListItem>
           )}
         </List>
       </Drawer>
       <SignInDialog
-				locData={locData}
+        locData={locData}
         open={signInDialogOpen}
         handleSignIn={handleSignInClick}
         handleSignInCancel={() => setSignInDialogOpen(false)}

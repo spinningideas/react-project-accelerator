@@ -32,9 +32,21 @@ function Home() {
     async function loadLocalization() {
       const locCode = localizationService.getUserLocale();
       const locDataLoaded = await localizationService.getLocalizedTextSet(
-				['homepagewelcome', 'getstartedmessage','notifications'
-				,'notificationsdescription','modals','modalsdescription'
-				,'error','success','view', 'close','authenticatedcontent','authenticatedcontentdescription'],
+        [
+          'welcome',
+          'homepagewelcome',
+          'getstartedmessage',
+          'notifications',
+          'notificationsdescription',
+          'modals',
+          'modalsdescription',
+          'error',
+          'success',
+          'view',
+          'close',
+          'authenticatedcontent',
+          'authenticatedcontentdescription'
+        ],
         locCode
       );
       setLocData(locDataLoaded);
@@ -84,11 +96,7 @@ function Home() {
                     >
                       {locData.success}
                     </Button>
-                    <Button
-                      className="ml-2"
-                      color="secondary"
-                      onClick={() => showNotification(locData.error, 'error')}
-                    >
+                    <Button className="ml-2" color="secondary" onClick={() => showNotification(locData.error, 'error')}>
                       {locData.error}
                     </Button>
                   </CardActions>
@@ -105,16 +113,16 @@ function Home() {
                   </CardContent>
                   <CardActions>
                     <Button className="ml-2" color="secondary" onClick={() => setModalDemoState(true)}>
-											{locData.view}
+                      {locData.view}
                     </Button>
                   </CardActions>
                 </Card>
 
                 <Modal isOpen={modalDemoState} onClose={() => setModalDemoState(false)}>
-                  <h1>Modal title</h1>
-                  <p>Example message</p>
+                  <h1>{locData.welcome}</h1>
+                  <p>{locData.homepagewelcome}</p>
                   <Button color="secondary" onClick={() => setModalDemoState(false)}>
-										{locData.close}
+                    {locData.close}
                   </Button>
                 </Modal>
               </Grid>

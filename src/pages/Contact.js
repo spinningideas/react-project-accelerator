@@ -31,7 +31,7 @@ export default function Contact() {
     root: {
       '& .MuiTextField-root': {
         margin: theme.spacing(1),
-        width: 200
+        width: 300
       }
     }
   }));
@@ -56,7 +56,13 @@ export default function Contact() {
                     <TextField id="email" label={locData.email} required />
                   </div>
                   <div>
-                    <TextField id="message" label={locData.message} multiline rows={4} defaultValue={locData.messagedescription} />
+                    <TextField
+                      id="message"
+                      label={locData.message}
+                      multiline
+                      rows={4}
+                      defaultValue={locData.messagedescription}
+                    />
                   </div>
                 </form>
               </CardContent>

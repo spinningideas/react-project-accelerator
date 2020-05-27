@@ -15,12 +15,22 @@ export default function About() {
 
   useEffect(() => {
     async function loadLocalization() {
-			const locCode = localizationService.getUserLocale();
-			
-		  const locDataLoaded = await localizationService.getLocalizedTextSet(
-        [	"about","aboutdescription","technology","technologydescription"
-				,"reactjs","reactjsdescription","materialui","materialuidescription",
-				"createreactapp","createreactappdescription", "moreinfo"],
+      const locCode = localizationService.getUserLocale();
+
+      const locDataLoaded = await localizationService.getLocalizedTextSet(
+        [
+          'about',
+          'aboutdescription',
+          'technology',
+          'technologydescription',
+          'reactjs',
+          'reactjsdescription',
+          'materialui',
+          'materialuidescription',
+          'createreactapp',
+          'createreactappdescription',
+          'moreinfo'
+        ],
         locCode
       );
       setLocData(locDataLoaded);
@@ -44,9 +54,7 @@ export default function About() {
             <Card className="card white-bg-color bl-1 bb-1">
               <CardContent>
                 <h4 className="card-title">{locData.reactjs}</h4>
-                <p className="card-text">
-									{locData.reactjsdecription}
-                </p>
+                <p className="card-text">{locData.reactjsdecription}</p>
               </CardContent>
               <CardActions>
                 <Button
@@ -65,9 +73,7 @@ export default function About() {
             <Card className="card white-bg-color bl-1 bb-1">
               <CardContent>
                 <h4 className="card-title">{locData.materialui}</h4>
-                <p className="card-text">
-									{locData.materialuidescription}
-                </p>
+                <p className="card-text">{locData.materialuidescription}</p>
               </CardContent>
               <CardActions>
                 <Button
@@ -86,9 +92,7 @@ export default function About() {
             <Card className="card white-bg-color bl-1 bb-1">
               <CardContent>
                 <h4 className="card-title">{locData.createreactapp}</h4>
-                <p className="card-text">
-								{locData.createreactappdescription}
-                </p>
+                <p className="card-text">{locData.createreactappdescription}</p>
               </CardContent>
               <CardActions>
                 <Button
