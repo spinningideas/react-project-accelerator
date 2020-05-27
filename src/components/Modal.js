@@ -1,16 +1,15 @@
 ﻿import React from 'react';
-
-/* Adapted from: https://peteris.rocks/blog/modal-window-in-react-from-scratch/
+/* 
 Example Usage:
 
-    <button onClick={() => this.openModal()}>Open modal</button>
-    <Modal isOpen={this.state.isModalOpen} onClose={() => this.closeModal()}>
-			<h1>Modal title</h1>
-			<p>hello</p>
-			<p><button onClick={() => this.closeModal()}>Close</button></p>
-    </Modal>
+	<button onClick={() => openModal()}>Open modal</button>
+	<Modal isOpen={isModalOpen} onClose={() => closeModal()}>
+		<h1>Modal title</h1>
+		<p>hello</p>
+		<p><button onClick={() => closeModal()}>Close</button></p>
+	</Modal>
+*/
 
- */
 function Modal(props) {
   const close = (e) => {
     e.preventDefault();

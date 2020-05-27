@@ -32,15 +32,15 @@ function Home() {
     async function loadLocalization() {
       const locCode = localizationService.getUserLocale();
       const locDataLoaded = await localizationService.getLocalizedTextSet(
-        ['homepagewelcome', 'getstartedmessage'],
+				['homepagewelcome', 'getstartedmessage','notifications'
+				,'notificationsdescription','modals','modalsdescription'
+				,'error','success','view', 'close','authenticatedcontent','authenticatedcontentdescription'],
         locCode
       );
       setLocData(locDataLoaded);
     }
     loadLocalization();
   }, []);
-
-  /* NOTIFICATIONS */
 
   const showNotification = (message, type) => {
     notificationsRef.current.show(message, type);
@@ -61,8 +61,8 @@ function Home() {
                 <Grid item xs={12} className="pt-1">
                   <Card className="card white-bg-color bl-1 bb-1">
                     <CardContent>
-                      <h4 className="card-title">Authenticated Content</h4>
-                      <p>Here is content displayed only if users is signed in</p>
+                      <h4 className="card-title">{locData.authenticatedcontent}</h4>
+                      <p>{locData.authenticatedcontentdescription}</p>
                     </CardContent>
                   </Card>
                 </Grid>
@@ -73,23 +73,23 @@ function Home() {
               <Grid item xs={12} className="pt-1 pb-1">
                 <Card className="card white-bg-color bl-1 bb-1">
                   <CardContent>
-                    <h4 className="card-title">Notifications</h4>
-                    <p>Below are examples of notifications</p>
+                    <h4 className="card-title">{locData.notifications}</h4>
+                    <p>{locData.notificationsdescription}</p>
                   </CardContent>
                   <CardActions>
                     <Button
                       className="ml-2"
                       color="secondary"
-                      onClick={() => showNotification('Success Notification Message', 'success')}
+                      onClick={() => showNotification(locData.success, 'success')}
                     >
-                      Success Notification
+                      {locData.success}
                     </Button>
                     <Button
                       className="ml-2"
                       color="secondary"
-                      onClick={() => showNotification('Error Notification Message', 'error')}
+                      onClick={() => showNotification(locData.error, 'error')}
                     >
-                      Error Notification
+                      {locData.error}
                     </Button>
                   </CardActions>
                 </Card>
@@ -100,12 +100,12 @@ function Home() {
               <Grid item xs={12} className="pt-1">
                 <Card className="card white-bg-color bl-1 bb-1">
                   <CardContent>
-                    <h4 className="card-title">Modals</h4>
-                    <p>Below are examples of modal dialogs</p>
+                    <h4 className="card-title">{locData.modals}</h4>
+                    <p>{locData.modalsdescription}</p>
                   </CardContent>
                   <CardActions>
                     <Button className="ml-2" color="secondary" onClick={() => setModalDemoState(true)}>
-                      Trigger Modal
+											{locData.view}
                     </Button>
                   </CardActions>
                 </Card>
@@ -114,7 +114,7 @@ function Home() {
                   <h1>Modal title</h1>
                   <p>Example message</p>
                   <Button color="secondary" onClick={() => setModalDemoState(false)}>
-                    Close
+										{locData.close}
                   </Button>
                 </Modal>
               </Grid>
