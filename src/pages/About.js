@@ -15,9 +15,12 @@ export default function About() {
 
   useEffect(() => {
     async function loadLocalization() {
-      const locCode = localizationService.getUserLocale();
-      const locDataLoaded = await localizationService.getLocalizedTextSet(
-        ['homepagewelcome', 'getstartedmessage'],
+			const locCode = localizationService.getUserLocale();
+			
+		  const locDataLoaded = await localizationService.getLocalizedTextSet(
+        [	"about","aboutdescription","technology","technologydescription"
+				,"reactjs","reactjsdescription","materialui","materialuidescription",
+				"createreactapp","createreactappdescription", "moreinfo"],
         locCode
       );
       setLocData(locDataLoaded);
@@ -28,27 +31,21 @@ export default function About() {
   return (
     <Grid container spacing={0}>
       <Grid item xs={12} className="contentpanel-site">
-        <h3>About</h3>
+        <h3>{locData.about}</h3>
 
-        <h4>Goals</h4>
+        <p>{locData.aboutdescription}</p>
 
-        <p>
-          This app was created to provide an example reference implementation to bootstrap and accelerate react project
-          and to explore using various client side libraries to compose a rich user experience.
-        </p>
+        <h4>{locData.technology}</h4>
 
-        <h4>Technology</h4>
-
-        <p>This application was built using the following technologies:</p>
+        <p>{locData.technologydescription}:</p>
 
         <Grid container spacing={0}>
           <Grid item xs={12} md={3} lg={3} xl={3} className="card-row-column">
             <Card className="card white-bg-color bl-1 bb-1">
               <CardContent>
-                <h4 className="card-title">React JS</h4>
+                <h4 className="card-title">{locData.reactjs}</h4>
                 <p className="card-text">
-                  React makes it painless to create interactive UIs using encapsulated components that manage their own
-                  state.
+									{locData.reactjsdecription}
                 </p>
               </CardContent>
               <CardActions>
@@ -59,7 +56,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener"
                 >
-                  More Info
+                  {locData.moreinfo}
                 </Button>
               </CardActions>
             </Card>
@@ -67,10 +64,9 @@ export default function About() {
           <Grid item xs={12} md={3} lg={3} xl={3} className="card-row-column">
             <Card className="card white-bg-color bl-1 bb-1">
               <CardContent>
-                <h4 className="card-title">Material-UI</h4>
+                <h4 className="card-title">{locData.materialui}</h4>
                 <p className="card-text">
-                  Visually appealing React components that implement Google's Material Design along with layout and
-                  theming support.
+									{locData.materialuidescription}
                 </p>
               </CardContent>
               <CardActions>
@@ -81,7 +77,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener"
                 >
-                  More Info
+                  {locData.moreinfo}
                 </Button>
               </CardActions>
             </Card>
@@ -89,9 +85,9 @@ export default function About() {
           <Grid item xs={12} md={3} lg={3} xl={3} className="card-row-column">
             <Card className="card white-bg-color bl-1 bb-1">
               <CardContent>
-                <h4 className="card-title">Create React App</h4>
+                <h4 className="card-title">{locData.createreactapp}</h4>
                 <p className="card-text">
-                  Quickly get started building React Apps using toolset that allows you to focus on development.
+								{locData.createreactappdescription}
                 </p>
               </CardContent>
               <CardActions>
@@ -102,7 +98,7 @@ export default function About() {
                   target="_blank"
                   rel="noopener"
                 >
-                  More Info
+                  {locData.moreinfo}
                 </Button>
               </CardActions>
             </Card>

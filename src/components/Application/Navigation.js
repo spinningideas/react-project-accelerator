@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// material-ui Components
+// material-ui utils
 import { makeStyles } from '@material-ui/core/styles';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+// material-ui Components
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Drawer from '@material-ui/core/Drawer';
@@ -55,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Navigation(props) {
+function Navigation(props) {
   const [openNavigation, setOpenNavigation] = useState(false);
   const [locData, setLocData] = useState({});
   const [anchorEl, setAnchorEl] = useState(undefined);
@@ -69,7 +71,7 @@ export default function Navigation(props) {
     async function loadLocalization() {
       const locCode = localizationService.getUserLocale();
       const locDataLoaded = await localizationService.getLocalizedTextSet(
-        ['apptitle', 'signin', 'signout', 'home', 'contact', 'about'],
+        ['apptitle', 'signin', 'signindescription', 'signout', 'home', 'contact', 'about', 'cancel'],
         locCode
       );
 
@@ -80,34 +82,41 @@ export default function Navigation(props) {
 
   const toggleDrawerOpen = () => {
     setOpenNavigation(!openNavigation);
-  };
+  }
 
   const closeDrawer = () => {
     setOpenNavigation(false);
-  };
+  }
 
   const languageSelectionOpen = (event) => {
     setAnchorEl(event.currentTarget);
-  };
+  }
 
   const languageSelectionClose = () => {
     setAnchorEl(null);
-  };
+  }
 
   const languageSelectionMakeChoice = (locale) => {
     localizationService.setUserLocale(locale);
     setAnchorEl(null);
     window.location.reload();
-  };
+  }
 
   const handleSignInClick = () => {
     setSignInDialogOpen(false);
     props.handleSignIn();
-  };
+  }
 
   const handleSignOutClick = () => {
     props.handleSignOut();
-  };
+	}
+	
+	const appTitle =()=> {
+		if (isWidthUp('sm', props.width)) {
+			return <>{locData.apptitle}</>
+		}	
+		return <>RPA</>;
+	}
 
   return (
     <div className={classes.root}>
@@ -123,7 +132,7 @@ export default function Navigation(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.appTitle}>
-            {locData.apptitle}
+            { appTitle() }
           </Typography>
           <Button aria-controls="language-menu" aria-haspopup="true" onClick={languageSelectionOpen}>
             Language
@@ -140,12 +149,12 @@ export default function Navigation(props) {
             <MenuItem onClick={() => languageSelectionMakeChoice('esES')}>Spanish</MenuItem>
           </Menu>
           {props.userSignedIn && (
-            <Button color="inherit" onClick={handleSignOutClick}>
+            <Button onClick={() => handleSignOutClick}>
               {locData.signout}
             </Button>
           )}
           {!props.userSignedIn && (
-            <Button color="inherit" onClick={() => setSignInDialogOpen(true)}>
+            <Button onClick={() => setSignInDialogOpen(true)}>
               {locData.signin}
             </Button>
           )}
@@ -180,7 +189,7 @@ export default function Navigation(props) {
           <ListItem
             button
             className={classes.sideMenuListItem}
-            onClick={() => closeDrawer}
+            onClick={closeDrawer}
             component={Link}
             to="/contact"
           >
@@ -192,7 +201,7 @@ export default function Navigation(props) {
           <ListItem
             button
             className={classes.sideMenuListItem}
-            onClick={() => closeDrawer}
+            onClick={closeDrawer}
             component={Link}
             to="/about"
           >
@@ -219,6 +228,7 @@ export default function Navigation(props) {
         </List>
       </Drawer>
       <SignInDialog
+				locData={locData}
         open={signInDialogOpen}
         handleSignIn={handleSignInClick}
         handleSignInCancel={() => setSignInDialogOpen(false)}
@@ -226,3 +236,5 @@ export default function Navigation(props) {
     </div>
   );
 }
+
+export default withWidth()(Navigation);

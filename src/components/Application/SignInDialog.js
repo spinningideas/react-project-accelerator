@@ -18,16 +18,16 @@ function SignInDialog(props) {
   return (
     <div>
       <Dialog open={props.open} aria-labelledby="dialog-title" aria-describedby="dialog-description">
-        <DialogTitle id="dialog-title">Sign In</DialogTitle>
+        <DialogTitle id="dialog-title">{props.locData.signindescription}</DialogTitle>
         {props.content && (
           <DialogContent>
             <DialogContentText id="dialog-description">{props.content}</DialogContentText>
           </DialogContent>
         )}
         <DialogActions>
-          <Button onClick={() => handleCancelClose(false)}>Cancel</Button>
+          <Button onClick={() => handleCancelClose(false)}>{props.locData.cancel}</Button>
           <Button onClick={() => handleSignInClose(true)} color="secondary" autoFocus>
-            Sign In
+					{props.locData.signin}
           </Button>
         </DialogActions>
       </Dialog>
