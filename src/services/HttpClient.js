@@ -1,4 +1,9 @@
-﻿const HttpService = () => {
+﻿/*
+	Encapsulates all outbound http communication from the application to get/set data
+	and forms	the basic building block and adaptor for http requests made by the application.
+	Also provides way to set auth headers needed by some requests
+*/
+const HttpClient = () => {
   const fetchResponseHandler = (response) => {
     // Wraps fetch response and traps most errors and returns raw response as well.
     // Ensures consisten response in form of:
@@ -66,7 +71,8 @@
     });
   };
 
-  // XMLHttpRequest and callback based implementation to deprecate
+  // XMLHttpRequest and callback based implementation
+  // that you can deprecate but retain for legacy browers
 
   const getJson = (url, callback) => {
     return request('GET', url, null, null, callback);
@@ -142,4 +148,4 @@
   };
 };
 
-export default HttpService;
+export default HttpClient;

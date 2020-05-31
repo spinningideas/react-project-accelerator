@@ -8,10 +8,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Drawer from '@material-ui/core/Drawer';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -20,12 +17,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Home from '@material-ui/icons/Home';
 import Info from '@material-ui/icons/Info';
 import Email from '@material-ui/icons/Email';
-import MeetingRoom from '@material-ui/icons/MeetingRoom';
 import MenuIcon from '@material-ui/icons/Menu';
 // Services
 import LocalizationService from 'services/LocalizationService';
 // Components
-import SignInDialog from 'components/Application/SignInDialog';
+import AuthButton from 'components/Application/AuthButton';
+import AuthDialog from 'components/Application/AuthDialog';
+import LanguageSelection from 'components/Application/LanguageSelection';
 
 const drawerWidth = 240;
 
@@ -58,9 +56,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Navigation(props) {
+	const [locData, setLocData] = useState({});
   const [openNavigation, setOpenNavigation] = useState(false);
-  const [locData, setLocData] = useState({});
-  const [anchorEl, setAnchorEl] = useState(undefined);
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
 
   const classes = useStyles();
@@ -78,7 +75,7 @@ function Navigation(props) {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [localizationService]);
 
   const toggleDrawerOpen = () => {
     setOpenNavigation(!openNavigation);
@@ -86,32 +83,18 @@ function Navigation(props) {
 
   const closeDrawer = () => {
     setOpenNavigation(false);
-  };
-
-  const languageSelectionOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const languageSelectionClose = () => {
-    setAnchorEl(null);
-  };
-
-  const languageSelectionMakeChoice = (locale) => {
-    localizationService.setUserLocale(locale);
-    setAnchorEl(null);
-    window.location.reload();
-  };
-
-  const handleSignInClick = () => {
+	};
+	
+	const handleSignInClick = () => {
     setSignInDialogOpen(false);
     props.handleSignIn();
   };
 
   const handleSignOutClick = () => {
     props.handleSignOut();
-  };
+	};
 
-  const appTitle = () => {
+	const AppTitle = () => {
     if (isWidthUp('sm', props.width)) {
       return <>{locData.apptitle}</>;
     }
@@ -132,24 +115,12 @@ function Navigation(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.appTitle}>
-            {appTitle()}
-          </Typography>
-          <Button aria-controls="language-menu" aria-haspopup="true" onClick={languageSelectionOpen}>
-            Language
-          </Button>
-          <Menu
-            id="language-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={() => languageSelectionClose}
-          >
-            <MenuItem onClick={() => languageSelectionMakeChoice('enUS')}>English</MenuItem>
-            <MenuItem onClick={() => languageSelectionMakeChoice('zhCN')}>Chinese</MenuItem>
-            <MenuItem onClick={() => languageSelectionMakeChoice('esES')}>Spanish</MenuItem>
-          </Menu>
-          {props.userSignedIn && <Button onClick={() => handleSignOutClick}>{locData.signout}</Button>}
-          {!props.userSignedIn && <Button onClick={() => setSignInDialogOpen(true)}>{locData.signin}</Button>}
+            <AppTitle />
+          </Typography>	
+					<LanguageSelection localizationService={localizationService} />
+					<AuthButton locData={locData} userSignedIn={props.userSignedIn} 
+						handleSignOutClick={handleSignOutClick}
+						setSignInDialogOpen={setSignInDialogOpen} />
         </Toolbar>
       </AppBar>
       <Drawer
@@ -190,24 +161,9 @@ function Navigation(props) {
             </ListItemIcon>
             <ListItemText primary={locData.about} />
           </ListItem>
-          {props.userSignedIn && (
-            <ListItem
-              button
-              disableGutters
-              className={classes.sideMenuListItem}
-              onClick={() => {
-                handleSignOutClick();
-              }}
-            >
-              <ListItemIcon>
-                <MeetingRoom />
-              </ListItemIcon>
-              <ListItemText primary={locData.signout} />
-            </ListItem>
-          )}
         </List>
       </Drawer>
-      <SignInDialog
+      <AuthDialog
         locData={locData}
         open={signInDialogOpen}
         handleSignIn={handleSignInClick}

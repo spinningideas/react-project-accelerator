@@ -25,7 +25,7 @@ export default function Contact() {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [localizationService]);
 
   const useStyles = makeStyles((theme) => ({
     root: {

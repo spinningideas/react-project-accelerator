@@ -6,6 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import routes from 'routes';
 // Services
 import AuthService from 'services/AuthService';
+import AnalyticsService from 'services/AnalyticsService';
 // Components
 import Navigation from 'components/Application/Navigation';
 
@@ -26,16 +27,16 @@ const styles = (theme) => ({
 
 function Application(props) {
   const [userSignedIn, setUserSignedIn] = useState(false);
-
+  const refLocation = useRef(props.location);
   const { classes } = props;
 
   const authService = AuthService();
-  const refLocation = useRef(props.location);
+  const analyticsService = AnalyticsService();
 
   useEffect(() => {
     let userHasSignedIn = authService.userHasSignedIn();
     setUserSignedIn(userHasSignedIn);
-  }, [userSignedIn]);
+  }, [authService, userSignedIn]);
 
   useEffect(() => {
     // Route Change Detection
@@ -47,10 +48,11 @@ function Application(props) {
       refLocation.current !== props.location.pathname
     ) {
       refLocation.current = props.location.pathname;
-      // Can track page views here via TBD servvice: analyticsService.trackPageView(props.location.pathname);
+      // track page views here via service:
+      analyticsService.trackPageView(props.location.pathname);
       window.scrollTo(0, 0);
     }
-  }, [props.location.key]);
+  }, [analyticsService, props.location, props.location.key]);
 
   const handleSignIn = () => {
     authService.signIn();

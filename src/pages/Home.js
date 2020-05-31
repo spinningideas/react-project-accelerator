@@ -8,10 +8,9 @@ import Grid from '@material-ui/core/Grid';
 // services
 import AuthService from 'services/AuthService';
 import LocalizationService from 'services/LocalizationService';
-import NavigationService from 'services/NavigationService';
 // components
-import Modal from 'components/Modal';
-import Notifications from 'components/Notifications';
+import Modal from 'components/Shared/Modal';
+import Notifications from 'components/Shared/Notifications';
 import GetStartedMessage from 'components/Home/GetStartedMessage';
 
 function Home() {
@@ -21,7 +20,6 @@ function Home() {
 
   const authService = AuthService();
   const localizationService = LocalizationService();
-  const navigationService = NavigationService();
 
   const notificationsRef = useRef(null);
 
@@ -52,7 +50,7 @@ function Home() {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [authService,localizationService]);
 
   const showNotification = (message, type) => {
     notificationsRef.current.show(message, type);

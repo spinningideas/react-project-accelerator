@@ -6,7 +6,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function SignInDialog(props) {
+function AuthDialog(props) {
   const handleCancelClose = () => {
     props.handleSignInCancel(false);
   };
@@ -27,7 +27,7 @@ function SignInDialog(props) {
         <DialogActions>
           <Button onClick={() => handleCancelClose(false)}>{props.locData.cancel}</Button>
           <Button onClick={() => handleSignInClose(true)} color="secondary" autoFocus>
-					{props.locData.signin}
+            {props.locData.signin}
           </Button>
         </DialogActions>
       </Dialog>
@@ -35,4 +35,4 @@ function SignInDialog(props) {
   );
 }
 
-export default SignInDialog;
+export default AuthDialog;
