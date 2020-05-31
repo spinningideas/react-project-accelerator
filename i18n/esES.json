@@ -25,7 +25,7 @@
   "reactjsdescription": "React hace que sea sencillo crear interfaces de usuario interactivas utilizando componentes encapsulados que administran su propio estado.",
   "materialui": "Material-UI",
   "materialuidescription": "Componentes React visualmente atractivos que implementan el diseño de materiales de Google junto con el diseño y el soporte de temas.",
-  "createreactapp": "Crear aplicación React",
+  "createreactapp": "Crear Aplicación React",
   "createreactappdescription": "Comience rápidamente a crear aplicaciones React usando un conjunto de herramientas que le permite centrarse en el desarrollo.",
 	"notifications": "Notificaciones",
 	"notificationsdescription": "A continuación hay ejemplos de notificaciones.",
@@ -34,6 +34,6 @@
 	"error": "Error",
 	"success": "Éxito",
 	"view": "Ver",
-	"authenticatedcontent": "Contenido autenticado",
+	"authenticatedcontent": "Contenido Autenticado",
 	"authenticatedcontentdescription": "Aquí se muestra el contenido solo si los usuarios han iniciado sesión"
 }
