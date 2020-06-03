@@ -35,7 +35,7 @@ const HttpClient = () => {
 
   // Modern fetch based methods to put into full use
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
-  const fetchJsonDataWithAuthToken = async (url, token) => {
+  const getDataAuthenticated = async (url, token) => {
     return await fetch(url, {
       method: 'GET',
       headers: {
@@ -47,7 +47,7 @@ const HttpClient = () => {
     });
   };
 
-  const fetchJsonData = async (url) => {
+  const getData = async (url) => {
     return await fetch(url, {
       method: 'GET',
       headers: {
@@ -58,93 +58,27 @@ const HttpClient = () => {
     });
   };
 
-  const fetchPostJsonData = async (url, data = {}) => {
+  const postData = async (url, data = {}, token) => {
+    let postHeaders = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    };
+    if (token && token.length) {
+      postHeaders['Authorization'] = 'Bearer ' + token;
+    }
     return await fetch(url, {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
+      headers: postHeaders,
       body: JSON.stringify(data)
     }).then((response) => {
       return fetchResponseHandler(response);
     });
   };
 
-  // XMLHttpRequest and callback based implementation
-  // that you can deprecate but retain for legacy browers
-
-  const getJson = (url, callback) => {
-    return request('GET', url, null, null, callback);
-  };
-
-  const getJsonWithHeaders = (url, headers, callback) => {
-    return request('GET', url, null, headers, callback);
-  };
-
-  const postJson = (url, jsonData, callback) => {
-    return request('POST', url, jsonData, null, callback);
-  };
-
-  const postJsonWithHeaders = (url, jsonData, headers, callback) => {
-    return request('POST', url, jsonData, headers, callback);
-  };
-
-  const request = (method, url, jsonData, headers, callback) => {
-    let request = new XMLHttpRequest();
-
-    request.open(method, url, true);
-
-    if (headers) {
-      for (let i = 0; i < headers.length; i++) {
-        request.setRequestHeader(headers[i].key, headers[i].value);
-      }
-    }
-
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        let json = JSON.parse(request.responseText);
-        if (json.data) {
-          callback({
-            data: json.data,
-            error: false
-          });
-        } else {
-          callback({
-            data: json,
-            error: false
-          });
-        }
-      } else {
-        callback({
-          error: true
-        });
-      }
-    };
-
-    request.onerror = function (err) {
-      callback({
-        error: true,
-        err
-      });
-    };
-
-    //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    if (jsonData) {
-      request.send(JSON.stringify(jsonData));
-    } else {
-      request.send();
-    }
-  };
-
   return {
-    fetchJsonData,
-    fetchJsonDataWithAuthToken,
-    fetchPostJsonData,
-    getJson,
-    postJson,
-    getJsonWithHeaders,
-    postJsonWithHeaders
+    getData,
+    getDataAuthenticated,
+    postData
   };
 };
 

@@ -48,7 +48,6 @@ function Application(props) {
       refLocation.current !== props.location.pathname
     ) {
       refLocation.current = props.location.pathname;
-      // track page views here via service:
       analyticsService.trackPageView(props.location.pathname);
       window.scrollTo(0, 0);
     }

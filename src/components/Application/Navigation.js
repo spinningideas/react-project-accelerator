@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Navigation(props) {
-	const [locData, setLocData] = useState({});
+  const [locData, setLocData] = useState({});
   const [openNavigation, setOpenNavigation] = useState(false);
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
 
@@ -83,18 +83,18 @@ function Navigation(props) {
 
   const closeDrawer = () => {
     setOpenNavigation(false);
-	};
-	
-	const handleSignInClick = () => {
+  };
+
+  const handleSignInClick = () => {
     setSignInDialogOpen(false);
     props.handleSignIn();
   };
 
   const handleSignOutClick = () => {
     props.handleSignOut();
-	};
+  };
 
-	const AppTitle = () => {
+  const AppTitle = () => {
     if (isWidthUp('sm', props.width)) {
       return <>{locData.apptitle}</>;
     }
@@ -116,11 +116,14 @@ function Navigation(props) {
           </IconButton>
           <Typography variant="h6" className={classes.appTitle}>
             <AppTitle />
-          </Typography>	
-					<LanguageSelection localizationService={localizationService} />
-					<AuthButton locData={locData} userSignedIn={props.userSignedIn} 
-						handleSignOutClick={handleSignOutClick}
-						setSignInDialogOpen={setSignInDialogOpen} />
+          </Typography>
+          <LanguageSelection localizationService={localizationService} />
+          <AuthButton
+            locData={locData}
+            userSignedIn={props.userSignedIn}
+            handleSignOutClick={handleSignOutClick}
+            setSignInDialogOpen={setSignInDialogOpen}
+          />
         </Toolbar>
       </AppBar>
       <Drawer

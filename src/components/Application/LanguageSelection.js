@@ -3,13 +3,13 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const LanguageSelection =(props)=> {
-	const [anchorEl, setAnchorEl] = useState(undefined);
-	
+const LanguageSelection = (props) => {
+  const [anchorEl, setAnchorEl] = useState(undefined);
+
   const languageSelectionOpen = (event) => {
-		if(event && event.target){
-			setAnchorEl(event.currentTarget);
-		}    
+    if (event && event.target) {
+      setAnchorEl(event.currentTarget);
+    }
   };
 
   const languageSelectionClose = () => {
@@ -24,8 +24,7 @@ const LanguageSelection =(props)=> {
 
   return (
     <>
-			<Button aria-controls="language-menu" aria-haspopup="true" 
-				onClick={languageSelectionOpen}>
+      <Button aria-controls="language-menu" aria-haspopup="true" onClick={languageSelectionOpen}>
         Language
       </Button>
       <Menu
@@ -41,6 +40,6 @@ const LanguageSelection =(props)=> {
       </Menu>
     </>
   );
-}
+};
 
 export default LanguageSelection;

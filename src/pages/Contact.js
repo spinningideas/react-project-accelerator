@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+material-ui
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -45,8 +46,8 @@ export default function Contact() {
         <p>{locData.contactdescription}</p>
 
         <Grid container spacing={0}>
-          <Grid item xs={12} md={12} lg={12} xl={12} className="card-row-column">
-            <Card className="card white-bg-color bl-1 bb-1">
+          <Grid item xs={12} md={12} lg={12} xl={12}>
+            <Card>
               <CardContent>
                 <form className={classes.root} noValidate autoComplete="off">
                   <div>
