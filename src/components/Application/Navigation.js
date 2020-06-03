@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // material-ui utils
 import { makeStyles } from '@material-ui/core/styles';
-import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+import withWidth from '@material-ui/core/withWidth';
 // material-ui Components
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Drawer from '@material-ui/core/Drawer';
-import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -21,6 +20,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 // Services
 import LocalizationService from 'services/LocalizationService';
 // Components
+import AppTitle from 'components/Application/AppTitle';
 import AuthButton from 'components/Application/AuthButton';
 import AuthDialog from 'components/Application/AuthDialog';
 import LanguageSelection from 'components/Application/LanguageSelection';
@@ -94,13 +94,6 @@ function Navigation(props) {
     props.handleSignOut();
   };
 
-  const AppTitle = () => {
-    if (isWidthUp('sm', props.width)) {
-      return <>{locData.apptitle}</>;
-    }
-    return <>RPA</>;
-  };
-
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
@@ -114,9 +107,7 @@ function Navigation(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.appTitle}>
-            <AppTitle />
-          </Typography>
+          <AppTitle locData={locData} />
           <LanguageSelection localizationService={localizationService} />
           <AuthButton
             locData={locData}

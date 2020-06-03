@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 // Routes
 import routes from 'routes';
 // Services
@@ -10,7 +10,7 @@ import AnalyticsService from 'services/AnalyticsService';
 // Components
 import Navigation from 'components/Application/Navigation';
 
-const styles = (theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     display: 'flex'
@@ -23,12 +23,12 @@ const styles = (theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3)
   }
-});
+}));
 
 function Application(props) {
   const [userSignedIn, setUserSignedIn] = useState(false);
   const refLocation = useRef(props.location);
-  const { classes } = props;
+  const classes = useStyles(props);
 
   const authService = AuthService();
   const analyticsService = AnalyticsService();
@@ -79,4 +79,4 @@ function Application(props) {
   );
 }
 
-export default withRouter(withStyles(styles, { withTheme: true })(Application));
+export default withRouter(Application);
