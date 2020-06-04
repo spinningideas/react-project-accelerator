@@ -11,10 +11,16 @@ const useStyles = makeStyles((theme) => ({
 
 function LoadingIndicator(props) {
   const classes = useStyles();
+  let size = 100;
   if (props.display === undefined || props.display === false) {
     return <></>;
   }
-  return <CircularProgress className={classes.progress} thickness={5} size={100} />;
+
+  if (props.size) {
+    size = props.size;
+  }
+
+  return <CircularProgress className={classes.progress} thickness={5} size={size} />;
 }
 
 export default LoadingIndicator;

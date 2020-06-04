@@ -35,7 +35,7 @@
   "success": "Success",
   "view": "View",
   "authenticatedcontent": "Authenticated Content",
-	"authenticatedcontentdescription": "Here is content displayed only if users is signed in",
-	"weathertitle": "View Weather",
-	"weatherdescription": "Example of use of services and HttpClient"
+  "authenticatedcontentdescription": "Here is content displayed only if users is signed in",
+  "serviceexampletitle": "View Ip Address",
+  "serviceexampledescription": "Example of use of services and HttpClient"
 }

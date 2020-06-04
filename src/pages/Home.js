@@ -13,13 +13,15 @@ import GeoService from 'services/GeoService';
 // components
 import Modal from 'components/Shared/Modal';
 import Notifications from 'components/Shared/Notifications';
+import LoadingIndicator from 'components/Shared/LoadingIndicator';
 import GetStartedMessage from 'components/Home/GetStartedMessage';
 
 function Home() {
   const [userSignedIn, setUserSignedIn] = useState(false);
   const [locData, setLocData] = useState({});
   const [modalDemoState, setModalDemoState] = useState(false);
-  const [weatherState, setWeatherState] = useState('');
+  const [userIpAddressState, setUserIpAddressState] = useState('');
+  const [isLoadingState, setIsLoadingState] = useState(false);
 
   const authService = AuthService();
   const localizationService = LocalizationService();
@@ -48,8 +50,8 @@ function Home() {
           'close',
           'authenticatedcontent',
           'authenticatedcontentdescription',
-          'weathertitle',
-          'weatherdescription'
+          'serviceexampletitle',
+          'serviceexampledescription'
         ],
         locCode
       );
@@ -62,14 +64,26 @@ function Home() {
     notificationsRef.current.show(message, type);
   };
 
-  const showWeatherUsingHttpClient = () => {
-    geoService.getCurrentLocationWeather().then((weatherResponse) => {
-      if (weatherResponse) {
-        setWeatherState(weatherResponse.message);
+  const showIpAddressUsingHttpClient = async () => {
+    setUserIpAddressState('');
+    setIsLoadingState(true);
+    await geoService.getCurrentIPAddress().then((response) => {
+      if (response) {
+        setUserIpAddressState(response.message);
+        setIsLoadingState(false);
       } else {
-        setWeatherState('');
+        setUserIpAddressState('Error occurred');
+        setIsLoadingState(false);
       }
     });
+  };
+
+  const IpAddressDisplay = () => {
+    if (!isLoadingState && userIpAddressState.length > 0) {
+      return <p className="mt-2">{userIpAddressState}</p>;
+    } else {
+			return <LoadingIndicator display={isLoadingState} size={20} />;
+		}    
   };
 
   return (
@@ -146,11 +160,11 @@ function Home() {
               <Grid item xs={12} className="pt-1">
                 <Card>
                   <CardContent>
-                    <h4 className="card-title">{locData.weatherdescription}</h4>
-                    <Button className="mt-3" color="secondary" onClick={showWeatherUsingHttpClient}>
-                      {locData.weathertitle}
+                    <h4 className="card-title">{locData.serviceexampledescription}</h4>
+                    <Button className="mt-3" color="secondary" onClick={showIpAddressUsingHttpClient}>
+                      {locData.serviceexampletitle}
                     </Button>
-                    <p className="mt-2">{weatherState}</p>
+										<IpAddressDisplay />
                   </CardContent>
                 </Card>
               </Grid>
