@@ -35,5 +35,7 @@
 	"success": "成功",
 	"view": "视图",
 	"authenticatedcontent": "认证内容",
-	"authenticatedcontentdescription": "仅当用户登录时才显示以下内容"
+	"authenticatedcontentdescription": "仅当用户登录时才显示以下内容",
+	"weathertitle": "查看天气",
+	"weatherdescription": "服务和HttpClient的使用示例"
 }

@@ -35,5 +35,7 @@
 	"success": "Éxito",
 	"view": "Ver",
 	"authenticatedcontent": "Contenido Autenticado",
-	"authenticatedcontentdescription": "Aquí se muestra el contenido solo si los usuarios han iniciado sesión"
+	"authenticatedcontentdescription": "Aquí se muestra el contenido solo si los usuarios han iniciado sesión",
+	"weathertitle": "Ver Clima",
+	"weatherdescription": "Ejemplo de uso de servicios y HttpClient"
 }

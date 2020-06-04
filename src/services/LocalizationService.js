@@ -4,10 +4,6 @@
   esES: 'Spanish'
 };
 
-// taken in parts from:
-// https://react.i18next.com/legacy-v9/step-by-step-guide
-// https://www.robinwieruch.de/react-internationalization
-
 const LocalizationService = () => {
   const defaultLocale = 'enUS';
 

@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 // services
 import AuthService from 'services/AuthService';
 import LocalizationService from 'services/LocalizationService';
+import GeoService from 'services/GeoService';
 // components
 import Modal from 'components/Shared/Modal';
 import Notifications from 'components/Shared/Notifications';
@@ -18,9 +19,11 @@ function Home() {
   const [userSignedIn, setUserSignedIn] = useState(false);
   const [locData, setLocData] = useState({});
   const [modalDemoState, setModalDemoState] = useState(false);
+  const [weatherState, setWeatherState] = useState('');
 
   const authService = AuthService();
   const localizationService = LocalizationService();
+  const geoService = GeoService();
 
   const notificationsRef = useRef(null);
 
@@ -44,17 +47,29 @@ function Home() {
           'view',
           'close',
           'authenticatedcontent',
-          'authenticatedcontentdescription'
+          'authenticatedcontentdescription',
+          'weathertitle',
+          'weatherdescription'
         ],
         locCode
       );
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, [authService,localizationService]);
+  }, [authService, localizationService]);
 
   const showNotification = (message, type) => {
     notificationsRef.current.show(message, type);
+  };
+
+  const showWeatherUsingHttpClient = () => {
+    geoService.getCurrentLocationWeather().then((weatherResponse) => {
+      if (weatherResponse) {
+        setWeatherState(weatherResponse.message);
+      } else {
+        setWeatherState('');
+      }
+    });
   };
 
   return (
@@ -70,7 +85,7 @@ function Home() {
             {userSignedIn && (
               <Grid container>
                 <Grid item xs={12} className="pt-1">
-                  <Card className="card white-bg-color bl-1 bb-1">
+                  <Card>
                     <CardContent>
                       <h4 className="card-title">{locData.authenticatedcontent}</h4>
                       <p>{locData.authenticatedcontentdescription}</p>
@@ -82,7 +97,7 @@ function Home() {
 
             <Grid container>
               <Grid item xs={12} className="pt-1 pb-1">
-                <Card className="card white-bg-color bl-1 bb-1">
+                <Card>
                   <CardContent>
                     <h4 className="card-title">{locData.notifications}</h4>
                     <p>{locData.notificationsdescription}</p>
@@ -124,6 +139,20 @@ function Home() {
                     {locData.close}
                   </Button>
                 </Modal>
+              </Grid>
+            </Grid>
+
+            <Grid container>
+              <Grid item xs={12} className="pt-1">
+                <Card>
+                  <CardContent>
+                    <h4 className="card-title">{locData.weatherdescription}</h4>
+                    <Button className="mt-3" color="secondary" onClick={showWeatherUsingHttpClient}>
+                      {locData.weathertitle}
+                    </Button>
+                    <p className="mt-2">{weatherState}</p>
+                  </CardContent>
+                </Card>
               </Grid>
             </Grid>
           </Grid>
