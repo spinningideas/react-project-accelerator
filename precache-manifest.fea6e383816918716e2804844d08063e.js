@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "53afecbfae2245f4dccc4000749423da",
+    "revision": "7b2d7de4979f7aaa3910f38709a13bac",
     "url": "https://spinningideas.github.io/react-project-accelerator/index.html"
   },
   {
-    "revision": "8d67f9b50c0d5c5056ec",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/css/main.dbee50c3.chunk.css"
+    "revision": "1e5527fbed89627b40a5",
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/css/main.965854cf.chunk.css"
   },
   {
     "revision": "932a5eb13d0811267d26",
@@ -36,8 +36,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://spinningideas.github.io/react-project-accelerator/static/js/6.c8189086.chunk.js"
   },
   {
-    "revision": "8d67f9b50c0d5c5056ec",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/main.5e56d4b1.chunk.js"
+    "revision": "1e5527fbed89627b40a5",
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/main.2f3aa568.chunk.js"
   },
   {
     "revision": "d127c3bf56d7ae9bec6d",
