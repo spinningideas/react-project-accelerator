@@ -1,4 +1,5 @@
 @import url('//fonts.googleapis.com/css?family=Roboto');
+
 /*
 https://www.materialpalette.com/colors
 
@@ -20,11 +21,28 @@ Green
 388e3c = light primary (Green.700)
 */
 
+/* VARS */
+$white: #FFFFFF;
+$black: #212121;
+$grey-darkest: #303030;
+$grey-dark: #424242;
+$grey-primary: #757575;
+$grey-med: #999999;
+$grey-medlight: #c0c0c0;
+$grey-light: #e3e3e3;
+$grey-lightest: #fafafa;
+
+$primary-dark: #1976d2;
+$primary-darkest: #0066cc;
+
+$success: #50741e;
+$error: #db3e29;
+
 html,
 body {
   font-family: 'Roboto', sans-serif;
-  color: #212121;
-  background-color: #ffffff;
+  color: $black;
+  background-color: $white;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -66,15 +84,15 @@ h4,
 h5 {
   padding: 0;
   margin: 5px 0 0 0;
-  color: #212121;
+  color: $black;
 }
 
 a {
-  color: #1976d2;
+  color: $primary-dark;
   text-decoration: none;
 }
 a:hover {
-  color: #0066cc;
+  color: $primary-darkest;
   text-decoration: underline;
 }
 
@@ -88,46 +106,46 @@ body .main-content {
 
 /* CUSTOM APP COLORING/PALLETTE */
 .active {
-  background-color: #1976d2 !important;
-  color: #fafafa !important;
+  background-color: $primary-dark !important;
+  color: $grey-lightest !important;
 }
 
 .dark-primaryaccent-color {
-  color: #0066cc;
+  color: $primary-darkest;
 }
 
 .darkest-grey-color {
-  color: #303030 !important;
+  color: $grey-darkest !important;
 }
 .dark-color {
-  color: #212121 !important;
+  color: $black !important;
 }
 .darker-grey-color {
-  color: #424242 !important;
+  color: $grey-dark !important;
 }
 .dark-grey-color {
-  color: #757575 !important;
+  color: $grey-primary !important;
 }
 .med-grey-color {
-  color: #999999 !important;
+  color: $grey-med !important;
 }
 .grey-color {
-  color: #c0c0c0 !important;
+  color: $grey-medlight !important;
 }
 .light-grey-color {
-  color: #e3e3e3 !important;
+  color: $grey-light !important;
 }
 .light-bg-color {
-  background-color: #fafafa !important;
+  background-color: $grey-lightest !important;
 }
 .light-color {
-  color: #fafafa !important;
+  color: $grey-lightest !important;
 }
 .white-bg-color {
-  background-color: #ffffff !important;
+  background-color: $white !important;
 }
 .success-color {
-  color: #50741e;
+  color: $success;
 }
 /*
 Utilities - inspired by https://getbootstrap.com/docs/4.0/utilities/sizing/ 
@@ -297,13 +315,13 @@ small {
 }
 
 .b-1 {
-  border: 1px solid #eeeeee;
+  border: 1px solid $grey-light;
 }
 .bt-1 {
-  border-top: 1px solid #eeeeee !important;
+  border-top: 1px solid $grey-light !important;
 }
 .bb-1 {
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid $grey-light;
 }
 
 .no-wrap {
@@ -332,9 +350,9 @@ button {
 
 input:focus,
 textarea:focus {
-  border-color: #757575;
-  color: #212121;
-  background-color: #fafafa;
+  border-color: $grey-primary;
+  color: $black;
+  background-color: $grey-lightest;
   outline: 0;
   outline: thin solid \9;
   -webkit-box-shadow: none;
@@ -346,14 +364,10 @@ textarea:focus,
 textarea:focus.form-control,
 select:focus.form-control,
 input[type='text']:focus {
-  border-color: #757575;
+  border-color: $grey-primary;
   outline: 0;
   outline: thin dotted \9;
   background-image: none;
-  /* IE6-9 */
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
 }
 
 textarea,
@@ -371,8 +385,8 @@ input {
 /** Start Material UI over-ride classes */
 div[class*='MuiCard-root'] {
   border-radius: 0px !important;
-  background-color: #ffffff !important;
-  color: #212121 !important;
+  background-color: $white !important;
+  color: $black !important;
 }
 
 button[class*='MuiButton-root-'] {
@@ -381,8 +395,8 @@ button[class*='MuiButton-root-'] {
 }
 
 .active {
-  background-color: #757575 !important;
-  color: #fafafa !important;
+  background-color: $grey-primary !important;
+  color: $grey-lightest !important;
 }
 
 /** END  Material UI over-ride classes */
@@ -404,11 +418,11 @@ button[class*='MuiButton-root-'] {
 .notification-item {
   width: 250px;
   margin: 10px;
-  color: #fff;
+  color: $white;
 }
 
 .notification-item:hover {
-  box-shadow: 0 0 10px 0 #212121;
+  box-shadow: 0 0 10px 0 $black;
 }
 
 .notification-item > p {
@@ -416,15 +430,16 @@ button[class*='MuiButton-root-'] {
 }
 
 .notification-item.success {
-  background-color: #619020;
+  background-color: $success;
 }
 
 .notification-item.error {
-  background-color: #db3e29;
+  background-color: $error;
 }
 
 .notification-item.info {
-  background-color: #757575;
+	color: $grey-lightest;
+	background-color: $grey-med;
 }
 
 .notification-title {

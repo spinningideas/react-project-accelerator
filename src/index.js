@@ -6,7 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from 'theming';
 // App
-import 'styles/Application.css';
+import 'styles/Application.scss';
 import Application from 'Application';
 import ErrorHandler from 'components/ErrorHandler';
 
