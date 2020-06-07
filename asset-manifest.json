@@ -1,30 +1,31 @@
 {
   "files": {
-    "main.css": "https://spinningideas.github.io/react-project-accelerator/static/css/main.fd5a2172.chunk.css",
-    "main.js": "https://spinningideas.github.io/react-project-accelerator/static/js/main.34f90ada.chunk.js",
-    "main.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/main.34f90ada.chunk.js.map",
-    "runtime-main.js": "https://spinningideas.github.io/react-project-accelerator/static/js/runtime-main.0f3822a6.js",
-    "runtime-main.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/runtime-main.0f3822a6.js.map",
-    "static/js/2.61b34022.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/2.61b34022.chunk.js",
-    "static/js/2.61b34022.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/2.61b34022.chunk.js.map",
-    "static/js/3.da16c030.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/3.da16c030.chunk.js",
-    "static/js/3.da16c030.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/3.da16c030.chunk.js.map",
-    "static/js/4.2edec8e7.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/4.2edec8e7.chunk.js",
-    "static/js/4.2edec8e7.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/4.2edec8e7.chunk.js.map",
-    "static/js/5.8db1839e.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/5.8db1839e.chunk.js",
-    "static/js/5.8db1839e.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/5.8db1839e.chunk.js.map",
-    "static/js/6.e149fcef.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/6.e149fcef.chunk.js",
-    "static/js/6.e149fcef.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/6.e149fcef.chunk.js.map",
+    "main.css": "https://spinningideas.github.io/react-project-accelerator/static/css/main.dbee50c3.chunk.css",
+    "main.js": "https://spinningideas.github.io/react-project-accelerator/static/js/main.5e56d4b1.chunk.js",
+    "main.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/main.5e56d4b1.chunk.js.map",
+    "runtime-main.js": "https://spinningideas.github.io/react-project-accelerator/static/js/runtime-main.bfdec731.js",
+    "runtime-main.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/runtime-main.bfdec731.js.map",
+    "static/js/2.54b3dacd.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/2.54b3dacd.chunk.js",
+    "static/js/2.54b3dacd.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/2.54b3dacd.chunk.js.map",
+    "static/js/3.d811d12b.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/3.d811d12b.chunk.js",
+    "static/js/3.d811d12b.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/3.d811d12b.chunk.js.map",
+    "static/js/4.651dcc99.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/4.651dcc99.chunk.js",
+    "static/js/4.651dcc99.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/4.651dcc99.chunk.js.map",
+    "static/js/5.8fda0a07.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/5.8fda0a07.chunk.js",
+    "static/js/5.8fda0a07.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/5.8fda0a07.chunk.js.map",
+    "static/js/6.c8189086.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/6.c8189086.chunk.js",
+    "static/js/6.c8189086.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/6.c8189086.chunk.js.map",
     "index.html": "https://spinningideas.github.io/react-project-accelerator/index.html",
-    "precache-manifest.cc99a1d9b520e4b2fdc572b3b7e0cdf8.js": "https://spinningideas.github.io/react-project-accelerator/precache-manifest.cc99a1d9b520e4b2fdc572b3b7e0cdf8.js",
+    "precache-manifest.f5cc14c4bcdeb3a21c1e0fccfa456a40.js": "https://spinningideas.github.io/react-project-accelerator/precache-manifest.f5cc14c4bcdeb3a21c1e0fccfa456a40.js",
     "service-worker.js": "https://spinningideas.github.io/react-project-accelerator/service-worker.js",
-    "static/css/main.fd5a2172.chunk.css.map": "https://spinningideas.github.io/react-project-accelerator/static/css/main.fd5a2172.chunk.css.map",
-    "static/js/2.61b34022.chunk.js.LICENSE.txt": "https://spinningideas.github.io/react-project-accelerator/static/js/2.61b34022.chunk.js.LICENSE.txt"
+    "static/css/main.dbee50c3.chunk.css.map": "https://spinningideas.github.io/react-project-accelerator/static/css/main.dbee50c3.chunk.css.map",
+    "static/js/2.54b3dacd.chunk.js.LICENSE.txt": "https://spinningideas.github.io/react-project-accelerator/static/js/2.54b3dacd.chunk.js.LICENSE.txt",
+    "static/js/3.d811d12b.chunk.js.LICENSE.txt": "https://spinningideas.github.io/react-project-accelerator/static/js/3.d811d12b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.0f3822a6.js",
-    "static/js/2.61b34022.chunk.js",
-    "static/css/main.fd5a2172.chunk.css",
-    "static/js/main.34f90ada.chunk.js"
+    "static/js/runtime-main.bfdec731.js",
+    "static/js/2.54b3dacd.chunk.js",
+    "static/css/main.dbee50c3.chunk.css",
+    "static/js/main.5e56d4b1.chunk.js"
   ]
 }

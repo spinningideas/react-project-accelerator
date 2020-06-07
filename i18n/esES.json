@@ -37,5 +37,7 @@
   "authenticatedcontent": "Contenido Autenticado",
   "authenticatedcontentdescription": "Aquí se muestra el contenido solo si los usuarios han iniciado sesión",
   "serviceexampletitle": "Ver dirección IP",
-  "serviceexampledescription": "Ejemplo de uso de servicios y HttpClient"
+  "serviceexampledescription": "Ejemplo de uso de servicios y HttpClient",
+	"formsexample": "Ejemplo De Formularios",
+	"formsexampledescription": "Ejemplo de uso de formularios y validación a través de formik"
 }

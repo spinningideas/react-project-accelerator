@@ -28,7 +28,7 @@
   "createreactapp": "Create React App",
   "createreactappdescription": "Quickly get started building React Apps using toolset that allows you to focus on development.",
   "notifications": "Notifications",
-  "notificationsdescription": "Below are examples of notifications",
+  "notificationsdescription": "Below are examples of 'toast' style notifications",
   "modals": "Modals",
   "modalsdescription": "Below are examples of modal dialogs",
   "error": "Error",
@@ -37,5 +37,7 @@
   "authenticatedcontent": "Authenticated Content",
   "authenticatedcontentdescription": "Here is content displayed only if users is signed in",
   "serviceexampletitle": "View Ip Address",
-  "serviceexampledescription": "Example of use of services and HttpClient"
+	"serviceexampledescription": "Example of use of services and HttpClient",
+	"formsexample": "Forms Example",
+	"formsexampledescription": "Example of use of forms and validation via formik"
 }
