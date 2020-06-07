@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 // material-ui
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -32,7 +32,9 @@ function Home() {
   useEffect(() => {
     let userHasSignedIn = authService.userHasSignedIn();
     setUserSignedIn(userHasSignedIn);
+  }, []);
 
+  useEffect(() => {
     async function loadLocalization() {
       const locCode = localizationService.getUserLocale();
       const locDataLoaded = await localizationService.getLocalizedTextSet(
@@ -51,14 +53,16 @@ function Home() {
           'authenticatedcontent',
           'authenticatedcontentdescription',
           'serviceexampletitle',
-          'serviceexampledescription'
+					'serviceexampledescription',
+					'formsexample',
+					'formsexampledescription'
         ],
         locCode
       );
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, [authService, localizationService]);
+  }, []);
 
   const showNotification = (message, type) => {
     notificationsRef.current.show(message, type);
@@ -82,8 +86,8 @@ function Home() {
     if (!isLoadingState && userIpAddressState.length > 0) {
       return <p className="mt-2">{userIpAddressState}</p>;
     } else {
-			return <LoadingIndicator display={isLoadingState} size={20} />;
-		}    
+      return <LoadingIndicator display={isLoadingState} size={20} />;
+    }
   };
 
   return (
@@ -164,11 +168,24 @@ function Home() {
                     <Button className="mt-3" color="secondary" onClick={showIpAddressUsingHttpClient}>
                       {locData.serviceexampletitle}
                     </Button>
-										<IpAddressDisplay />
+                    <IpAddressDisplay />
                   </CardContent>
                 </Card>
               </Grid>
             </Grid>
+
+						<Grid container>
+              <Grid item xs={12} className="pt-1">
+                <Card>
+                  <CardContent>
+                    <h4 className="card-title">{locData.formsexampledescription}</h4>
+                    <Button className="mt-3" color="secondary" component={Link} to="/contact">
+                      {locData.formsexample}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>		
           </Grid>
         </Grid>
       </Grid>

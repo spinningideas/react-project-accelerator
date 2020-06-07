@@ -88,7 +88,7 @@ const AnalyticsService = () => {
   const enabled = () => {
     let analyticsEnabledVal = getConfigItem('analyticsEnabled');
     if (analyticsEnabledVal) {
-      return true; // if value present enable 
+      return true; // if value present enable
     }
     return false;
   };

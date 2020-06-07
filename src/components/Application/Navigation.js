@@ -75,7 +75,7 @@ function Navigation(props) {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, [localizationService]);
+  }, []);
 
   const toggleDrawerOpen = () => {
     setOpenNavigation(!openNavigation);

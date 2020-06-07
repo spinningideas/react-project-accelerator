@@ -36,7 +36,7 @@ export default function About() {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, [localizationService]);
+  }, []);
 
   return (
     <Grid container spacing={0}>

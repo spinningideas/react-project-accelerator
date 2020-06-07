@@ -24,27 +24,11 @@ const LocalizationService = () => {
   };
 
   const getCurrentLocale = () => {
-    // TODO: lookup current user local via browser and return this
+    // OPTIONAL ADDITION: lookup current user local via browser and populate found and return this
     // https://github.com/i18next/i18next-browser-languageDetector/blob/master/src/browserLookups/navigator.js
     // see also: https://github.com/i18next/i18next-browser-languageDetector/blob/master/src/browserLookups/querystring.js
     // or https://github.com/i18next/i18next-browser-languageDetector/blob/master/src/browserLookups/path.js
     let found = [];
-
-    if (typeof navigator !== 'undefined') {
-      if (navigator.languages) {
-        // chrome only; not an array, so can't use .push.apply instead of iterating
-        for (let i = 0; i < navigator.languages.length; i++) {
-          found.push(navigator.languages[i]);
-        }
-      }
-      if (navigator.userLanguage) {
-        found.push(navigator.userLanguage);
-      }
-      if (navigator.language) {
-        found.push(navigator.language);
-      }
-    }
-
     if (found.length === 0) {
       return getUserLocale();
     }
@@ -52,14 +36,13 @@ const LocalizationService = () => {
   };
 
   const getLocalizedTextSet = async (keys, locale) => {
-    // TODO: async import the locale file for given locale
+    // async import the locale file for given locale
     // and extract the set of localized text values for given keys
     let textSet = {};
     const localizedData = await getLocalizedData(locale);
     if (localizedData) {
       let localizedTextSet = localizedData;
       const keysLocalizedTextSet = Object.keys(localizedTextSet);
-
       for (const desiredKey of keys) {
         for (const key of keysLocalizedTextSet) {
           if (desiredKey === key) {
@@ -68,15 +51,12 @@ const LocalizationService = () => {
         }
       }
     }
-
     return textSet;
   };
 
   const getLocalizedData = async (localeCode) => {
-    const localizedDataFilePath = process.env.PUBLIC_URL + `/i18n/${localeCode}.json`;
-    // return await import(localizedDataFilePath);
-    // const localizedFile = await require(`${localizedDataFilePath}`);
-    // return localizedFile;
+		// get data from folder in public by locale using fetch
+		const localizedDataFilePath = process.env.PUBLIC_URL + `/i18n/${localeCode}.json`;
     return fetch(localizedDataFilePath)
       .then((response) => {
         return response.json();

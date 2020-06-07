@@ -368,22 +368,6 @@ input {
   border-radius: 0;
 }
 
-.btn-group {
-  vertical-align: inherit;
-}
-
-.input-group-addon {
-  padding: 2px 8px;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1;
-  text-align: center;
-  color: #e3e3e3;
-  background-color: #212121;
-  border: 1px solid #212121;
-  border-radius: 0;
-}
-
 /** Start Material UI over-ride classes */
 div[class*='MuiCard-root'] {
   border-radius: 0px !important;
@@ -399,16 +383,6 @@ button[class*='MuiButton-root-'] {
 .active {
   background-color: #757575 !important;
   color: #fafafa !important;
-}
-
-div[class*='MuiCardActions-root'] {
-  margin-top: auto !important;
-  align-self: flex-end !important;
-  align-items: flex-end;
-}
-
-.MuiInputAdornment-positionEnd {
-  margin-left: 0 !important;
 }
 
 /** END  Material UI over-ride classes */
