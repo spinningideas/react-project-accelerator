@@ -33,11 +33,14 @@
   "modalsdescription": "以下是模式对话框的示例",
   "error": "错误",
   "success": "成功",
+  "required": "需要",
   "view": "视图",
   "authenticatedcontent": "认证内容",
   "authenticatedcontentdescription": "仅当用户登录时才显示以下内容",
+  "services": "服务",
   "serviceexampletitle": "查看IP地址",
-  "serviceexampledescription": "服务和HttpClient的使用示例",
-	"formsexample": "表格范例",
-	"formsexampledescription": "通过Formik使用表格和进行验证的示例"
+	"serviceexampledescription": "服务和HttpClient的使用示例",
+	"forms":"形式",
+  "formsexample": "表格范例",
+  "formsexampledescription": "通过Formik使用表格和进行验证的示例"
 }

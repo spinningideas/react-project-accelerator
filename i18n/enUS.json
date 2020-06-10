@@ -32,12 +32,15 @@
   "modals": "Modals",
   "modalsdescription": "Below are examples of modal dialogs",
   "error": "Error",
-  "success": "Success",
+	"success": "Success",
+	"required": "Required",
   "view": "View",
   "authenticatedcontent": "Authenticated Content",
   "authenticatedcontentdescription": "Here is content displayed only if users is signed in",
-  "serviceexampletitle": "View Ip Address",
+	"services": "Services",
+	"serviceexampletitle": "View Ip Address",
 	"serviceexampledescription": "Example of use of services and HttpClient",
+	"forms":"Forms",
 	"formsexample": "Forms Example",
 	"formsexampledescription": "Example of use of forms and validation via formik"
 }

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b2d7de4979f7aaa3910f38709a13bac",
+    "revision": "836e5ae5b6d6a11fb7ef5dff5e4ca2fe",
     "url": "https://spinningideas.github.io/react-project-accelerator/index.html"
   },
   {
@@ -24,23 +24,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://spinningideas.github.io/react-project-accelerator/static/js/3.d811d12b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3c6ee9af582e127ac945",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/4.651dcc99.chunk.js"
+    "revision": "97b0896e2839b5c75b39",
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/4.10bc5209.chunk.js"
   },
   {
     "revision": "0a43bc58d3f2524e453b",
     "url": "https://spinningideas.github.io/react-project-accelerator/static/js/5.8fda0a07.chunk.js"
   },
   {
-    "revision": "5e3ed23826f46f454f6a",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/6.c8189086.chunk.js"
+    "revision": "d120bdefa858478cef03",
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/6.abfbc046.chunk.js"
   },
   {
     "revision": "1e5527fbed89627b40a5",
     "url": "https://spinningideas.github.io/react-project-accelerator/static/js/main.2f3aa568.chunk.js"
   },
   {
-    "revision": "d127c3bf56d7ae9bec6d",
-    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/runtime-main.bfdec731.js"
+    "revision": "7853b29d3a3796b46cba",
+    "url": "https://spinningideas.github.io/react-project-accelerator/static/js/runtime-main.f973ba41.js"
   }
 ]);

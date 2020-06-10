@@ -32,12 +32,15 @@
   "modals": "Diálogos Modales",
   "modalsdescription": "A continuación hay ejemplos de diálogos modales.",
   "error": "Error",
-  "success": "Éxito",
+	"success": "Éxito",
+	"required": "Necesario",
   "view": "Ver",
   "authenticatedcontent": "Contenido Autenticado",
   "authenticatedcontentdescription": "Aquí se muestra el contenido solo si los usuarios han iniciado sesión",
-  "serviceexampletitle": "Ver dirección IP",
-  "serviceexampledescription": "Ejemplo de uso de servicios y HttpClient",
+	"services": "Servicios",
+	"serviceexampletitle": "Ver dirección IP",
+	"serviceexampledescription": "Ejemplo de uso de servicios y HttpClient",
+	"forms":"Formas",
 	"formsexample": "Ejemplo De Formularios",
 	"formsexampledescription": "Ejemplo de uso de formularios y validación a través de formik"
 }
