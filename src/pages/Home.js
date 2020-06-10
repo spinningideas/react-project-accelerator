@@ -52,10 +52,12 @@ function Home() {
           'close',
           'authenticatedcontent',
           'authenticatedcontentdescription',
+          'services',
           'serviceexampletitle',
 					'serviceexampledescription',
-					'formsexample',
-					'formsexampledescription'
+					'forms',
+          'formsexample',
+          'formsexampledescription'
         ],
         locCode
       );
@@ -164,7 +166,8 @@ function Home() {
               <Grid item xs={12} className="pt-1">
                 <Card>
                   <CardContent>
-                    <h4 className="card-title">{locData.serviceexampledescription}</h4>
+                    <h4 className="card-title">{locData.services}</h4>
+                    <p>{locData.serviceexampledescription}</p>
                     <Button className="mt-3" color="secondary" onClick={showIpAddressUsingHttpClient}>
                       {locData.serviceexampletitle}
                     </Button>
@@ -174,18 +177,19 @@ function Home() {
               </Grid>
             </Grid>
 
-						<Grid container>
+            <Grid container>
               <Grid item xs={12} className="pt-1">
                 <Card>
                   <CardContent>
-                    <h4 className="card-title">{locData.formsexampledescription}</h4>
+                    <h4 className="card-title">{locData.forms}</h4>
+										<p>{locData.formsexampledescription}</p>
                     <Button className="mt-3" color="secondary" component={Link} to="/contact">
                       {locData.formsexample}
                     </Button>
                   </CardContent>
                 </Card>
               </Grid>
-            </Grid>		
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
