@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { reloadWindow } from 'utils';
 
 const LanguageSelection = (props) => {
   const [anchorEl, setAnchorEl] = useState(undefined);
@@ -19,7 +20,7 @@ const LanguageSelection = (props) => {
   const languageSelectionMakeChoice = (locale) => {
     props.localizationService.setUserLocale(locale);
     setAnchorEl(undefined);
-    window.location.reload();
+    reloadWindow();
   };
 
   return (

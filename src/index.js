@@ -9,11 +9,12 @@ import theme from 'theming';
 import 'styles/Application.scss';
 import Application from 'Application';
 import ErrorHandler from 'components/ErrorHandler';
+import { APPBASEPATH } from 'utils';
 
 const AppShell = () => (
   <ErrorHandler>
     <MuiThemeProvider theme={theme}>
-      <Router basename="react-project-accelerator">
+      <Router basename={APPBASEPATH}>
         <Application />
       </Router>
     </MuiThemeProvider>

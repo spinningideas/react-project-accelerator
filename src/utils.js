@@ -1,3 +1,11 @@
+export const APPBASEPATH = 'react-project-accelerator';
+
+export const reloadWindow = () => {
+  window.location = window.location.origin
+    ? window.location.origin + '/' + APPBASEPATH
+    : window.location.protocol + '/' + window.location.host + '/' + APPBASEPATH;
+};
+
 export const pascalCaseUnHyphenated = (value) => {
   return (value || '').toLowerCase().replace(/(\b|-)\w/g, function (m) {
     return m.toUpperCase().replace(/-/, ' ');

@@ -9,6 +9,7 @@ import AuthService from 'services/AuthService';
 import AnalyticsService from 'services/AnalyticsService';
 // Components
 import Navigation from 'components/Application/Navigation';
+import { reloadWindow } from 'utils';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,16 +56,12 @@ function Application(props) {
 
   const handleSignIn = () => {
     authService.signIn();
-    if (window && window.location) {
-      window.location.reload(true);
-    }
+    reloadWindow();
   };
 
   const handleSignOut = () => {
     authService.signOut();
-    if (window && window.location) {
-      window.location.reload(true);
-    }
+    reloadWindow();
   };
 
   return (
