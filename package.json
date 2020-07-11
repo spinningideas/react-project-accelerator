@@ -1,47 +1,47 @@
 {
-	"name": "react-project-accelerator",
-	"version": "0.1.0",
-	"private": true,
-	"description": "React JS project accelerator that can serve as reference for bootstrapping projects. Includes localization and authorization via services based approach using hooks to manage state",
-	"homepage": "https://spinningideas.github.io/react-project-accelerator/",
-	"dependencies": {
-		"@material-ui/core": "^4.10.0",
-		"@material-ui/icons": "^4.9.1",
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.5.0",
-		"@testing-library/user-event": "^7.2.1",
-		"formik": "^2.1.4",
-		"formik-material-ui": "^2.0.0-beta.1",
-		"gh-pages": "^2.2.0",
-		"history": "^4.10.1",
-		"node-sass": "^4.14.1",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"react-loadable": "^5.5.0",
-		"react-router": "^5.2.0",
-		"react-router-dom": "^5.2.0",
-		"react-scripts": "3.4.1"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"buildghpages": "set PUBLIC_URL=https://spinningideas.github.io/react-project-accelerator/&&react-scripts build",
-		"deployghpages": "gh-pages -d build"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	}
+  "name": "react-project-accelerator",
+  "version": "0.3.0",
+  "private": true,
+  "description": "React JS project accelerator that can serve as reference for bootstrapping projects. Includes localization and authorization via services based approach using hooks to manage state",
+  "homepage": "https://spinningideas.github.io/react-project-accelerator/",
+  "dependencies": {
+    "@loadable/component": "^5.13.1",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.5",
+    "@testing-library/user-event": "^12.0.11",
+    "formik": "^2.1.4",
+    "formik-material-ui": "^2.0.1",
+    "gh-pages": "^3.1.0",
+    "history": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "buildghpages": "set PUBLIC_URL=https://spinningideas.github.io/react-project-accelerator/&&react-scripts build",
+    "deployghpages": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

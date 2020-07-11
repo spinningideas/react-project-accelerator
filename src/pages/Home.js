@@ -54,8 +54,8 @@ function Home() {
           'authenticatedcontentdescription',
           'services',
           'serviceexampletitle',
-					'serviceexampledescription',
-					'forms',
+          'serviceexampledescription',
+          'forms',
           'formsexample',
           'formsexampledescription'
         ],
@@ -182,8 +182,8 @@ function Home() {
                 <Card>
                   <CardContent>
                     <h4 className="card-title">{locData.forms}</h4>
-										<p>{locData.formsexampledescription}</p>
-                    <Button className="mt-3" color="secondary" component={Link} to="/contact">
+                    <p>{locData.formsexampledescription}</p>
+                    <Button className="mt-3" color="secondary" component={Link} to="/contact/testnameparam">
                       {locData.formsexample}
                     </Button>
                   </CardContent>

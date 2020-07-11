@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 // forms
 import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-material-ui';
@@ -14,11 +15,11 @@ import Notifications from 'components/Shared/Notifications';
 // Services
 import LocalizationService from 'services/LocalizationService';
 
-export default function Contact() {
+export default function Contact(props) {
   const [locData, setLocData] = useState({});
   const [formIsSubmitting, setFormIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
+    name: props.match && props.match.params && props.match.params.name ? props.match.params.name : '',
     email: '',
     message: ''
   });
@@ -40,8 +41,8 @@ export default function Contact() {
           'name',
           'email',
           'message',
-					'messagedescription',
-					'required',
+          'messagedescription',
+          'required',
           'success'
         ],
         locCode
@@ -106,7 +107,14 @@ export default function Contact() {
                   <Card>
                     <CardContent>
                       <div className={classes.formField}>
-                        <Field component={TextField} name="name" type="text" label={locData.name} required />
+                        <Field
+                          component={TextField}
+                          name="name"
+                          type="text"
+                          value={formData.name}
+                          label={locData.name}
+                          required
+                        />
                       </div>
                       <div className={classes.formField}>
                         <Field component={TextField} name="email" type="email" label={locData.email} required />

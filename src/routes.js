@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Loadable from 'react-loadable';
 import LoadingIndicator from 'components/Shared/LoadingIndicator';
 
+const LazyLoadedPage = (pageName) => {
+	return lazy(() => import(`./pages/${pageName}`))
+};
+
+
 const routes = (
-  <Switch>
-    <Route path="/" exact component={Loadable({ loader: () => import('./pages/Home'), loading: LoadingIndicator })} />
-    <Route path="/about" component={Loadable({ loader: () => import('./pages/About'), loading: LoadingIndicator })} />
-    <Route
-      path="/contact"
-      component={Loadable({ loader: () => import('./pages/Contact'), loading: LoadingIndicator })}
-    />
-    <Redirect to="/" />
-  </Switch>
+	<Suspense fallback={<LoadingIndicator />}>
+		<Switch>
+			<Route path="/" exact component={LazyLoadedPage('Home')} />
+			<Route path="/about" component={LazyLoadedPage('About')}  />
+			<Route path="/contact/:name" component={LazyLoadedPage('Contact')} />
+			<Route path="/contact" component={LazyLoadedPage('Contact')}  />
+			<Redirect to="/" />
+		</Switch>
+	</Suspense>
 );
 
 export default routes;
