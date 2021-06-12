@@ -1,7 +1,7 @@
 ﻿const supportedLanguageMap = {
   enUS: 'English',
   zhCN: 'Chinese',
-  esES: 'Spanish'
+  esES: 'Spanish',
 };
 
 const LocalizationService = () => {
@@ -55,8 +55,9 @@ const LocalizationService = () => {
   };
 
   const getLocalizedData = async (localeCode) => {
-		// get data from folder in public by locale using fetch
-		const localizedDataFilePath = process.env.PUBLIC_URL + `/i18n/${localeCode}.json`;
+    // get data from folder in public by locale using fetch
+    const localizedDataFilePath =
+      process.env.PUBLIC_URL + `/i18n/${localeCode}.json`;
     return fetch(localizedDataFilePath)
       .then((response) => {
         return response.json();
@@ -72,7 +73,7 @@ const LocalizationService = () => {
     getUserLocale,
     getLocales,
     getCurrentLocale,
-    getLocalizedTextSet
+    getLocalizedTextSet,
   };
 };
 

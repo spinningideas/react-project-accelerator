@@ -45,11 +45,13 @@ function Modal(props) {
   }
 
   let backdropStyle = {
-    position: 'absolute',
+    position: 'fixed',
+    left: 0,   
+    right: 0,
+    top: 0,
+    bottom:0,
     width: '100%',
     height: '100%',
-    top: '0px',
-    left: '0px',
     zIndex: '9998',
     background: 'rgba(0, 0, 0, 0.2)'
   };

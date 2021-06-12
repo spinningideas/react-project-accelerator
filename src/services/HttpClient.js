@@ -15,14 +15,14 @@ const HttpClient = () => {
           // the status was ok and there is a json body
           return Promise.resolve({ data: json, code: response.status, response: response });
         })
-        .catch((err) => {
+        .catch(() => {
           // the status was ok but there is no json body
           return Promise.resolve({ data: response, code: response.status, response: response });
         });
     } else {
       return response
         .json()
-        .catch((err) => {
+        .catch(() => {
           // the status was not ok and there is no json body
           return Promise.resolve({ data: response.statusText, code: response.status, response: response });
         })

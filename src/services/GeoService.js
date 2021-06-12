@@ -3,7 +3,7 @@ import HttpClient from 'services/HttpClient';
 const GeoService = () => {
   const getCurrentIPAddress = async () => {
     const client = HttpClient();
-    let url = `https://freegeoip.app/json/`;
+    let url = 'https://freegeoip.app/json/';
     return await client.getData(url).then((response) => {
       return {
         ip: response.data.ip,

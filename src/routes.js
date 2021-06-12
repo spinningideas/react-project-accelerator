@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import LoadingIndicator from 'components/Shared/LoadingIndicator';
 
 const LazyLoadedPage = (pageName) => {
-  return lazy(() => import(`./pages/${pageName}`));
+  return lazy(() => import('./pages/' + pageName));
 };
 
 const routes = (
