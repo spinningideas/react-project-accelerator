@@ -1,5 +1,5 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import React from "react";
+import Grid from "@mui/material/Grid";
 
 function GetStartedMessage(props) {
   if (props.displayGetStarted === false) {

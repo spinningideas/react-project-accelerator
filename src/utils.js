@@ -1,14 +1,14 @@
-export const APPBASEPATH = 'react-project-accelerator';
+export const APPBASEPATH = "react-project-accelerator";
 
 export const reloadWindow = () => {
   window.location = window.location.origin
-    ? window.location.origin + '/' + APPBASEPATH
-    : window.location.protocol + '/' + window.location.host + '/' + APPBASEPATH;
+    ? window.location.origin + "/" + APPBASEPATH
+    : window.location.protocol + "/" + window.location.host + "/" + APPBASEPATH;
 };
 
 export const pascalCaseUnHyphenated = (value) => {
-  return (value || '').toLowerCase().replace(/(\b|-)\w/g, function (m) {
-    return m.toUpperCase().replace(/-/, ' ');
+  return (value || "").toLowerCase().replace(/(\b|-)\w/g, function (m) {
+    return m.toUpperCase().replace(/-/, " ");
   });
 };
 
@@ -18,7 +18,20 @@ export const generateId = () => {
       .toString(16)
       .substring(1);
   }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  return (
+    s4() +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    "-" +
+    s4() +
+    s4() +
+    s4()
+  );
 };
 
 export const isNumeric = (n) => {
@@ -44,7 +57,13 @@ export const loadScript = (d, s, id, jsSrc, cb) => {
   }
 };
 
-export const searchAndPaginate = (searchValue, searchProps, data, pageNumber, pageSize) => {
+export const searchAndPaginate = (
+  searchValue,
+  searchProps,
+  data,
+  pageNumber,
+  pageSize
+) => {
   pageNumber = Math.abs(parseInt(pageNumber));
   pageNumber = pageNumber < 0 ? 1 : pageNumber;
   pageSize = parseInt(pageSize);
@@ -77,7 +96,9 @@ export const paginate = (data, pageNumber, pageSize) => {
   // returns at most number of items specified in pageSize
   return [
     ...data.filter((value, index) => {
-      return index >= (pageNumber - 1) * pageSize && index < pageNumber * pageSize;
-    })
+      return (
+        index >= (pageNumber - 1) * pageSize && index < pageNumber * pageSize
+      );
+    }),
   ];
 };

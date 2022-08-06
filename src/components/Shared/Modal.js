@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React from "react";
 /* 
 Example Usage:
 
@@ -21,20 +21,20 @@ function Modal(props) {
   if (props.isOpen === false) return null;
 
   let modalStyle = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    zIndex: '9999',
-    background: '#ffffff',
-    padding: '10px'
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: "9999",
+    background: "#ffffff",
+    padding: "10px",
   };
 
   if (props.width && props.height) {
-    modalStyle.width = props.width + 'px';
-    modalStyle.height = props.height + 'px';
-    modalStyle.marginLeft = '-' + props.width / 2 + 'px';
-    modalStyle.marginTop = '-' + props.height / 2 + 'px';
+    modalStyle.width = props.width + "px";
+    modalStyle.height = props.height + "px";
+    modalStyle.marginLeft = "-" + props.width / 2 + "px";
+    modalStyle.marginTop = "-" + props.height / 2 + "px";
     modalStyle.transform = null;
   }
 
@@ -45,15 +45,15 @@ function Modal(props) {
   }
 
   let backdropStyle = {
-    position: 'fixed',
-    left: 0,   
+    position: "fixed",
+    left: 0,
     right: 0,
     top: 0,
-    bottom:0,
-    width: '100%',
-    height: '100%',
-    zIndex: '9998',
-    background: 'rgba(0, 0, 0, 0.2)'
+    bottom: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: "9998",
+    background: "rgba(0, 0, 0, 0.2)",
   };
 
   if (props.backdropStyle) {

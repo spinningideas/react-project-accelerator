@@ -1,66 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-// material-ui utils
-import { makeStyles } from '@material-ui/core/styles';
-import withWidth from '@material-ui/core/withWidth';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 // material-ui Components
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Drawer from '@material-ui/core/Drawer';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 // material-ui Icons
-import Home from '@material-ui/icons/Home';
-import Info from '@material-ui/icons/Info';
-import Email from '@material-ui/icons/Email';
-import MenuIcon from '@material-ui/icons/Menu';
-// Services
-import LocalizationService from 'services/LocalizationService';
+import Home from "@mui/icons-material/Home";
+import Info from "@mui/icons-material/Info";
+import Email from "@mui/icons-material/Email";
+import MenuIcon from "@mui/icons-material/Menu";
+// services
+import LocalizationService from "services/LocalizationService";
 // Components
-import AppTitle from 'components/Application/AppTitle';
-import AuthButton from 'components/Application/AuthButton';
-import AuthDialog from 'components/Application/AuthDialog';
-import LanguageSelection from 'components/Application/LanguageSelection';
+import AppTitle from "components/Application/AppTitle";
+import AuthButton from "components/Application/AuthButton";
+import AuthDialog from "components/Application/AuthDialog";
+import LanguageSelection from "components/Application/LanguageSelection";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   root: {
-    display: 'flex'
+    display: "flex",
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1
+    zIndex: 10001,
+    bgcolor: "background.default",
   },
   appTitle: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   sideMenuDrawer: {
-    top: '65px',
+    top: "65px",
     width: drawerWidth,
-    height: '100%',
-    flexShrink: 0
+    height: "100%",
+    flexShrink: 0,
   },
   sideMenuDrawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
   },
   sideMenuList: {
-    padding: 10,
-    width: drawerWidth + 'px'
+    padding: 1,
+    width: drawerWidth + "px",
   },
   sideMenuListItem: {
-    paddingLeft: 10
-  }
-}));
+    paddingLeft: 1,
+  },
+};
 
 function Navigation(props) {
   const [locData, setLocData] = useState({});
   const [openNavigation, setOpenNavigation] = useState(false);
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
-
-  const classes = useStyles();
 
   const localizationService = LocalizationService();
 
@@ -68,7 +64,16 @@ function Navigation(props) {
     async function loadLocalization() {
       const locCode = localizationService.getUserLocale();
       const locDataLoaded = await localizationService.getLocalizedTextSet(
-        ['apptitle', 'signin', 'signindescription', 'signout', 'home', 'contact', 'about', 'cancel'],
+        [
+          "apptitle",
+          "signin",
+          "signindescription",
+          "signout",
+          "home",
+          "contact",
+          "about",
+          "cancel",
+        ],
         locCode
       );
 
@@ -95,13 +100,13 @@ function Navigation(props) {
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.appBar}>
+    <div sx={styles.root}>
+      <AppBar position="static" sx={styles.appBar}>
         <Toolbar>
           <IconButton
             edge="start"
             onClick={() => toggleDrawerOpen()}
-            className={classes.menuButton}
+            sx={styles.menuButton}
             color="inherit"
             aria-label="menu"
           >
@@ -122,34 +127,52 @@ function Navigation(props) {
         variant="persistent"
         color="primary"
         open={openNavigation}
-        className={classes.sideMenuDrawer}
-        classes={{ paper: classes.sideMenuDrawerPaper }}
+        sx={styles.sideMenuDrawer}
+        styles={{ paper: styles.sideMenuDrawerPaper }}
       >
         <Toolbar>
           <IconButton
             edge="start"
             onClick={closeDrawer}
-            className={classes.menuButton}
+            sx={styles.menuButton}
             color="inherit"
             aria-label="menu"
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
-        <List className={classes.sideMenuList}>
-          <ListItem button className={classes.sideMenuListItem} onClick={closeDrawer} component={Link} to="/">
+        <List sx={styles.sideMenuList}>
+          <ListItem
+            button
+            sx={styles.sideMenuListItem}
+            onClick={closeDrawer}
+            component={Link}
+            to="/"
+          >
             <ListItemIcon>
               <Home />
             </ListItemIcon>
             <ListItemText primary={locData.home} />
           </ListItem>
-          <ListItem button className={classes.sideMenuListItem} onClick={closeDrawer} component={Link} to="/contact">
+          <ListItem
+            button
+            sx={styles.sideMenuListItem}
+            onClick={closeDrawer}
+            component={Link}
+            to="/contact"
+          >
             <ListItemIcon>
               <Email />
             </ListItemIcon>
             <ListItemText primary={locData.contact} />
           </ListItem>
-          <ListItem button className={classes.sideMenuListItem} onClick={closeDrawer} component={Link} to="/about">
+          <ListItem
+            button
+            sx={styles.sideMenuListItem}
+            onClick={closeDrawer}
+            component={Link}
+            to="/about"
+          >
             <ListItemIcon>
               <Info />
             </ListItemIcon>
@@ -167,4 +190,4 @@ function Navigation(props) {
   );
 }
 
-export default withWidth()(Navigation);
+export default Navigation;

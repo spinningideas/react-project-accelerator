@@ -1,26 +1,28 @@
-import React from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/core/styles';
+import React from "react";
+import { getPrimaryColor } from "styling/theming";
+import CircularProgress from "@mui/material/CircularProgress";
 
-const useStyles = makeStyles((theme) => ({
-  progress: {
-    margin: theme.spacing(6),
-    color: '#1976d2'
-  }
-}));
+/* "Loading..."  Component which encapsulates presenting UI indication that something is loading */
+const LoadingIndicator = ({ color, loading, margin = 6, size = 100 }) => {
+  const primaryColorCircularProgress = color ? color : getPrimaryColor();
 
-function LoadingIndicator(props) {
-  const classes = useStyles();
-  let size = 100;
-  if (props.display === undefined || props.display === false) {
+  if (loading === undefined || loading === false) {
     return <></>;
   }
 
-  if (props.size) {
-    size = props.size;
-  }
+  return (
+    <CircularProgress
+      variant="indeterminate"
+      disableShrink
+      sx={{
+        margin: margin,
+        color: primaryColorCircularProgress,
+        animationDuration: "800ms",
+      }}
+      size={size}
+      thickness={5}
+    />
+  );
+};
 
-  return <CircularProgress className={classes.progress} thickness={5} size={size} />;
-}
-
-export default LoadingIndicator;
+export default React.memo(LoadingIndicator);

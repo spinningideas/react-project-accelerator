@@ -1,26 +1,28 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from "react";
 // forms
-import { Formik, Form, Field } from 'formik';
-import { TextField } from 'formik-material-ui';
+import { Formik, Form, Field } from "formik";
+import { TextField } from "formik-material-ui";
 // material-ui
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-import { makeStyles } from '@material-ui/core/styles';
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
 // shared components
-import Notifications from 'components/Shared/Notifications';
-// Services
-import LocalizationService from 'services/LocalizationService';
+import Notifications from "components/Shared/Notifications";
+// services
+import LocalizationService from "services/LocalizationService";
 
 export default function Contact(props) {
   const [locData, setLocData] = useState({});
   const [formIsSubmitting, setFormIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
-    name: props.match && props.match.params && props.match.params.name ? props.match.params.name : '',
-    email: '',
-    message: ''
+    name:
+      props.match && props.match.params && props.match.params.name
+        ? props.match.params.name
+        : "",
+    email: "",
+    message: "",
   });
 
   const localizationService = LocalizationService();
@@ -33,16 +35,16 @@ export default function Contact(props) {
 
       const locDataLoaded = await localizationService.getLocalizedTextSet(
         [
-          'contact',
-          'contactdescription',
-          'moreinfo',
-          'save',
-          'name',
-          'email',
-          'message',
-          'messagedescription',
-          'required',
-          'success'
+          "contact",
+          "contactdescription",
+          "moreinfo",
+          "save",
+          "name",
+          "email",
+          "message",
+          "messagedescription",
+          "required",
+          "success",
         ],
         locCode
       );
@@ -51,16 +53,14 @@ export default function Contact(props) {
     loadLocalization();
   }, []);
 
-  const useStyles = makeStyles((theme) => ({
+  const styles = {
     formField: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: 400
-      }
-    }
-  }));
-
-  const classes = useStyles();
+      display: "flex",
+      flexDirection: "column",
+      margin: 1,
+      width: 500,
+    },
+  };
 
   const showNotification = (message, type) => {
     notificationsRef.current.show(message, type);
@@ -83,8 +83,12 @@ export default function Contact(props) {
                 }
                 if (!values.email) {
                   errors.email = locData.required;
-                } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-                  errors.email = 'Invalid email address';
+                } else if (
+                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(
+                    values.email
+                  )
+                ) {
+                  errors.email = "Invalid email address";
                 }
                 if (!values.message) {
                   errors.message = locData.required;
@@ -93,45 +97,57 @@ export default function Contact(props) {
               }}
               onSubmit={(values) => {
                 setFormIsSubmitting(false);
-                showNotification(locData.success, 'success');
+                showNotification(locData.success, "success");
                 setFormData({
                   name: values.name,
                   email: values.email,
-                  message: values.message
+                  message: values.message,
                 });
               }}
             >
               {({ submitForm }) => (
                 <Form>
                   <Card>
-                    <CardContent>
-                      <div className={classes.formField}>
-                        <Field
-                          component={TextField}
-                          name="name"
-                          type="text"
-                          value={formData.name}
-                          label={locData.name}
-                          required
-                        />
-                      </div>
-                      <div className={classes.formField}>
-                        <Field component={TextField} name="email" type="email" label={locData.email} required />
-                      </div>
-                      <div className={classes.formField}>
-                        <Field
-                          type="text"
-                          component={TextField}
-                          name="message"
-                          label={locData.message}
-                          required
-                          multiline
-                          rows={4}
-                        />
-                      </div>
+                    <CardContent sx={{ p: 0 }}>
+                      <Field
+                        sx={styles.formField}
+                        component={TextField}
+                        variant="standard"
+                        name="name"
+                        type="text"
+                        label={locData.name}
+                        required
+                      />
+
+                      <Field
+                        sx={styles.formField}
+                        component={TextField}
+                        variant="standard"
+                        name="email"
+                        type="email"
+                        label={locData.email}
+                        required
+                      />
+
+                      <Field
+                        sx={styles.formField}
+                        type="text"
+                        component={TextField}
+                        variant="standard"
+                        name="message"
+                        label={locData.message}
+                        required
+                        multiline
+                        rows={4}
+                      />
                     </CardContent>
                     <CardActions>
-                      <Button className="ml-2" color="secondary" disabled={formIsSubmitting} onClick={submitForm}>
+                      <Button
+                        className="ml-2"
+                        color="secondary"
+                        disabled={formIsSubmitting}
+                        onClick={submitForm}
+                      >
                         {locData.save}
                       </Button>
                     </CardActions>

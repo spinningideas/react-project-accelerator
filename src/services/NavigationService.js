@@ -3,7 +3,7 @@
     if (props && props.replace) {
       props.replace({
         pathname: route,
-        state: params
+        state: params,
       });
     }
   };
@@ -13,8 +13,12 @@
       h = document.body.clientHeight - 30;
     let win = window.open(
       url,
-      'contentwin',
-      'width=' + w + ',height=' + h + ',menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes'
+      "contentwin",
+      "width=" +
+        w +
+        ",height=" +
+        h +
+        ",menubar=no,location=yes,resizable=yes,scrollbars=yes,status=yes"
     );
     win.focus();
     return false;
@@ -22,7 +26,7 @@
 
   return {
     navigate,
-    navigateToUrl
+    navigateToUrl,
   };
 };
 

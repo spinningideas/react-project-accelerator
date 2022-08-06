@@ -18,7 +18,7 @@ const AnalyticsService = () => {
         initAnalytics().then((trackingEnabled) => {
           if (trackingEnabled) {
             //window.ga('send', 'pageview', url);
-            log('pageview: ' + url);
+            log("pageview: " + url);
           }
         });
       }
@@ -34,10 +34,17 @@ const AnalyticsService = () => {
           if (trackingEnabled) {
             if (value) {
               //window.ga('send', 'event', category, action, value);
-              log('event - category: ' + category + ', action: ' + action + ', value: ' + value);
+              log(
+                "event - category: " +
+                  category +
+                  ", action: " +
+                  action +
+                  ", value: " +
+                  value
+              );
             } else {
               //window.ga('send', 'event', category, action);
-              log('event - category: ' + category + ', action: ' + action);
+              log("event - category: " + category + ", action: " + action);
             }
           }
         });
@@ -49,7 +56,7 @@ const AnalyticsService = () => {
 
   const analyticsLibsHaveLoaded = () => {
     // Checks that needed analytics api has loaded (in this case the ga() function that can be used to send data
-    if (typeof window.ga !== 'undefined' && window.ga) {
+    if (typeof window.ga !== "undefined" && window.ga) {
       return true;
     }
     return false;
@@ -71,22 +78,22 @@ const AnalyticsService = () => {
   };
 
   const setAnalyticsScriptIntoBody = () => {
-    window.GoogleAnalyticsObject = 'ga';
+    window.GoogleAnalyticsObject = "ga";
     if (!window.ga) {
       window.ga = function () {
         (window.ga.q = window.ga.q || []).push(arguments);
       };
       window.ga.l = 1 * new Date();
-      let a = document.createElement('script'),
-        m = document.getElementsByTagName('script')[0];
+      let a = document.createElement("script"),
+        m = document.getElementsByTagName("script")[0];
       a.async = 1;
-      a.src = '//www.analytics-analytics.com/analytics.js';
+      a.src = "//www.analytics-analytics.com/analytics.js";
       m.parentNode.insertBefore(a, m);
     }
   };
 
   const enabled = () => {
-    let analyticsEnabledVal = getConfigItem('analyticsEnabled');
+    let analyticsEnabledVal = getConfigItem("analyticsEnabled");
     if (analyticsEnabledVal) {
       return true; // if value present enable
     }
@@ -94,7 +101,7 @@ const AnalyticsService = () => {
   };
 
   const log = (message) => {
-    let analyticsLogEnabledVal = getConfigItem('analyticsLogEnabled');
+    let analyticsLogEnabledVal = getConfigItem("analyticsLogEnabled");
     if (analyticsLogEnabledVal) {
       console.log(message); // if value present enable logging
     }
@@ -113,7 +120,7 @@ const AnalyticsService = () => {
   return {
     trackPageView,
     trackEvent,
-    enabled
+    enabled,
   };
 };
 

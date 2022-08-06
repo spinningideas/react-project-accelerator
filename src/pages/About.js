@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 // material-ui
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-// Services
-import LocalizationService from 'services/LocalizationService';
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
+// services
+import LocalizationService from "services/LocalizationService";
 
 export default function About() {
   const [locData, setLocData] = useState({});
@@ -19,17 +19,17 @@ export default function About() {
 
       const locDataLoaded = await localizationService.getLocalizedTextSet(
         [
-          'about',
-          'aboutdescription',
-          'technology',
-          'technologydescription',
-          'reactjs',
-          'reactjsdescription',
-          'materialui',
-          'materialuidescription',
-          'createreactapp',
-          'createreactappdescription',
-          'moreinfo'
+          "about",
+          "aboutdescription",
+          "technology",
+          "technologydescription",
+          "reactjs",
+          "reactjsdescription",
+          "materialui",
+          "materialuidescription",
+          "createreactapp",
+          "createreactappdescription",
+          "moreinfo",
         ],
         locCode
       );

@@ -13,22 +13,38 @@ const HttpClient = () => {
         .json()
         .then((json) => {
           // the status was ok and there is a json body
-          return Promise.resolve({ data: json, code: response.status, response: response });
+          return Promise.resolve({
+            data: json,
+            code: response.status,
+            response: response,
+          });
         })
         .catch(() => {
           // the status was ok but there is no json body
-          return Promise.resolve({ data: response, code: response.status, response: response });
+          return Promise.resolve({
+            data: response,
+            code: response.status,
+            response: response,
+          });
         });
     } else {
       return response
         .json()
         .catch(() => {
           // the status was not ok and there is no json body
-          return Promise.resolve({ data: response.statusText, code: response.status, response: response });
+          return Promise.resolve({
+            data: response.statusText,
+            code: response.status,
+            response: response,
+          });
         })
         .then((json) => {
           // the status was not ok but there is a json body
-          return Promise.resolve({ data: json.error.message, code: response.status, response: response });
+          return Promise.resolve({
+            data: json.error.message,
+            code: response.status,
+            response: response,
+          });
         });
     }
   };
@@ -37,11 +53,11 @@ const HttpClient = () => {
   // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
   const getDataAuthenticated = async (url, token) => {
     return await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        Accept: 'application/json',
-        Authorization: 'Bearer ' + token
-      }
+        Accept: "application/json",
+        Authorization: "Bearer " + token,
+      },
     }).then((response) => {
       return fetchResponseHandler(response);
     });
@@ -49,10 +65,10 @@ const HttpClient = () => {
 
   const getData = async (url) => {
     return await fetch(url, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        Accept: 'application/json'
-      }
+        Accept: "application/json",
+      },
     }).then((response) => {
       return fetchResponseHandler(response);
     });
@@ -60,16 +76,16 @@ const HttpClient = () => {
 
   const postData = async (url, data = {}, token) => {
     let postHeaders = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
+      Accept: "application/json",
+      "Content-Type": "application/json",
     };
     if (token && token.length) {
-      postHeaders['Authorization'] = 'Bearer ' + token;
+      postHeaders["Authorization"] = "Bearer " + token;
     }
     return await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: postHeaders,
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     }).then((response) => {
       return fetchResponseHandler(response);
     });
@@ -78,7 +94,7 @@ const HttpClient = () => {
   return {
     getData,
     getDataAuthenticated,
-    postData
+    postData,
   };
 };
 

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import { reloadWindow } from 'utils';
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { reloadWindow } from "utils";
 
 const LanguageSelection = (props) => {
   const [anchorEl, setAnchorEl] = useState(undefined);
@@ -25,7 +25,13 @@ const LanguageSelection = (props) => {
 
   return (
     <>
-      <Button aria-controls="language-menu" aria-haspopup="true" onClick={languageSelectionOpen}>
+      <Button
+        aria-controls="language-menu"
+        aria-haspopup="true"
+        onClick={languageSelectionOpen}
+        color="secondary"
+        sx={{ marginRight: 1 }}
+      >
         Language
       </Button>
       <Menu
@@ -35,9 +41,15 @@ const LanguageSelection = (props) => {
         open={anchorEl ? Boolean(anchorEl) : false}
         onClose={() => languageSelectionClose()}
       >
-        <MenuItem onClick={() => languageSelectionMakeChoice('enUS')}>English</MenuItem>
-        <MenuItem onClick={() => languageSelectionMakeChoice('zhCN')}>Chinese</MenuItem>
-        <MenuItem onClick={() => languageSelectionMakeChoice('esES')}>Spanish</MenuItem>
+        <MenuItem onClick={() => languageSelectionMakeChoice("enUS")}>
+          English
+        </MenuItem>
+        <MenuItem onClick={() => languageSelectionMakeChoice("zhCN")}>
+          Chinese
+        </MenuItem>
+        <MenuItem onClick={() => languageSelectionMakeChoice("esES")}>
+          Spanish
+        </MenuItem>
       </Menu>
     </>
   );

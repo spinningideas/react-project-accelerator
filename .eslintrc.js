@@ -18,6 +18,6 @@ module.exports = {
 	plugins: ['react'],
 	rules: {
 		indent: ['error', 2],
-		quotes: ['error', 'single'],
+		quotes: ['error', 'double'],
 	},
 };

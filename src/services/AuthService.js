@@ -1,14 +1,14 @@
 ﻿const AuthService = () => {
   const userHasSignedIn = () => {
-    let signedInVal = window.localStorage.getItem('usersignedin');
+    let signedInVal = window.localStorage.getItem("usersignedin");
     if (signedInVal) {
-      return signedInVal === 'true';
+      return signedInVal === "true";
     }
     return false;
   };
 
   const setUserHasSignedIn = (signedInVal) => {
-    window.localStorage.setItem('usersignedin', Boolean(signedInVal));
+    window.localStorage.setItem("usersignedin", Boolean(signedInVal));
   };
 
   const signIn = () => {
@@ -23,7 +23,7 @@
     userHasSignedIn,
     setUserHasSignedIn,
     signIn,
-    signOut
+    signOut,
   };
 };
 

@@ -1,29 +1,30 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+import React from "react";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Typography from "@mui/material/Typography";
 
-const useStyles = makeStyles(() => ({
+const styles = {
   appTitle: {
-    flexGrow: 1
-  }
-}));
+    flexGrow: 1,
+    marginLeft: 1,
+  },
+};
 
 const AppTitle = (props) => {
-  const classes = useStyles();
-
-  if (isWidthUp('sm', props.width)) {
+  const theme = useTheme();
+  const isNotMobileViewport = useMediaQuery(theme.breakpoints.up("sm"));
+  if (isNotMobileViewport) {
     return (
-      <Typography variant="h6" className={classes.appTitle}>
+      <Typography variant="h6" sx={styles.appTitle}>
         {props.locData.apptitle}
       </Typography>
     );
   }
   return (
-    <Typography variant="h6" className={classes.appTitle}>
+    <Typography variant="h6" sx={styles.appTitle}>
       RPA
     </Typography>
   );
 };
 
-export default withWidth()(AppTitle);
+export default AppTitle;

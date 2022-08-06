@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 let defaultDurationMilliseconds = 5000; // ms
 /* React "Toast" Component which encapsulates a given popup style UI message - re-factored from https://github.com/k4wo/react-notify */
@@ -8,10 +8,13 @@ function NotificationItem(props) {
   };
 
   return React.createElement(
-    'div',
-    { className: 'notification-item ' + props.theme, onClick: hideNotification },
-    React.createElement('p', { className: 'notification-title' }, props.title),
-    React.createElement('p', { className: 'notification-body' }, props.msg)
+    "div",
+    {
+      className: "notification-item " + props.theme,
+      onClick: hideNotification,
+    },
+    React.createElement("p", { className: "notification-title" }, props.title),
+    React.createElement("p", { className: "notification-body" }, props.msg)
   );
 }
 
@@ -27,27 +30,35 @@ class Notifications extends React.Component {
   }
 
   show = (msg, type) => {
-    this.addNotification('', msg, defaultDurationMilliseconds, type);
+    this.addNotification("", msg, defaultDurationMilliseconds, type);
   };
 
   success = (title, msg, duration) => {
-    this.addNotification(title, msg, duration, 'success');
+    this.addNotification(title, msg, duration, "success");
   };
 
   error = (title, msg, duration) => {
-    this.addNotification(title, msg, duration, 'error');
+    this.addNotification(title, msg, duration, "error");
   };
 
   info = (title, msg, duration) => {
-    this.addNotification(title, msg, duration, 'info');
+    this.addNotification(title, msg, duration, "info");
   };
 
   addNotification = (title, msg, duration, type) => {
     var n = this.state.notifications;
     var newNotificationKey = this.state.currentNotificationKey;
     newNotificationKey = newNotificationKey++;
-    n[newNotificationKey] = { title: title, msg: msg, duration: duration, theme: type };
-    this.setState({ currentNotificationKey: newNotificationKey, notifications: n });
+    n[newNotificationKey] = {
+      title: title,
+      msg: msg,
+      duration: duration,
+      theme: type,
+    };
+    this.setState({
+      currentNotificationKey: newNotificationKey,
+      notifications: n,
+    });
     this.hideAfterDurationElapses(duration, newNotificationKey);
   };
 
@@ -64,7 +75,7 @@ class Notifications extends React.Component {
   };
 
   render() {
-    var topStyle = window.pageYOffset + 'px';
+    var topStyle = window.pageYOffset + "px";
     var hide = this.hideNotification;
     var el = this.state.notifications.map((notification, key) => {
       return React.createElement(NotificationItem, {
@@ -73,10 +84,14 @@ class Notifications extends React.Component {
         theme: notification.theme,
         hideNotification: hide,
         title: notification.title,
-        msg: notification.msg
+        msg: notification.msg,
       });
     });
-    return React.createElement('div', { style: { top: topStyle }, className: 'notification-container' }, el);
+    return React.createElement(
+      "div",
+      { style: { top: topStyle }, className: "notification-container" },
+      el
+    );
   }
 }
 

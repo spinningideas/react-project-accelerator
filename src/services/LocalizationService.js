@@ -1,18 +1,18 @@
 ﻿const supportedLanguageMap = {
-  enUS: 'English',
-  zhCN: 'Chinese',
-  esES: 'Spanish',
+  enUS: "English",
+  zhCN: "Chinese",
+  esES: "Spanish",
 };
 
 const LocalizationService = () => {
-  const defaultLocale = 'enUS';
+  const defaultLocale = "enUS";
 
   const getLocales = () => {
     return supportedLanguageMap;
   };
 
   const getUserLocale = () => {
-    let locale = window.localStorage.getItem('locale');
+    let locale = window.localStorage.getItem("locale");
     if (locale) {
       return locale;
     }
@@ -20,7 +20,7 @@ const LocalizationService = () => {
   };
 
   const setUserLocale = (loc) => {
-    window.localStorage.setItem('locale', loc);
+    window.localStorage.setItem("locale", loc);
   };
 
   const getCurrentLocale = () => {
@@ -63,7 +63,7 @@ const LocalizationService = () => {
         return response.json();
       })
       .catch((err) => {
-        let msg = 'Error Reading data ' + err;
+        let msg = "Error Reading data " + err;
         console.log(msg);
       });
   };

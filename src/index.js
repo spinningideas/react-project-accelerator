@@ -1,24 +1,24 @@
 // React
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter as Router } from "react-router-dom";
 // Theme - material-ui
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import theme from 'theming';
+import { ThemeProvider } from "@mui/material/styles";
 // App
-import 'styles/Application.scss';
-import Application from 'Application';
-import ErrorHandler from 'components/ErrorHandler';
-import { APPBASEPATH } from 'utils';
+import { theme } from "styling/theming";
+import "styling/Application.scss";
+import Application from "Application";
+// import ErrorHandler from "components/ErrorHandler";
+import { APPBASEPATH } from "utils";
 
 const AppShell = () => (
-  <ErrorHandler>
-    <MuiThemeProvider theme={theme}>
-      <Router basename={APPBASEPATH}>
-        <Application />
-      </Router>
-    </MuiThemeProvider>
-  </ErrorHandler>
+  <ThemeProvider theme={theme}>
+    <Router basename={APPBASEPATH}>
+      <Application />
+    </Router>
+  </ThemeProvider>
 );
 
-ReactDOM.render(<AppShell />, document.getElementById('appshell'));
+const container = document.getElementById("appshell");
+const root = createRoot(container);
+root.render(<AppShell />);
