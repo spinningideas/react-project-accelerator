@@ -1,9 +1,15 @@
 export const APPBASEPATH = "react-project-accelerator";
 
-export const reloadWindow = () => {
+export const reloadWindow = (route) => {
+  const routeReloadSegment = route ? route : "";
   window.location = window.location.origin
-    ? window.location.origin + "/" + APPBASEPATH
-    : window.location.protocol + "/" + window.location.host + "/" + APPBASEPATH;
+    ? window.location.origin + "/" + APPBASEPATH + routeReloadSegment
+    : window.location.protocol +
+      "/" +
+      window.location.host +
+      "/" +
+      APPBASEPATH +
+      routeReloadSegment;
 };
 
 export function capitalize(value) {
