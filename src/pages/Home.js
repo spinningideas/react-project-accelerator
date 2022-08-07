@@ -74,7 +74,7 @@ function Home() {
     setUserIpAddressState("");
     setIsLoadingState(true);
     await geoService.getCurrentIPAddress().then((response) => {
-      if (response) {
+      if (response && response.ip) {
         setUserIpAddressState(response.message);
         setIsLoadingState(false);
       } else {

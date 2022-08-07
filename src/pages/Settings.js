@@ -12,19 +12,34 @@ import Button from "@mui/material/Button";
 // Icons
 import CheckIcon from "@mui/icons-material/Check";
 // Services
+import LocalizationService from "services/LocalizationService";
 import LocalCacheService from "services/LocalCacheService";
 // Components
 import Notifications from "components/Shared/Notifications";
 
 function Settings() {
+  const [locData, setLocData] = useState({});
   const [settingsState, setSettingsState] = useState(DEFAULT_COLOR_SETTING);
 
+  const localizationService = LocalizationService();
   const localCacheService = LocalCacheService();
 
   const notificationsRef = useRef(null);
 
   useEffect(() => {
-    let colorSetting = localCacheService.get("color", "blue");
+    async function loadLocalization() {
+      const locCode = localizationService.getUserLocale();
+      const locDataLoaded = await localizationService.getLocalizedTextSet(
+        ["settings", "settingscolor", "settingsdescription", "success"],
+        locCode
+      );
+      setLocData(locDataLoaded);
+    }
+    loadLocalization();
+  }, []);
+
+  useEffect(() => {
+    let colorSetting = localCacheService.get("color", DEFAULT_COLOR_SETTING);
 
     setSettingsState(colorSetting);
   }, []);
@@ -32,7 +47,12 @@ function Settings() {
   const setColor = (color) => {
     localCacheService.set("color", color);
     setSettingsState(color);
+    showNotification(locData.success, "success");
     reloadWindow();
+  };
+
+  const showNotification = (message, type) => {
+    notificationsRef.current.show(message, type);
   };
 
   const ColorButtons = () => {
@@ -98,14 +118,12 @@ function Settings() {
     >
       <Card>
         <CardContent className="main-contentgrid p-0 m-0">
-          <h3>Settings</h3>
+          <h3>{locData.settings}</h3>
 
           <Card>
             <CardContent>
-              <h4 className="card-title">Color</h4>
-              <p className="card-text">
-                Choose a primary color for the application theme
-              </p>
+              <h4 className="card-title">{locData.settingscolor}</h4>
+              <p className="card-text">{locData.settingsdescription}</p>
             </CardContent>
             <CardActions>
               <ColorButtons />
