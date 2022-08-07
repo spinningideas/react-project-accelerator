@@ -9,7 +9,7 @@ The project aims to include most of the basic things one needs and includes:
 - use of a layout to layout the application pages
 - use of HttpClient to call external REST API from local services
 - use of local storage to cache a user setting via LocalCacheService
-- testing via @testing-library/react and
+- testing via @testing-library/react and helper libraries
 - use of sass
 - icons via @mui/icons-material
 
@@ -65,7 +65,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 - https://github.com/spinningideas/resources/wiki/React-JS
 - https://github.com/spinningideas/resources/wiki/React-JS-Folder-Structure
-
-### Other Starter Kits
-
-- https://github.com/chawk/bare_bones_react
