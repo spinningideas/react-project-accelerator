@@ -12,7 +12,11 @@ class ErrorHandler extends React.Component {
   }
   render() {
     if (this.state.hasError) {
-      return <h3>Something went wrong. Please reload the page to continue</h3>;
+      return (
+        <div sx={{ margin: 2 }}>
+          <h3>Something went wrong. Please reload the page to continue</h3>
+        </div>
+      );
     }
     return this.props.children;
   }

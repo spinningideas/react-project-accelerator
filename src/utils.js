@@ -6,6 +6,13 @@ export const reloadWindow = () => {
     : window.location.protocol + "/" + window.location.host + "/" + APPBASEPATH;
 };
 
+export function capitalize(value) {
+  if (value && value.length > 0) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+  return value;
+}
+
 export const pascalCaseUnHyphenated = (value) => {
   return (value || "").toLowerCase().replace(/(\b|-)\w/g, function (m) {
     return m.toUpperCase().replace(/-/, " ");

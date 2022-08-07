@@ -8,15 +8,17 @@ import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "styling/theming";
 import "styling/Application.scss";
 import Application from "Application";
-// import ErrorHandler from "components/ErrorHandler";
+import ErrorHandler from "components/ErrorHandler";
 import { APPBASEPATH } from "utils";
 
 const AppShell = () => (
-  <ThemeProvider theme={theme}>
-    <Router basename={APPBASEPATH}>
-      <Application />
-    </Router>
-  </ThemeProvider>
+  <ErrorHandler>
+    <ThemeProvider theme={theme}>
+      <Router basename={APPBASEPATH}>
+        <Application />
+      </Router>
+    </ThemeProvider>
+  </ErrorHandler>
 );
 
 const container = document.getElementById("appshell");

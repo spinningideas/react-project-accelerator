@@ -51,6 +51,15 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - [formik](https://jaredpalmer.com/formik/)
 - [formik-material-ui](https://stackworx.github.io/formik-material-ui/)
 
+### Icons
+
+- https://mui.com/material-ui/material-icons/
+
+### React Application Building
+
+- https://github.com/spinningideas/resources/wiki/React-JS
+- https://github.com/spinningideas/resources/wiki/React-JS-Folder-Structure
+
 ### Other Starter Kits
 
 - https://github.com/chawk/bare_bones_react

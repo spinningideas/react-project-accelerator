@@ -144,7 +144,8 @@ export default function Contact(props) {
                     <CardActions>
                       <Button
                         className="ml-2"
-                        color="secondary"
+                        color="primary"
+                        variant="contained"
                         disabled={formIsSubmitting}
                         onClick={submitForm}
                       >
