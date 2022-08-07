@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { capitalize } from "utils";
+import { capitalize, reloadWindow } from "utils";
 import { colors } from "styling/colors";
 import { DEFAULT_COLOR_SETTING } from "styling/theming";
 // Material UI
@@ -32,7 +32,7 @@ function Settings() {
   const setColor = (color) => {
     localCacheService.set("color", color);
     setSettingsState(color);
-    window.location.reload();
+    reloadWindow("/settings");
   };
 
   const ColorButtons = () => {
