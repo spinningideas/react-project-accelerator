@@ -1,9 +1,19 @@
 import React from "react";
-import { render } from "@testing-library/react";
-import Application from "./Application";
+import { act, render } from "@testing-library/react";
+import { screen } from "@testing-library/dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import Application from "Application";
 
-test("renders welcome text", () => {
-  const { getByText } = render(<Application />);
-  const linkElement = getByText(/welcome/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders get-started-message element", async () => {
+  await act(async () =>
+    render(
+      <Router>
+        <Application />
+      </Router>
+    )
+  );
+
+  const container = document.querySelector("#application-container");
+
+  expect(container).toBeDefined();
 });

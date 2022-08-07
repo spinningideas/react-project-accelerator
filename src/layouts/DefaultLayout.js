@@ -28,9 +28,11 @@ const styles = {
   },
 };
 
-function DefaultLayout({ selectedMenuItemKey }) {
+function DefaultLayout() {
   const [userSignedIn, setUserSignedIn] = useState(false);
   const location = useLocation();
+
+  const selectedMenuItemKey = location.pathname;
 
   const authService = AuthService();
   const analyticsService = AnalyticsService();
@@ -44,7 +46,6 @@ function DefaultLayout({ selectedMenuItemKey }) {
     // Route Change Detection
     if (location) {
       analyticsService.trackPageView(location.pathname);
-      window.scrollTo(0, 0);
     }
   }, [location]);
 
@@ -61,7 +62,7 @@ function DefaultLayout({ selectedMenuItemKey }) {
   return (
     <>
       <CssBaseline />
-      <Grid container sx={styles.root} spacing={0}>
+      <Grid container sx={styles.root} spacing={0} id="application-container">
         <Grid item sx={styles.appbar} xs={12}>
           <Navigation
             selectedMenuItemKey={selectedMenuItemKey}
