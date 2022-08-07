@@ -1,6 +1,10 @@
 # dependencies
 /node_modules
 
+# test generated assets - ignore __snapshots__ output folder AND .snap files
+/__snapshots__
+*.snap
+
 # production - ignore build output folder
 /build
 

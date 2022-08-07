@@ -8,7 +8,7 @@ function GetStartedMessage(props) {
   return (
     <Grid container spacing={0}>
       <Grid item xs={12}>
-        <p className="whitetext">{props.locData.getstartedmessage}</p>
+        <p className="whitetext" id="get-started-message">{props.locData.getstartedmessage}</p>
       </Grid>
     </Grid>
   );

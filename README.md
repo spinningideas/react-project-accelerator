@@ -1,11 +1,17 @@
-React Project Accelerator was conceived to aid starting React JS projects and provide a reference implementation for bootstrapping projects. The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [react material ui](https://material-ui.com/) for its UX.
+React Project Accelerator was conceived to aid starting React JS projects and provide a reference implementation for bootstrapping projects. The project was itself bootstrapped from [create react app](https://reactjs.org/docs/create-a-new-react-app.html) and uses [react material ui](https://mui.com/) for its UX.
+
+This application has a folder structure roughly matching https://github.com/spinningideas/resources/wiki/React-JS-Folder-Structure with the omission of redux and contexts/hooks folders for simplicity.
 
 The project aims to include most of the basic things one needs and includes:
 
 - localization and authorization via services based approach using hooks to manage state.
+- forms and validation via [formik](https://jaredpalmer.com/formik/) and [formik-material-ui](https://stackworx.github.io/formik-mui/)
+- use of a layout to layout the application pages
+- use of HttpClient to call external REST API from local services
+- use of local storage to cache a user setting via LocalCacheService
+- testing via @testing-library/react and
 - use of sass
-- forms and validation via [formik](https://jaredpalmer.com/formik/) and [formik-material-ui](https://stackworx.github.io/formik-material-ui/)
-- use of HttpClient to call external REST API
+- icons via @mui/icons-material
 
 ## Live Demo
 
