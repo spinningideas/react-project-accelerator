@@ -4,10 +4,10 @@ import { appGrey, getColor } from "styling/colors";
 import LocalCacheService from "services/LocalCacheService";
 
 const DEFAULT_THEME_SETTING = "light";
-const DEFAULT_COLOR_SETTING = "blue";
-const storageService = LocalCacheService();
-const themeSetting = storageService.get("theme", DEFAULT_THEME_SETTING);
-const colorSetting = storageService.get("color", DEFAULT_COLOR_SETTING);
+export const DEFAULT_COLOR_SETTING = "blue";
+const localCacheService = LocalCacheService();
+const themeSetting = localCacheService.get("theme", DEFAULT_THEME_SETTING);
+const colorSetting = localCacheService.get("color", DEFAULT_COLOR_SETTING);
 
 let appPrimaryColor = getColor(colorSetting);
 
@@ -138,7 +138,7 @@ export const theme = createTheme({
       ],
       styleOverrides: {
         root: {
-          backgroundColor: appLightGrey,
+          backgroundColor: "transparent",
           color: appPrimaryDark,
           borderRadius: 0,
           paddingLeft: 10,

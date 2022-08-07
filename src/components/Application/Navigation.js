@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // material-ui Components
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -14,7 +15,7 @@ import Home from "@mui/icons-material/Home";
 import Info from "@mui/icons-material/Info";
 import Email from "@mui/icons-material/Email";
 import MenuIcon from "@mui/icons-material/Menu";
-// services
+import SettingsIcon from "@mui/icons-material/Settings";// services
 import LocalizationService from "services/LocalizationService";
 // Components
 import AppTitle from "components/Application/AppTitle";
@@ -59,6 +60,7 @@ function Navigation(props) {
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
 
   const localizationService = LocalizationService();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadLocalization() {
@@ -73,6 +75,7 @@ function Navigation(props) {
           "contact",
           "about",
           "cancel",
+          "settings",
         ],
         locCode
       );
@@ -99,6 +102,13 @@ function Navigation(props) {
     props.handleSignOut();
   };
 
+  const menuItemIsSelected = (menuItemKey, locationPath) => {
+    if (menuItemKey && locationPath) {
+      return menuItemKey === locationPath;
+    }
+    return false;
+  };
+
   return (
     <div sx={styles.root}>
       <AppBar position="static" sx={styles.appBar}>
@@ -106,13 +116,23 @@ function Navigation(props) {
           <IconButton
             edge="start"
             onClick={() => toggleDrawerOpen()}
-            sx={styles.menuButton}
             color="inherit"
             aria-label="menu"
           >
             <MenuIcon />
           </IconButton>
           <AppTitle locData={locData} />
+          <Button
+            onClick={() => {
+              closeDrawer();
+              navigate("/settings");
+            }}
+            aria-label="settings"
+            color="secondary"
+            sx={{ marginRight: 1 }}
+          >
+            <SettingsIcon />
+          </Button>
           <LanguageSelection localizationService={localizationService} />
           <AuthButton
             locData={locData}
@@ -165,6 +185,22 @@ function Navigation(props) {
               <Email />
             </ListItemIcon>
             <ListItemText primary={locData.contact} />
+          </ListItem>
+          <ListItem
+            button
+            sx={styles.sideMenuListItem}
+            onClick={closeDrawer}
+            component={Link}
+            to="/settings"
+            selected={menuItemIsSelected(
+              props.selectedMenuItemKey,
+              "/settings"
+            )}
+          >
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary={locData.settings} />
           </ListItem>
           <ListItem
             button

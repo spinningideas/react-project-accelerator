@@ -1,6 +1,6 @@
 {
   "name": "react-project-accelerator",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "private": true,
   "description": "React JS project accelerator that can serve as reference for bootstrapping projects. Includes localization and authorization via services based approach using hooks to manage state",
   "homepage": "https://spinningideas.github.io/react-project-accelerator/",

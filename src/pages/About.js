@@ -60,6 +60,7 @@ export default function About() {
                 <Button
                   className="ml-2"
                   color="secondary"
+                  variant="contained"
                   href="https://facebook.github.io/react/index.html"
                   target="_blank"
                   rel="noopener"
@@ -80,6 +81,7 @@ export default function About() {
                 <Button
                   className="ml-2"
                   color="secondary"
+                  variant="contained"
                   href="https://material-ui.com/"
                   target="_blank"
                   rel="noopener"
@@ -100,6 +102,7 @@ export default function About() {
                 <Button
                   className="ml-2"
                   color="secondary"
+                  variant="contained"
                   href="https://create-react-app.dev/"
                   target="_blank"
                   rel="noopener"

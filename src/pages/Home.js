@@ -119,7 +119,7 @@ function Home() {
 
             <Grid container>
               <Grid item xs={12} className="pt-1 pb-1">
-                <Card>
+                <Card className="card white-bg-color bl-1 bb-1">
                   <CardContent>
                     <h4 className="card-title">{locData.notifications}</h4>
                     <p>{locData.notificationsdescription}</p>
@@ -128,6 +128,7 @@ function Home() {
                     <Button
                       className="ml-2"
                       color="secondary"
+                      variant="contained"
                       onClick={() =>
                         showNotification(locData.success, "success")
                       }
@@ -137,6 +138,7 @@ function Home() {
                     <Button
                       className="ml-2"
                       color="secondary"
+                      variant="contained"
                       onClick={() => showNotification(locData.error, "error")}
                     >
                       {locData.error}
@@ -157,6 +159,7 @@ function Home() {
                     <Button
                       className="ml-2"
                       color="secondary"
+                      variant="contained"
                       onClick={() => setModalDemoState(true)}
                     >
                       {locData.view}
@@ -172,6 +175,7 @@ function Home() {
                   <p>{locData.homepagewelcome}</p>
                   <Button
                     color="secondary"
+                    variant="contained"
                     onClick={() => setModalDemoState(false)}
                   >
                     {locData.close}
@@ -182,13 +186,14 @@ function Home() {
 
             <Grid container>
               <Grid item xs={12} className="pt-1">
-                <Card>
+                <Card className="card white-bg-color bl-1 bb-1">
                   <CardContent>
                     <h4 className="card-title">{locData.services}</h4>
                     <p>{locData.serviceexampledescription}</p>
                     <Button
                       className="mt-3"
                       color="secondary"
+                      variant="contained"
                       onClick={showIpAddressUsingHttpClient}
                     >
                       {locData.serviceexampletitle}
@@ -208,6 +213,7 @@ function Home() {
                     <Button
                       className="mt-3"
                       color="secondary"
+                      variant="contained"
                       component={Link}
                       to="/contact/testnameparam"
                     >

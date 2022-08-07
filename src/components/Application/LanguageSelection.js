@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { reloadWindow } from "utils";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { reloadWindow } from "utils";
+import TranslateIcon from "@mui/icons-material/Translate";
 
 const LanguageSelection = (props) => {
   const [anchorEl, setAnchorEl] = useState(undefined);
@@ -32,7 +33,7 @@ const LanguageSelection = (props) => {
         color="secondary"
         sx={{ marginRight: 1 }}
       >
-        Language
+        <TranslateIcon />
       </Button>
       <Menu
         id="language-menu"
