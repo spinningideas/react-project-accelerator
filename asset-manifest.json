@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "https://spinningideas.github.io/react-project-accelerator/static/css/main.531d498f.css",
-    "main.js": "https://spinningideas.github.io/react-project-accelerator/static/js/main.3043bfa0.js",
+    "main.js": "https://spinningideas.github.io/react-project-accelerator/static/js/main.c2331786.js",
     "static/js/304.860691eb.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/304.860691eb.chunk.js",
     "static/js/964.aabedf9b.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/964.aabedf9b.chunk.js",
     "static/js/562.215c6828.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/562.215c6828.chunk.js",
-    "static/js/794.37667249.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/794.37667249.chunk.js",
+    "static/js/794.73d75895.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/794.73d75895.chunk.js",
     "static/js/392.8a7bab4e.chunk.js": "https://spinningideas.github.io/react-project-accelerator/static/js/392.8a7bab4e.chunk.js",
     "index.html": "https://spinningideas.github.io/react-project-accelerator/index.html",
     "main.531d498f.css.map": "https://spinningideas.github.io/react-project-accelerator/static/css/main.531d498f.css.map",
-    "main.3043bfa0.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/main.3043bfa0.js.map",
+    "main.c2331786.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/main.c2331786.js.map",
     "304.860691eb.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/304.860691eb.chunk.js.map",
     "964.aabedf9b.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/964.aabedf9b.chunk.js.map",
     "562.215c6828.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/562.215c6828.chunk.js.map",
-    "794.37667249.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/794.37667249.chunk.js.map",
+    "794.73d75895.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/794.73d75895.chunk.js.map",
     "392.8a7bab4e.chunk.js.map": "https://spinningideas.github.io/react-project-accelerator/static/js/392.8a7bab4e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.531d498f.css",
-    "static/js/main.3043bfa0.js"
+    "static/js/main.c2331786.js"
   ]
 }
