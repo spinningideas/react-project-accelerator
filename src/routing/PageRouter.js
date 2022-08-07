@@ -18,8 +18,8 @@ const PageRouter = (
         element={<ContactPage />}
       />
       <Route path="/contact" key="contact" element={<ContactPage />} />
-      <Route path="/settings" key="contact" element={<SettingsPage />} />
-      <Route path="*" element={<HomePage />} />;
+      <Route path="/settings" key="settings" element={<SettingsPage />} />
+      <Route path="*" key="404" element={<HomePage />} />;
     </Routes>
   </Suspense>
 );
