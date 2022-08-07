@@ -32,7 +32,7 @@ function Settings() {
   const setColor = (color) => {
     localCacheService.set("color", color);
     setSettingsState(color);
-    reloadWindow("/settings");
+    reloadWindow();
   };
 
   const ColorButtons = () => {
