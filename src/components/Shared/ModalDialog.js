@@ -9,7 +9,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
 import Slide from "@mui/material/Slide";
-import { TransitionProps } from "@mui/material/transitions";
 import CloseIcon from "@mui/icons-material/Close";
 /* 
 Example Usage:
@@ -22,12 +21,7 @@ Example Usage:
 	</ModalDialog>
 */
 
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement,
-  },
-  ref: React.Ref
-) {
+const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
