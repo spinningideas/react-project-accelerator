@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 // material-ui
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -11,7 +12,7 @@ import AuthService from "services/AuthService";
 import LocalizationService from "services/LocalizationService";
 import GeoService from "services/GeoService";
 // components
-import Modal from "components/Shared/Modal";
+import ModalDialog from "components/Shared/ModalDialog";
 import Notifications from "components/Shared/Notifications";
 import LoadingIndicator from "components/Shared/LoadingIndicator";
 import GetStartedMessage from "components/Home/GetStartedMessage";
@@ -167,20 +168,27 @@ function Home() {
                   </CardActions>
                 </Card>
 
-                <Modal
-                  isOpen={modalDemoState}
+                <ModalDialog
+                  title={locData.welcome}
+                  open={modalDemoState}
                   onClose={() => setModalDemoState(false)}
                 >
-                  <h1>{locData.welcome}</h1>
-                  <p>{locData.homepagewelcome}</p>
-                  <Button
-                    color="secondary"
-                    variant="contained"
-                    onClick={() => setModalDemoState(false)}
-                  >
-                    {locData.close}
-                  </Button>
-                </Modal>
+                  <Box sx={{ display: "flex", flexDirection: "column", p: 2 }}>
+                    <Box>
+                      <h1>{locData.welcome}</h1>
+                    </Box>
+                    <Box sx={{ p: 2 }}>{locData.homepagewelcome}</Box>
+                    <Box sx={{ p: 2 }}>
+                      <Button
+                        color="secondary"
+                        variant="contained"
+                        onClick={() => setModalDemoState(false)}
+                      >
+                        {locData.close}
+                      </Button>
+                    </Box>
+                  </Box>
+                </ModalDialog>
               </Grid>
             </Grid>
 
