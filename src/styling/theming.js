@@ -207,6 +207,25 @@ export const theme = createTheme({
             },
           },
         },
+        {
+          props: { variant: "rounded" },
+          style: {
+            margin: 0,
+            borderRadius: 36,
+            padding: 8,
+            paddingLeft: 8,
+            backgroundColor: "transparent",
+            color: "text.default",
+            "&:hover": {
+              backgroundColor: appLightGrey,
+              color: appPrimaryDark,
+            },
+            "&:focus": {
+              backgroundColor: appLightGrey,
+              color: appPrimaryDark,
+            },
+          },
+        },
       ],
     },
     MuiCard: {
