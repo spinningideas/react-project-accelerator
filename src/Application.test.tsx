@@ -1,6 +1,5 @@
 import React from "react";
 import { act, render } from "@testing-library/react";
-import { screen } from "@testing-library/dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Application from "Application";
 

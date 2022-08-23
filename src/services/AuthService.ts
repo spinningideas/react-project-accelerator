@@ -1,4 +1,4 @@
-﻿const AuthService = () => {
+const AuthService = () => {
   const userHasSignedIn = () => {
     let signedInVal = window.localStorage.getItem("usersignedin");
     if (signedInVal) {

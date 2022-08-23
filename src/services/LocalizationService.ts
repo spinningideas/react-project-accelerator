@@ -1,4 +1,4 @@
-﻿const supportedLanguageMap = {
+const supportedLanguageMap = {
   enUS: "English",
   zhCN: "Chinese",
   esES: "Spanish",

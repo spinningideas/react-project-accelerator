@@ -10,13 +10,13 @@ const styles = {
   },
 };
 
-const AppTitle = (props) => {
+const AppTitle = ({ locData }: { locData: Record<string, string> }) => {
   const theme = useTheme();
   const isNotMobileViewport = useMediaQuery(theme.breakpoints.up("sm"));
   if (isNotMobileViewport) {
     return (
       <Typography variant="h6" sx={styles.appTitle}>
-        {props.locData.apptitle}
+        {locData.apptitle}
       </Typography>
     );
   }

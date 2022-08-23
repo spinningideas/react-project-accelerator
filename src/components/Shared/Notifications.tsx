@@ -24,6 +24,7 @@ function NotificationItem(props) {
 // TODO: see if there is a way to convert this into functional component
 // to remove this and adhere to guidance on strong preference for functional components
 class Notifications extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = { currentNotificationKey: 0, notifications: [] };

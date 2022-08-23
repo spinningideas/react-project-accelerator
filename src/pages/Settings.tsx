@@ -18,13 +18,15 @@ import LocalCacheService from "services/LocalCacheService";
 import Notifications from "components/Shared/Notifications";
 
 function Settings() {
-  const [locData, setLocData] = useState({});
-  const [settingsState, setSettingsState] = useState(DEFAULT_COLOR_SETTING);
+  const [locData, setLocData] = useState<Record<string, string>>({});
+  const [settingsState, setSettingsState] = useState<string>(
+    DEFAULT_COLOR_SETTING
+  );
 
   const localizationService = LocalizationService();
   const localCacheService = LocalCacheService();
 
-  const notificationsRef = useRef(null);
+  const notificationsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function loadLocalization() {
@@ -52,7 +54,9 @@ function Settings() {
   };
 
   const showNotification = (message, type) => {
-    notificationsRef.current.show(message, type);
+    if (notificationsRef.current && notificationsRef.current.show) {
+      notificationsRef.current.show(message, type);
+    }
   };
 
   const ColorButtons = () => {

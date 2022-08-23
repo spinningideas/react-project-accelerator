@@ -18,17 +18,17 @@ import LoadingIndicator from "components/Shared/LoadingIndicator";
 import GetStartedMessage from "components/Home/GetStartedMessage";
 
 function Home() {
-  const [userSignedIn, setUserSignedIn] = useState(false);
-  const [locData, setLocData] = useState({});
-  const [modalDemoState, setModalDemoState] = useState(false);
-  const [userIpAddressState, setUserIpAddressState] = useState("");
-  const [isLoadingState, setIsLoadingState] = useState(false);
+  const [userSignedIn, setUserSignedIn] = useState<boolean>(false);
+  const [locData, setLocData] = useState<Record<string, string>>({});
+  const [modalDemoState, setModalDemoState] = useState<boolean>(false);
+  const [userIpAddressState, setUserIpAddressState] = useState<string>("");
+  const [isLoadingState, setIsLoadingState] = useState<boolean>(false);
 
   const authService = AuthService();
   const localizationService = LocalizationService();
   const geoService = GeoService();
 
-  const notificationsRef = useRef(null);
+  const notificationsRef = React.forwardRef<typeof Notifications>();
 
   useEffect(() => {
     let userHasSignedIn = authService.userHasSignedIn();
@@ -89,7 +89,7 @@ function Home() {
     if (!isLoadingState && userIpAddressState.length > 0) {
       return <p className="mt-2">{userIpAddressState}</p>;
     } else {
-      return <LoadingIndicator display={isLoadingState} size={20} />;
+      return <LoadingIndicator loading={isLoadingState} size={20} />;
     }
   };
 

@@ -3,7 +3,17 @@ import { getPrimaryColor } from "styling/theming";
 import CircularProgress from "@mui/material/CircularProgress";
 
 /* "Loading..."  Component which encapsulates presenting UI indication that something is loading */
-const LoadingIndicator = ({ color, loading, margin = 6, size = 100 }) => {
+const LoadingIndicator = ({
+  color,
+  loading = false,
+  margin = 6,
+  size = 100,
+}: {
+  color?: string;
+  loading?: boolean;
+  margin?: number;
+  size?: number;
+}) => {
   const primaryColorCircularProgress = color ? color : getPrimaryColor();
 
   if (loading === undefined || loading === false) {

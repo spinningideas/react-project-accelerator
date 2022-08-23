@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const getWindowHeight = () => {
+export const getWindowHeight = (): number => {
   return (
     window.innerHeight ||
     document.documentElement.clientHeight ||
@@ -8,7 +8,7 @@ export const getWindowHeight = () => {
   );
 };
 
-export const getWindowWidth = () => {
+export const getWindowWidth = (): number => {
   return (
     window.innerWidth ||
     document.documentElement.clientWidth ||

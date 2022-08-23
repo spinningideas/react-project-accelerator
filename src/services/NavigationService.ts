@@ -1,4 +1,4 @@
-﻿const NavigationService = () => {
+const NavigationService = () => {
   const navigate = (props, route, params) => {
     if (props && props.replace) {
       props.replace({

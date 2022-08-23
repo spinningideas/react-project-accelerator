@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Encapsulates all outbound http communication from the application to get/set data
 	and forms	the basic building block and adaptor for http requests made by the application.
 	Also provides way to set auth headers needed by some requests

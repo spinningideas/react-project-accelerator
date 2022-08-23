@@ -21,6 +21,6 @@ const AppShell = () => (
   </ErrorHandler>
 );
 
-const container = document.getElementById("appshell");
-const root = createRoot(container);
-root.render(<AppShell />);
+const containerAppShell = document.getElementById("appshell");
+const appShellRoot = createRoot(containerAppShell);
+appShellRoot.render(<AppShell />);

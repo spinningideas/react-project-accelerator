@@ -14,9 +14,9 @@ import Notifications from "components/Shared/Notifications";
 import LocalizationService from "services/LocalizationService";
 
 export default function Contact(props) {
-  const [locData, setLocData] = useState({});
-  const [formIsSubmitting, setFormIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
+  const [locData, setLocData] = useState<Record<string, string>>({});
+  const [formIsSubmitting, setFormIsSubmitting] = useState<boolean>(false);
+  const [formData, setFormData] = useState<object>({
     name:
       props.match && props.match.params && props.match.params.name
         ? props.match.params.name
@@ -27,7 +27,7 @@ export default function Contact(props) {
 
   const localizationService = LocalizationService();
 
-  const notificationsRef = useRef(null);
+  const notificationsRef = useRef<React.Component>(null);
 
   useEffect(() => {
     async function loadLocalization() {
@@ -63,7 +63,9 @@ export default function Contact(props) {
   };
 
   const showNotification = (message, type) => {
-    notificationsRef.current.show(message, type);
+    if (notificationsRef.current && notificationsRef.current.show) {
+      notificationsRef.current.show(message, type);
+    }
   };
 
   return (
