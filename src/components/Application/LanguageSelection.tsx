@@ -5,7 +5,11 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import TranslateIcon from "@mui/icons-material/Translate";
 
-const LanguageSelection = (props) => {
+const LanguageSelection = ({
+  setUserLocale,
+}: {
+  setUserLocale: (locale: string) => void;
+}) => {
   const [anchorEl, setAnchorEl] = useState(undefined);
 
   const languageSelectionOpen = (event) => {
@@ -19,7 +23,7 @@ const LanguageSelection = (props) => {
   };
 
   const languageSelectionMakeChoice = (locale) => {
-    props.localizationService.setUserLocale(locale);
+    setUserLocale(locale);
     setAnchorEl(undefined);
     reloadWindow();
   };

@@ -1,6 +1,6 @@
 export const APPBASEPATH = "react-project-accelerator";
 
-export const reloadWindow = (route) => {
+export const reloadWindow = (route?: string): void => {
   const routeReloadSegment = route ? route : "";
   window.location = window.location.origin
     ? window.location.origin + "/" + APPBASEPATH + routeReloadSegment

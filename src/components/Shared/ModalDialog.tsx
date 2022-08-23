@@ -1,4 +1,4 @@
-﻿import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { getWindowHeight, getWindowWidth } from "hooks/useWindow";
 // Material UI
 import { useTheme } from "@mui/material/styles";
@@ -33,8 +33,16 @@ const ModalDialog = ({
   width = 500,
   height,
   children,
+}: {
+  title: string;
+  open: boolean;
+  onClose: () => void;
+  fullScreen: boolean;
+  width?: number;
+  height: number;
+  children: JSX.Element;
 }) => {
-  const modalDialogTopRef = useRef(null);
+  const modalDialogTopRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
   const isMobileViewport = useMediaQuery(theme.breakpoints.down("md"));
 

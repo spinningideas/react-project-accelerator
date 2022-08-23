@@ -8,7 +8,7 @@ const ContactPage = React.lazy(() => import("pages/Contact"));
 const SettingsPage = React.lazy(() => import("pages/Settings"));
 
 const PageRouter = (
-  <Suspense fallback={<LoadingIndicator />}>
+  <Suspense fallback={<LoadingIndicator loading />}>
     <Routes>
       <Route path="/" key="home" element={<HomePage />} />
       <Route path="/about" key="about" element={<AboutPage />} />

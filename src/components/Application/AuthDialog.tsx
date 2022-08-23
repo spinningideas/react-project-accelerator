@@ -6,42 +6,52 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 
-function AuthDialog(props) {
+function AuthDialog({
+  open,
+  handleSignIn,
+  handleSignInCancel,
+  locData,
+  content,
+}: {
+  open: boolean;
+  handleSignIn: () => void;
+  handleSignInCancel: () => void;
+  locData: Record<string, string>;
+  content?: string;
+}) {
   const handleCancelClose = () => {
-    props.handleSignInCancel(false);
+    handleSignInCancel();
   };
 
   const handleSignInClose = () => {
-    props.handleSignIn();
+    handleSignIn();
   };
 
   return (
     <div>
       <Dialog
-        open={props.open}
+        open={open}
         aria-labelledby="dialog-title"
         aria-describedby="dialog-description"
       >
-        <DialogTitle id="dialog-title">
-          {props.locData.signindescription}
-        </DialogTitle>
-        {props.content && (
+        <DialogTitle id="dialog-title">{locData.signindescription}</DialogTitle>
+        {content && (
           <DialogContent>
             <DialogContentText id="dialog-description">
-              {props.content}
+              {content}
             </DialogContentText>
           </DialogContent>
         )}
         <DialogActions>
-          <Button variant="secondary" onClick={() => handleCancelClose(false)}>
-            {props.locData.cancel}
+          <Button variant="secondary" onClick={() => handleCancelClose()}>
+            {locData.cancel}
           </Button>
           <Button
-            onClick={() => handleSignInClose(true)}
+            onClick={() => handleSignInClose()}
             variant="primary"
             autoFocus
           >
-            {props.locData.signin}
+            {locData.signin}
           </Button>
         </DialogActions>
       </Dialog>

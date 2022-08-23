@@ -15,7 +15,7 @@ import Home from "@mui/icons-material/Home";
 import Info from "@mui/icons-material/Info";
 import Email from "@mui/icons-material/Email";
 import MenuIcon from "@mui/icons-material/Menu";
-import SettingsIcon from "@mui/icons-material/Settings";// services
+import SettingsIcon from "@mui/icons-material/Settings"; // services
 import LocalizationService from "services/LocalizationService";
 // Components
 import AppTitle from "components/Application/AppTitle";
@@ -54,8 +54,18 @@ const styles = {
   },
 };
 
-function Navigation(props) {
-  const [locData, setLocData] = useState({});
+function Navigation({
+  selectedMenuItemKey,
+  userSignedIn = false,
+  handleSignIn,
+  handleSignOut,
+}: {
+  selectedMenuItemKey?: string;
+  userSignedIn: boolean;
+  handleSignIn: () => void;
+  handleSignOut: () => void;
+}) {
+  const [locData, setLocData] = useState<Record<string, string>>({});
   const [openNavigation, setOpenNavigation] = useState(false);
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
 
@@ -95,11 +105,11 @@ function Navigation(props) {
 
   const handleSignInClick = () => {
     setSignInDialogOpen(false);
-    props.handleSignIn();
+    handleSignIn();
   };
 
   const handleSignOutClick = () => {
-    props.handleSignOut();
+    handleSignOut();
   };
 
   const menuItemIsSelected = (menuItemKey, locationPath) => {
@@ -133,10 +143,14 @@ function Navigation(props) {
           >
             <SettingsIcon />
           </Button>
-          <LanguageSelection localizationService={localizationService} />
+          <LanguageSelection
+            setUserLocale={(selectedLocale: string) => {
+              localizationService.setUserLocale(selectedLocale);
+            }}
+          />
           <AuthButton
             locData={locData}
-            userSignedIn={props.userSignedIn}
+            userSignedIn={userSignedIn}
             handleSignOutClick={handleSignOutClick}
             setSignInDialogOpen={setSignInDialogOpen}
           />
@@ -192,10 +206,7 @@ function Navigation(props) {
             onClick={closeDrawer}
             component={Link}
             to="/settings"
-            selected={menuItemIsSelected(
-              props.selectedMenuItemKey,
-              "/settings"
-            )}
+            selected={menuItemIsSelected(selectedMenuItemKey, "/settings")}
           >
             <ListItemIcon>
               <SettingsIcon />

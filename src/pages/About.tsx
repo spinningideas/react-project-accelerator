@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 import LocalizationService from "services/LocalizationService";
 
 export default function About() {
-  const [locData, setLocData] = useState({});
+  const [locData, setLocData] = useState<Record<string, string>>({});
 
   const localizationService = LocalizationService();
 
