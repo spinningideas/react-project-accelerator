@@ -7,7 +7,6 @@ import Grid from "@mui/material/Grid";
 import PageRouter from "routing/PageRouter";
 // services
 import AuthService from "services/AuthService";
-import AnalyticsService from "services/AnalyticsService";
 // Components
 import Navigation from "components/Application/Navigation";
 
@@ -35,19 +34,11 @@ function DefaultLayout() {
   const selectedMenuItemKey = location.pathname;
 
   const authService = AuthService();
-  const analyticsService = AnalyticsService();
 
   useEffect(() => {
     let userHasSignedIn = authService.userHasSignedIn();
     setUserSignedIn(userHasSignedIn);
   }, [authService, userSignedIn]);
-
-  useEffect(() => {
-    // Route Change Detection
-    if (location) {
-      analyticsService.trackPageView(location.pathname);
-    }
-  }, [location]);
 
   const handleSignIn = () => {
     authService.signIn();
