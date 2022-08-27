@@ -4,12 +4,15 @@ class ErrorHandler extends React.Component {
     super(props);
     this.state = { hasError: false };
   }
+
   static getDerivedStateFromError(error) {
     return { hasError: true, error: error };
   }
+
   componentDidCatch(error, info) {
     console.log(error, info);
   }
+  
   render() {
     if (this.state.hasError) {
       return (

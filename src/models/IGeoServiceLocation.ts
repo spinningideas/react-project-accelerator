@@ -3,5 +3,7 @@ export default interface IGeoServiceLocation {
   city?: string;
   region?: string;
   country?: string;
+  latitude?: number;
+  longitude?: number;
   message: string;
 }
