@@ -11,6 +11,9 @@ import IconButton from "@mui/material/IconButton";
 import Slide from "@mui/material/Slide";
 import CloseIcon from "@mui/icons-material/Close";
 /* 
+Component which displays UI in a Modal Dialog 
+that has a title and button to close the Dialog at the top
+
 Example Usage:
 
 	<button onClick={() => openModal()}>Open modal</button>

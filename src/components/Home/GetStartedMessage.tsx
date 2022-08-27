@@ -14,7 +14,7 @@ function GetStartedMessage({
   return (
     <Grid container spacing={0}>
       <Grid item xs={12}>
-        <p className="whitetext" id="get-started-message">
+        <p id="get-started-message">
           {locData.getstartedmessage}
         </p>
       </Grid>

@@ -1,7 +1,10 @@
 import React from "react";
 
-let defaultDurationMilliseconds = 5000; // ms
-/* React "Toast" Component which encapsulates a given popup style UI message - re-factored from https://github.com/k4wo/react-notify */
+const DEFAULT_DISPLAYDURATION_MILLISECONDS = 5000;
+/* 
+React "Toast" Component which encapsulates a given popup style UI message 
+*/
+
 function NotificationItem(props) {
   const hideNotification = () => {
     props.hideNotification(props.id);
@@ -18,20 +21,19 @@ function NotificationItem(props) {
   );
 }
 
-/* Notifications container - encapsulates collection of "Toast" style messages of various types (eg success, warning, error) */
-// NOTE: Cannot use stateless function here as a backing instance is required.
-// See https://reactjs.org/docs/components-and-props.html#stateless-functions
-// TODO: see if there is a way to convert this into functional component
-// to remove this and adhere to guidance on strong preference for functional components
+/* 
+Notifications container - encapsulates collection of "Toast" style messages of various types (eg success, warning, error) 
+
+NOTE: Cannot use stateless function here as a backing instance is required.
+*/
 class Notifications extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = { currentNotificationKey: 0, notifications: [] };
   }
 
   show = (msg, type) => {
-    this.addNotification("", msg, defaultDurationMilliseconds, type);
+    this.addNotification("", msg, DEFAULT_DISPLAYDURATION_MILLISECONDS, type);
   };
 
   success = (title, msg, duration) => {

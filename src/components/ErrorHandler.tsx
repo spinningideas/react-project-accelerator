@@ -1,4 +1,8 @@
 import React from "react";
+/*
+Component which encapsulates presenting error message 
+if any application level errors occur 
+*/
 class ErrorHandler extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +16,7 @@ class ErrorHandler extends React.Component {
   componentDidCatch(error, info) {
     console.log(error, info);
   }
-  
+
   render() {
     if (this.state.hasError) {
       return (
