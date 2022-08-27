@@ -43,12 +43,17 @@ function AuthDialog({
           </DialogContent>
         )}
         <DialogActions>
-          <Button variant="secondary" onClick={() => handleCancelClose()}>
+          <Button
+            color="secondary"
+            variant="outlined"
+            onClick={() => handleCancelClose()}
+          >
             {locData.cancel}
           </Button>
           <Button
             onClick={() => handleSignInClose()}
-            variant="primary"
+            color="primary"
+            variant="contained"
             autoFocus
           >
             {locData.signin}

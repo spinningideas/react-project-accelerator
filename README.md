@@ -4,14 +4,18 @@ This application has a folder structure roughly matching https://github.com/spin
 
 The project aims to include most of the basic things one needs and includes:
 
+- use of [Typescript](https://www.typescriptlang.org/) to better communicate the contract of components and share, document, and reuse independent components within and between projects.
+- use of [Material UI](https://mui.com/material-ui/getting-started/overview/) to enable more rapid development using a set of building block components for the UI .
+- theming - use of Material UI theming and ability for user to select a primary color (see styling/theming.ts).
 - localization and authorization via services based approach using hooks to manage state.
-- forms and validation via [formik](https://jaredpalmer.com/formik/) and [formik-material-ui](https://stackworx.github.io/formik-mui/)
-- use of a layout to layout the application pages
-- use of HttpClient to call external REST API from local services
-- use of local storage to cache a user setting via LocalCacheService
-- testing via @testing-library/react and helper libraries
-- use of sass
-- icons via @mui/icons-material
+- forms and validation via [formik](https://jaredpalmer.com/formik/) and [formik-material-ui](https://stackworx.github.io/formik-mui/).
+- use of a layout to structure the application containing pages.
+- use of services pattern and models to share contracts of core types used in the components and application between the service layer and the presentation layer.
+- use of HttpClient to call external REST APIs from local services (see GeoService).
+- use of local storage to cache a user setting (theme color in this case) via LocalCacheService.
+- testing via @testing-library/react and helper libraries.
+- use of sass.
+- icons via @mui/icons-material.
 
 ## Live Demo
 

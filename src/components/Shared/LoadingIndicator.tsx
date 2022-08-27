@@ -2,7 +2,10 @@ import React from "react";
 import { getPrimaryColor } from "styling/theming";
 import CircularProgress from "@mui/material/CircularProgress";
 
-/* "Loading..."  Component which encapsulates presenting UI indication that something is loading */
+/*
+Component which encapsulates presenting indication 
+that something is loading in the form of a "spinner" 
+*/
 const LoadingIndicator = ({
   color,
   loading = false,
