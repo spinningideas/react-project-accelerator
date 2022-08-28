@@ -64,4 +64,4 @@ function AuthDialog({
   );
 }
 
-export default AuthDialog;
+export default React.memo(AuthDialog);

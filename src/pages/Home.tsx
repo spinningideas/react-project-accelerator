@@ -42,6 +42,7 @@ function Home() {
         [
           "welcome",
           "homepagewelcome",
+          "aboutdescription",
           "getstartedmessage",
           "notifications",
           "notificationsdescription",
@@ -174,10 +175,8 @@ function Home() {
                   onClose={() => setModalDemoState(false)}
                 >
                   <Box sx={{ display: "flex", flexDirection: "column", p: 2 }}>
-                    <Box>
-                      <h1>{locData.welcome}</h1>
-                    </Box>
                     <Box sx={{ p: 2 }}>{locData.homepagewelcome}</Box>
+                    <Box sx={{ p: 2 }}>{locData.aboutdescription}</Box>
                     <Box sx={{ p: 2 }}>
                       <Button
                         color="secondary"

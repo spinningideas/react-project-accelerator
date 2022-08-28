@@ -78,7 +78,7 @@ const ModalDialog = ({
   const windowWidth = getWindowWidth();
   const contentHeight = getModalHeight() - 60;
 
-  const close = (e) => {
+  const closeDialog = (e) => {
     e.preventDefault();
     if (onClose) {
       onClose();
@@ -98,7 +98,9 @@ const ModalDialog = ({
       fullScreen={fullScreen}
       scroll="paper"
       open={open}
-      onClose={close}
+      onClose={(e) => {
+        closeDialog(e);
+      }}
       TransitionComponent={Transition}
       PaperProps={{
         style: {
@@ -127,6 +129,9 @@ const ModalDialog = ({
         id="modal-dialog-content-top"
         ref={modalDialogTopRef}
         sx={{
+          boxShadow: "none",
+          borderBottom: 1,
+          borderColor: "divider",
           "& .MuiToolbar-root": {
             paddingLeft: 0,
             paddingRight: 0,
@@ -141,12 +146,19 @@ const ModalDialog = ({
               display: "flex",
               flexDirection: "row",
               alignItems: "flex-start",
-              padding: 1,
+              padding: 0,
+              paddingLeft: 1,
               flexGrow: 1,
             }}
           >
             <Box sx={{ flexGrow: 1, padding: 1, fontSize: 20 }}>{title}</Box>
-            <IconButton onClick={close} variant="rounded" aria-label="close">
+            <IconButton
+              onClick={(e) => {
+                closeDialog(e);
+              }}
+              variant="rounded"
+              aria-label="close"
+            >
               <CloseIcon />
             </IconButton>
           </Box>

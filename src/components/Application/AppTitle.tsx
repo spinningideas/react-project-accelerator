@@ -12,19 +12,19 @@ const styles = {
 
 const AppTitle = ({ locData }: { locData: Record<string, string> }) => {
   const theme = useTheme();
-  const isNotMobileViewport = useMediaQuery(theme.breakpoints.up("sm"));
-  if (isNotMobileViewport) {
+  const isMobileViewport = useMediaQuery(theme.breakpoints.down("sm"));
+  if (isMobileViewport) {
     return (
       <Typography variant="h6" sx={styles.appTitle}>
-        {locData.apptitle}
+        RPA
       </Typography>
     );
   }
   return (
     <Typography variant="h6" sx={styles.appTitle}>
-      RPA
+      {locData.apptitle}
     </Typography>
   );
 };
 
-export default AppTitle;
+export default React.memo(AppTitle);
