@@ -54,7 +54,7 @@ const styles = {
   },
 };
 
-function Navigation({
+const Navigation = ({
   selectedMenuItemKey,
   userSignedIn = false,
   handleSignIn,
@@ -64,7 +64,7 @@ function Navigation({
   userSignedIn: boolean;
   handleSignIn: () => void;
   handleSignOut: () => void;
-}) {
+}) => {
   const [locData, setLocData] = useState<Record<string, string>>({});
   const [openNavigation, setOpenNavigation] = useState(false);
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
@@ -235,6 +235,6 @@ function Navigation({
       />
     </div>
   );
-}
+};
 
-export default Navigation;
+export default React.memo(Navigation);

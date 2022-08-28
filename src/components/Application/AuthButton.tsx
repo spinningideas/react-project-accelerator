@@ -27,4 +27,4 @@ const AuthButton = ({
   }
 };
 
-export default AuthButton;
+export default React.memo(AuthButton);

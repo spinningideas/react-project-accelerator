@@ -60,4 +60,4 @@ const LanguageSelection = ({
   );
 };
 
-export default LanguageSelection;
+export default React.memo(LanguageSelection);
