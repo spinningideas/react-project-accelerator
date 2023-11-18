@@ -1,9 +1,9 @@
 import HttpClient from "services/HttpClient";
-import IGeoServiceLocation from "models/IGeoServiceLocation";
+import GeoServiceLocation from "models/GeoServiceLocation";
 
 /* See: https://ipwhois.io/documentation */
 const GeoService = () => {
-  const getCurrentIPAddress = async (): Promise<IGeoServiceLocation> => {
+  const getCurrentIPAddress = async (): Promise<GeoServiceLocation> => {
     const client = HttpClient();
     let url = "https://ipwho.is/";
     return await client.getData(url).then((response) => {
@@ -17,7 +17,7 @@ const GeoService = () => {
         latitude: geoResult.latitude,
         longitude: geoResult.longitude,
         message: `Your ip is ${geoResult.ip} and your location: ${geoResult.latitude}, ${geoResult.longitude} which is in ${geoResult.city}, ${geoResult.region} ${geoResult.country}`,
-      } as IGeoServiceLocation;
+      } as GeoServiceLocation;
 
       return location;
     });

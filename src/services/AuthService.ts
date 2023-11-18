@@ -8,7 +8,7 @@ const AuthService = () => {
   };
 
   const setUserHasSignedIn = (signedInVal) => {
-    window.localStorage.setItem("usersignedin", Boolean(signedInVal));
+    window.localStorage.setItem("usersignedin", signedInVal);
   };
 
   const signIn = () => {

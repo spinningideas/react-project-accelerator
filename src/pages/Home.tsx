@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 // material-ui
 import Box from "@mui/material/Box";
@@ -11,9 +11,9 @@ import Grid from "@mui/material/Grid";
 import AuthService from "services/AuthService";
 import LocalizationService from "services/LocalizationService";
 import GeoService from "services/GeoService";
+import NotificationsService from "services/NotificationsService";
 // components
 import ModalDialog from "components/Shared/ModalDialog";
-import Notifications from "components/Shared/Notifications";
 import LoadingIndicator from "components/Shared/LoadingIndicator";
 import GetStartedMessage from "components/Home/GetStartedMessage";
 
@@ -24,16 +24,15 @@ function Home() {
   const [userIpAddressState, setUserIpAddressState] = useState<string>("");
   const [isLoadingState, setIsLoadingState] = useState<boolean>(false);
 
-  const authService = AuthService();
-  const localizationService = LocalizationService();
-  const geoService = GeoService();
-
-  const notificationsRef = React.forwardRef<typeof Notifications>();
+  const authService = useMemo(AuthService, []);
+  const localizationService = useMemo(LocalizationService, []);
+  const geoService = useMemo(GeoService, []);
+  const notificationsService = useMemo(NotificationsService, []);
 
   useEffect(() => {
     let userHasSignedIn = authService.userHasSignedIn();
     setUserSignedIn(userHasSignedIn);
-  }, []);
+  }, [authService]);
 
   useEffect(() => {
     async function loadLocalization() {
@@ -66,10 +65,10 @@ function Home() {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [localizationService]);
 
   const showNotification = (message, type) => {
-    notificationsRef.current.show(message, type);
+    notificationsService.show(message, type);
   };
 
   const showIpAddressUsingHttpClient = async () => {
@@ -233,7 +232,6 @@ function Home() {
           </Grid>
         </Grid>
       </Grid>
-      <Notifications ref={notificationsRef} />
     </Grid>
   );
 }

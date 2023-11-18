@@ -1,4 +1,4 @@
-export default interface IGeoServiceLocation {
+export default interface GeoServiceLocation {
   ip?: string;
   city?: string;
   region?: string;

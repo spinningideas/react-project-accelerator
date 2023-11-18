@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // material-ui Components
 import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 // material-ui Icons
@@ -52,6 +53,9 @@ const styles = {
   sideMenuListItem: {
     paddingLeft: 1,
   },
+  menuButton: {
+    paddingRight: 1,
+  },
 };
 
 const Navigation = ({
@@ -69,7 +73,7 @@ const Navigation = ({
   const [openNavigation, setOpenNavigation] = useState(false);
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
 
-  const localizationService = LocalizationService();
+  const localizationService = useMemo(LocalizationService, []);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -93,7 +97,7 @@ const Navigation = ({
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [localizationService]);
 
   const toggleDrawerOpen = () => {
     setOpenNavigation(!openNavigation);
@@ -120,7 +124,7 @@ const Navigation = ({
   };
 
   return (
-    <div sx={styles.root}>
+    <Box sx={styles.root}>
       <AppBar position="static" sx={styles.appBar}>
         <Toolbar>
           <IconButton
@@ -162,7 +166,11 @@ const Navigation = ({
         color="primary"
         open={openNavigation}
         sx={styles.sideMenuDrawer}
-        styles={{ paper: styles.sideMenuDrawerPaper }}
+        PaperProps={{
+          sx: {
+            width: drawerWidth,
+          },
+        }}
       >
         <Toolbar>
           <IconButton
@@ -176,8 +184,7 @@ const Navigation = ({
           </IconButton>
         </Toolbar>
         <List sx={styles.sideMenuList}>
-          <ListItem
-            button
+          <ListItemButton
             sx={styles.sideMenuListItem}
             onClick={closeDrawer}
             component={Link}
@@ -187,9 +194,8 @@ const Navigation = ({
               <Home />
             </ListItemIcon>
             <ListItemText primary={locData.home} />
-          </ListItem>
-          <ListItem
-            button
+          </ListItemButton>
+          <ListItemButton
             sx={styles.sideMenuListItem}
             onClick={closeDrawer}
             component={Link}
@@ -199,9 +205,8 @@ const Navigation = ({
               <Email />
             </ListItemIcon>
             <ListItemText primary={locData.contact} />
-          </ListItem>
-          <ListItem
-            button
+          </ListItemButton>
+          <ListItemButton
             sx={styles.sideMenuListItem}
             onClick={closeDrawer}
             component={Link}
@@ -212,9 +217,8 @@ const Navigation = ({
               <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary={locData.settings} />
-          </ListItem>
-          <ListItem
-            button
+          </ListItemButton>
+          <ListItemButton
             sx={styles.sideMenuListItem}
             onClick={closeDrawer}
             component={Link}
@@ -224,7 +228,7 @@ const Navigation = ({
               <Info />
             </ListItemIcon>
             <ListItemText primary={locData.about} />
-          </ListItem>
+          </ListItemButton>
         </List>
       </Drawer>
       <AuthDialog
@@ -233,7 +237,7 @@ const Navigation = ({
         handleSignIn={handleSignInClick}
         handleSignInCancel={() => setSignInDialogOpen(false)}
       />
-    </div>
+    </Box>
   );
 };
 

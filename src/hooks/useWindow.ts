@@ -24,7 +24,7 @@ const useWindowWidth = () => {
   // it does not have any dependencies.
   useEffect(() => {
     // timeoutId for debounce mechanism
-    let timeoutId = null;
+    let timeoutId: any = null;
     const resizeListener = () => {
       // prevent execution of previous setTimeout
       if (timeoutId) {

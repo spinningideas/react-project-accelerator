@@ -1,4 +1,3 @@
-import React from "react";
 import { act, render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Application from "Application";

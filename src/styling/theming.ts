@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material/styles";
 import { appGrey, getColor } from "styling/colors";
 // Services
 import LocalCacheService from "services/LocalCacheService";
+import { ButtonProps } from "@mui/material";
 
 const DEFAULT_THEME_SETTING = "light";
 export const DEFAULT_COLOR_SETTING = "blue";
@@ -64,6 +65,9 @@ export const getActivePrimaryColorText = () => {
 };
 
 export const theme = createTheme({
+  zIndex: {
+    modal: 20000,
+  },
   typography: {
     fontFamily: "'Roboto', sans-serif",
   },
@@ -208,12 +212,12 @@ export const theme = createTheme({
           },
         },
         {
-          props: { variant: "rounded" },
+          props: { variant: "rounded" } as unknown as ButtonProps,
           style: {
             margin: 0,
             borderRadius: 36,
-            padding: 8,
-            paddingLeft: 8,
+            padding: 1,
+            paddingLeft: 1,
             backgroundColor: "transparent",
             color: "text.default",
             "&:hover": {

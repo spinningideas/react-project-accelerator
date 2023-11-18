@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useMemo } from "react";
 // forms
 import { Formik, Form, Field } from "formik";
 import { TextField } from "formik-mui";
@@ -8,15 +8,16 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
-// shared components
-import Notifications from "components/Shared/Notifications";
 // services
 import LocalizationService from "services/LocalizationService";
+import NotificationsService from "services/NotificationsService";
+// models
+import ContactSubmission from "models/ContactSubmission";
 
 export default function Contact(props) {
   const [locData, setLocData] = useState<Record<string, string>>({});
   const [formIsSubmitting, setFormIsSubmitting] = useState<boolean>(false);
-  const [formData, setFormData] = useState<object>({
+  const [formData, setFormData] = useState<ContactSubmission>({
     name:
       props.match && props.match.params && props.match.params.name
         ? props.match.params.name
@@ -25,9 +26,8 @@ export default function Contact(props) {
     message: "",
   });
 
-  const localizationService = LocalizationService();
-
-  const notificationsRef = useRef<React.Component>(null);
+  const localizationService = useMemo(LocalizationService, []);
+  const notificationsService = useMemo(NotificationsService, []);
 
   useEffect(() => {
     async function loadLocalization() {
@@ -51,7 +51,7 @@ export default function Contact(props) {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [localizationService, notificationsService]);
 
   const styles = {
     formField: {
@@ -63,9 +63,7 @@ export default function Contact(props) {
   };
 
   const showNotification = (message, type) => {
-    if (notificationsRef.current && notificationsRef.current.show) {
-      notificationsRef.current.show(message, type);
-    }
+    notificationsService.show(message, type);
   };
 
   return (
@@ -78,8 +76,8 @@ export default function Contact(props) {
           <Grid item xs={12} md={12} lg={12} xl={12}>
             <Formik
               initialValues={formData}
-              validate={(values) => {
-                const errors = {};
+              validate={(values: ContactSubmission) => {
+                const errors = {} as any;
                 if (!values.name) {
                   errors.name = locData.required;
                 }
@@ -161,7 +159,6 @@ export default function Contact(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Notifications ref={notificationsRef} />
     </Grid>
   );
 }

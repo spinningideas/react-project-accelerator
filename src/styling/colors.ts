@@ -281,7 +281,6 @@ export const colors = {
     A400: "#d4e157",
     A700: "#afb42b",
   },
-  */,
   brown: {
     50: "#efebe9",
     100: "#d7ccc8",
@@ -297,7 +296,7 @@ export const colors = {
     A200: "#bcaaa4",
     A400: "#8d6e63",
     A700: "#5d4037",
-  },
+  }*/,
   grey: {
     50: "#fafafa",
     100: "#f5f5f5",

@@ -14,13 +14,13 @@ const AuthButton = ({
 }) => {
   if (userSignedIn) {
     return (
-      <Button variant="secondary" onClick={() => handleSignOutClick()}>
+      <Button color="secondary" onClick={() => handleSignOutClick()}>
         {locData.signout}
       </Button>
     );
   } else {
     return (
-      <Button variant="primary" onClick={() => setSignInDialogOpen(true)}>
+      <Button color="primary" onClick={() => setSignInDialogOpen(true)}>
         {locData.signin}
       </Button>
     );

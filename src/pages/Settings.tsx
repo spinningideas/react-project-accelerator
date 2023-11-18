@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { capitalize, reloadWindow } from "utils";
 import { colors } from "styling/colors";
 import { DEFAULT_COLOR_SETTING } from "styling/theming";
@@ -14,8 +14,7 @@ import CheckIcon from "@mui/icons-material/Check";
 // Services
 import LocalizationService from "services/LocalizationService";
 import LocalCacheService from "services/LocalCacheService";
-// Components
-import Notifications from "components/Shared/Notifications";
+import NotificationsService from "services/NotificationsService";
 
 function Settings() {
   const [locData, setLocData] = useState<Record<string, string>>({});
@@ -23,10 +22,9 @@ function Settings() {
     DEFAULT_COLOR_SETTING
   );
 
-  const localizationService = LocalizationService();
-  const localCacheService = LocalCacheService();
-
-  const notificationsRef = useRef<HTMLDivElement>(null);
+  const localizationService = useMemo(LocalizationService, []);
+  const localCacheService = useMemo(LocalCacheService, []);
+  const notificationsService = useMemo(NotificationsService, []);
 
   useEffect(() => {
     async function loadLocalization() {
@@ -38,13 +36,13 @@ function Settings() {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [localizationService, localCacheService]);
 
   useEffect(() => {
     let colorSetting = localCacheService.get("color", DEFAULT_COLOR_SETTING);
 
     setSettingsState(colorSetting);
-  }, []);
+  }, [localCacheService]);
 
   const setColor = (color) => {
     localCacheService.set("color", color);
@@ -54,13 +52,11 @@ function Settings() {
   };
 
   const showNotification = (message, type) => {
-    if (notificationsRef.current && notificationsRef.current.show) {
-      notificationsRef.current.show(message, type);
-    }
+    notificationsService.show(message, type);
   };
 
   const ColorButtons = () => {
-    let colorsArray = [];
+    let colorsArray: any = [];
     for (const [key, value] of Object.entries(colors)) {
       colorsArray.push({ colorName: key, colors: value });
     }
@@ -135,8 +131,6 @@ function Settings() {
           </Card>
         </CardContent>
       </Card>
-
-      <Notifications ref={notificationsRef} />
     </Grid>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 // material-ui
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
@@ -11,7 +11,7 @@ import LocalizationService from "services/LocalizationService";
 export default function About() {
   const [locData, setLocData] = useState<Record<string, string>>({});
 
-  const localizationService = LocalizationService();
+  const localizationService = useMemo(LocalizationService, []);
 
   useEffect(() => {
     async function loadLocalization() {
@@ -36,7 +36,7 @@ export default function About() {
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, []);
+  }, [localizationService]);
 
   return (
     <Grid container spacing={0}>

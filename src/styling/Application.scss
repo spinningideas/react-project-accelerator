@@ -399,79 +399,9 @@ button[class*='MuiButton-root-'] {
 
 /** END  Material UI over-ride classes */
 
-/* "Toast" Notifications */
-.notification-container {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: flex-start;
-  align-content: flex-start;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 999999;
-}
-
-.notification-item {
-  width: 250px;
-  margin: 10px;
-  color: $white;
-}
-
-.notification-item:hover {
-  box-shadow: 0 0 10px 0 $black;
-}
-
-.notification-item > p {
-  margin: 10px;
-}
-
-.notification-item.success {
-  background-color: $success;
-}
-
-.notification-item.error {
-  background-color: $error;
-}
-
-.notification-item.info {
-	color: $grey-lightest;
-	background-color: $grey-med;
-}
-
-.notification-title {
-  font-weight: 700;
-}
-
-@media all and (max-width: 240px) {
-  .notification-container > div {
-    padding: 10px;
-    width: 11em;
-  }
-
-  .notification-container .notification-close-button {
-    right: -0.2em;
-    top: -0.2em;
-  }
-}
-@media all and (min-width: 241px) and (max-width: 480px) {
-  .notification-container > div {
-    padding: 10px;
-    width: 18em;
-  }
-
-  .notification-container .notification-close-button {
-    right: -0.2em;
-    top: -0.2em;
-  }
-}
-
-@media all and (min-width: 481px) and (max-width: 768px) {
-  .notification-container > div {
-    padding: 10px 10px 10px 20px;
-    width: 25em;
-  }
+/* "Toast" Notifications setup via notistack via SnackbarProvider  */
+.notistack-SnackbarContainer.z-alert {
+  z-index: 20000;
 }
 
 /* Global Resets for tablet and down */

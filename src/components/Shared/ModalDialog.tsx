@@ -1,82 +1,73 @@
 import React, { useRef, useEffect } from "react";
 import { getWindowHeight, getWindowWidth } from "hooks/useWindow";
+import SlideTransition from "components/Shared/SlideTransition";
 // Material UI
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
-import Slide from "@mui/material/Slide";
 import CloseIcon from "@mui/icons-material/Close";
+import { Breakpoint } from "@mui/material";
 /* 
-Component which displays UI in a Modal Dialog 
-that has a title and button to close the Dialog at the top
-
 Example Usage:
 
 	<button onClick={() => openModal()}>Open modal</button>
-	<ModalDialog open={isModalOpen} onClose={() => closeModal()}>
-		<Box><h1>Modal title</h1></Box>
-		<Box sx={{p: 2}}>hello</Box>
-		<Box sx={{p: 2}}><button onClick={() => closeModal()}>Close</button></Box>
-	</ModalDialog>
+	<Modal open={isModalOpen} onClose={() => closeModal()}>
+		<h1>Modal title</h1>
+		<p>hello</p>
+		<p><button onClick={() => closeModal()}>Close</button></p>
+	</Modal>
 */
-
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const ModalDialog = ({
   title,
   open,
   onClose,
   fullScreen = false,
-  width = 500,
+  maxWidth = "sm",
   height,
+  contentPadding = 0,
   children,
 }: {
-  title: string;
+  title?: string;
   open: boolean;
   onClose: () => void;
-  fullScreen: boolean;
+  fullScreen?: boolean;
   width?: number;
-  height: number;
-  children: JSX.Element;
+  maxWidth?: Breakpoint;
+  height?: number;
+  contentPadding?: number;
+  children: any;
 }) => {
-  const modalDialogTopRef = useRef<HTMLDivElement>(null);
-  const theme = useTheme();
-  const isMobileViewport = useMediaQuery(theme.breakpoints.down("md"));
+  const modalDialogTopRef = useRef<any>(null);
 
-  const scrollModalToTop = () => {
+  const scrollContentIntoView = () => {
     document.documentElement.scrollTop = 0;
     setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 250);
+      const modalDialogTop = document.getElementById(
+        "modal-dialog-content-top"
+      );
+      if (modalDialogTop) {
+        modalDialogTop.scrollTo({ top: 0, behavior: "smooth" });
+        modalDialogTop.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 500);
   };
 
-  const isFullWidth = () => {
-    return fullScreen || isMobileViewport;
-  };
-
-  const getModalWidth = () => {
-    if (isFullWidth()) {
-      return windowWidth;
-    }
-    return width ? width : windowWidth / 2;
-  };
-
-  const getModalHeight = () => {
+  const getModalHeight = (): string => {
     if (fullScreen) {
-      return windowHeight;
+      return windowHeight + "px";
     }
-    return height ? height : windowHeight / 2;
+    return height ? height.toString() : "auto";
   };
 
   const windowHeight = getWindowHeight();
   const windowWidth = getWindowWidth();
-  const contentHeight = getModalHeight() - 60;
 
   const closeDialog = (e) => {
     e.preventDefault();
@@ -87,7 +78,7 @@ const ModalDialog = ({
 
   useEffect(() => {
     if (open) {
-      scrollModalToTop();
+      scrollContentIntoView();
     }
   }, [open]);
 
@@ -96,32 +87,35 @@ const ModalDialog = ({
   return (
     <Dialog
       fullScreen={fullScreen}
+      maxWidth={maxWidth}
       scroll="paper"
       open={open}
-      onClose={(e) => {
-        closeDialog(e);
-      }}
-      TransitionComponent={Transition}
+      onClose={closeDialog}
+      TransitionComponent={SlideTransition}
+      hideBackdrop={true}
       PaperProps={{
         style: {
-          position: "absolute",
-          margin: 0,
           zIndex: "9999",
+          position: "absolute",
+          top: fullScreen ? "0" : "5%",
+          left: fullScreen ? "0" : "33%",
+          height: getModalHeight(),
+          maxWidth: windowWidth + "px !important",
+          margin: 0,
           color: "text.default",
           backgroundColor: "background.default",
-          width: getModalWidth(),
-          height: getModalHeight(),
-          top: isFullWidth() ? "0" : "5%",
-          left: isFullWidth() ? "0" : "33%",
-          maxWidth: windowWidth,
+          overflow: "hidden",
         },
       }}
-      BackdropProps={{
-        style: {
-          margin: 0,
+      sx={{
+        "& .MuiModal-backdrop": {
           verticalAlign: "top",
           backgroundColor: "transparent",
-          boxShadow: "none",
+        },
+        "& .MuiDialog-paper": {
+          boxShadow: "2",
+          border: 1,
+          borderColor: "divider",
         },
       }}
     >
@@ -148,6 +142,7 @@ const ModalDialog = ({
               alignItems: "flex-start",
               padding: 0,
               paddingLeft: 1,
+              paddingRight: 1,
               flexGrow: 1,
             }}
           >
@@ -156,7 +151,9 @@ const ModalDialog = ({
               onClick={(e) => {
                 closeDialog(e);
               }}
-              variant="rounded"
+              sx={{
+                padding: 1,
+              }}
               aria-label="close"
             >
               <CloseIcon />
@@ -164,16 +161,18 @@ const ModalDialog = ({
           </Box>
         </Toolbar>
       </AppBar>
-      <Box
+      <DialogContent
         sx={{
-          height: contentHeight,
-          padding: 0,
+          padding: contentPadding,
           paddingBottom: 4,
-          overflowY: "scroll",
+          height: getModalHeight(),
+          maxWidth: windowWidth + "px !important",
+          overflowX: "auto",
+          overflowY: "auto",
         }}
       >
         {children}
-      </Box>
+      </DialogContent>
     </Dialog>
   );
 };
