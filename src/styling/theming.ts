@@ -4,7 +4,7 @@ import { appGrey, getColor } from "styling/colors";
 import LocalCacheService from "services/LocalCacheService";
 import { ButtonProps } from "@mui/material";
 
-const DEFAULT_THEME_SETTING = "light";
+export const DEFAULT_THEME_SETTING = "light";
 export const DEFAULT_COLOR_SETTING = "blue";
 const localCacheService = LocalCacheService();
 const themeSetting = localCacheService.get("theme", DEFAULT_THEME_SETTING);
@@ -19,26 +19,10 @@ let appPrimaryLightest = appPrimaryColor[100];
 let appPrimaryVeryLight = appPrimaryColor[50];
 
 let appLightGrey = appGrey[100];
-let appMedGrey = appGrey[500];
-let appDarkerGrey = appGrey[800];
+let appMedGrey = appGrey[600];
 let appDarkestGrey = appGrey[900];
 
 const appBarWidth = 40;
-
-// update vars set in app.css
-document.documentElement.style.setProperty(
-  "--primary-bg-color",
-  appPrimaryDark
-);
-
-if (themeSetting === "dark") {
-  document.documentElement.style.setProperty("--link-color", appPrimaryLight);
-  document.documentElement.style.setProperty("--border-color", appDarkerGrey);
-  document.documentElement.style.setProperty("--bg-color-light", appDarkerGrey);
-  document.documentElement.style.setProperty("--scroll--bg-color", appMedGrey);
-} else {
-  document.documentElement.style.setProperty("--link-color", appPrimaryDark);
-}
 
 export const getLinkColor = () => {
   return themeSetting === "dark" ? appPrimaryLight : appPrimaryDark;
@@ -49,7 +33,7 @@ export const getThemeSetting = () => {
 };
 
 export const getBorderColor = () => {
-  return themeSetting === "dark" ? "#616161" : "#e0e0e0";
+  return themeSetting === "dark" ? appMedGrey : appLightGrey;
 };
 
 export const getPrimaryColor = () => {
@@ -60,8 +44,8 @@ export const getActivePrimaryColor = () => {
   return appPrimaryDark;
 };
 
-export const getActivePrimaryColorText = () => {
-  return appLightGrey;
+export const getTextColor = () => {
+  return themeSetting === "dark" ? appLightGrey : appDarkestGrey;
 };
 
 export const theme = createTheme({
@@ -182,7 +166,14 @@ export const theme = createTheme({
     MuiListItemButton: {
       styleOverrides: {
         root: {
-          color: appDarkestGrey,
+          color: "text.default",
+        },
+      },
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        root: {
+          color: "text.default",
         },
       },
     },

@@ -120,7 +120,7 @@ function Home() {
 
             <Grid container>
               <Grid item xs={12} className="pt-1 pb-1">
-                <Card className="card white-bg-color bl-1 bb-1">
+                <Card className="card bl-1 bb-1">
                   <CardContent>
                     <h4 className="card-title">{locData.notifications}</h4>
                     <p>{locData.notificationsdescription}</p>
@@ -151,7 +151,7 @@ function Home() {
 
             <Grid container>
               <Grid item xs={12} className="pt-1">
-                <Card className="card white-bg-color bl-1 bb-1">
+                <Card className="card bl-1 bb-1">
                   <CardContent>
                     <h4 className="card-title">{locData.modals}</h4>
                     <p>{locData.modalsdescription}</p>
@@ -192,7 +192,7 @@ function Home() {
 
             <Grid container>
               <Grid item xs={12} className="pt-1">
-                <Card className="card white-bg-color bl-1 bb-1">
+                <Card className="card bl-1 bb-1">
                   <CardContent>
                     <h4 className="card-title">{locData.services}</h4>
                     <p>{locData.serviceexampledescription}</p>

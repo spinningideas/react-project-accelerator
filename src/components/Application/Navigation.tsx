@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { reloadWindow } from "utils";
 // material-ui Components
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -16,13 +17,18 @@ import Home from "@mui/icons-material/Home";
 import Info from "@mui/icons-material/Info";
 import Email from "@mui/icons-material/Email";
 import MenuIcon from "@mui/icons-material/Menu";
-import SettingsIcon from "@mui/icons-material/Settings"; // services
+import SettingsIcon from "@mui/icons-material/Settings";
+// services
 import LocalizationService from "services/LocalizationService";
+import LocalCacheService from "services/LocalCacheService";
 // Components
 import AppTitle from "components/Application/AppTitle";
 import AuthButton from "components/Application/AuthButton";
 import AuthDialog from "components/Application/AuthDialog";
 import LanguageSelection from "components/Application/LanguageSelection";
+import ThemeSelection from "components/Application/ThemeSelection";
+// config
+import { DEFAULT_THEME_SETTING } from "styling/theming";
 
 const drawerWidth = 240;
 
@@ -70,13 +76,18 @@ const Navigation = ({
   handleSignOut: () => void;
 }) => {
   const [locData, setLocData] = useState<Record<string, string>>({});
+  const [themeMode, setThemeMode] = useState<string>(DEFAULT_THEME_SETTING);
   const [openNavigation, setOpenNavigation] = useState(false);
   const [signInDialogOpen, setSignInDialogOpen] = useState(false);
 
+  const localCacheService = useMemo(LocalCacheService, []);
   const localizationService = useMemo(LocalizationService, []);
+
   const navigate = useNavigate();
 
   useEffect(() => {
+    const themeSetting = localCacheService.get("theme", DEFAULT_THEME_SETTING);
+    setThemeMode(themeSetting);
     async function loadLocalization() {
       const locCode = localizationService.getUserLocale();
       const locDataLoaded = await localizationService.getLocalizedTextSet(
@@ -97,7 +108,7 @@ const Navigation = ({
       setLocData(locDataLoaded);
     }
     loadLocalization();
-  }, [localizationService]);
+  }, [localizationService, localCacheService]);
 
   const toggleDrawerOpen = () => {
     setOpenNavigation(!openNavigation);
@@ -123,6 +134,11 @@ const Navigation = ({
     return false;
   };
 
+  const handleThemeSelection = (themeMode: string) => {
+    localCacheService.set("theme", themeMode);
+    reloadWindow();
+  };
+
   return (
     <Box sx={styles.root}>
       <AppBar position="static" sx={styles.appBar}>
@@ -136,6 +152,12 @@ const Navigation = ({
             <MenuIcon />
           </IconButton>
           <AppTitle locData={locData} />
+          <ThemeSelection
+            setUserTheme={(selectedTheme: string) => {
+              handleThemeSelection(selectedTheme);
+            }}
+            themeMode={themeMode}
+          />
           <Button
             onClick={() => {
               closeDrawer();

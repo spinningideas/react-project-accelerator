@@ -1,12 +1,6 @@
 @import url('//fonts.googleapis.com/css?family=Roboto');
 
 :root {
-  /* changed in theming */
-  --primary-bg-color: #1565c0;
-  --link-color: #1565c0;
-  --border-color: #eeeeee;
-  --bg-color-light: #e0e0e0;
-  --scroll--bg-color: #f5f5f5;
   /* NOT changed in theming */
   --light-text: #f5f5f5;
   --dark-grey: #757575;
@@ -14,23 +8,6 @@
 
 /*
 https://www.materialpalette.com/colors
-
-Grey
-424242 = dark primary (Grey.800)
-757575 = main primary (Grey.600)
-757575 = light primary (Grey.600)
-616161= Grey.700
-appBar = 212121 = Grey.900
-
-Blue
-1565c0 = dark primary
-1976d2 = main primary
-42a5f5 = light primary 
-
-Green
-2e7d32 = dark primary (Green.800)
-43a047 = main primary (Green.600)
-388e3c = light primary (Green.700)
 */
 
 /* VARS */
@@ -44,17 +21,9 @@ $grey-medlight: #c0c0c0;
 $grey-light: #e3e3e3;
 $grey-lightest: #fafafa;
 
-$primary-dark: #1976d2;
-$primary-darkest: #0066cc;
-
-$success: #50741e;
-$error: #db3e29;
-
 html,
 body {
   font-family: 'Roboto', sans-serif;
-  color: $black;
-  background-color: $white;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -104,44 +73,6 @@ h4,
 h5 {
   padding: 0;
   margin: 5px 0 0 0;
-  color: $black;
-}
-
-/* CUSTOM APP COLORING/PALLETTE */
-.active {
-  background-color: $primary-dark !important;
-  color: $grey-lightest !important;
-}
-
-.dark-color {
-  color: $black !important;
-}
-.darker-grey-color {
-  color: $grey-dark !important;
-}
-.dark-grey-color {
-  color: $grey-primary !important;
-}
-.med-grey-color {
-  color: $grey-med !important;
-}
-.grey-color {
-  color: $grey-medlight !important;
-}
-.light-grey-color {
-  color: $grey-light !important;
-}
-.light-bg-color {
-  background-color: $grey-lightest !important;
-}
-.light-color {
-  color: $grey-lightest !important;
-}
-.white-bg-color {
-  background-color: $white !important;
-}
-.success-color {
-  color: $success;
 }
 
 /*
@@ -379,25 +310,6 @@ input {
 .input-append select {
   border-radius: 0;
 }
-
-/** Start Material UI over-ride classes */
-div[class*='MuiCard-root'] {
-  border-radius: 0px !important;
-  background-color: $white !important;
-  color: $black !important;
-}
-
-button[class*='MuiButton-root-'] {
-  min-width: 36px !important;
-  border-radius: 0px !important;
-}
-
-.active {
-  background-color: $grey-primary !important;
-  color: $grey-lightest !important;
-}
-
-/** END  Material UI over-ride classes */
 
 /* "Toast" Notifications setup via notistack via SnackbarProvider  */
 .notistack-SnackbarContainer.z-alert {

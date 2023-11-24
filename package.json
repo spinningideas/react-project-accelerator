@@ -4,6 +4,13 @@
   "private": true,
   "description": "React JS project accelerator that can serve as reference for bootstrapping projects. Includes localization and authorization via services based approach using hooks to manage state",
   "homepage": "https://spinningideas.github.io/react-project-accelerator/",
+  "scripts": {
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "buildghpages": "set PUBLIC_URL=https://spinningideas.github.io/react-project-accelerator/&&react-scripts build",
+    "deployghpages": "gh-pages -d build"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -27,13 +34,6 @@
     "react-router-dom": "^6.19.0",
     "react-scripts": "5.0.1",
     "typescript": "4.9.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "buildghpages": "set PUBLIC_URL=https://spinningideas.github.io/react-project-accelerator/&&react-scripts build",
-    "deployghpages": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
