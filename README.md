@@ -31,11 +31,21 @@ In the project directory, you can run:
 
 2. Start and run the application
 
-`npm start`
+`npm dev`
 
 Runs the app in the development mode and launches browser to http://localhost:3000/react-project-accelerator
 
 The page will reload if you make edits.
+
+### VS Code Debugging
+
+1. Run the application via standard npm run command
+
+`npm dev`
+
+2. Set a breakpoint in the application code within VS Code
+
+3. Run the debugger via F5 or the left nav menu entry and select the launch profile "Debug via Chrome"
 
 ### `npm test`
 
