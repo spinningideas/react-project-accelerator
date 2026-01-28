@@ -248,6 +248,20 @@ npm run deployghpages
 - Check that the `gh-pages` branch exists and is not protected
 - Ensure `gh-pages` package is installed: `npm install gh-pages --save-dev`
 
+## Documentation
+
+### Authorization
+
+For detailed information about the authentication and authorization system, see:
+
+- [Authorization Documentation](docs/authorization.md)
+
+### Localization
+
+For detailed information about the multi-language support and localization system, see:
+
+- [Localization Documentation](docs/localization.md)
+
 ## Resources
 
 ### shadcn/ui & Tailwind CSS
