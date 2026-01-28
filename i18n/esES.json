@@ -65,6 +65,7 @@
 	"landing_getstarted_step1_desc": "Clone el repositorio y ejecute npm install para configurar todas las dependencias",
 	"landing_getstarted_step1_clone_label": "# Clonar el repositorio",
 	"landing_getstarted_step1_install_label": "# Instalar dependencias",
+	"landing_getstarted_step1_dev_label": "# Iniciar servidor de desarrollo",
 	"landing_getstarted_step1_git_clone_command": "git clone https://github.com/[username]/[repository].git",
 	"landing_getstarted_step2_title": "Personalizar Logo, Página de Inicio y Secciones",
 	"landing_getstarted_step2_desc": "Actualice el logo, el contenido de la página de inicio y las secciones para que coincidan con su marca y requisitos",
