@@ -1,1 +1,41 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="https://spinningideas.github.io/react-project-accelerator/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="React Project Accelerator"/><link rel="manifest" href="https://spinningideas.github.io/react-project-accelerator/manifest.json"/><title>React Project Accelerator</title><script defer="defer" src="https://spinningideas.github.io/react-project-accelerator/static/js/main.8da9c8d1.js"></script><link href="https://spinningideas.github.io/react-project-accelerator/static/css/main.8e20da38.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="appshell"></div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Project Accelerator</title>
+    <meta
+      name="description"
+      content="React Project Accelerator - A production-ready React starter with Tailwind CSS, shadcn/ui, and TypeScript"
+    />
+    <link rel="icon" type="image/x-icon" href="/react-project-accelerator/favicon.ico" />
+    <script>
+      (function () {
+        try {
+          const root = document.documentElement;
+          const storedTheme = localStorage.getItem("theme");
+          const systemPrefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          const isDark =
+            storedTheme === "dark" || (!storedTheme && systemPrefersDark);
+
+          if (isDark) {
+            root.classList.add("dark");
+            document.body.style.backgroundColor = "#020817";
+          } else {
+            root.classList.remove("dark");
+            document.body.style.backgroundColor = "#ffffff";
+          }
+
+          root.style.colorScheme = isDark ? "dark" : "light";
+        } catch (_e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/react-project-accelerator/assets/index-B6osot6O.js"></script>
+    <link rel="stylesheet" crossorigin href="/react-project-accelerator/assets/index-PjQitaZQ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
