@@ -14,10 +14,14 @@ const About = () => {
       "technologydescription",
       "reactjs",
       "reactjsdescription",
-      "tailwind_shadcn",
-      "tailwind_shadcn_description",
-      "lucide_vite",
-      "lucide_vite_description",
+      "tailwind_css",
+      "tailwind_css_description",
+      "shadcn_ui",
+      "shadcn_ui_description",
+      "lucide_icons",
+      "lucide_icons_description",
+      "vite",
+      "vite_description",
       "moreinfo",
     ]);
   }, []);
@@ -30,13 +34,13 @@ const About = () => {
       <h4 className="text-2xl font-semibold mb-4">{locData.technology}</h4>
       <p className="mb-6">{locData.technologydescription}</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         <Card>
           <CardHeader>
-            <CardTitle>{locData.reactjs}</CardTitle>
+            <CardTitle>{locData.reactjs || "React JS"}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{locData.reactjsdescription}</p>
+            <p>{locData.reactjsdescription || "React makes it painless to create interactive UIs using encapsulated components that manage their own state."}</p>
           </CardContent>
           <CardFooter>
             <Button variant="secondary" asChild>
@@ -53,11 +57,33 @@ const About = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>{locData.tailwind_shadcn || "Tailwind CSS & shadcn/ui"}</CardTitle>
+            <CardTitle>{locData.tailwind_css || "Tailwind CSS"}</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
-              {locData.tailwind_shadcn_description || "A utility-first CSS framework combined with beautifully designed components built with Radix UI and Tailwind CSS."}
+              {locData.tailwind_css_description || "A utility-first CSS framework for rapidly building custom user interfaces with low-level utility classes."}
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Button variant="secondary" asChild>
+              <a
+                href="https://tailwindcss.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {locData.moreinfo || "More Information"}
+              </a>
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>{locData.shadcn_ui || "shadcn/ui"}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              {locData.shadcn_ui_description || "Beautifully designed components built with Radix UI and Tailwind CSS that you can copy and paste into your apps."}
             </p>
           </CardContent>
           <CardFooter>
@@ -75,17 +101,39 @@ const About = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>{locData.lucide_vite || "Lucide Icons & Vite"}</CardTitle>
+            <CardTitle>{locData.lucide_icons || "Lucide Icons"}</CardTitle>
           </CardHeader>
           <CardContent>
             <p>
-              {locData.lucide_vite_description || "Beautiful, consistent icons from Lucide.dev powered by Vite's lightning-fast build tooling for modern web development."}
+              {locData.lucide_icons_description || "Beautiful, consistent icon library with over 1,000 open-source icons for modern web applications."}
             </p>
           </CardContent>
           <CardFooter>
             <Button variant="secondary" asChild>
               <a
                 href="https://lucide.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {locData.moreinfo || "More Information"}
+              </a>
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>{locData.vite || "Vite"}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              {locData.vite_description || "Lightning-fast build tool and dev server that provides instant hot module replacement for modern web development."}
+            </p>
+          </CardContent>
+          <CardFooter>
+            <Button variant="secondary" asChild>
+              <a
+                href="https://vitejs.dev/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
