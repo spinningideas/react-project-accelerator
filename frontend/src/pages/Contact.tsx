@@ -57,7 +57,7 @@ const Contact = () => {
         <Card className="max-w-2xl">
           <CardContent className="space-y-4 pt-6">
             <div className="space-y-2">
-              <Label htmlFor="name">{locData.name} *</Label>
+              <Label htmlFor="name">{locData.name || "Name"} *</Label>
               <Input
                 id="name"
                 type="text"
@@ -71,7 +71,7 @@ const Contact = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">{locData.email} *</Label>
+              <Label htmlFor="email">{locData.email || "Email"} *</Label>
               <Input
                 id="email"
                 type="email"
@@ -89,7 +89,7 @@ const Contact = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message">{locData.message} *</Label>
+              <Label htmlFor="message">{locData.message || "Message"} *</Label>
               <Textarea
                 id="message"
                 {...register("message", {
