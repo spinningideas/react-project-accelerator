@@ -1,12 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Bookmark,
-  ExternalLink,
-  Trash2,
-  Github,
-  ImageUp,
-  Microscope,
-} from "lucide-react";
+import { Bookmark, ExternalLink, Link, Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useBookmarks } from "@/contexts/BookmarksContext";
 import { Card } from "@/components/ui/card";
@@ -79,7 +72,7 @@ const Bookmarks = () => {
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-                        <Github className="h-4 w-4 text-primary" />
+                        <Link className="h-4 w-4 text-primary" />
                       </div>
                     </div>
                     <div className="flex-1 min-w-0">

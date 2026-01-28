@@ -11,12 +11,6 @@ const Privacy = () => {
           information.
         </p>
         <p className="text-muted-foreground">
-          Any searches you perform are processed through our serverless
-          infrastructure to query the GitHub API. Search queries are not stored
-          permanently, though your search preferences may be saved locally in
-          your browser for convenience.
-        </p>
-        <p className="text-muted-foreground">
           We may collect anonymous usage analytics to improve the service. This
           data does not include personally identifiable information.
         </p>

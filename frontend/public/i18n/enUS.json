@@ -64,6 +64,8 @@
 	"materialuidescription": "Visually appealing React components that implement Google's Material Design along with layout and theming support.",
 	"message": "Message",
 	"messagedescription": "Enter message...",
+	"modals": "Modal Dialogs",
+	"modalsdescription": "Below are examples of modal dialogs",
 	"moreinfo": "More Information",
 	"name": "Name",
 	"namedescription": "Enter name...",

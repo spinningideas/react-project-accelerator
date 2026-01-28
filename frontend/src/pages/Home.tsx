@@ -83,7 +83,7 @@ const Home = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
       },
     },
@@ -149,14 +149,14 @@ const Home = () => {
         <motion.div variants={itemVariants}>
           <Card>
             <CardHeader>
-              <CardTitle>{locData.modals}</CardTitle>
+              <CardTitle>{locData.modals || "Modal Dialogs"}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{locData.modalsdescription}</p>
+              <p>{locData.modalsdescription || "Below are examples of modal dialogs"}</p>
             </CardContent>
             <CardFooter>
               <Button variant="secondary" onClick={() => setModalOpen(true)}>
-                {locData.view}
+                {locData.view || "View"}
               </Button>
             </CardFooter>
           </Card>
