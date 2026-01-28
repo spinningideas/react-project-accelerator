@@ -1,4 +1,64 @@
-# Priority Pages Localization Keys
+# Localization Guide
+
+This document explains how localization works in the application, how to use the localization service, and where to find and manage translation keys.
+
+## How localization works
+- **Service:** `frontend/src/services/LocalizationService.ts` handles locale selection, user preference storage, and loading translation bundles from `/public/i18n/{locale}.json` (honors `VITE_BASE_PATH` for GitHub Pages builds).
+- **Fallbacks:** If a key is missing in the selected locale, the service falls back to `enUS` for that key.
+- **User locale storage:** The selected locale is stored in `localStorage` under `locale`.
+- **Supported locales:** Defined in `supportedLanguageMap` within the service.
+
+## Using the localization service
+1) Inject the localization context: `const { locData, loadLocalizedText } = useLocalization();`
+2) Load the keys you need for the page when it mounts:
+
+```tsx
+useEffect(() => {
+  loadLocalizedText([
+    "about",
+    "aboutdescription",
+    "technology",
+    "technologydescription",
+    // add page-specific keys here
+  ]);
+}, []);
+```
+
+3) Render localized text from `locData` (it will contain the keys you requested):
+
+```tsx
+<h3>{locData.about}</h3>
+<p>{locData.aboutdescription}</p>
+```
+
+### Example: About page
+The About page demonstrates batching the required keys on mount:
+
+```tsx
+useEffect(() => {
+  loadLocalizedText([
+    "about",
+    "aboutdescription",
+    "technology",
+    "technologydescription",
+    "reactjs",
+    "reactjsdescription",
+    "tailwind_css",
+    "tailwind_css_description",
+    "shadcn_ui",
+    "shadcn_ui_description",
+    "lucide_icons",
+    "lucide_icons_description",
+    "vite",
+    "vite_description",
+    "moreinfo",
+  ]);
+}, []);
+```
+
+Use this pattern on new pages: list the keys needed for that view, call `loadLocalizedText`, then read from `locData` in JSX. Provide sensible fallbacks in JSX if desired (as shown in the About cards).
+
+## Localization Keys
 
 ## Landing Page Keys
 

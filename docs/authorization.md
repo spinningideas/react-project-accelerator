@@ -1,3 +1,57 @@
+
+# Authentication System
+
+This project includes a mock-first authentication flow plus a clear service boundary to plug in a real provider. Key files:
+
+- `frontend/src/services/authService.ts` — default real API implementation (when `VITE_MOCK_AUTH=false`) and the place to wire external providers.
+- `frontend/src/services/auth/index.ts` — wrapper that switches between mock and real based on environment variables.
+- `frontend/src/services/authServiceMockV2.ts` — mock auth for local development.
+- `frontend/src/contexts/AuthContext.tsx` — consumes the `@/services/auth` wrapper; no provider-specific logic should live in components.
+
+> Provider selection recommendation: add an env flag such as `VITE_AUTH_PROVIDER` (e.g., `api`, `convex`, `clerk`, `betterauth`) and branch inside `authService.ts` to the desired adapter. Keep all adapters returning `ApiResponse<T>` to preserve UI contracts.
+
+## Integrating real auth providers
+The sections below outline how to connect popular hosted auth solutions. Each follows the same pattern: install SDK, initialize in an adapter, and keep the public surface of `authService.ts` consistent (`getSession`, `signInWithPassword`, `signUpWithPassword`, `signOut`, password reset helpers).
+
+### Convex Auth (https://www.convex.dev/auth)
+- Install: `npm install convex`
+- Initialize Convex client (e.g., in a provider adapter inside `authService.ts`).
+- Map calls:
+  - `signInWithPassword` → Convex auth `useAuth` / server-side functions for login.
+  - `signUpWithPassword` → Convex signup function; ensure returned session/token is stored in `localStorage` if needed.
+  - `getSession` → use Convex session fetch (or ConvexAuth client) and wrap into `ApiResponse<UserSession>`.
+  - `signOut` → Convex sign-out; clear `AUTH_TOKEN_STORAGE_KEY` if you store tokens locally.
+- Environment: Convex uses `CONVEX_DEPLOYMENT` and CLI-configured auth; document any additional keys you surface to the client.
+
+### Clerk (https://clerk.com/docs/react/getting-started/quickstart)
+- Install: `npm install @clerk/clerk-react`
+- Wrap the app with `<ClerkProvider publishableKey={...}>` (typically in `main.tsx` or a dedicated provider).
+- Use Clerk hooks inside an adapter in `authService.ts`:
+  - `signInWithPassword` → Clerk `signIn.create` with identifier/password; return `ApiResponse<AuthResponse>` and persist tokens if you mirror them locally.
+  - `signUpWithPassword` → Clerk `signUp.create`; handle verification flows (email/SMS) and return the session or pending state.
+  - `getSession` → Clerk `getToken()` / `useSession()`; map to `UserSession` shape consumed by the app.
+  - `signOut` → `signOut()` from Clerk; clear local storage mirrors.
+- Environment: `VITE_CLERK_PUBLISHABLE_KEY` (client) and Clerk secret on the server if using backend calls.
+
+### Better Auth (https://www.better-auth.com/)
+- Install: follow Better Auth SDK install (e.g., `npm install better-auth` — check docs for exact package names).
+- Initialize the client in an adapter within `authService.ts`.
+- Map calls:
+  - `signInWithPassword` / `signUpWithPassword` → Better Auth client methods; return `ApiResponse<AuthResponse>` with token/session.
+  - `getSession` → Better Auth session fetch; coerce into `UserSession`.
+  - `signOut` → Better Auth sign-out; clear `AUTH_TOKEN_STORAGE_KEY` if used.
+- Environment: set the Better Auth client key(s) (e.g., `VITE_BETTERAUTH_PROJECT_ID`); follow their docs for required values.
+
+### Implementation guidance
+- Keep the public API stable: all adapters should return `ApiResponse<T>` objects so UI components remain unchanged.
+- Store tokens consistently: if the provider supplies a session/token, store it under `AUTH_TOKEN_STORAGE_KEY` for parity with the existing flow, or adapt the context to read directly from the provider’s session APIs.
+- Centralize branching: handle provider selection in `authService.ts` (using env flags) and keep `AuthContext` oblivious to which provider is active.
+- Server alignment: if you switch to a hosted auth, ensure any backend routes expecting JWTs or sessions are updated to validate provider-issued tokens.
+
+Additional details on authentication can be found in the [authService.ts](../frontend/src/services/authService.ts) file.
+
+
+
 # Mock Authentication System
 
 The React Project Accelerator includes a complete mock authentication system that allows the application to work without a backend API. This is perfect for development, demos, and testing.
