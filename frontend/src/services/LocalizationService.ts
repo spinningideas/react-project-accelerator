@@ -40,14 +40,28 @@ const LocalizationService = () => {
     // and extract the set of localized text values for given keys
     let textSet = {};
     const localizedData = await getLocalizedData(locale);
+    
+    // Load English as fallback if locale is not English
+    let fallbackData = null;
+    if (locale !== defaultLocale) {
+      fallbackData = await getLocalizedData(defaultLocale);
+    }
+    
     if (localizedData) {
       let localizedTextSet = localizedData;
       const keysLocalizedTextSet = Object.keys(localizedTextSet);
       for (const desiredKey of keys) {
+        let found = false;
         for (const key of keysLocalizedTextSet) {
           if (desiredKey === key) {
             textSet[key] = localizedTextSet[key];
+            found = true;
+            break;
           }
+        }
+        // If key not found in requested locale, fallback to English
+        if (!found && fallbackData && fallbackData[desiredKey]) {
+          textSet[desiredKey] = fallbackData[desiredKey];
         }
       }
     }

@@ -48,6 +48,20 @@ export default function LandingPage() {
       "landing_feature_beautiful_ui_desc",
       "landing_feature_production_ready_title",
       "landing_feature_production_ready_desc",
+      "landing_getstarted_heading",
+      "landing_getstarted_description",
+      "landing_getstarted_step1_title",
+      "landing_getstarted_step1_desc",
+      "landing_getstarted_step1_clone_label",
+      "landing_getstarted_step1_install_label",
+      "landing_getstarted_step2_title",
+      "landing_getstarted_step2_desc",
+      "landing_getstarted_step3_title",
+      "landing_getstarted_step3_desc",
+      "landing_getstarted_step4_title",
+      "landing_getstarted_step4_desc",
+      "landing_getstarted_step5_title",
+      "landing_getstarted_step5_desc",
       "landing_feature_typescript_title",
       "landing_feature_typescript_desc",
       "landing_feature_component_library_title",
@@ -57,6 +71,8 @@ export default function LandingPage() {
       "landing_cta_heading",
       "landing_cta_description",
       "landing_cta_footer_text",
+      "landing_cta_footer_text_mock",
+      "hero_mock_auth_note",
       "footer_tagline",
       "footer_product_heading",
       "footer_resources_heading",
@@ -135,14 +151,20 @@ export default function LandingPage() {
 
           <section className="container mx-auto px-4 mt-4 relative z-10">
             {/* Get Started Card */}
-            <div className="max-w-4xl mx-auto text-center flex gap-2 justify-center">
-              <Button
-                size="lg"
-                className="text-lg rounded-full px-8 h-14 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={() => navigate("/signup")}
-              >
-                {locData["button_get_started"] || "Get Started!"}
-              </Button>
+            <div className="max-w-4xl mx-auto text-center">
+              {import.meta.env.VITE_MOCK_AUTH === "true" && (
+                <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mb-3 bg-orange-50 dark:bg-orange-950/30 px-4 py-2 rounded-lg inline-block">
+                  {locData["hero_mock_auth_note"] || "Sign In With Any Email/Password as auth is mocked"}
+                </p>
+              )}
+              <div className="flex gap-2 justify-center">
+                <Button
+                  size="lg"
+                  className="text-lg rounded-full px-8 h-14 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => navigate("/signup")}
+                >
+                  {locData["button_get_started"] || "Get Started!"}
+                </Button>
               <Button
                 size="lg"
                 variant="secondary"
@@ -151,6 +173,7 @@ export default function LandingPage() {
               >
                 {locData["button_sign_in"] || "Sign In"}
               </Button>
+            </div>
             </div>
           </section>
 
@@ -194,6 +217,131 @@ export default function LandingPage() {
             </div>
           </section>
 
+          {/* Get Started Section */}
+          <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-zinc-900">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600 dark:from-blue-400 dark:to-green-400 mb-6">
+                  {locData["landing_getstarted_heading"] || "Get Started in Minutes"}
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  {locData["landing_getstarted_description"] || "Follow these simple steps to start building your next project"}
+                </p>
+              </div>
+
+              <div className="max-w-4xl mx-auto space-y-6">
+                {/* Step 1 */}
+                <Card className="border-l-4 border-l-blue-500 hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        1
+                      </div>
+                      <div className="flex-1">
+                        <CardTitle className="text-xl mb-2">
+                          {locData["landing_getstarted_step1_title"] || "Clone Repository and Install Dependencies"}
+                        </CardTitle>
+                        <p className="text-muted-foreground mb-3">
+                          {locData["landing_getstarted_step1_desc"] || "Clone the repository and run npm install to get all dependencies set up"}
+                        </p>
+                        <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm">
+                          <div className="text-slate-400 mb-1">
+                            {locData["landing_getstarted_step1_clone_label"] || "# Clone the repository"}
+                          </div>
+                          <code className="text-green-400">
+                            git clone https://github.com/spinningideas/react-project-accelerator.git
+                          </code>
+                          <div className="text-slate-400 mt-3 mb-1">
+                            {locData["landing_getstarted_step1_install_label"] || "# Install dependencies"}
+                          </div>
+                          <code className="text-green-400">
+                            cd react-project-accelerator/frontend && npm install
+                          </code>
+                        </div>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+
+                {/* Step 2 */}
+                <Card className="border-l-4 border-l-green-500 hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        2
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl mb-2">
+                          {locData["landing_getstarted_step2_title"] || "Customize Logo, Landing Page, and Home Sections"}
+                        </CardTitle>
+                        <p className="text-muted-foreground">
+                          {locData["landing_getstarted_step2_desc"] || "Update the logo, landing page content, and home sections to match your brand and requirements"}
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+
+                {/* Step 3 */}
+                <Card className="border-l-4 border-l-purple-500 hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        3
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl mb-2">
+                          {locData["landing_getstarted_step3_title"] || "Review and Optimize NPM Packages"}
+                        </CardTitle>
+                        <p className="text-muted-foreground">
+                          {locData["landing_getstarted_step3_desc"] || "Review the installed npm packages and remove any you don't need for your project"}
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+
+                {/* Step 4 */}
+                <Card className="border-l-4 border-l-orange-500 hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        4
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl mb-2">
+                          {locData["landing_getstarted_step4_title"] || "Configure Localization"}
+                        </CardTitle>
+                        <p className="text-muted-foreground">
+                          {locData["landing_getstarted_step4_desc"] || "Remove localization entirely or keep English and continue localizing new strings as needed"}
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+
+                {/* Step 5 */}
+                <Card className="border-l-4 border-l-pink-500 hover:shadow-lg transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0">
+                        5
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl mb-2">
+                          {locData["landing_getstarted_step5_title"] || "Update About, Terms, and Contact Pages"}
+                        </CardTitle>
+                        <p className="text-muted-foreground">
+                          {locData["landing_getstarted_step5_desc"] || "Customize the About, Terms of Service, and Contact pages with your information"}
+                        </p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              </div>
+            </div>
+          </section>
+
           {/* CTA Section */}
           <section className="py-24 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 dark:from-blue-900 dark:to-green-900 opacity-70 dark:opacity-60" />
@@ -223,7 +371,10 @@ export default function LandingPage() {
                 </Button>
               </div>
               <p className="text-sm text-blue-100 mt-6 opacity-90">
-                {locData["landing_cta_footer_text"] || "No credit card required • Open source • MIT License"}
+                {import.meta.env.VITE_MOCK_AUTH === "true" 
+                  ? (locData["landing_cta_footer_text_mock"] || "Sign In With Any Email/Password as auth is mocked - No credit card required • Open source • MIT License")
+                  : (locData["landing_cta_footer_text"] || "No credit card required • Open source • MIT License")
+                }
               </p>
             </div>
           </section>
