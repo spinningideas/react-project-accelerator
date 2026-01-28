@@ -66,6 +66,7 @@
 	"landing_getstarted_step1_clone_label": "# Clone the repository",
 	"landing_getstarted_step1_clone_command": "git clone https://github.com/spinningideas/react-project-accelerator.git",
 	"landing_getstarted_step1_install_label": "# Install dependencies",
+	"landing_getstarted_step1_dev_label": "# Start development server",
 	"landing_getstarted_step2_title": "Customize Logo, Landing Page, and Home Sections",
 	"landing_getstarted_step2_desc": "Update the logo, landing page content, and home sections to match your brand and requirements",
 	"landing_getstarted_step3_title": "Review and Optimize NPM Packages",

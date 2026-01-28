@@ -54,6 +54,7 @@ export default function LandingPage() {
       "landing_getstarted_step1_desc",
       "landing_getstarted_step1_clone_label",
       "landing_getstarted_step1_install_label",
+      "landing_getstarted_step1_dev_label",
       "landing_getstarted_step2_title",
       "landing_getstarted_step2_desc",
       "landing_getstarted_step3_title",
@@ -256,6 +257,12 @@ export default function LandingPage() {
                           </div>
                           <code className="text-green-400">
                             cd react-project-accelerator/frontend && npm install
+                          </code>
+                          <div className="text-slate-400 mt-3 mb-1">
+                            {locData["landing_getstarted_step1_dev_label"] || "# Start development server"}
+                          </div>
+                          <code className="text-green-400">
+                            npm run dev
                           </code>
                         </div>
                       </div>

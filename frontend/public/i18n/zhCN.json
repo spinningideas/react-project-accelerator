@@ -64,6 +64,7 @@
 	"landing_getstarted_step1_desc": "克隆存储库并运行 npm install 以设置所有依赖项",
 	"landing_getstarted_step1_clone_label": "# 克隆存储库",
 	"landing_getstarted_step1_install_label": "# 安装依赖项",
+	"landing_getstarted_step1_dev_label": "# 启动开发服务器",
 	"landing_getstarted_step2_title": "自定义徽标、登陆页面和主页部分",
 	"landing_getstarted_step2_desc": "更新徽标、登陆页面内容和主页部分以匹配您的品牌和要求",
 	"landing_getstarted_step3_title": "审查和优化 NPM 包",
