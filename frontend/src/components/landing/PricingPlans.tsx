@@ -54,7 +54,7 @@ const PricingPlans = () => {
     >
       <Card className="p-6 card-gradient border-border/50 bg-transparent">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2">{locData["pricing_heading"] || "Purchase Credits"}</h2>
+          <h2 className="text-2xl font-bold mb-2">EXAMPLE PRICING PLANS: {locData["pricing_heading"] || "Purchase Credits"}</h2>
           <p className="text-sm text-muted-foreground">
             {locData["pricing_description"] || "Get credits for enhanced search capabilities"}
           </p>

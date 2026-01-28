@@ -2,11 +2,53 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug via Chrome",
-      "type": "chrome",
+      "name": "Launch Dev Server",
+      "type": "node-terminal",
       "request": "launch",
-      "url": "http://localhost:3000/react-project-accelerator",
-      "webRoot": "${workspaceFolder}"
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/frontend"
+    },
+    {
+      "name": "Attach Chrome Debugger",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:3100/",
+      "webRoot": "${workspaceFolder}/frontend",
+      "sourceMaps": true,
+      "pathMapping": {
+        "/": "${workspaceFolder}/frontend",
+        "/@/": "${workspaceFolder}/frontend/src/"
+      }
+    },
+    {
+      "name": "Attach Edge Debugger",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3100/",
+      "webRoot": "${workspaceFolder}/frontend",
+      "sourceMaps": true,
+      "pathMapping": {
+        "/": "${workspaceFolder}/frontend",
+        "/@/": "${workspaceFolder}/frontend/src/"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Debug Frontend (Chrome)",
+      "configurations": ["Launch Dev Server", "Attach Chrome Debugger"],
+      "stopAll": true,
+      "presentation": {
+        "order": 1
+      }
+    },
+    {
+      "name": "Debug Frontend (Edge)",
+      "configurations": ["Launch Dev Server", "Attach Edge Debugger"],
+      "stopAll": true,
+      "presentation": {
+        "order": 2
+      }
     }
   ]
 }
