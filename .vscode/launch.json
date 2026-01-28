@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug via Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000/react-project-accelerator",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
