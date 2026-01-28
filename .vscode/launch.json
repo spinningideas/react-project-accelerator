@@ -2,14 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Dev Server",
+      "name": "_server",
       "type": "node-terminal",
       "request": "launch",
       "command": "npm run dev",
-      "cwd": "${workspaceFolder}/frontend"
+      "cwd": "${workspaceFolder}/frontend",
+      "presentation": {
+        "hidden": true
+      }
     },
     {
-      "name": "Attach Chrome Debugger",
+      "name": "_chrome",
       "type": "pwa-chrome",
       "request": "launch",
       "url": "http://localhost:3100/",
@@ -18,10 +21,13 @@
       "pathMapping": {
         "/": "${workspaceFolder}/frontend",
         "/@/": "${workspaceFolder}/frontend/src/"
+      },
+      "presentation": {
+        "hidden": true
       }
     },
     {
-      "name": "Attach Edge Debugger",
+      "name": "_edge",
       "type": "msedge",
       "request": "launch",
       "url": "http://localhost:3100/",
@@ -30,21 +36,24 @@
       "pathMapping": {
         "/": "${workspaceFolder}/frontend",
         "/@/": "${workspaceFolder}/frontend/src/"
+      },
+      "presentation": {
+        "hidden": true
       }
     }
   ],
   "compounds": [
     {
-      "name": "Debug Frontend (Chrome)",
-      "configurations": ["Launch Dev Server", "Attach Chrome Debugger"],
+      "name": "Launch Chrome Debugger",
+      "configurations": ["_server", "_chrome"],
       "stopAll": true,
       "presentation": {
         "order": 1
       }
     },
     {
-      "name": "Debug Frontend (Edge)",
-      "configurations": ["Launch Dev Server", "Attach Edge Debugger"],
+      "name": "Launch Edge Debugger",
+      "configurations": ["_server", "_edge"],
       "stopAll": true,
       "presentation": {
         "order": 2
