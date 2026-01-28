@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocalization } from "@/contexts/LocalizationContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import NavigationPublic from "@/components/app/NavigationPublic";
 
 const About = () => {
   const { locData, loadLocalizedText } = useLocalization();
@@ -27,15 +28,17 @@ const About = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h3 className="text-3xl font-bold mb-4">{locData.about}</h3>
+    <>
+      <NavigationPublic />
+      <div className="container mx-auto px-4 py-8">
+        <h3 className="text-3xl font-bold mb-4">{locData.about}</h3>
       <p className="mb-6">{locData.aboutdescription}</p>
 
       <h4 className="text-2xl font-semibold mb-4">{locData.technology}</h4>
       <p className="mb-6">{locData.technologydescription}</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
-        <Card>
+        <Card variant="animated">
           <CardHeader>
             <CardTitle>{locData.reactjs || "React JS"}</CardTitle>
           </CardHeader>
@@ -55,7 +58,7 @@ const About = () => {
           </CardFooter>
         </Card>
 
-        <Card>
+        <Card variant="animated">
           <CardHeader>
             <CardTitle>{locData.tailwind_css || "Tailwind CSS"}</CardTitle>
           </CardHeader>
@@ -77,7 +80,7 @@ const About = () => {
           </CardFooter>
         </Card>
 
-        <Card>
+        <Card variant="animated">
           <CardHeader>
             <CardTitle>{locData.shadcn_ui || "shadcn/ui"}</CardTitle>
           </CardHeader>
@@ -99,7 +102,7 @@ const About = () => {
           </CardFooter>
         </Card>
 
-        <Card>
+        <Card variant="animated">
           <CardHeader>
             <CardTitle>{locData.lucide_icons || "Lucide Icons"}</CardTitle>
           </CardHeader>
@@ -121,7 +124,7 @@ const About = () => {
           </CardFooter>
         </Card>
 
-        <Card>
+        <Card variant="animated">
           <CardHeader>
             <CardTitle>{locData.vite || "Vite"}</CardTitle>
           </CardHeader>
@@ -143,7 +146,8 @@ const About = () => {
           </CardFooter>
         </Card>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

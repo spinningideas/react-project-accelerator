@@ -15,7 +15,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // components - app
-import Navigation from "@/components/app/Navigation";
+import NavigationPublic from "@/components/app/NavigationPublic";
 import Logo from "@/components/app/Logo";
 import LoadingIndicator from "@/components/shared/LoadingIndicator";
 import BackgroundAnimations from "@/components/shared/BackgroundAnimations";
@@ -118,7 +118,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-black dark:via-black dark:to-black">
       <BackgroundAnimations showGradient={false} />
       
-      <Navigation />
+      <NavigationPublic />
 
       {loading ? (
         <div className="flex items-center justify-center min-h-[50vh]">

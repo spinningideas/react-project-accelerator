@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import NavigationPublic from "@/components/app/NavigationPublic";
 
 const Contact = () => {
   const { name } = useParams<{ name?: string }>();
@@ -46,8 +47,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h3 className="text-3xl font-bold mb-4">{locData.contact}</h3>
+    <>
+      <NavigationPublic />
+      <div className="container mx-auto px-4 py-8">
+        <h3 className="text-3xl font-bold mb-4">{locData.contact}</h3>
       <p className="mb-6">{locData.contactdescription}</p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -106,7 +109,8 @@ const Contact = () => {
           </CardFooter>
         </Card>
       </form>
-    </div>
+      </div>
+    </>
   );
 };
 
