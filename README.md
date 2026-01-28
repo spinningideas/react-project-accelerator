@@ -240,12 +240,6 @@ npm run deployghpages
 - Check that the `gh-pages` branch exists and is not protected
 - Ensure `gh-pages` package is installed: `npm install gh-pages --save-dev`
 
-## Documentation
-
-- **[Migration Guide](docs/migrate-v1-to-v2.md)** - Complete v1 to v2 migration documentation
-- **[Mock Auth Guide](docs/MOCK_AUTH.md)** - Mock authentication system documentation
-- **[Localization Plan](docs/localization-implementation-plan.md)** - Multi-language support implementation
-
 ## Resources
 
 ### shadcn/ui & Tailwind CSS
