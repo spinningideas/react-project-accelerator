@@ -32,7 +32,7 @@ https://spinningideas.github.io/react-project-accelerator/
 
 ### Prerequisites
 
-- Node.js 18+ and npm
+- Node.js 22+ and npm
 
 ### Installation
 
@@ -117,14 +117,22 @@ frontend/
 │   │   ├── ui/      # shadcn/ui components
 │   │   ├── app/     # App-specific components
 │   │   ├── auth/    # Authentication components
+│   │   ├── landing/ # Landing page components
 │   │   └── shared/  # Shared utility components
 │   ├── contexts/    # React contexts (Auth, Theme, Localization, etc.)
 │   ├── hooks/       # Custom React hooks
+│   ├── lib/         # Library utilities (cn helper, etc.)
 │   ├── models/      # TypeScript interfaces and types
 │   ├── pages/       # Page components
 │   ├── routing/     # React Router configuration
 │   ├── services/    # API services and utilities
-│   └── utils/       # Utility functions
+│   ├── styling/     # Global styles and theme configuration
+│   ├── utils/       # Utility functions
+│   ├── App.tsx      # Root application component
+│   ├── constants.ts # Application constants
+│   ├── index.css    # Global CSS styles
+│   ├── main.tsx     # Application entry point
+│   └── vite-env.d.ts # Vite environment type definitions
 └── docs/            # Documentation
 ```
 
@@ -132,7 +140,7 @@ frontend/
 
 ### Core
 
-- **[React 18](https://react.dev/)** - UI library
+- **[React 19](https://react.dev/)** - UI library
 - **[TypeScript](https://www.typescriptlang.org/)** - Type safety
 - **[Vite](https://vitejs.dev/)** - Build tool and dev server
 
@@ -267,7 +275,7 @@ npm run deployghpages
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request providing additional details on any feature added, bug fixes, or documentation updates to this project.
 
 ## License
 
