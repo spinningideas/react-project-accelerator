@@ -12,8 +12,6 @@ import { AuthProvider } from "@/contexts/AuthContext";
 // routing
 import PageRouter from "@/routing/PageRouter";
 // components
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as ToasterSonner } from "@/components/ui/sonner";
 import { ToastProvider } from "@/components/shared/Toast";
 
 const queryClient = new QueryClient();
@@ -26,16 +24,12 @@ const basename = import.meta.env.VITE_BASE_PATH || "/";
 
 const App = () => (
   <BrowserRouter basename={basename}>
-    <ToastProvider>
+    <ToastProvider location="top">
       <ThemeProvider defaultTheme={defaultTheme}>
         <LocalizationProvider>
           <QueryClientProvider client={queryClient}>
             <BookmarksProvider>
-              <AuthProvider>
-                <Toaster />
-                <ToasterSonner />
-                {PageRouter}
-              </AuthProvider>
+              <AuthProvider>{PageRouter}</AuthProvider>
             </BookmarksProvider>
           </QueryClientProvider>
         </LocalizationProvider>

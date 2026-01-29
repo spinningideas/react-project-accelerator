@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { toastError, toastSuccess } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { updateUser } from "@/services/users/usersService";
 import User from "@/models/user/User";
@@ -23,6 +23,7 @@ const UserProfile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
+  const { success, error } = useToast();
 
   useEffect(() => {
     if (user) {
@@ -40,24 +41,24 @@ const UserProfile = () => {
         userId: user?.userId || "",
         name,
         email,
-        active: true
+        active: true,
       };
 
       // Update user metadata
       const response = await updateUser(
         updatedUser.userId,
         updatedUser.name,
-        updatedUser.email
+        updatedUser.email,
       );
 
       if (response.success) {
-        toastSuccess({
+        success({
           title: "Profile updated",
           description:
             "Your profile information has been updated successfully.",
         });
       } else {
-        toastError({
+        error({
           title: "Update failed",
           description:
             response.message || "Failed to update profile. Please try again.",
@@ -75,11 +76,11 @@ const UserProfile = () => {
       //     throw passwordError;
       //   }
       // }
-    } catch (error: any) {
-      toastError({
+    } catch (err: any) {
+      error({
         title: "Update failed",
         description:
-          error.message || "Failed to update profile. Please try again.",
+          err.message || "Failed to update profile. Please try again.",
       });
     } finally {
       setIsLoading(false);

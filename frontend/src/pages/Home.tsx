@@ -48,6 +48,7 @@ const Home = () => {
       "getstartedmessage",
       "homepagewelcome",
       "info",
+      "message",
       "modals",
       "modalsdescription",
       "notifications",
@@ -63,7 +64,7 @@ const Home = () => {
 
   const showNotification = (
     message: string,
-    type: "success" | "error" | "info",
+    type: "success" | "error" | "info" | "default",
   ) => {
     notificationsService.show(message, type);
   };
@@ -165,6 +166,12 @@ const Home = () => {
                 onClick={() => showNotification(locData.error, "error")}
               >
                 {locData.error}
+              </Button>
+              <Button
+                variant="secondary"
+                onClick={() => showNotification(locData.message, "default")}
+              >
+                {locData.message}
               </Button>
             </CardFooter>
           </Card>

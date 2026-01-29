@@ -250,4 +250,20 @@ function toastInfo(
   });
 }
 
-export { useToast, toast, toastSuccess, toastError, toastInfo };
+// Default
+function toastDefault(
+  descriptionOrObj: React.ReactNode | ToastHelperObjectArg,
+  props?: ToastHelperProps,
+) {
+  if (isObjectArg(descriptionOrObj)) {
+    const { title, description, ...rest } = descriptionOrObj;
+    return toast({ title, description, variant: "info", ...rest });
+  }
+  return toast({
+    description: descriptionOrObj,
+    variant: "info",
+    ...(props ?? {}),
+  });
+}
+
+export { toastSuccess, toastError, toastInfo, toastDefault };

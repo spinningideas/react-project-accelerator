@@ -1,4 +1,4 @@
-import { toastError, toastInfo, toastSuccess } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 
 /* Notifications Service - encapsulates collection of "Toast" style 
 messages of given type (eg success, warning, error) 
@@ -6,20 +6,25 @@ messages of given type (eg success, warning, error)
 NOTE: Uses custom css in index.css and custom toast component in Toast.tsx
 */
 const NotificationsService = () => {
+  const { success, error, info, showToast } = useToast();
+
   const show = (
     message: string,
-    type: "success" | "error" | "info" = "info",
+    type: "success" | "error" | "info" | "default" = "info",
   ) => {
     switch (type) {
       case "success":
-        toastSuccess(message);
+        success(message);
         break;
       case "error":
-        toastError(message);
+        error(message);
         break;
       case "info":
+        info(message);
+        break;
+      case "default":
       default:
-        toastInfo(message);
+        showToast(message, "default");
         break;
     }
   };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { toast } from "sonner";
+import { toastError, toastSuccess } from "@/hooks/use-toast";
 
 /**
  * Hook for clipboard operations with user feedback
@@ -16,7 +16,7 @@ export function useClipboard() {
       setIsCopied(true);
 
       // Show success toast
-      toast.success(successMessage || "Copied to clipboard");
+      toastSuccess(successMessage || "Copied to clipboard");
 
       // Reset copied state after 2 seconds
       setTimeout(() => setIsCopied(false), 2000);
@@ -24,7 +24,7 @@ export function useClipboard() {
       return true;
     } catch (error) {
       console.error("Failed to copy to clipboard:", error);
-      toast.error("Failed to copy to clipboard");
+      toastError("Failed to copy to clipboard");
       return false;
     }
   };

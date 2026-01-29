@@ -8,13 +8,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { toastError } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { AuthDialog } from "@/components/auth/AuthDialog";
 
 export default function AuthButton() {
   const [loading, setLoading] = useState(false);
   const { user, signOutAuthenticatedUser } = useAuth();
+  const { error } = useToast();
 
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ export default function AuthButton() {
       setLoading(true);
       await signOutAuthenticatedUser();
     } catch (_error) {
-      toastError({
+      error({
         title: "Sign Out Failed",
         description: "Unable to complete sign out using your email",
       });
