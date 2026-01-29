@@ -1,13 +1,27 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+// contexts
 import { useAuth } from "@/contexts/AuthContext";
 import { useLocalization } from "@/contexts/LocalizationContext";
+// services
 import GeoService from "@/services/GeoService";
 import NotificationsService from "@/services/NotificationsService";
+// components
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import LoadingIndicator from "@/components/shared/LoadingIndicator";
 import GetStartedMessage from "@/components/home/GetStartedMessage";
 
@@ -23,30 +37,34 @@ const Home = () => {
 
   useEffect(() => {
     loadLocalizedText([
-      "welcome",
-      "homepagewelcome",
       "aboutdescription",
-      "getstartedmessage",
-      "notifications",
-      "notificationsdescription",
-      "modals",
-      "modalsdescription",
-      "error",
-      "success",
-      "view",
-      "close",
       "authenticatedcontent",
       "authenticatedcontentdescription",
-      "services",
-      "serviceexampletitle",
-      "serviceexampledescription",
+      "close",
+      "error",
       "forms",
       "formsexample",
       "formsexampledescription",
+      "getstartedmessage",
+      "homepagewelcome",
+      "info",
+      "modals",
+      "modalsdescription",
+      "notifications",
+      "notificationsdescription",
+      "serviceexampledescription",
+      "serviceexampletitle",
+      "services",
+      "success",
+      "view",
+      "welcome",
     ]);
   }, []);
 
-  const showNotification = (message: string, type: "success" | "error") => {
+  const showNotification = (
+    message: string,
+    type: "success" | "error" | "info",
+  ) => {
     notificationsService.show(message, type);
   };
 
@@ -138,6 +156,12 @@ const Home = () => {
               </Button>
               <Button
                 variant="secondary"
+                onClick={() => showNotification(locData.info, "info")}
+              >
+                {locData.info}
+              </Button>
+              <Button
+                variant="secondary"
                 onClick={() => showNotification(locData.error, "error")}
               >
                 {locData.error}
@@ -152,7 +176,10 @@ const Home = () => {
               <CardTitle>{locData.modals || "Modal Dialogs"}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{locData.modalsdescription || "Below are examples of modal dialogs"}</p>
+              <p>
+                {locData.modalsdescription ||
+                  "Below are examples of modal dialogs"}
+              </p>
             </CardContent>
             <CardFooter>
               <Button variant="secondary" onClick={() => setModalOpen(true)}>
@@ -192,7 +219,11 @@ const Home = () => {
                 {locData.serviceexampletitle}
               </Button>
               {isLoading ? (
-                <LoadingIndicator loading={isLoading} size={5} className="mt-2" />
+                <LoadingIndicator
+                  loading={isLoading}
+                  size={5}
+                  className="mt-2"
+                />
               ) : (
                 userIpAddress && <p className="mt-2">{userIpAddress}</p>
               )}

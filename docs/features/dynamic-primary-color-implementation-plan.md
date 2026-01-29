@@ -36,7 +36,6 @@ Implement a dynamic primary color selection system that allows users to choose a
 
 2. **Tailwind Configuration** (`frontend/tailwind.config.ts`)
    - Colors reference CSS variables: `primary: { DEFAULT: "hsl(var(--primary))", foreground: "hsl(var(--primary-foreground))" }`
-   - Gradients reference CSS variables: `"gradient-primary": "var(--gradient-primary)"`
 
 3. **Settings Page** (`frontend/src/pages/Settings.tsx`)
    - Has 8 predefined colors with hex values
@@ -247,8 +246,6 @@ useEffect(() => {
   root.style.setProperty("--ring", colorTheme.ring);
   root.style.setProperty("--accent", colorTheme.accent);
   root.style.setProperty("--accent-foreground", colorTheme.accentForeground);
-  root.style.setProperty("--gradient-primary", colorTheme.gradientPrimary);
-  root.style.setProperty("--gradient-hero", colorTheme.gradientHero);
   root.style.setProperty("--chart-1", colorTheme.chart1);
   root.style.setProperty("--chart-2", colorTheme.chart2);
   root.style.setProperty("--chart-3", colorTheme.chart3);

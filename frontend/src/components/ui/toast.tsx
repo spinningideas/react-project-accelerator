@@ -2,20 +2,22 @@ import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva, type VariantProps } from "class-variance-authority";
 import { X } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Viewport>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport> & {
+    location?: "top" | "bottom";
+  }
+>(({ className, location = "top", ...props }, ref) => (
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
-      className
+      "fixed right-0 z-[100] flex max-h-screen w-full flex-col p-4 md:max-w-[420px]",
+      location === "top" ? "top-0" : "bottom-0 flex-col-reverse",
+      className,
     )}
     {...props}
   />
@@ -28,13 +30,11 @@ const toastVariants = cva(
     variants: {
       variant: {
         // Use a solid neutral surface to avoid transparency issues
-        default: "border bg-card text-card-foreground dark:bg-neutral-900 bg-white",
-        success:
-          "success border-green-700 bg-green-600 text-white",
-        warning:
-          "warning border-warning bg-warning text-warning-foreground",
+        default:
+          "border bg-card text-card-foreground dark:bg-neutral-900 bg-white",
+        success: "success border-success bg-success text-success-foreground",
+        warning: "warning border-warning bg-warning text-warning-foreground",
         info: "info border-info bg-info text-info-foreground",
-        message: "error border-error bg-error text-error-foreground",
         destructive:
           "destructive border-destructive bg-destructive text-destructive-foreground",
       },
@@ -43,7 +43,7 @@ const toastVariants = cva(
       // Default to neutral background for readability
       variant: "default",
     },
-  }
+  },
 );
 
 const Toast = React.forwardRef<
@@ -69,7 +69,7 @@ const ToastAction = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm text-foreground font-medium ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive",
-      className
+      className,
     )}
     {...props}
   />
@@ -84,7 +84,7 @@ const ToastClose = React.forwardRef<
     ref={ref}
     className={cn(
       "absolute right-2 top-2 rounded-md p-1 text-foreground hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100",
-      className
+      className,
     )}
     toast-close=""
     {...props}

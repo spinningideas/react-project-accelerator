@@ -1,22 +1,25 @@
-import { toast } from "sonner";
+import { toastError, toastInfo, toastSuccess } from "@/hooks/use-toast";
 
 /* Notifications Service - encapsulates collection of "Toast" style 
 messages of given type (eg success, warning, error) 
 
-NOTE: Uses sonner toast system
+NOTE: Uses custom css in index.css and custom toast component in Toast.tsx
 */
 const NotificationsService = () => {
-  const show = (message: string, type: "success" | "error" | "info" = "info") => {
+  const show = (
+    message: string,
+    type: "success" | "error" | "info" = "info",
+  ) => {
     switch (type) {
       case "success":
-        toast.success(message);
+        toastSuccess(message);
         break;
       case "error":
-        toast.error(message);
+        toastError(message);
         break;
       case "info":
       default:
-        toast.info(message);
+        toastInfo(message);
         break;
     }
   };

@@ -84,17 +84,6 @@ All colors MUST be HSL.
     --chart-3: 224 76% 48%;
     --chart-4: 226 71% 40%;
     --chart-5: 225 73% 33%;
-
-    --gradient-primary: linear-gradient(
-      135deg,
-      hsl(217 91% 60% / 0.1) 0%,
-      hsl(199 95% 94% / 0.1) 100%
-    );
-    --gradient-hero: linear-gradient(
-      to bottom,
-      hsl(217 91% 60% / 0.05),
-      transparent 50%
-    );
   }
 
   .dark {
@@ -140,17 +129,6 @@ All colors MUST be HSL.
     --chart-3: 221 83% 53%;
     --chart-4: 224 76% 48%;
     --chart-5: 226 71% 40%;
-
-    --gradient-primary: linear-gradient(
-      135deg,
-      hsl(217 91% 60% / 0.15) 0%,
-      hsl(225 73% 33% / 0.15) 100%
-    );
-    --gradient-hero: linear-gradient(
-      to bottom,
-      hsl(217 91% 60% / 0.08),
-      transparent 50%
-    );
   }
 }
 

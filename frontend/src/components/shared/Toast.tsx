@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   useContext,
   useState,
@@ -9,15 +9,19 @@ import React, {
 interface Toast {
   id: number;
   message: string;
-  type: "success" | "error" | "info";
+  type: "success" | "error" | "info" | "default";
 }
 
 interface ToastContextType {
-  showToast: (message: string, type?: "success" | "error" | "info") => void;
+  showToast: (
+    message: string,
+    type?: "success" | "error" | "info" | "default",
+  ) => void;
 }
 
 const ToastContext = createContext<ToastContextType | undefined>(undefined);
 
+/** Custom hook for toast management which uses the ToastContext */
 export const useToast = () => {
   const context = useContext(ToastContext);
   if (!context) {
@@ -30,7 +34,10 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const showToast = useCallback(
-    (message: string, type: "success" | "error" | "info" = "success") => {
+    (
+      message: string,
+      type: "success" | "error" | "info" | "default" = "success",
+    ) => {
       const id = Date.now();
       setToasts((prev) => [...prev, { id, message, type }]);
 
@@ -38,7 +45,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
         setToasts((prev) => prev.filter((toast) => toast.id !== id));
       }, 3000);
     },
-    []
+    [],
   );
 
   return (
