@@ -9,14 +9,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { toastError, toastSuccess } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 import { validateResetToken, resetPassword } from "@/services/auth";
 import { LoadingIndicator } from "@/components/shared/LoadingIndicator";
 
 const ResetPassword = () => {
+  const { toastSuccess, toastError } = useToast();
   const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
-  
+
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -27,21 +28,26 @@ const ResetPassword = () => {
   useEffect(() => {
     const validateToken = async () => {
       if (!token) {
-        toastError({ title: "Invalid Link", description: "No reset token provided." });
+        toastError({
+          title: "Invalid Link",
+          description: "No reset token provided.",
+        });
         navigate("/signin");
         return;
       }
 
       setIsValidating(true);
       const response = await validateResetToken(token);
-      
+
       if (response.success && response.data) {
         setTokenValid(true);
         setEmail(response.data.email);
       } else {
         toastError({
           title: "Invalid Link",
-          description: response.message || "This password reset link is invalid or has expired.",
+          description:
+            response.message ||
+            "This password reset link is invalid or has expired.",
         });
         setTimeout(() => navigate("/forgot-password"), 3000);
       }
@@ -55,12 +61,18 @@ const ResetPassword = () => {
     e.preventDefault();
 
     if (newPassword !== confirmPassword) {
-      toastError({ title: "Passwords Don't Match", description: "Please make sure both passwords match." });
+      toastError({
+        title: "Passwords Don't Match",
+        description: "Please make sure both passwords match.",
+      });
       return;
     }
 
     if (newPassword.length < 8) {
-      toastError({ title: "Password Too Short", description: "Password must be at least 8 characters long." });
+      toastError({
+        title: "Password Too Short",
+        description: "Password must be at least 8 characters long.",
+      });
       return;
     }
 
@@ -73,7 +85,8 @@ const ResetPassword = () => {
       if (response.success) {
         toastSuccess({
           title: "Password Reset",
-          description: "Your password has been reset successfully. You can now sign in.",
+          description:
+            "Your password has been reset successfully. You can now sign in.",
         });
         setTimeout(() => navigate("/signin"), 2000);
       } else {
@@ -125,9 +138,7 @@ const ResetPassword = () => {
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
           <CardTitle>Reset Password</CardTitle>
-          <CardDescription>
-            Enter your new password for {email}
-          </CardDescription>
+          <CardDescription>Enter your new password for {email}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -162,11 +173,7 @@ const ResetPassword = () => {
                 minLength={8}
               />
             </div>
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={isLoading}
-            >
+            <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Resetting..." : "Reset Password"}
             </Button>
           </form>

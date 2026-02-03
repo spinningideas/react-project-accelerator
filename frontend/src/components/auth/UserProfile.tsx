@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// components
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -11,7 +12,9 @@ import {
 } from "@/components/ui/card";
 import { useToast } from "@/components/shared/Toast";
 import { useAuth } from "@/contexts/AuthContext";
+// services
 import { updateUser } from "@/services/users/usersService";
+// models
 import User from "@/models/user/User";
 
 /*
@@ -23,7 +26,7 @@ const UserProfile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useAuth();
-  const { success, error } = useToast();
+  const { toastSuccess, toastError } = useToast();
 
   useEffect(() => {
     if (user) {
@@ -52,13 +55,13 @@ const UserProfile = () => {
       );
 
       if (response.success) {
-        success({
+        toastSuccess({
           title: "Profile updated",
           description:
             "Your profile information has been updated successfully.",
         });
       } else {
-        error({
+        toastError({
           title: "Update failed",
           description:
             response.message || "Failed to update profile. Please try again.",
@@ -77,7 +80,7 @@ const UserProfile = () => {
       //   }
       // }
     } catch (err: any) {
-      error({
+      toastError({
         title: "Update failed",
         description:
           err.message || "Failed to update profile. Please try again.",

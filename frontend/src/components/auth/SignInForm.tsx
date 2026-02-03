@@ -10,7 +10,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { toastError } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   AUTH_TOKEN_STORAGE_KEY,
@@ -24,6 +24,7 @@ import { resolvePostAuthRedirect } from "@/utils/redirect";
     redirect to appropriate page after sign-in
  */
 const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
+  const { toastError } = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -48,7 +49,7 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
       "signin_signup_link",
       "signin_cancel",
       "signin_error_title",
-      "signin_error_description"
+      "signin_error_description",
     ]);
   }, []);
 
@@ -82,14 +83,18 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
         toastError({
           title: locData["signin_error_title"] || "SignIn failed",
           description:
-            response.message || locData["signin_error_description"] || "Please check your credentials and try again.",
+            response.message ||
+            locData["signin_error_description"] ||
+            "Please check your credentials and try again.",
         });
       }
     } catch (error: any) {
       toastError({
         title: locData["signin_error_title"] || "SignIn failed",
         description:
-          error.message || locData["signin_error_description"] || "Please check your credentials and try again.",
+          error.message ||
+          locData["signin_error_description"] ||
+          "Please check your credentials and try again.",
       });
     } finally {
       setIsLoading(false);
@@ -127,7 +132,9 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             <Input
               id="email"
               type="email"
-              placeholder={locData["signin_email_placeholder"] || "name@example.com"}
+              placeholder={
+                locData["signin_email_placeholder"] || "name@example.com"
+              }
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -160,7 +167,9 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             className="flex w-fit rounded-full mt-4 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
             disabled={isLoading}
           >
-            {isLoading ? (locData["signin_loading"] || "Signin in...") : (locData["signin_button"] || "Sign In")}
+            {isLoading
+              ? locData["signin_loading"] || "Signin in..."
+              : locData["signin_button"] || "Sign In"}
           </Button>
         </form>
       </CardContent>
@@ -170,7 +179,9 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             {locData["signin_no_account"] || "Don't have an account?"}
           </span>
           <Button variant="secondary" size="sm" asChild>
-            <Link to="/signup">{locData["signin_signup_link"] || "Sign Up"}</Link>
+            <Link to="/signup">
+              {locData["signin_signup_link"] || "Sign Up"}
+            </Link>
           </Button>
         </div>
         <Button variant="outline" className="mt-2">

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { toastError, toastSuccess } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 
 /**
  * Hook for clipboard operations with user feedback
  */
 export function useClipboard() {
+  const { toastSuccess, toastError } = useToast();
   const [isCopied, setIsCopied] = useState(false);
 
   const copyToClipboard = async (

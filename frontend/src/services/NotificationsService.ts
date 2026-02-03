@@ -6,7 +6,7 @@ messages of given type (eg success, warning, error)
 NOTE: Uses custom css in index.css and custom toast component in Toast.tsx
 */
 const NotificationsService = () => {
-  const { success, error, info, showToast } = useToast();
+  const { toastSuccess, toastError, toastInfo, showToast } = useToast();
 
   const show = (
     message: string,
@@ -14,13 +14,13 @@ const NotificationsService = () => {
   ) => {
     switch (type) {
       case "success":
-        success(message);
+        toastSuccess(message);
         break;
       case "error":
-        error(message);
+        toastError(message);
         break;
       case "info":
-        info(message);
+        toastInfo(message);
         break;
       case "default":
       default:

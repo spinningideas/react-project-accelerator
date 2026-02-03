@@ -85,6 +85,16 @@
   color: hsl(var(--info-color));
 }
 
+.toast-warning {
+  border-left: 4px solid hsl(var(--warning-color));
+  background-color: hsl(var(--card));
+  background-image: linear-gradient(
+    hsl(var(--warning-color) / 0.1),
+    hsl(var(--warning-color) / 0.1)
+  );
+  color: hsl(var(--warning-color));
+}
+
 .toast-default {
   border-left: 4px solid hsl(var(--border));
   background-color: hsl(var(--card));

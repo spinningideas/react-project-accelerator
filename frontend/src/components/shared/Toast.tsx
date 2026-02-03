@@ -9,7 +9,7 @@ import { X } from "lucide-react";
 import "@/components/shared/toast.css";
 
 /** Toast variant types */
-export type ToastType = "success" | "error" | "info" | "default";
+export type ToastType = "success" | "error" | "info" | "warning" | "default";
 
 /** Toast position types */
 export type ToastPosition =
@@ -34,10 +34,11 @@ type ToastArg = string | { title?: string; description: string };
 /** Context interface for the toast system */
 interface ToastContextType {
   showToast: (message: string, type?: ToastType, title?: string) => void;
-  success: (arg: ToastArg) => void;
-  error: (arg: ToastArg) => void;
-  info: (arg: ToastArg) => void;
-  dismiss: (id: number) => void;
+  toastSuccess: (arg: ToastArg) => void;
+  toastError: (arg: ToastArg) => void;
+  toastInfo: (arg: ToastArg) => void;
+  toastWarning: (arg: ToastArg) => void;
+  toastDismiss: (id: number) => void;
 }
 
 const ToastContext = createContext<ToastContextType | undefined>(undefined);
@@ -54,6 +55,8 @@ export const useToast = () => {
 interface ToastProviderProps {
   children: ReactNode;
   location?: ToastPosition;
+  duration?: number;
+  maxVisibleNotifications?: number;
 }
 
 /**
@@ -63,24 +66,35 @@ interface ToastProviderProps {
 export const ToastProvider = ({
   children,
   location = "bottom-right",
+  duration = 5000,
+  maxVisibleNotifications = 5,
 }: ToastProviderProps) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
-  const dismiss = useCallback((id: number) => {
+  const toastDismiss = useCallback((id: number) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
   }, []);
 
   const showToast = useCallback(
     (message: string, type: ToastType = "default", title?: string) => {
       const id = Date.now();
-      setToasts((prev) => [...prev, { id, message, type, title }]);
+      setToasts((prev) => {
+        const newToasts = [...prev, { id, message, type, title }];
+        // Limit number of visible notifications
+        if (newToasts.length > maxVisibleNotifications) {
+          return newToasts.slice(newToasts.length - maxVisibleNotifications);
+        }
+        return newToasts;
+      });
 
-      // Automatically remove toast after 5 seconds
-      setTimeout(() => {
-        dismiss(id);
-      }, 5000);
+      // Automatically remove toast after specified duration
+      if (duration > 0) {
+        setTimeout(() => {
+          toastDismiss(id);
+        }, duration);
+      }
     },
-    [dismiss],
+    [toastDismiss, duration, maxVisibleNotifications],
   );
 
   const normalizeArg = (arg: ToastArg): { message: string; title?: string } => {
@@ -91,7 +105,7 @@ export const ToastProvider = ({
   };
 
   // Helper methods for common toast types
-  const success = useCallback(
+  const toastSuccess = useCallback(
     (arg: ToastArg) => {
       const { message, title } = normalizeArg(arg);
       showToast(message, "success", title);
@@ -99,7 +113,7 @@ export const ToastProvider = ({
     [showToast],
   );
 
-  const error = useCallback(
+  const toastError = useCallback(
     (arg: ToastArg) => {
       const { message, title } = normalizeArg(arg);
       showToast(message, "error", title);
@@ -107,10 +121,18 @@ export const ToastProvider = ({
     [showToast],
   );
 
-  const info = useCallback(
+  const toastInfo = useCallback(
     (arg: ToastArg) => {
       const { message, title } = normalizeArg(arg);
       showToast(message, "info", title);
+    },
+    [showToast],
+  );
+
+  const toastWarning = useCallback(
+    (arg: ToastArg) => {
+      const { message, title } = normalizeArg(arg);
+      showToast(message, "warning", title);
     },
     [showToast],
   );
@@ -122,7 +144,16 @@ export const ToastProvider = ({
   ];
 
   return (
-    <ToastContext.Provider value={{ showToast, success, error, info, dismiss }}>
+    <ToastContext.Provider
+      value={{
+        showToast,
+        toastSuccess,
+        toastError,
+        toastInfo,
+        toastWarning,
+        toastDismiss,
+      }}
+    >
       {children}
       <div
         className={`toast-container toast-container-${verticalPos} toast-container-${horizontalPos}`}
@@ -136,7 +167,7 @@ export const ToastProvider = ({
           >
             <button
               className="toast-close-btn"
-              onClick={() => dismiss(toast.id)}
+              onClick={() => toastDismiss(toast.id)}
               aria-label="Close"
             >
               <X size={14} />

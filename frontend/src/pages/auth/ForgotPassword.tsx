@@ -10,10 +10,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { toastError, toastSuccess } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 import { requestPasswordReset } from "@/services/auth";
 
 const ForgotPassword = () => {
+  const { toastSuccess, toastError } = useToast();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
@@ -28,12 +29,15 @@ const ForgotPassword = () => {
         setEmailSent(true);
         toastSuccess({
           title: "Email Sent",
-          description: response.data?.message || "Check your email for password reset instructions.",
+          description:
+            response.data?.message ||
+            "Check your email for password reset instructions.",
         });
       } else {
         toastError({
           title: "Request Failed",
-          description: response.message || "Failed to send password reset email.",
+          description:
+            response.message || "Failed to send password reset email.",
         });
       }
     } catch (error: any) {
@@ -74,7 +78,8 @@ const ForgotPassword = () => {
                 </svg>
               </div>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Please check your email and click the password reset link. The link will expire in 1 hour.
+                Please check your email and click the password reset link. The
+                link will expire in 1 hour.
               </p>
             </div>
           </CardContent>
@@ -94,7 +99,8 @@ const ForgotPassword = () => {
         <CardHeader>
           <CardTitle>Forgot Password</CardTitle>
           <CardDescription>
-            Enter your email address and we'll send you a link to reset your password.
+            Enter your email address and we'll send you a link to reset your
+            password.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -112,17 +118,16 @@ const ForgotPassword = () => {
                 required
               />
             </div>
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={isLoading}
-            >
+            <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Sending..." : "Send Reset Link"}
             </Button>
           </form>
         </CardContent>
         <CardFooter className="flex justify-center">
-          <Link to="/signin" className="text-sm text-muted-foreground hover:underline">
+          <Link
+            to="/signin"
+            className="text-sm text-muted-foreground hover:underline"
+          >
             Back to Sign In
           </Link>
         </CardFooter>

@@ -11,7 +11,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { toastError, toastSuccess } from "@/hooks/use-toast";
+import { useToast } from "@/components/shared/Toast";
 import {
   AUTH_TOKEN_STORAGE_KEY,
   signOut,
@@ -23,6 +23,7 @@ import { APPLICATION_NAME, DEFAULT_LANGUAGE } from "@/constants";
     messaging to user on steps to complete sign-up process
  */
 const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
+  const { toastSuccess, toastError } = useToast();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +52,7 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
       "signup_complete_title",
       "signup_complete_description",
       "signup_complete_message",
-      "signup_goto_signin"
+      "signup_goto_signin",
     ]);
   }, []);
 
@@ -81,20 +82,27 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
         toastSuccess({
           title: locData["signup_success_title"] || "Registration successful",
           description:
-            locData["signup_success_description"] || "Your account has been created. Check your email for the account verification email.",
+            locData["signup_success_description"] ||
+            "Your account has been created. Check your email for the account verification email.",
         });
         setSignupComplete(true);
       } else {
         toastError({
           title: locData["signup_error_title"] || "Registration failed",
-          description: response.message || locData["signup_error_description"] || "Please try again later.",
+          description:
+            response.message ||
+            locData["signup_error_description"] ||
+            "Please try again later.",
         });
         setSignupComplete(false);
       }
     } catch (error: any) {
       toastError({
         title: locData["signup_error_title"] || "Registration failed",
-        description: error.message || locData["signup_error_description"] || "Please try again later.",
+        description:
+          error.message ||
+          locData["signup_error_description"] ||
+          "Please try again later.",
       });
       setSignupComplete(false);
     } finally {
@@ -121,15 +129,18 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
       <Card className="w-full max-w-md mx-auto">
         <CardHeader>
           <CardTitle className="text-2xl app-title-header">
-            {APPLICATION_NAME} {locData["signup_complete_title"] || "Sign Up Complete!"}
+            {APPLICATION_NAME}{" "}
+            {locData["signup_complete_title"] || "Sign Up Complete!"}
           </CardTitle>
           <CardDescription>
-            {locData["signup_complete_description"] || "Check your email for the account verification email."}
+            {locData["signup_complete_description"] ||
+              "Check your email for the account verification email."}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p>
-            {locData["signup_complete_message"] || "Your email needs to be verified before you can sign in. Check your email inbox (and spam folder) for the account verification email which will contain a link to click to verify your account."}
+            {locData["signup_complete_message"] ||
+              "Your email needs to be verified before you can sign in. Check your email inbox (and spam folder) for the account verification email which will contain a link to click to verify your account."}
           </p>
           <Link
             to={"/signin"}
@@ -160,7 +171,9 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             </label>
             <Input
               id="name"
-              placeholder={locData["signup_name_placeholder"] || "Enter your name"}
+              placeholder={
+                locData["signup_name_placeholder"] || "Enter your name"
+              }
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -173,7 +186,9 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             <Input
               id="email"
               type="email"
-              placeholder={locData["signup_email_placeholder"] || "your.email@domain.com"}
+              placeholder={
+                locData["signup_email_placeholder"] || "your.email@domain.com"
+              }
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -186,7 +201,10 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             <Input
               id="password"
               type="password"
-              placeholder={locData["signup_password_placeholder"] || "Enter password (min 8 characters)"}
+              placeholder={
+                locData["signup_password_placeholder"] ||
+                "Enter password (min 8 characters)"
+              }
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -199,7 +217,9 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             className="flex w-fit rounded-full mt-4 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
             disabled={isLoading}
           >
-            {isLoading ? (locData["signup_loading"] || "Creating account...") : (locData["signup_button"] || "Sign Up")}
+            {isLoading
+              ? locData["signup_loading"] || "Creating account..."
+              : locData["signup_button"] || "Sign Up"}
           </Button>
         </form>
       </CardContent>
@@ -209,7 +229,9 @@ const SignUpForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             {locData["signup_have_account"] || "Already have an account?"}
           </span>
           <Button variant="secondary" size="sm" asChild>
-            <Link to="/signin">{locData["signup_signin_link"] || "Sign In"}</Link>
+            <Link to="/signin">
+              {locData["signup_signin_link"] || "Sign In"}
+            </Link>
           </Button>
         </div>
         <Button variant="outline" className="mt-2">

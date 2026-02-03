@@ -15,7 +15,7 @@ import { AuthDialog } from "@/components/auth/AuthDialog";
 export default function AuthButton() {
   const [loading, setLoading] = useState(false);
   const { user, signOutAuthenticatedUser } = useAuth();
-  const { error } = useToast();
+  const { toastError } = useToast();
 
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export default function AuthButton() {
       setLoading(true);
       await signOutAuthenticatedUser();
     } catch (_error) {
-      error({
+      toastError({
         title: "Sign Out Failed",
         description: "Unable to complete sign out using your email",
       });
