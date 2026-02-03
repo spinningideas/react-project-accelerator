@@ -1,0 +1,125 @@
+/* === Toast Notifications === */
+.toast-container {
+  position: fixed;
+  display: flex;
+  gap: 12px;
+  z-index: 1000;
+  pointer-events: none;
+  width: auto;
+  min-width: 300px;
+  max-width: 90vw;
+}
+
+/* Vertical positioning */
+.toast-container-top {
+  top: 24px;
+  flex-direction: column;
+}
+
+.toast-container-bottom {
+  bottom: 24px;
+  flex-direction: column-reverse;
+}
+
+/* Horizontal positioning */
+.toast-container-left {
+  left: 24px;
+  align-items: flex-start;
+}
+
+.toast-container-center {
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.toast-container-right {
+  right: 24px;
+  align-items: flex-end;
+}
+
+.toast {
+  position: relative;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--card-foreground));
+  padding: 16px 40px 16px 16px;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  animation: toastFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: auto;
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.toast-success {
+  border-left: 4px solid hsl(var(--success-color));
+  background-color: hsl(var(--card));
+  background-image: linear-gradient(
+    hsl(var(--success-color) / 0.1),
+    hsl(var(--success-color) / 0.1)
+  );
+  color: hsl(var(--success-color));
+}
+
+.toast-error {
+  border-left: 4px solid hsl(var(--error-color));
+  background-color: hsl(var(--card));
+  background-image: linear-gradient(
+    hsl(var(--error-color) / 0.1),
+    hsl(var(--error-color) / 0.1)
+  );
+  color: hsl(var(--error-color));
+}
+
+.toast-info {
+  border-left: 4px solid hsl(var(--info-color));
+  background-color: hsl(var(--card));
+  background-image: linear-gradient(
+    hsl(var(--info-color) / 0.1),
+    hsl(var(--info-color) / 0.1)
+  );
+  color: hsl(var(--info-color));
+}
+
+.toast-default {
+  border-left: 4px solid hsl(var(--border));
+  background-color: hsl(var(--card));
+  background-image: linear-gradient(
+    hsl(var(--muted-foreground) / 0.05),
+    hsl(var(--muted-foreground) / 0.05)
+  );
+}
+
+.toast-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px;
+  border-radius: 4px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: currentColor;
+}
+
+.toast-close-btn:hover {
+  opacity: 1;
+  background: hsl(var(--muted));
+}
+
+@keyframes toastFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

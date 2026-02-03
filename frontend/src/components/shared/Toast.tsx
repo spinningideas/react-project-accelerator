@@ -6,9 +6,19 @@ import {
   ReactNode,
 } from "react";
 import { X } from "lucide-react";
+import "@/components/shared/toast.css";
 
 /** Toast variant types */
 export type ToastType = "success" | "error" | "info" | "default";
+
+/** Toast position types */
+export type ToastPosition =
+  | "top-left"
+  | "top-center"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-center"
+  | "bottom-right";
 
 /** Individual toast message structure */
 interface Toast {
@@ -43,7 +53,7 @@ export const useToast = () => {
 
 interface ToastProviderProps {
   children: ReactNode;
-  location?: "top" | "bottom";
+  location?: ToastPosition;
 }
 
 /**
@@ -52,7 +62,7 @@ interface ToastProviderProps {
  */
 export const ToastProvider = ({
   children,
-  location = "top",
+  location = "bottom-right",
 }: ToastProviderProps) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
@@ -105,10 +115,19 @@ export const ToastProvider = ({
     [showToast],
   );
 
+  // Parse position into vertical and horizontal components
+  const [verticalPos, horizontalPos] = location.split("-") as [
+    "top" | "bottom",
+    "left" | "center" | "right",
+  ];
+
   return (
     <ToastContext.Provider value={{ showToast, success, error, info, dismiss }}>
       {children}
-      <div className={`toast-container toast-container-${location}`}>
+      <div
+        className={`toast-container toast-container-${verticalPos} toast-container-${horizontalPos}`}
+        data-position={location}
+      >
         {toasts.map((toast) => (
           <div
             key={toast.id}
