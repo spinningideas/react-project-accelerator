@@ -9,7 +9,7 @@ import {
   Palette,
   Code2,
   Zap,
-  Layers
+  Layers,
 } from "lucide-react";
 // components - ui shared
 import { Button } from "@/components/ui/button";
@@ -24,12 +24,11 @@ import Hero from "@/components/landing/Hero";
 import PricingPlans from "@/components/landing/PricingPlans";
 // constants
 import { APPLICATION_NAME } from "@/constants";
-import { useTheme } from "@/contexts/ThemeContext";
 /** Main landing page for un-authenticated users */
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
   const { user, loadingAuthentication } = useAuth();
-  const { themeIsDark } = useTheme();
+
   const { locData, loadLocalizedText } = useLocalization();
   const navigate = useNavigate();
 
@@ -83,40 +82,60 @@ export default function LandingPage() {
       "footer_link_about",
       "footer_link_terms",
       "footer_link_privacy",
-      "footer_copyright"
+      "footer_copyright",
     ]);
   }, []);
 
   const features = [
     {
       icon: Sparkles,
-      title: locData["landing_feature_modern_tech_title"] || "Modern Tech Stack",
-      description: locData["landing_feature_modern_tech_desc"] || "Built with React 19, TypeScript, Vite, and the latest web technologies for optimal performance and developer experience.",
+      title:
+        locData["landing_feature_modern_tech_title"] || "Modern Tech Stack",
+      description:
+        locData["landing_feature_modern_tech_desc"] ||
+        "Built with React 19, TypeScript, Vite, and the latest web technologies for optimal performance and developer experience.",
     },
     {
       icon: Palette,
-      title: locData["landing_feature_beautiful_ui_title"] || "Beautiful UI Components",
-      description: locData["landing_feature_beautiful_ui_desc"] || "Pre-configured with shadcn/ui and Tailwind CSS for a modern, accessible, and customizable design system out of the box.",
+      title:
+        locData["landing_feature_beautiful_ui_title"] ||
+        "Beautiful UI Components",
+      description:
+        locData["landing_feature_beautiful_ui_desc"] ||
+        "Pre-configured with shadcn/ui and Tailwind CSS for a modern, accessible, and customizable design system out of the box.",
     },
     {
       icon: LayoutTemplate,
-      title: locData["landing_feature_production_ready_title"] || "Production Ready",
-      description: locData["landing_feature_production_ready_desc"] || "Includes authentication, routing, state management, and best practices. Start building features immediately, not infrastructure.",
+      title:
+        locData["landing_feature_production_ready_title"] || "Production Ready",
+      description:
+        locData["landing_feature_production_ready_desc"] ||
+        "Includes authentication, routing, state management, and best practices. Start building features immediately, not infrastructure.",
     },
     {
       icon: Code2,
       title: locData["landing_feature_typescript_title"] || "TypeScript First",
-      description: locData["landing_feature_typescript_desc"] || "Full TypeScript support with strict typing, ensuring code quality and catching errors before they reach production.",
+      description:
+        locData["landing_feature_typescript_desc"] ||
+        "Full TypeScript support with strict typing, ensuring code quality and catching errors before they reach production.",
     },
     {
       icon: Layers,
-      title: locData["landing_feature_component_library_title"] || "Component Library",
-      description: locData["landing_feature_component_library_desc"] || "Comprehensive set of reusable components including forms, modals, navigation, and more - all fully typed and documented.",
+      title:
+        locData["landing_feature_component_library_title"] ||
+        "Component Library",
+      description:
+        locData["landing_feature_component_library_desc"] ||
+        "Comprehensive set of reusable components including forms, modals, navigation, and more - all fully typed and documented.",
     },
     {
       icon: Zap,
-      title: locData["landing_feature_developer_experience_title"] || "Developer Experience",
-      description: locData["landing_feature_developer_experience_desc"] || "Hot module replacement, fast builds with Vite, ESLint configuration, and modern development tools for maximum productivity.",
+      title:
+        locData["landing_feature_developer_experience_title"] ||
+        "Developer Experience",
+      description:
+        locData["landing_feature_developer_experience_desc"] ||
+        "Hot module replacement, fast builds with Vite, ESLint configuration, and modern development tools for maximum productivity.",
     },
   ];
 
@@ -134,7 +153,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-black dark:via-black dark:to-black">
       <BackgroundAnimations showGradient={false} />
-      
+
       <NavigationPublic />
 
       {loading ? (
@@ -155,7 +174,8 @@ export default function LandingPage() {
             <div className="max-w-4xl mx-auto text-center">
               {import.meta.env.VITE_MOCK_AUTH === "true" && (
                 <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mb-3 bg-orange-50 dark:bg-orange-950/30 px-4 py-2 rounded-lg inline-block">
-                  {locData["hero_mock_auth_note"] || "Sign In With Any Email/Password as auth is mocked"}
+                  {locData["hero_mock_auth_note"] ||
+                    "Sign In With Any Email/Password as auth is mocked"}
                 </p>
               )}
               <div className="flex gap-2 justify-center">
@@ -166,15 +186,15 @@ export default function LandingPage() {
                 >
                   {locData["button_get_started"] || "Get Started!"}
                 </Button>
-              <Button
-                size="lg"
-                variant="secondary"
-                className="text-lg rounded-full px-8 h-14 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
-                onClick={() => navigate("/signin")}
-              >
-                {locData["button_sign_in"] || "Sign In"}
-              </Button>
-            </div>
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="text-lg rounded-full px-8 h-14 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                  onClick={() => navigate("/signin")}
+                >
+                  {locData["button_sign_in"] || "Sign In"}
+                </Button>
+              </div>
             </div>
           </section>
 
@@ -183,11 +203,13 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
             <div className="container mx-auto px-4 relative">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-green-500 to-green-500 dark:from-blue-300 dark:via-green-300 dark:to-green-400 mb-6">
-                  {locData["landing_features_heading"] || "Built with Industry-Leading Tools"}
+                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-green-500 to-green-600 dark:from-green-300 dark:via-green-400 dark:to-green-300 mb-6">
+                  {locData["landing_features_heading"] ||
+                    "Built with Industry-Leading Tools"}
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  {locData["landing_features_description"] || "Powered by Tailwind CSS, shadcn/ui, Lucide Icons, Framer Motion, and more. Everything you need to build modern, beautiful web applications—pre-configured and ready to go."}
+                  {locData["landing_features_description"] ||
+                    "Powered by Tailwind CSS, shadcn/ui, Lucide Icons, Framer Motion, and more. Everything you need to build modern, beautiful web applications—pre-configured and ready to go."}
                 </p>
               </div>
 
@@ -222,11 +244,13 @@ export default function LandingPage() {
           <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-zinc-900">
             <div className="container mx-auto px-4">
               <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-green-600 dark:from-blue-400 dark:to-green-400 mb-6">
-                  {locData["landing_getstarted_heading"] || "Get Started in Minutes"}
+                <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-600 dark:from-blue-400 dark:to-blue-400 mb-6">
+                  {locData["landing_getstarted_heading"] ||
+                    "Get Started in Minutes"}
                 </h2>
                 <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  {locData["landing_getstarted_description"] || "Follow these simple steps to start building your next project"}
+                  {locData["landing_getstarted_description"] ||
+                    "Follow these simple steps to start building your next project"}
                 </p>
               </div>
 
@@ -240,30 +264,35 @@ export default function LandingPage() {
                       </div>
                       <div className="flex-1">
                         <CardTitle className="text-xl mb-2">
-                          {locData["landing_getstarted_step1_title"] || "Clone Repository and Install Dependencies"}
+                          {locData["landing_getstarted_step1_title"] ||
+                            "Clone Repository and Install Dependencies"}
                         </CardTitle>
                         <p className="text-muted-foreground mb-3">
-                          {locData["landing_getstarted_step1_desc"] || "Clone the repository and run npm install to get all dependencies set up"}
+                          {locData["landing_getstarted_step1_desc"] ||
+                            "Clone the repository and run npm install to get all dependencies set up"}
                         </p>
                         <div className="bg-slate-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm">
                           <div className="text-slate-400 mb-1">
-                            {locData["landing_getstarted_step1_clone_label"] || "# Clone the repository"}
+                            {locData["landing_getstarted_step1_clone_label"] ||
+                              "# Clone the repository"}
                           </div>
                           <code className="text-green-400">
-                            git clone https://github.com/spinningideas/react-project-accelerator.git
+                            git clone
+                            https://github.com/spinningideas/react-project-accelerator.git
                           </code>
                           <div className="text-slate-400 mt-3 mb-1">
-                            {locData["landing_getstarted_step1_install_label"] || "# Install dependencies"}
+                            {locData[
+                              "landing_getstarted_step1_install_label"
+                            ] || "# Install dependencies"}
                           </div>
                           <code className="text-green-400">
                             cd react-project-accelerator/frontend && npm install
                           </code>
                           <div className="text-slate-400 mt-3 mb-1">
-                            {locData["landing_getstarted_step1_dev_label"] || "# Start development server"}
+                            {locData["landing_getstarted_step1_dev_label"] ||
+                              "# Start development server"}
                           </div>
-                          <code className="text-green-400">
-                            npm run dev
-                          </code>
+                          <code className="text-green-400">npm run dev</code>
                         </div>
                       </div>
                     </div>
@@ -279,10 +308,12 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <CardTitle className="text-xl mb-2">
-                          {locData["landing_getstarted_step2_title"] || "Customize Logo, Landing Page, and Home Sections"}
+                          {locData["landing_getstarted_step2_title"] ||
+                            "Customize Logo, Landing Page, and Home Sections"}
                         </CardTitle>
                         <p className="text-muted-foreground">
-                          {locData["landing_getstarted_step2_desc"] || "Update the logo, landing page content, and home sections to match your brand and requirements"}
+                          {locData["landing_getstarted_step2_desc"] ||
+                            "Update the logo, landing page content, and home sections to match your brand and requirements"}
                         </p>
                       </div>
                     </div>
@@ -298,10 +329,12 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <CardTitle className="text-xl mb-2">
-                          {locData["landing_getstarted_step3_title"] || "Review and Optimize NPM Packages"}
+                          {locData["landing_getstarted_step3_title"] ||
+                            "Review and Optimize NPM Packages"}
                         </CardTitle>
                         <p className="text-muted-foreground">
-                          {locData["landing_getstarted_step3_desc"] || "Review the installed npm packages and remove any you don't need for your project"}
+                          {locData["landing_getstarted_step3_desc"] ||
+                            "Review the installed npm packages and remove any you don't need for your project"}
                         </p>
                       </div>
                     </div>
@@ -317,10 +350,12 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <CardTitle className="text-xl mb-2">
-                          {locData["landing_getstarted_step4_title"] || "Configure Localization"}
+                          {locData["landing_getstarted_step4_title"] ||
+                            "Configure Localization"}
                         </CardTitle>
                         <p className="text-muted-foreground">
-                          {locData["landing_getstarted_step4_desc"] || "Remove localization entirely or keep English and continue localizing new strings as needed"}
+                          {locData["landing_getstarted_step4_desc"] ||
+                            "Remove localization entirely or keep English and continue localizing new strings as needed"}
                         </p>
                       </div>
                     </div>
@@ -336,10 +371,12 @@ export default function LandingPage() {
                       </div>
                       <div>
                         <CardTitle className="text-xl mb-2">
-                          {locData["landing_getstarted_step5_title"] || "Update About, Terms, and Contact Pages"}
+                          {locData["landing_getstarted_step5_title"] ||
+                            "Update About, Terms, and Contact Pages"}
                         </CardTitle>
                         <p className="text-muted-foreground">
-                          {locData["landing_getstarted_step5_desc"] || "Customize the About, Terms of Service, and Contact pages with your information"}
+                          {locData["landing_getstarted_step5_desc"] ||
+                            "Customize the About, Terms of Service, and Contact pages with your information"}
                         </p>
                       </div>
                     </div>
@@ -354,10 +391,12 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 dark:from-blue-900 dark:to-green-900 opacity-70 dark:opacity-60" />
             <div className="container mx-auto px-4 text-center relative z-10">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                {locData["landing_cta_heading"] || "Start Building Your Next Project Today"}
+                {locData["landing_cta_heading"] ||
+                  "Start Building Your Next Project Today"}
               </h2>
               <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
-                {locData["landing_cta_description"] || "Skip the setup and dive straight into building features. Get a production-ready React app with authentication, routing, beautiful UI components, and modern best practices—all configured and ready to go."}
+                {locData["landing_cta_description"] ||
+                  "Skip the setup and dive straight into building features. Get a production-ready React app with authentication, routing, beautiful UI components, and modern best practices—all configured and ready to go."}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Button
@@ -378,10 +417,11 @@ export default function LandingPage() {
                 </Button>
               </div>
               <p className="text-sm text-blue-100 mt-6 opacity-90">
-                {import.meta.env.VITE_MOCK_AUTH === "true" 
-                  ? (locData["landing_cta_footer_text_mock"] || "Sign In With Any Email/Password as auth is mocked - No credit card required • Open source • MIT License")
-                  : (locData["landing_cta_footer_text"] || "No credit card required • Open source • MIT License")
-                }
+                {import.meta.env.VITE_MOCK_AUTH === "true"
+                  ? locData["landing_cta_footer_text_mock"] ||
+                    "Sign In With Any Email/Password as auth is mocked - No credit card required • Open source • MIT License"
+                  : locData["landing_cta_footer_text"] ||
+                    "No credit card required • Open source • MIT License"}
               </p>
             </div>
           </section>
@@ -400,7 +440,8 @@ export default function LandingPage() {
                     </span>
                   </div>
                   <p className="text-muted-foreground">
-                    {locData["footer_tagline"] || "Next-generation UI builder powered by advanced AI models."}
+                    {locData["footer_tagline"] ||
+                      "Next-generation UI builder powered by advanced AI models."}
                   </p>
                 </div>
                 <div>
@@ -468,7 +509,8 @@ export default function LandingPage() {
               </div>
               <div className="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center text-muted-foreground">
                 <p>
-                  &copy; {new Date().getFullYear()} {APPLICATION_NAME}. {locData["footer_copyright"] || "All rights reserved."}
+                  &copy; {new Date().getFullYear()} {APPLICATION_NAME}.{" "}
+                  {locData["footer_copyright"] || "All rights reserved."}
                 </p>
               </div>
             </div>
