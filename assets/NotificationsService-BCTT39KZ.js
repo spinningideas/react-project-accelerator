@@ -1,0 +1,2 @@
+import{o as e}from"./index-Cl4Lev_L.js";var t=()=>{let{toastSuccess:t,toastError:n,toastInfo:r,showToast:i}=e();return{show:(e,a=`info`)=>{switch(a){case`success`:t(e);break;case`error`:n(e);break;case`info`:r(e);break;default:i(e,`default`);break}}}};export{t};
+//# sourceMappingURL=NotificationsService-BCTT39KZ.js.map
