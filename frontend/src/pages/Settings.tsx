@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
-import { useLocalization } from "@/contexts/LocalizationContext";
 import LocalCacheService from "@/services/LocalCacheService";
 import NotificationsService from "@/services/NotificationsService";
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
 
 const Settings = () => {
-  const { locData, loadLocalizedText } = useLocalization();
   const { theme, setTheme } = useTheme();
   const localCacheService = LocalCacheService();
   const notificationsService = NotificationsService();
@@ -27,10 +25,6 @@ const Settings = () => {
   ];
 
   useEffect(() => {
-    loadLocalizedText(["settings", "settingscolor", "settingsdescription", "success"]);
-  }, []);
-
-  useEffect(() => {
     const savedColor = localCacheService.get("color", "blue");
     setColorSetting(savedColor);
   }, []);
@@ -38,7 +32,7 @@ const Settings = () => {
   const handleColorChange = (color: string) => {
     localCacheService.set("color", color);
     setColorSetting(color);
-    notificationsService.show(locData.success, "success");
+    notificationsService.show("Success", "success");
   };
 
   const capitalize = (str: string) => {
@@ -47,15 +41,15 @@ const Settings = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h3 className="text-3xl font-bold mb-6">{locData.settings}</h3>
+      <h3 className="text-3xl font-bold mb-6">Settings</h3>
 
       <div className="space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle>{locData.settingscolor}</CardTitle>
+            <CardTitle>Color</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="mb-4">{locData.settingsdescription}</p>
+            <p className="mb-4">Choose a primary color for the application theme</p>
             <div className="flex flex-wrap gap-2">
               {colors.map((color) => (
                 <Button

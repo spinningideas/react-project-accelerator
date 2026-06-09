@@ -1,44 +1,25 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import { useLocalization } from "@/contexts/LocalizationContext";
 
 
 const PricingPlans = () => {
-  const { locData, loadLocalizedText } = useLocalization();
-
-  useEffect(() => {
-    loadLocalizedText([
-      "pricing_heading",
-      "pricing_description",
-      "pricing_best_value",
-      "pricing_plan_starter",
-      "pricing_plan_pro",
-      "pricing_plan_premium",
-      "pricing_credits",
-      "pricing_unlimited_storage",
-      "pricing_priority_support",
-      "pricing_purchase_credits"
-    ]);
-  }, []);
-
   const plans = [
     {
-      name: locData["pricing_plan_starter"] || "Starter",
+      name: "Starter",
       price: 5,
       credits: 50,
       popular: false,
     },
     {
-      name: locData["pricing_plan_pro"] || "Pro",
+      name: "Pro",
       price: 10,
       credits: 120,
       popular: true,
     },
     {
-      name: locData["pricing_plan_premium"] || "Premium",
+      name: "Premium",
       price: 20,
       credits: 300,
       popular: false,
@@ -54,9 +35,9 @@ const PricingPlans = () => {
     >
       <Card className="p-6 card-gradient border-border/50 bg-transparent">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2">EXAMPLE PRICING PLANS: {locData["pricing_heading"] || "Purchase Credits"}</h2>
+          <h2 className="text-2xl font-bold mb-2">EXAMPLE PRICING PLANS: Purchase Credits</h2>
           <p className="text-sm text-muted-foreground">
-            {locData["pricing_description"] || "Get credits for enhanced search capabilities"}
+            Get credits for enhanced search capabilities
           </p>
         </div>
 
@@ -72,7 +53,7 @@ const PricingPlans = () => {
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  {locData["pricing_best_value"] || "Best Value"}
+                  Best Value
                 </div>
               )}
               <Card
@@ -89,22 +70,22 @@ const PricingPlans = () => {
                 <div className="mb-6 space-y-2">
                   <div className="flex items-center justify-center gap-2 text-sm">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>{plan.credits} {locData["pricing_credits"] || "credits"}</span>
+                    <span>{plan.credits} credits</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>{locData["pricing_unlimited_storage"] || "Unlimited storage"}</span>
+                    <span>Unlimited storage</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm">
                     <Check className="h-4 w-4 text-green-600" />
-                    <span>{locData["pricing_priority_support"] || "Priority support"}</span>
+                    <span>Priority support</span>
                   </div>
                 </div>
                 <Button
                   variant={plan.popular ? "primary" : "default"}
                   className="w-full"
                 >
-                  {locData["pricing_purchase_credits"] || "Purchase"} {plan.credits} {locData["pricing_credits"] || "Credits"}
+                  Purchase {plan.credits} Credits
                 </Button>
               </Card>
             </motion.div>

@@ -1,6 +1,5 @@
-import { useState, useEffect, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useLocalization } from "@/contexts/LocalizationContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -31,27 +30,7 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { locData, loadLocalizedText } = useLocalization();
-
   const { setSignedInUser } = useAuth();
-
-  useEffect(() => {
-    loadLocalizedText([
-      "signin_header",
-      "signin_email_label",
-      "signin_email_placeholder",
-      "signin_password_label",
-      "signin_password_placeholder",
-      "signin_forgot_password",
-      "signin_button",
-      "signin_loading",
-      "signin_no_account",
-      "signin_signup_link",
-      "signin_cancel",
-      "signin_error_title",
-      "signin_error_description",
-    ]);
-  }, []);
 
   const handleSignIn = async (e: FormEvent) => {
     e.preventDefault();
@@ -81,19 +60,17 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
         navigate(target, { replace: true });
       } else {
         toastError({
-          title: locData["signin_error_title"] || "SignIn failed",
+          title: "SignIn failed",
           description:
             response.message ||
-            locData["signin_error_description"] ||
             "Please check your credentials and try again.",
         });
       }
     } catch (error: any) {
       toastError({
-        title: locData["signin_error_title"] || "SignIn failed",
+        title: "SignIn failed",
         description:
           error.message ||
-          locData["signin_error_description"] ||
           "Please check your credentials and try again.",
       });
     } finally {
@@ -110,7 +87,7 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
   const SignInFormHeader = () => {
     return (
       <span className="text-muted-foreground font-bold mb-2 block">
-        {locData["signin_header"] || "Sign in to continue"}
+        Sign in to continue
       </span>
     );
   };
@@ -127,13 +104,13 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
         <form onSubmit={handleSignIn} className="space-y-4">
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium">
-              {locData["signin_email_label"] || "Email"}
+              Email
             </label>
             <Input
               id="email"
               type="email"
               placeholder={
-                locData["signin_email_placeholder"] || "name@example.com"
+                "name@example.com"
               }
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -143,19 +120,19 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <label htmlFor="password" className="text-sm font-medium">
-                {locData["signin_password_label"] || "Password"}
+                Password
               </label>
               <Link
                 to="/forgot-password"
                 className="text-xs text-primary hover:underline"
               >
-                {locData["signin_forgot_password"] || "Forgot Password?"}
+                Forgot Password?
               </Link>
             </div>
             <Input
               id="password"
               type="password"
-              placeholder={locData["signin_password_placeholder"] || "••••••••"}
+              placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -168,24 +145,24 @@ const SignInForm = ({ redirectUrl }: { redirectUrl?: string }) => {
             disabled={isLoading}
           >
             {isLoading
-              ? locData["signin_loading"] || "Signin in..."
-              : locData["signin_button"] || "Sign In"}
+              ? "Signin in..."
+              : "Sign In"}
           </Button>
         </form>
       </CardContent>
       <CardFooter className="flex items-center justify-between border-t">
         <div className="flex items-center gap-2 pt-2">
           <span className="text-sm text-muted-foreground whitespace-nowrap">
-            {locData["signin_no_account"] || "Don't have an account?"}
+            Don't have an account?
           </span>
           <Button variant="secondary" size="sm" asChild>
             <Link to="/signup">
-              {locData["signin_signup_link"] || "Sign Up"}
+              Sign Up
             </Link>
           </Button>
         </div>
         <Button variant="outline" className="mt-2">
-          <Link to="/">{locData["signin_cancel"] || "Cancel"}</Link>
+          <Link to="/">Cancel</Link>
         </Button>
       </CardFooter>
     </Card>

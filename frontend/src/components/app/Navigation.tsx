@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useLocalization } from "@/contexts/LocalizationContext";
 import {
   Menu,
   LogOut,
@@ -15,7 +14,6 @@ import {
 // components
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/app/ThemeToggle";
-import LanguageSelection from "@/components/app/LanguageSelection";
 import AuthButton from "@/components/app/AuthButton";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
@@ -38,29 +36,9 @@ const Navigation = () => {
   const [sideNavigationOpen, setSideNavigationOpen] = useState(false);
 
   const { user, signOutAuthenticatedUser } = useAuth();
-  const { locData, loadLocalizedText } = useLocalization();
-
   const navigate = useNavigate();
 
   const { themeIsDark } = useTheme();
-
-  useEffect(() => {
-    loadLocalizedText([
-      "apptitle",
-      "home",
-      "about",
-      "contact",
-      "bookmarks",
-      "profile",
-      "settings",
-      "privacy",
-      "signin",
-      "signout",
-      "signup_button",
-      "nav_menu",
-      "nav_user_menu"
-    ]);
-  }, []);
 
   const handleAuthClick = (mode: "signin" | "signup") => {
     setAuthMode(mode);
@@ -85,24 +63,23 @@ const Navigation = () => {
         >
           <Logo themeIsDark={themeIsDark} />
           <span className="hidden md:inline text-xl font-bold text-foreground">
-            {locData.apptitle || "React Project Accelerator"}
+            React Project Accelerator
           </span>
         </Link>
 
         <div className="flex items-center gap-0 md:gap-2">
           <div className="hidden md:flex items-center gap-1">
-            <Button title={locData.home || "Home"} asChild variant="ghost" size="sm">
-              <Link to="/home">{locData.home || "Home"}</Link>
+            <Button title="Home" asChild variant="ghost" size="sm">
+              <Link to="/home">Home</Link>
             </Button>
-            <Button title={locData.about || "About"} asChild variant="ghost" size="sm">
-              <Link to="/about">{locData.about || "About"}</Link>
+            <Button title="About" asChild variant="ghost" size="sm">
+              <Link to="/about">About</Link>
             </Button>
-            <Button title={locData.contact || "Contact"} asChild variant="ghost" size="sm">
-              <Link to="/contact">{locData.contact || "Contact"}</Link>
+            <Button title="Contact" asChild variant="ghost" size="sm">
+              <Link to="/contact">Contact</Link>
             </Button>
           </div>
 
-          <LanguageSelection />
           <ThemeToggle />
 
           {import.meta.env.VITE_MOCK_AUTH === "true" ? (
@@ -112,17 +89,17 @@ const Navigation = () => {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="rounded-full">
                   <User className="h-5 w-5" />
-                  <span className="sr-only">{locData.nav_user_menu || "User menu"}</span>
+                  <span className="sr-only">User menu</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={handleProfileClick}>
                   <User className="mr-2 h-4 w-4" />
-                  {locData.profile || "Profile"}
+                  Profile
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={signOutAuthenticatedUser}>
                   <LogOut className="mr-2 h-4 w-4" />
-                  {locData.signout || "Sign Out"}
+                  Sign Out
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -133,7 +110,7 @@ const Navigation = () => {
                 onClick={() => handleAuthClick("signin")}
                 className="hidden sm:inline-flex"
               >
-                {locData.signin || "Sign In"}
+                Sign In
               </Button>
               <Button
                 variant="primary"
@@ -141,7 +118,7 @@ const Navigation = () => {
                 className="md:px-4 px-3"
               >
                 <LogIn className="h-5 w-5 md:hidden" />
-                <span className="hidden md:inline">{locData.signup_button || "Sign Up"}</span>
+                <span className="hidden md:inline">Sign Up</span>
               </Button>
             </>
           )}
@@ -150,7 +127,7 @@ const Navigation = () => {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full">
                 <Menu className="h-5 w-5" />
-                <span className="sr-only">{locData.nav_menu || "Menu"}</span>
+                <span className="sr-only">Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent>
@@ -160,56 +137,56 @@ const Navigation = () => {
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.home || "Home"}
+                  Home
                 </Link>
                 <Link
                   to="/bookmarks"
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.bookmarks || "Bookmarks"}
+                  Bookmarks
                 </Link>
                 <Link
                   to="/profile"
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.profile || "Profile"}
+                  Profile
                 </Link>
                 <Link
                   to="/about"
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.about || "About"}
+                  About
                 </Link>
                 <Link
                   to="/contact"
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.contact || "Contact"}
+                  Contact
                 </Link>
                 <Link
                   to="/settings"
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.settings || "Settings"}
+                  Settings
                 </Link>
                 <Link
                   to="/support/privacy-policy"
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.privacy || "Privacy"}
+                  Privacy
                 </Link>
                 <Link
                   to="/support/terms"
                   onClick={handleLinkClick}
                   className="text-lg font-medium hover:text-primary transition-colors"
                 >
-                  {locData.footer_link_terms || "Terms"}
+                  Terms of Service
                 </Link>
               </nav>
             </SheetContent>

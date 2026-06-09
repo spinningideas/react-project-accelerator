@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 // contexts
 import { BookmarksProvider } from "@/contexts/BookmarksContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
-import { LocalizationProvider } from "@/contexts/LocalizationContext";
 // types
 import Theme from "@/models/Theme";
 // auth
@@ -30,13 +29,11 @@ const App = () => (
       maxVisibleNotifications={6}
     >
       <ThemeProvider defaultTheme={defaultTheme}>
-        <LocalizationProvider>
-          <QueryClientProvider client={queryClient}>
-            <BookmarksProvider>
-              <AuthProvider>{PageRouter}</AuthProvider>
-            </BookmarksProvider>
-          </QueryClientProvider>
-        </LocalizationProvider>
+        <QueryClientProvider client={queryClient}>
+          <BookmarksProvider>
+            <AuthProvider>{PageRouter}</AuthProvider>
+          </BookmarksProvider>
+        </QueryClientProvider>
       </ThemeProvider>
     </ToastProvider>
   </BrowserRouter>

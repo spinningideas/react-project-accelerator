@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 // contexts
 import { useAuth } from "@/contexts/AuthContext";
-import { useLocalization } from "@/contexts/LocalizationContext";
 // services
 import GeoService from "@/services/GeoService";
 import NotificationsService from "@/services/NotificationsService";
@@ -27,40 +26,12 @@ import GetStartedMessage from "@/components/home/GetStartedMessage";
 
 const Home = () => {
   const { user } = useAuth();
-  const { locData, loadLocalizedText } = useLocalization();
   const [modalOpen, setModalOpen] = useState(false);
   const [userIpAddress, setUserIpAddress] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const geoService = GeoService();
   const notificationsService = NotificationsService();
-
-  useEffect(() => {
-    loadLocalizedText([
-      "aboutdescription",
-      "authenticatedcontent",
-      "authenticatedcontentdescription",
-      "close",
-      "error",
-      "forms",
-      "formsexample",
-      "formsexampledescription",
-      "getstartedmessage",
-      "homepagewelcome",
-      "info",
-      "message",
-      "modals",
-      "modalsdescription",
-      "notifications",
-      "notificationsdescription",
-      "serviceexampledescription",
-      "serviceexampletitle",
-      "services",
-      "success",
-      "view",
-      "welcome",
-    ]);
-  }, []);
 
   const showNotification = (
     message: string,
@@ -117,13 +88,13 @@ const Home = () => {
         className="space-y-6"
       >
         <motion.div variants={itemVariants}>
-          <h2 className="text-3xl font-bold mb-6">{locData.homepagewelcome}</h2>
+          <h2 className="text-3xl font-bold mb-6">Welcome to React Project Accelerator</h2>
         </motion.div>
 
         <motion.div variants={itemVariants}>
           <GetStartedMessage
             displayGetStarted={true}
-            message={locData.getstartedmessage}
+            message="To get started use the menu to navigate and change languages"
           />
         </motion.div>
 
@@ -131,10 +102,10 @@ const Home = () => {
           <motion.div variants={itemVariants}>
             <Card className="border-l-4 border-l-primary">
               <CardHeader>
-                <CardTitle>{locData.authenticatedcontent}</CardTitle>
+                <CardTitle>Authenticated Content</CardTitle>
               </CardHeader>
               <CardContent>
-                <p>{locData.authenticatedcontentdescription}</p>
+                <p>Here is content displayed only if user is signed in</p>
               </CardContent>
             </Card>
           </motion.div>
@@ -143,35 +114,35 @@ const Home = () => {
         <motion.div variants={itemVariants}>
           <Card>
             <CardHeader>
-              <CardTitle>{locData.notifications}</CardTitle>
+              <CardTitle>Notifications</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{locData.notificationsdescription}</p>
+              <p>Below are examples of 'toast' style notifications</p>
             </CardContent>
             <CardFooter className="gap-2">
               <Button
                 variant="secondary"
-                onClick={() => showNotification(locData.success, "success")}
+                onClick={() => showNotification("Success", "success")}
               >
-                {locData.success}
+                Success
               </Button>
               <Button
                 variant="secondary"
-                onClick={() => showNotification(locData.info, "info")}
+                onClick={() => showNotification("Info", "info")}
               >
-                {locData.info}
+                Info
               </Button>
               <Button
                 variant="secondary"
-                onClick={() => showNotification(locData.error, "error")}
+                onClick={() => showNotification("Error", "error")}
               >
-                {locData.error}
+                Error
               </Button>
               <Button
                 variant="secondary"
-                onClick={() => showNotification(locData.message, "default")}
+                onClick={() => showNotification("Message", "default")}
               >
-                {locData.message}
+                Message
               </Button>
             </CardFooter>
           </Card>
@@ -180,17 +151,16 @@ const Home = () => {
         <motion.div variants={itemVariants}>
           <Card>
             <CardHeader>
-              <CardTitle>{locData.modals || "Modal Dialogs"}</CardTitle>
+              <CardTitle>Modal Dialogs</CardTitle>
             </CardHeader>
             <CardContent>
               <p>
-                {locData.modalsdescription ||
-                  "Below are examples of modal dialogs"}
+                Below are examples of modal dialogs
               </p>
             </CardContent>
             <CardFooter>
               <Button variant="secondary" onClick={() => setModalOpen(true)}>
-                {locData.view || "View"}
+                View
               </Button>
             </CardFooter>
           </Card>
@@ -199,13 +169,13 @@ const Home = () => {
         <Dialog open={modalOpen} onOpenChange={setModalOpen}>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{locData.welcome}</DialogTitle>
+              <DialogTitle>Welcome!</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
-              <p>{locData.homepagewelcome}</p>
-              <p>{locData.aboutdescription}</p>
+              <p>Welcome to React Project Accelerator</p>
+              <p>This app was created to provide an example reference implementation to bootstrap and accelerate react project and to explore using various client side libraries to compose a rich user experience.</p>
               <Button variant="secondary" onClick={() => setModalOpen(false)}>
-                {locData.close}
+                Close
               </Button>
             </div>
           </DialogContent>
@@ -214,16 +184,16 @@ const Home = () => {
         <motion.div variants={itemVariants}>
           <Card>
             <CardHeader>
-              <CardTitle>{locData.services}</CardTitle>
+              <CardTitle>Services</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{locData.serviceexampledescription}</p>
+              <p>Example of use of services and HttpClient</p>
               <Button
                 variant="secondary"
                 onClick={showIpAddress}
                 className="mt-4"
               >
-                {locData.serviceexampletitle}
+                View Ip Address
               </Button>
               {isLoading ? (
                 <LoadingIndicator
@@ -241,12 +211,12 @@ const Home = () => {
         <motion.div variants={itemVariants}>
           <Card>
             <CardHeader>
-              <CardTitle>{locData.forms}</CardTitle>
+              <CardTitle>Forms</CardTitle>
             </CardHeader>
             <CardContent>
-              <p>{locData.formsexampledescription}</p>
+              <p>Example of use of forms and validation via react-hook-form</p>
               <Button variant="secondary" asChild className="mt-4">
-                <Link to="/contact/testnameparam">{locData.formsexample}</Link>
+                <Link to="/contact/testnameparam">Forms Example</Link>
               </Button>
             </CardContent>
           </Card>

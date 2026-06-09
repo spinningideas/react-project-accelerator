@@ -1,41 +1,23 @@
-import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, LayoutTemplate, Image, Palette } from "lucide-react";
-import { useLocalization } from "@/contexts/LocalizationContext";
 
 const Hero = () => {
-  const { locData, loadLocalizedText } = useLocalization();
-
-  useEffect(() => {
-    loadLocalizedText([
-      "hero_title_part1",
-      "hero_title_part2",
-      "hero_title_part3",
-      "hero_title_part4",
-      "hero_description",
-      "hero_feature_modern_stack",
-      "hero_feature_tailwind_shadcn",
-      "hero_feature_typescript",
-      "hero_feature_dark_mode"
-    ]);
-  }, []);
-
   const features = [
     {
       icon: Sparkles,
-      text: locData["hero_feature_modern_stack"] || "Modern React Stack",
+      text: "Modern React Stack",
     },
     {
       icon: LayoutTemplate,
-      text: locData["hero_feature_tailwind_shadcn"] || "Tailwind CSS + shadcn/ui",
+      text: "Tailwind CSS + shadcn/ui",
     },
     {
       icon: Image,
-      text: locData["hero_feature_typescript"] || "TypeScript Support",
+      text: "TypeScript Support",
     },
     {
       icon: Palette,
-      text: locData["hero_feature_dark_mode"] || "Dark Mode Ready",
+      text: "Dark Mode Ready",
     },
   ];
 
@@ -87,9 +69,9 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground"
           >
-            <span className="text-green-500">{locData["hero_title_part1"] || "React Project"}</span> {locData["hero_title_part2"] || "Accelerator"}{" "}
-            <span className="text-green-500">{locData["hero_title_part3"] || "for Modern"}</span>{" "}
-            <span className="text-blue-500">{locData["hero_title_part4"] || "Web Apps"}</span>
+            <span className="text-green-500">React Project</span> Accelerator{" "}
+            <span className="text-green-500">for Modern</span>{" "}
+            <span className="text-blue-500">Web Apps</span>
           </motion.h1>
 
           <motion.p
@@ -98,7 +80,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            {locData["hero_description"] || "A production-ready React starter with Tailwind CSS, shadcn/ui, TypeScript, and modern best practices. Build beautiful web applications faster with this comprehensive accelerator."}
+            A production-ready React starter with Tailwind CSS, shadcn/ui, TypeScript, and modern best practices. Build beautiful web applications faster with this comprehensive accelerator.
           </motion.p>
 
           {/* Features */}

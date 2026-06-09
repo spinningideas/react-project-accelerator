@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useLocalization } from "@/contexts/LocalizationContext";
 import NotificationsService from "@/services/NotificationsService";
 import ContactSubmission from "@/models/ContactSubmission";
 import { Button } from "@/components/ui/button";
@@ -13,7 +11,6 @@ import NavigationPublic from "@/components/app/NavigationPublic";
 
 const Contact = () => {
   const { name } = useParams<{ name?: string }>();
-  const { locData, loadLocalizedText } = useLocalization();
   const notificationsService = NotificationsService();
 
   const {
@@ -28,21 +25,8 @@ const Contact = () => {
     },
   });
 
-  useEffect(() => {
-    loadLocalizedText([
-      "contact",
-      "contactdescription",
-      "save",
-      "name",
-      "email",
-      "message",
-      "required",
-      "success",
-    ]);
-  }, []);
-
   const onSubmit = (data: ContactSubmission) => {
-    notificationsService.show(locData.success, "success");
+    notificationsService.show("Success", "success");
     console.log("Form submitted:", data);
   };
 
@@ -50,19 +34,19 @@ const Contact = () => {
     <>
       <NavigationPublic />
       <div className="container mx-auto px-4 py-8">
-        <h3 className="text-3xl font-bold mb-4">{locData.contact}</h3>
-      <p className="mb-6">{locData.contactdescription}</p>
+        <h3 className="text-3xl font-bold mb-4">Contact</h3>
+      <p className="mb-6">Fill out the form to submit contact info - this is example use of form and styling it</p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Card className="max-w-2xl">
           <CardContent className="space-y-4 pt-6">
             <div className="space-y-2">
-              <Label htmlFor="name">{locData.name || "Name"} *</Label>
+              <Label htmlFor="name">Name *</Label>
               <Input
                 id="name"
                 type="text"
                 {...register("name", {
-                  required: locData.required || "This field is required",
+                  required: "Required",
                 })}
               />
               {errors.name && (
@@ -71,12 +55,12 @@ const Contact = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">{locData.email || "Email"} *</Label>
+              <Label htmlFor="email">Email *</Label>
               <Input
                 id="email"
                 type="email"
                 {...register("email", {
-                  required: locData.required || "This field is required",
+                  required: "Required",
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                     message: "Invalid email address",
@@ -89,11 +73,11 @@ const Contact = () => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message">{locData.message || "Message"} *</Label>
+              <Label htmlFor="message">Message *</Label>
               <Textarea
                 id="message"
                 {...register("message", {
-                  required: locData.required || "This field is required",
+                  required: "Required",
                 })}
                 rows={4}
               />
@@ -104,7 +88,7 @@ const Contact = () => {
           </CardContent>
           <CardFooter>
             <Button type="submit" disabled={isSubmitting}>
-              {locData.save}
+              Save
             </Button>
           </CardFooter>
         </Card>
