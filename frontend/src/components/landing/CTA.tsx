@@ -1,0 +1,52 @@
+// React/state
+import React from "react";
+
+// Navigation
+import { useNavigate } from "react-router-dom";
+
+// Components
+import { Button } from "@/components/ui/button";
+
+export default function CTA() {
+  const navigate = useNavigate();
+
+  return (
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 dark:from-blue-900 dark:to-green-900 opacity-70 dark:opacity-60" />
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          Start Building Your Next Project Today
+        </h2>
+        <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+          Skip the setup and dive straight into building features. Get a
+          production-ready React app with authentication, routing,
+          beautiful UI components, and modern best practices—all
+          configured and ready to go.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Button
+            size="lg"
+            variant="secondary"
+            className="text-lg rounded-full px-10 h-16 bg-white text-green-600 hover:bg-gray-100 shadow-xl transition-all hover:scale-105 font-semibold"
+            onClick={() => navigate("/signup")}
+          >
+            Get Started Free
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="text-lg rounded-full px-10 h-16 bg-transparent text-white border-2 border-white hover:bg-white/10 shadow-xl transition-all hover:scale-105 font-semibold"
+            onClick={() => navigate("/about")}
+          >
+            Learn More
+          </Button>
+        </div>
+        <p className="text-sm text-blue-100 mt-6 opacity-90">
+          {import.meta.env.VITE_MOCK_AUTH === "true"
+            ? "Sign In With Any Email/Password as auth is mocked - No credit card required • Open source • MIT License"
+            : "No credit card required • Open source • MIT License"}
+        </p>
+      </div>
+    </section>
+  );
+}
