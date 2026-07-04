@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Check, Copy, ExternalLink } from "lucide-react";
-
 // Components
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -19,7 +18,7 @@ export default function GetStarted() {
     <section className="py-20 relative overflow-hidden bg-slate-50/50 dark:bg-black/10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400 mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400 mb-6">
             Get Started in Minutes
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -29,7 +28,7 @@ export default function GetStarted() {
 
         <div className="relative max-w-4xl mx-auto space-y-8">
           {/* Vertical timeline connector line */}
-          <div className="absolute left-[28px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-blue-500 via-indigo-500 via-purple-500 via-orange-500 to-green-500 hidden md:block opacity-30 dark:opacity-40" />
+          <div className="absolute left-[28px] top-6 bottom-6 w-0.5 bg-linear-to-b from-blue-500 via-indigo-500 via-purple-500 via-orange-500 to-green-500 hidden md:block opacity-30 dark:opacity-40" />
 
           {/* Step 1 */}
           <div className="relative pl-0 md:pl-20 group">
@@ -37,10 +36,10 @@ export default function GetStarted() {
             <div className="absolute left-2 top-6 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-lg shadow-md border-2 border-background dark:border-zinc-950 z-10 group-hover:scale-110 transition-transform duration-300 hidden md:flex">
               1
             </div>
-            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.06)] transition-all duration-300 rounded-2xl">
+            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs hover:border-blue-500/30 hover:shadow-[0_0_30px_rgba(59,130,246,0.06)] transition-all duration-300 rounded-2xl">
               <CardHeader className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 md:hidden">
+                  <div className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-lg shrink-0 md:hidden">
                     1
                   </div>
                   <div className="flex-1">
@@ -55,7 +54,8 @@ export default function GetStarted() {
                         # Clone the repository
                       </div>
                       <code className="text-green-400 break-all pr-12 block">
-                        git clone https://github.com/spinningideas/react-project-accelerator.git
+                        git clone
+                        https://github.com/spinningideas/react-project-accelerator.git
                       </code>
                       <button
                         onClick={() =>
@@ -85,10 +85,10 @@ export default function GetStarted() {
             <div className="absolute left-2 top-6 w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold text-lg shadow-md border-2 border-background dark:border-zinc-950 z-10 group-hover:scale-110 transition-transform duration-300 hidden md:flex">
               2
             </div>
-            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.06)] transition-all duration-300 rounded-2xl">
+            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs hover:border-indigo-500/30 hover:shadow-[0_0_30px_rgba(99,102,241,0.06)] transition-all duration-300 rounded-2xl">
               <CardHeader className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 md:hidden">
+                  <div className="w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold text-lg shrink-0 md:hidden">
                     2
                   </div>
                   <div className="flex-1">
@@ -96,7 +96,8 @@ export default function GetStarted() {
                       Install Dependencies and Start
                     </CardTitle>
                     <p className="text-muted-foreground leading-relaxed mb-4 text-[15px]">
-                      Navigate to the frontend directory, install npm packages, and start the development server.
+                      Navigate to the frontend directory, install npm packages,
+                      and start the development server.
                     </p>
                     <div className="space-y-3">
                       <div className="relative bg-slate-950 dark:bg-black rounded-xl p-4 font-mono text-sm border border-border/40 group/code">
@@ -155,10 +156,10 @@ export default function GetStarted() {
             <div className="absolute left-2 top-6 w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-lg shadow-md border-2 border-background dark:border-zinc-950 z-10 group-hover:scale-110 transition-transform duration-300 hidden md:flex">
               3
             </div>
-            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-purple-500/30 hover:shadow-[0_0_30px_rgba(168,85,247,0.06)] transition-all duration-300 rounded-2xl">
+            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs hover:border-purple-500/30 hover:shadow-[0_0_30px_rgba(168,85,247,0.06)] transition-all duration-300 rounded-2xl">
               <CardHeader className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 md:hidden">
+                  <div className="w-10 h-10 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-lg shrink-0 md:hidden">
                     3
                   </div>
                   <div>
@@ -166,8 +167,9 @@ export default function GetStarted() {
                       Review and Optimize NPM Packages
                     </CardTitle>
                     <p className="text-muted-foreground leading-relaxed text-[15px]">
-                      Review the installed npm packages and remove any you
-                      don't need for your project. This ensures a lightweight, fast, and optimized production bundle.
+                      Review the installed npm packages and remove any you don't
+                      need for your project. This ensures a lightweight, fast,
+                      and optimized production bundle.
                     </p>
                   </div>
                 </div>
@@ -180,10 +182,10 @@ export default function GetStarted() {
             <div className="absolute left-2 top-6 w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-lg shadow-md border-2 border-background dark:border-zinc-950 z-10 group-hover:scale-110 transition-transform duration-300 hidden md:flex">
               4
             </div>
-            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-orange-500/30 hover:shadow-[0_0_30px_rgba(249,115,22,0.06)] transition-all duration-300 rounded-2xl">
+            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs hover:border-orange-500/30 hover:shadow-[0_0_30px_rgba(249,115,22,0.06)] transition-all duration-300 rounded-2xl">
               <CardHeader className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 md:hidden">
+                  <div className="w-10 h-10 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold text-lg shrink-0 md:hidden">
                     4
                   </div>
                   <div>
@@ -195,7 +197,7 @@ export default function GetStarted() {
                       <code className="text-xs bg-muted px-1.5 py-0.5 rounded font-mono text-foreground font-semibold">
                         src/index.css
                       </code>{" "}
-                      — colors, fonts, border radius, and spacing. Use{" "}
+                      - colors, fonts, border radius, and spacing. Use{" "}
                       <a
                         href="https://tweakcn.com/"
                         target="_blank"
@@ -205,8 +207,8 @@ export default function GetStarted() {
                         tweakcn.com
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>{" "}
-                      to visually generate a custom shadcn/ui theme and
-                      paste the output directly into your tailwind config.
+                      to visually generate a custom shadcn/ui theme and paste
+                      the output directly into your tailwind config.
                     </p>
                   </div>
                 </div>
@@ -219,10 +221,10 @@ export default function GetStarted() {
             <div className="absolute left-2 top-6 w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-lg shadow-md border-2 border-background dark:border-zinc-950 z-10 group-hover:scale-110 transition-transform duration-300 hidden md:flex">
               5
             </div>
-            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm hover:border-green-500/30 hover:shadow-[0_0_30px_rgba(34,197,94,0.06)] transition-all duration-300 rounded-2xl">
+            <Card className="border border-border/80 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-xs hover:border-green-500/30 hover:shadow-[0_0_30px_rgba(34,197,94,0.06)] transition-all duration-300 rounded-2xl">
               <CardHeader className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 md:hidden">
+                  <div className="w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center font-bold text-lg shrink-0 md:hidden">
                     5
                   </div>
                   <div>
@@ -230,7 +232,10 @@ export default function GetStarted() {
                       Get Started Building Your Application
                     </CardTitle>
                     <p className="text-muted-foreground leading-relaxed text-[15px]">
-                      Update the logo, landing page content, home sections, and customize the About, Terms of Service, and Contact pages with your information to begin building your application using this starter kit.
+                      Update the logo, landing page content, home sections, and
+                      customize the About, Terms of Service, and Contact pages
+                      with your information to begin building your application
+                      using this starter kit.
                     </p>
                   </div>
                 </div>

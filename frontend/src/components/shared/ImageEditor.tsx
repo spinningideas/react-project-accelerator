@@ -115,7 +115,7 @@ const ImageEditor = ({ initialState, onNavigate }: ImageEditorProps) => {
           {/* Upload Area */}
           <div
             onClick={triggerUpload}
-            className={`group glass-panel rounded-3xl aspect-[4/3] flex flex-col items-center justify-center cursor-pointer transition-all relative overflow-hidden ${
+            className={`group glass-panel rounded-3xl aspect-4/3 flex flex-col items-center justify-center cursor-pointer transition-all relative overflow-hidden ${
               imageData
                 ? "border-green-600/30"
                 : "hover:border-green-500/30 hover:bg-white/5"
@@ -176,7 +176,7 @@ const ImageEditor = ({ initialState, onNavigate }: ImageEditorProps) => {
             className={`glass-panel p-1.5 rounded-3xl transition-all duration-500 ${
               imageData
                 ? "opacity-100 translate-y-0"
-                : "opacity-50 translate-y-4 pointer-events-none filter blur-sm"
+                : "opacity-50 translate-y-4 pointer-events-none filter blur-xs"
             }`}
           >
             <div className="bg-gray-900/50 rounded-2xl p-5 space-y-6">
@@ -241,7 +241,7 @@ const ImageEditor = ({ initialState, onNavigate }: ImageEditorProps) => {
 
         {/* Output Column */}
         <div className="space-y-6 lg:sticky lg:top-24">
-          <div className="glass-panel rounded-3xl aspect-[4/3] flex items-center justify-center overflow-hidden relative p-1.5">
+          <div className="glass-panel rounded-3xl aspect-4/3 flex items-center justify-center overflow-hidden relative p-1.5">
             <div className="w-full h-full bg-gray-950/50 rounded-2xl flex items-center justify-center overflow-hidden relative">
               {processing ? (
                 <div className="text-center space-y-6 relative z-10">

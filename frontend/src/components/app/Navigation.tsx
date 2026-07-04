@@ -1,16 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  Menu,
-  LogOut,
-  User,
-  ImageUp,
-  LogIn,
-  Palette,
-  PencilRuler,
-  SquarePen,
-  SwatchBook,
-} from "lucide-react";
+import { Menu, LogOut, User, LogIn } from "lucide-react";
 // components
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/app/ThemeToggle";
@@ -55,7 +45,7 @@ const Navigation = () => {
   };
 
   return (
-    <header className="h-[55px] border-b border-border/40 backdrop-blur-sm bg-background/80 sticky top-0 z-50">
+    <header className="h-[55px] border-b border-border/40 backdrop-blur-xs bg-background/80 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between max-w-full">
         <Link
           to="/"

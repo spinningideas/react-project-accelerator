@@ -33,7 +33,7 @@ export default function LandingPage() {
   }, [user, loadingAuthentication, navigate]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-black dark:via-black dark:to-black">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 dark:from-black dark:via-black dark:to-black">
       <BackgroundAnimations showGradient={false} />
 
       <NavigationPublic />
@@ -62,7 +62,7 @@ export default function LandingPage() {
               <div className="flex gap-2 justify-center">
                 <Button
                   size="lg"
-                  className="text-lg rounded-full px-8 h-14 bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="text-lg rounded-full px-8 h-14 bg-linear-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300"
                   onClick={() => navigate("/signup")}
                 >
                   Get Started!
@@ -70,7 +70,7 @@ export default function LandingPage() {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="text-lg rounded-full px-8 h-14 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="text-lg rounded-full px-8 h-14 bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
                   onClick={() => navigate("/signin")}
                 >
                   Sign In

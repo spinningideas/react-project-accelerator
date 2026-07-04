@@ -1,4 +1,4 @@
-const LogoV2 = ({
+const Logo = ({
   width = 34,
   height = 34,
   primaryColor = "#1976d2",
@@ -164,4 +164,4 @@ const LogoV2 = ({
   );
 };
 
-export default LogoV2;
+export default Logo;

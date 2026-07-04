@@ -1,6 +1,3 @@
-// React/state
-import React from "react";
-
 // Icons
 import {
   Sparkles,
@@ -10,7 +7,6 @@ import {
   Zap,
   Layers,
 } from "lucide-react";
-
 // Components
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -56,16 +52,16 @@ export default function Features() {
 
   return (
     <section className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
+      <div className="absolute inset-0 bg-grid-slate-100 mask-[linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:mask-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-green-500 to-green-600 dark:from-green-300 dark:via-green-400 dark:to-green-300 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-green-600 via-green-500 to-green-600 dark:from-green-300 dark:via-green-400 dark:to-green-300 mb-6">
             Built with Industry-Leading Tools
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Powered by Tailwind CSS, shadcn/ui, Lucide Icons, Framer
             Motion, and more. Everything you need to build modern,
-            beautiful web applications—pre-configured and ready to go.
+            beautiful web applications - pre-configured and ready to go.
           </p>
         </div>
 
@@ -73,11 +69,11 @@ export default function Features() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group hover:scale-105 transition-all duration-300 border border-gray-100 dark:border-gray-800 bg-white dark:bg-zinc-900/50 backdrop-blur-sm hover:shadow-2xl hover:shadow-blue-500/10"
+              className="group hover:scale-105 transition-all duration-300 border border-gray-100 dark:border-gray-800 bg-white dark:bg-zinc-900/50 backdrop-blur-xs hover:shadow-2xl hover:shadow-blue-500/10"
             >
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <feature.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <CardTitle className="text-xl font-bold">

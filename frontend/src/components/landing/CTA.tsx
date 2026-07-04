@@ -1,9 +1,5 @@
-// React/state
-import React from "react";
-
 // Navigation
 import { useNavigate } from "react-router-dom";
-
 // Components
 import { Button } from "@/components/ui/button";
 
@@ -12,7 +8,7 @@ export default function CTA() {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-600 dark:from-blue-900 dark:to-green-900 opacity-70 dark:opacity-60" />
+      <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-green-600 dark:from-blue-900 dark:to-green-900 opacity-70 dark:opacity-60" />
       <div className="container mx-auto px-4 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
           Start Building Your Next Project Today
@@ -20,7 +16,7 @@ export default function CTA() {
         <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
           Skip the setup and dive straight into building features. Get a
           production-ready React app with authentication, routing,
-          beautiful UI components, and modern best practices—all
+          beautiful UI components, and modern best practices - all
           configured and ready to go.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

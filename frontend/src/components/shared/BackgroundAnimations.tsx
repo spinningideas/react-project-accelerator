@@ -22,7 +22,7 @@ const BackgroundAnimations = ({ showGradient = true }: { showGradient?: boolean 
     <>
       {/* Background Elements */}
       {showGradient && (
-        <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100 via-gray-50 to-white dark:from-blue-900 dark:via-gray-950 dark:to-black z-0 transition-colors"></div>
+        <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-100 via-gray-50 to-white dark:from-blue-900 dark:via-gray-950 dark:to-black z-0 transition-colors"></div>
       )}
       {/* Animated floating particles */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">

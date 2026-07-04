@@ -46,7 +46,7 @@ const ImageViewer = ({ src, alt, onClose }: ImageViewerProps) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-gray-950/95 backdrop-blur-md flex flex-col animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-9999 bg-gray-950/95 backdrop-blur-md flex flex-col animate-in fade-in duration-200">
       {/* Toolbar */}
       <div className="flex items-center justify-between px-6 py-4 bg-gray-900/50 border-b border-white/10 z-50">
         <h3 className="text-gray-200 font-mono text-sm truncate max-w-[50%]">

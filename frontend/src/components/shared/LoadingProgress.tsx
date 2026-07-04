@@ -143,7 +143,7 @@ const LoadingProgress = ({
               />
 
               {/* Core Icon */}
-              <div className="w-24 h-24 bg-black/50 backdrop-blur-sm rounded-full border border-green-500/50 flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.2)]">
+              <div className="w-24 h-24 bg-black/50 backdrop-blur-xs rounded-full border border-green-500/50 flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.2)]">
                 <IconComponent className="w-10 h-10 text-green-400 animate-pulse" />
               </div>
 
@@ -153,7 +153,7 @@ const LoadingProgress = ({
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               >
-                <div className="w-2 h-2 bg-green-400 rounded-full blur-[2px] shadow-[0_0_10px_rgba(34,197,94,1)] absolute left-1/2 -translate-x-1/2 -top-[15px]" />
+                <div className="w-2 h-2 bg-green-400 rounded-full blur-[2px] shadow-[0_0_10px_rgba(34,197,94,1)] absolute left-1/2 -translate-x-1/2 top-[-15px]" />
               </motion.div>
             </div>
 

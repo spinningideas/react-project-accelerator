@@ -3,7 +3,6 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 
-
 const PricingPlans = () => {
   const plans = [
     {
@@ -35,7 +34,9 @@ const PricingPlans = () => {
     >
       <Card className="p-6 card-gradient border-border/50 bg-transparent">
         <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2">EXAMPLE PRICING PLANS: Purchase Credits</h2>
+          <h2 className="text-2xl font-bold mb-2">
+            EXAMPLE PRICING PLANS: Purchase Credits
+          </h2>
           <p className="text-sm text-muted-foreground">
             Get credits for enhanced search capabilities
           </p>

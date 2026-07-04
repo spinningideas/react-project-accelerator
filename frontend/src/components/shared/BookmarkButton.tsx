@@ -1,21 +1,35 @@
 import React from "react";
-import { Artifact } from "@/models/types";
 import { BookmarkIcon, BookmarkFilledIcon } from "@/components/shared/Icons";
-import { useArtifacts } from "@/contexts/ArtifactsContext";
+import { useBookmarks } from "@/contexts/BookmarksContext";
 import { Button } from "@/components/ui/button";
 
 interface BookmarkButtonProps {
-  artifact: Artifact;
+  bookmarkName: string;
+  bookmarkUrl: string;
+  bookmarkDescription?: string;
   className?: string;
 }
 
-const BookmarkButton = ({ artifact, className }: BookmarkButtonProps) => {
-  const { isArtifactBookmarked, toggleBookmark } = useArtifacts();
-  const isBookmarked = isArtifactBookmarked(artifact.id);
+const BookmarkButton = ({
+  bookmarkName,
+  bookmarkUrl,
+  bookmarkDescription,
+  className,
+}: BookmarkButtonProps) => {
+  const { isUrlBookmarked, addBookmark, removeBookmark, bookmarks } =
+    useBookmarks();
+  const isBookmarked = isUrlBookmarked(bookmarkUrl);
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    toggleBookmark(artifact);
+    if (isBookmarked) {
+      const bookmark = bookmarks.find((b) => b.bookmarkUrl === bookmarkUrl);
+      if (bookmark) {
+        removeBookmark(bookmark.internalId);
+      }
+    } else {
+      addBookmark({ bookmarkName, bookmarkUrl, bookmarkDescription });
+    }
   };
 
   return (
@@ -24,7 +38,7 @@ const BookmarkButton = ({ artifact, className }: BookmarkButtonProps) => {
       size="icon"
       className={`bookmark-toggle-btn ${className || ""}`}
       onClick={handleClick}
-      title={isBookmarked ? "Remove from saved" : "Save to generations"}
+      title={isBookmarked ? "Remove bookmark" : "Add bookmark"}
     >
       {isBookmarked ? <BookmarkFilledIcon /> : <BookmarkIcon />}
     </Button>

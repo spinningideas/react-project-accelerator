@@ -44,11 +44,11 @@ const Modal = ({
       >
         <div className="flex justify-between items-start px-6 py-2 border-b bg-background">
           <div className="flex-1">
-            <h3 className="mt-1 m-0 text-lg font-semibold text-[var(--text-primary)]">
+            <h3 className="mt-1 m-0 text-lg font-semibold text-(--text-primary)">
               {title}
             </h3>
             {subtitle && (
-              <p className="mt-1 text-sm text-[var(--text-secondary)] opacity-60 font-normal leading-snug">
+              <p className="mt-1 text-sm text-(--text-secondary) opacity-60 font-normal leading-snug">
                 {subtitle}
               </p>
             )}

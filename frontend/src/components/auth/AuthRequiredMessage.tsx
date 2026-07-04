@@ -4,7 +4,7 @@ import AuthButton from "@/components/auth/AuthButton";
  */
 export const AuthRequiredMessage = () => (
   <div className="flex justify-center">
-    <div className="bg-blue-50 dark:bg-blue-900/30 p-8 rounded-xl max-w-md mx-auto shadow-sm">
+    <div className="bg-blue-50 dark:bg-blue-900/30 p-8 rounded-xl max-w-md mx-auto shadow-xs">
       <h2 className="text-2xl font-bold mb-4 text-blue-800 dark:text-blue-100">
         Sign In Required
       </h2>

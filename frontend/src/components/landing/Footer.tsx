@@ -1,6 +1,3 @@
-// React/state
-import React from "react";
-
 // Components
 import Logo from "@/components/app/Logo";
 
@@ -11,9 +8,9 @@ export default function Footer() {
   return (
     <footer className="bg-gray-50 dark:bg-black border-t dark:border-gray-800 py-16 text-sm">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-3 gap-12 justify-items-center text-center">
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-center space-x-2">
               <Logo themeIsDark={true} />
               <span className="text-xl font-bold text-gray-900 dark:text-white">
                 {APPLICATION_NAME}

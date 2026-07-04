@@ -80,21 +80,21 @@ const Settings = () => {
             <div className="flex gap-2">
               <Button
                 onClick={() => setTheme("light")}
-                variant={theme === "light" ? "default" : "outline"}
+                variant={theme === "light" ? "default" : "outline-solid"}
               >
                 {theme === "light" && <Check className="h-4 w-4 mr-2" />}
                 Light
               </Button>
               <Button
                 onClick={() => setTheme("dark")}
-                variant={theme === "dark" ? "default" : "outline"}
+                variant={theme === "dark" ? "default" : "outline-solid"}
               >
                 {theme === "dark" && <Check className="h-4 w-4 mr-2" />}
                 Dark
               </Button>
               <Button
                 onClick={() => setTheme("system")}
-                variant={theme === "system" ? "default" : "outline"}
+                variant={theme === "system" ? "default" : "outline-solid"}
               >
                 {theme === "system" && <Check className="h-4 w-4 mr-2" />}
                 System
