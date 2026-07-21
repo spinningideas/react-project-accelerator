@@ -8,7 +8,7 @@ export default function CTA() {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-r from-blue-600 to-green-600 dark:from-blue-900 dark:to-green-900 opacity-70 dark:opacity-60" />
+      <div className="absolute inset-0 bg-linear-to-r from-blue-700 to-blue-800 dark:from-blue-900 dark:to-blue-800 opacity-70 dark:opacity-60" />
       <div className="container mx-auto px-4 text-center relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
           Start Building Your Next Project Today

@@ -15,10 +15,10 @@ export default function GetStarted() {
   };
 
   return (
-    <section className="py-20 relative overflow-hidden bg-slate-50/50 dark:bg-black/10">
+    <section className="py-20 relative overflow-hidden bg-gray-50/50 dark:bg-black/10">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-400 mb-6">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-linear-to-r from-blue-600 via-blue-500 to-blue-600 dark:from-blue-400 dark:via-blue-500 dark:to-blue-400 mb-6">
             Get Started in Minutes
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">

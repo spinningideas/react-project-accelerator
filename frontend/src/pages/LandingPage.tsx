@@ -33,7 +33,7 @@ export default function LandingPage() {
   }, [user, loadingAuthentication, navigate]);
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 dark:from-black dark:via-black dark:to-black">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-blue-50 dark:from-black dark:via-black dark:to-black">
       {/*  <BackgroundAnimations showGradient={true} /> */}
 
       <NavigationPublic />

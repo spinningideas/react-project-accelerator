@@ -73,7 +73,7 @@ export default function Features() {
             >
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-blue-50 to-blue-100/20 dark:from-blue-900/20 dark:to-blue-800/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <feature.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <CardTitle className="text-xl font-bold">
