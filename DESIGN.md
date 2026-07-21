@@ -186,15 +186,15 @@ This project uses **Tailwind CSS v4**, which represents a significant architectu
 
 | Concern    | Tailwind v3  | Tailwind v4 |
 | ----------------------- | ------------------------------------- | ---------------------------------------------- |
-| **Config file**         | `tailwind.config.ts` (JavaScript)     | None � config is in CSS  |
+| **Config file**         | `tailwind.config.ts` (JavaScript)     | None - config is in CSS  |
 | **Theme tokens**        | `theme.extend` object    | `@theme { --variable: value; }` in CSS         |
 | **Dark mode**  | `darkMode: ['class']` in config       | `@custom-variant dark (&:is(.dark *));` in CSS |
 | **PostCSS plugin**      | `tailwindcss`   | `@tailwindcss/postcss`   |
 | **CSS import** | `@tailwind base/components/utilities` | `@import "tailwindcss";` |
 | **Color palette**       | RGB/Hex based   | OKLCH by default (HSL still fully supported)   |
-| **Engine** | JavaScript  | Rust-based Oxide (3�10x faster builds)         |
-| **`autoprefixer`**      | Required in PostCSS      | Built-in � remove from PostCSS    |
-| **Content detection**   | `content: [...]` array   | Automatic � scans all source files |
+| **Engine** | JavaScript  | Rust-based Oxide (3-10x faster builds)         |
+| **`autoprefixer`**      | Required in PostCSS      | Built-in - remove from PostCSS    |
+| **Content detection**   | `content: [...]` array   | Automatic - scans all source files |
 | **Gray/Slate override** | Separate palette in config   | Overridden via `--color-gray-*` in `@theme`    |
 
 ### Current Setup (v4)
@@ -209,7 +209,7 @@ export default {
 };
 ```
 
-> No `autoprefixer` needed � Tailwind v4 handles vendor prefixes natively.
+> No `autoprefixer` needed - Tailwind v4 handles vendor prefixes natively.
 
 **CSS entry** (`src/index.css`):
 
@@ -252,7 +252,7 @@ export default {
 | Concern  | Implementation        |
 | --------------------- | ------------------------------------------------------------------------- |
 | **Dark mode variant** | `@custom-variant dark (&:is(.dark *));` in `src/index.css`   |
-| **Token file**        | `src/index.css` � `:root` for light, `.dark` for dark        |
+| **Token file**        | `src/index.css` - `:root` for light, `.dark` for dark        |
 | **Toggle**   | `ThemeContext` + `ThemeToggle` component sets/removes `.dark` on `<html>` |
 | **Persistence**       | Theme choice stored via `LocalCacheService` in `localStorage` |
 | **Default**  | Configurable via `defaultTheme` prop on `ThemeProvider` in `App.tsx`      |
@@ -500,12 +500,12 @@ Shape language maps to the radius scale derived from `--radius: 1.35rem`. All ra
 | Do    | Don''t        |
 | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Use semantic token names (`bg-background`, `text-foreground`) so both themes work automatically | Don''t hardcode hex values or Tailwind fixed-shade classes (e.g. `bg-white`, `text-gray-900`) directly in components |
-| Edit `src/index.css` `:root` and `.dark` blocks to change theme colors globally    | Don''t create or edit a `tailwind.config.ts` � this project uses Tailwind v4 CSS-first config  |
+| Edit `src/index.css` `:root` and `.dark` blocks to change theme colors globally    | Don''t create or edit a `tailwind.config.ts` - this project uses Tailwind v4 CSS-first config  |
 | Add new palette tokens inside the `@theme { }` block in `src/index.css`   | Don''t invent new CSS variables without adding them to both `:root` and `.dark`, and mapping them in `@theme`        |
 | Use `dark:` Tailwind prefix only for values that can''t be expressed as semantic tokens         | Don''t use `dark:bg-white` / `dark:text-black` patterns when a token already covers it     |
 | Maintain WCAG AA contrast ratios (4.5:1 for normal text, 3:1 for large text) in both themes     | Don''t mix rounded and sharp corners in the same view   |
 | Keep status colors (success/error/info/warning) and primary blue consistent across both themes  | Don''t create theme-specific variants of brand colors   |
-| Use `hsl(var(--token) / 0.5)` for opacity variants of tokens | Don''t add raw `rgba()` values � keep everything in the HSL token system      |
+| Use `hsl(var(--token) / 0.5)` for opacity variants of tokens | Don''t add raw `rgba()` values - keep everything in the HSL token system      |
 | Test every new component in both light and dark mode before committing | Don''t assume light-mode-only visual review is sufficient        |
 | Use [tweakcn.com](https://tweakcn.com/) to preview and generate shadcn/ui theme variations      | Don''t copy v3 config patterns (e.g. `tailwind.config.ts` or `@tailwind` directives) into this codebase |
 
@@ -538,10 +538,10 @@ Shape language maps to the radius scale derived from `--radius: 1.35rem`. All ra
 When generating or modifying CSS/components in this project:
 
 ```css
-/* v4: Import � replaces @tailwind directives */
+/* v4: Import - replaces @tailwind directives */
 @import "" tailwindcss "";
 
-/* v4: Dark mode � replaces darkMode: [''class''] in tailwind.config.ts */
+/* v4: Dark mode - replaces darkMode: [''class''] in tailwind.config.ts */
 @custom-variant dark (&:is(.dark *));
 
 /* v4: Define tokens + generate utility classes */
@@ -564,7 +564,7 @@ When generating or modifying CSS/components in this project:
 ```
 
 ```css
-/* v3 patterns � do NOT use in this project */
+/* v3 patterns - do NOT use in this project */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
