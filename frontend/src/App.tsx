@@ -24,7 +24,7 @@ const basename = import.meta.env.VITE_BASE_PATH || "/";
 const App = () => (
   <BrowserRouter basename={basename}>
     <ToastProvider
-      location="bottom-right"
+      location="top-center"
       duration={2000}
       maxVisibleNotifications={6}
     >

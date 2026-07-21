@@ -60,8 +60,9 @@ interface ToastProviderProps {
 }
 
 /**
- * Unified Toast Provider
- * Manages the state and display of toast notifications using custom CSS styles.
+ * Unified Toast Provider via context and custom css in frontend\src\components\shared\toast.css.
+ * Manages the state and display of toast notifications using custom CSS styles
+ * and semantic CSS variables set in the tailwind theming in index.css.
  */
 export const ToastProvider = ({
   children,

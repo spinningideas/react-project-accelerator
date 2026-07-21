@@ -40,9 +40,9 @@
 
 .toast {
   position: relative;
-  background: hsl(var(--card));
-  border: 1px solid hsl(var(--border));
-  color: hsl(var(--card-foreground));
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--card-foreground);
   padding: 16px 40px 16px 16px;
   border-radius: var(--radius);
   font-size: 0.875rem;
@@ -56,51 +56,51 @@
 }
 
 .toast-success {
-  border-left: 4px solid hsl(var(--success-color));
-  background-color: hsl(var(--card));
+  border-left: 4px solid var(--success-color);
+  background-color: var(--card);
   background-image: linear-gradient(
-    hsl(var(--success-color) / 0.1),
-    hsl(var(--success-color) / 0.1)
+    color-mix(in srgb, var(--success-color) 10%, transparent),
+    color-mix(in srgb, var(--success-color) 10%, transparent)
   );
-  color: hsl(var(--success-color));
+  color: var(--success-color);
 }
 
 .toast-error {
-  border-left: 4px solid hsl(var(--error-color));
-  background-color: hsl(var(--card));
+  border-left: 4px solid var(--error-color);
+  background-color: var(--card);
   background-image: linear-gradient(
-    hsl(var(--error-color) / 0.1),
-    hsl(var(--error-color) / 0.1)
+    color-mix(in srgb, var(--error-color) 10%, transparent),
+    color-mix(in srgb, var(--error-color) 10%, transparent)
   );
-  color: hsl(var(--error-color));
+  color: var(--error-color);
 }
 
 .toast-info {
-  border-left: 4px solid hsl(var(--info-color));
-  background-color: hsl(var(--card));
+  border-left: 4px solid var(--info-color);
+  background-color: var(--card);
   background-image: linear-gradient(
-    hsl(var(--info-color) / 0.1),
-    hsl(var(--info-color) / 0.1)
+    color-mix(in srgb, var(--info-color) 10%, transparent),
+    color-mix(in srgb, var(--info-color) 10%, transparent)
   );
-  color: hsl(var(--info-color));
+  color: var(--info-color);
 }
 
 .toast-warning {
-  border-left: 4px solid hsl(var(--warning-color));
-  background-color: hsl(var(--card));
+  border-left: 4px solid var(--warning-color);
+  background-color: var(--card);
   background-image: linear-gradient(
-    hsl(var(--warning-color) / 0.1),
-    hsl(var(--warning-color) / 0.1)
+    color-mix(in srgb, var(--warning-color) 10%, transparent),
+    color-mix(in srgb, var(--warning-color) 10%, transparent)
   );
-  color: hsl(var(--warning-color));
+  color: var(--warning-color);
 }
 
 .toast-default {
-  border-left: 4px solid hsl(var(--border));
-  background-color: hsl(var(--card));
+  border-left: 4px solid var(--border);
+  background-color: var(--card);
   background-image: linear-gradient(
-    hsl(var(--muted-foreground) / 0.05),
-    hsl(var(--muted-foreground) / 0.05)
+    color-mix(in srgb, var(--muted-foreground) 5%, transparent),
+    color-mix(in srgb, var(--muted-foreground) 5%, transparent)
   );
 }
 
@@ -120,7 +120,7 @@
 
 .toast-close-btn:hover {
   opacity: 1;
-  background: hsl(var(--muted));
+  background: var(--muted);
 }
 
 @keyframes toastFadeIn {
