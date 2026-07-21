@@ -34,7 +34,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-purple-50 dark:from-black dark:via-black dark:to-black">
-      <BackgroundAnimations showGradient={false} />
+      {/*  <BackgroundAnimations showGradient={true} /> */}
 
       <NavigationPublic />
 
@@ -62,7 +62,7 @@ export default function LandingPage() {
               <div className="flex gap-2 justify-center">
                 <Button
                   size="lg"
-                  className="text-lg rounded-full px-8 h-14 bg-linear-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="text-lg rounded-full px-8 h-14 bg-linear-to-r from-green-700 to-green-600 hover:from-green-700 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300"
                   onClick={() => navigate("/signup")}
                 >
                   Get Started!

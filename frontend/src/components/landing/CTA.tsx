@@ -15,18 +15,18 @@ export default function CTA() {
         </h2>
         <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
           Skip the setup and dive straight into building features. Get a
-          production-ready React app with authentication, routing,
-          beautiful UI components, and modern best practices - all
-          configured and ready to go.
+          production-ready React app with authentication, routing, beautiful UI
+          components, and modern best practices - all configured and ready to
+          go.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             size="lg"
-            variant="secondary"
+            variant="success"
             className="text-lg rounded-full px-10 h-16 bg-white text-green-600 hover:bg-gray-100 shadow-xl transition-all hover:scale-105 font-semibold"
             onClick={() => navigate("/signup")}
           >
-            Get Started Free
+            Get Started!
           </Button>
           <Button
             size="lg"
