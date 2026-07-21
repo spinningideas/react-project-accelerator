@@ -35,10 +35,10 @@ const PricingPlans = () => {
       <Card className="p-6 card-gradient border-border/50 bg-transparent">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold mb-2">
-            EXAMPLE PRICING PLANS: Purchase Credits
+            EXAMPLE PRICING PLANS UX: Purchase Credits
           </h2>
           <p className="text-sm text-muted-foreground">
-            Get credits for enhanced search capabilities
+            Get credits for enhanced capabilities
           </p>
         </div>
 
