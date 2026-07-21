@@ -11,11 +11,12 @@ The project includes everything you need to start building production-ready Reac
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development with full IntelliSense support for better code quality and maintainability.
 - **[Vite](https://vitejs.dev/)** - Lightning-fast HMR (Hot Module Replacement) and optimized production builds.
 - **[shadcn/ui](https://ui.shadcn.com/)** - Beautiful, accessible UI components built on Radix UI primitives that you own and can customize.
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework for rapid UI development with consistent design.
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework for rapid UI development with consistent design. Uses v4 of tailwind.
 - **[Lucide Icons](https://lucide.dev/)** - Beautiful, consistent icon library with 1000+ icons.
 - **[Framer Motion](https://www.framer.com/motion/)** - Production-ready animation library for React.
 - **Theming** - Light/dark mode support with customizable themes using next-themes.
-- **Localization** - Multi-language support (English, Spanish, Chinese) with easy-to-use localization service.
+- **Dynamic Primary Color** - Option to choose primary color from settings page which updates all CSS custom properties and Tailwind color utilities throughout the application in real-time. See instructions to provide to agent in docs\features\dynamic-primary-color-implementation-plan.md
+- **Localization** - Multi-language support (English, Spanish, Chinese) with easy-to-use localization service that can be enabled using instructions in docs\features\localization.md.
 - **Authentication** - Mock authentication system with environment-based switching for development and production.
 - **Forms** - React Hook Form integration with shadcn/ui components for type-safe form handling.
 - **Layout System** - Flexible layout components with responsive navigation and routing.
@@ -23,6 +24,7 @@ The project includes everything you need to start building production-ready Reac
 - **Local Storage** - Persistent user preferences and settings via LocalCacheService.
 - **Testing** - Comprehensive testing setup with @testing-library/react.
 - **React Router v6** - Modern routing with protected routes and navigation guards.
+- **DESIGN.md** - See the design.md file and update this using https://getdesign.md/ or any tool like https://stitch.withgoogle.com/. Then ask agent to update index.css using the design system or refer to it as needed in prompts for design work.
 
 ## Live Demo
 
@@ -198,13 +200,11 @@ The deployment process uses a combination of Vite configuration and GitHub Pages
    ```
 
    This command will:
-
    - Build the production bundle with `vite build --mode production`
    - Deploy the `dist` folder to the `gh-pages` branch
    - Push to GitHub
 
 2. **Configure GitHub Pages (first time only):**
-
    - Go to your repository on GitHub
    - Navigate to **Settings** → **Pages**
    - Under **Source**, select **Deploy from a branch**
