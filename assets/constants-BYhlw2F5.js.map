@@ -1,0 +1,1 @@
+{"version":3,"file":"constants-BYhlw2F5.js","names":[],"sources":["../../src/constants.ts"],"sourcesContent":["export const APPLICATION_NAME = \"React Project Accelerator\";\n\nexport const PAGE_SIZE_DEFAULT = 25;\nexport const PAGE_SIZE_LARGE = 50;\n\nexport const DEFAULT_LANGUAGE = \"en\";\n\nexport const DEFAULT_USER_HOME_PAGE = \"/home\";\n"],"mappings":"AAAA,IAAa,EAAmB"}
