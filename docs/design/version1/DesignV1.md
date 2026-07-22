@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: "Accelerator Light"
+name: "v1 Light Clean Modern"
 description: "Primary visual anchor uses #ffffff with page and card surface background. Typography baseline relies on ui-sans-serif for hero section main heading — large display text."
 colors:
   background: "#ffffff"

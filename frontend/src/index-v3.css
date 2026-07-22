@@ -1,0 +1,777 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  @media (width >= --theme(--breakpoint-sm)) {
+    max-width: none;
+  }
+  @media (width >= 1400px) {
+    max-width: 1400px;
+  }
+}
+
+/* Gray / slate palette override — neutral true-gray (not OKLCH default) 
+   Using hex values from color scheme in frontend\src\styling\colors.ts
+*/
+@theme {
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #eeeeee;
+  --color-gray-300: #e0e0e0;
+  --color-gray-400: #bdbdbd;
+  --color-gray-500: #9e9e9e;
+  --color-gray-600: #757575;
+  --color-gray-700: #616161;
+  --color-gray-800: #424242;
+  --color-gray-900: #212121;
+  --color-gray-950: #121212;
+
+  --color-slate-50: #fafafa;
+  --color-slate-100: #f5f5f5;
+  --color-slate-200: #eeeeee;
+  --color-slate-300: #e0e0e0;
+  --color-slate-400: #bdbdbd;
+  --color-slate-500: #9e9e9e;
+  --color-slate-600: #757575;
+  --color-slate-700: #616161;
+  --color-slate-800: #424242;
+  --color-slate-900: #212121;
+  --color-slate-950: #121212;
+
+  --color-blue-50: #e3f2fd;
+  --color-blue-100: #bbdefb;
+  --color-blue-200: #90caf9;
+  --color-blue-300: #64b5f6;
+  --color-blue-400: #42a5f5;
+  --color-blue-500: #2196f3;
+  --color-blue-600: #1e88e5;
+  --color-blue-700: #1976d2;
+  --color-blue-800: #1565c0;
+  --color-blue-900: #0d47a1;
+  --color-blue-950: #0d47a1;
+
+  --color-green-50: #e8f5e9;
+  --color-green-100: #c8e6c9;
+  --color-green-200: #a5d6a7;
+  --color-green-300: #81c784;
+  --color-green-400: #66bb6a;
+  --color-green-500: #4caf50;
+  --color-green-600: #43a047;
+  --color-green-700: #388e3c;
+  --color-green-800: #2e7d32;
+  --color-green-900: #1b5e20;
+  --color-green-950: #1b5e20;
+}
+
+/* Semantic design token mapping — @theme inline uses var() because :root tokens
+   are already full hsl() values; no hsl(var(...)) wrapper needed. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Jobbie raw brand tokens */
+  --color-brand-blue: var(--brand-blue);
+  --color-accent-soft: var(--accent-soft);
+  --color-link-blue: var(--link-blue);
+  --color-surface-tertiary: var(--surface-tertiary);
+  --color-surface-tint: var(--surface-tint);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-border-secondary: var(--border-secondary);
+
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+
+  --background-image-gradient-primary: var(--gradient-primary);
+  --background-image-gradient-hero: var(--gradient-hero);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+/* Definition of the design system.
+   Tokens are full hsl() values — consumed directly by @theme inline via var().
+   Status colors and brand gradients are retained from the original design.
+*/
+
+@layer base {
+  :root {
+    /* Jobbie light theme tokens */
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(220 24% 12%);
+
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(220 24% 12%);
+
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(220 24% 12%);
+
+    --primary: hsl(215 87% 51%);
+    --primary-foreground: hsl(0 0% 100%);
+
+    --secondary: hsl(0 0% 96%);
+    --secondary-foreground: hsl(220 8% 35%);
+
+    --muted: hsl(0 0% 96%);
+    --muted-foreground: hsl(222 6% 66%);
+
+    --accent: hsl(206 100% 97%);
+    --accent-foreground: hsl(215 87% 51%);
+
+    --destructive: hsl(0 60% 50%);
+    --destructive-foreground: hsl(0 0% 100%);
+
+    --border: hsl(216 6% 85%);
+    --input: hsl(210 5% 92%);
+    --ring: hsl(215 87% 51%);
+
+    --radius: 1rem;
+
+    /* Status colors — retained, now as full hsl() values */
+    --success-color: hsl(142 71% 45%);
+    --success-foreground: hsl(0 0% 100%);
+    --error-color: hsl(0 84% 60%);
+    --error-foreground: hsl(0 0% 100%);
+    --info-color: hsl(217 91% 60%);
+    --info-foreground: hsl(0 0% 100%);
+    --warning-color: hsl(38 92% 50%);
+    --warning-foreground: hsl(0 0% 100%);
+
+    /* Jobbie-specific brand tokens */
+    --brand-blue: hsl(215 87% 51%);
+    --accent-soft: hsl(211 95% 58%);
+    --link-blue: hsl(218 80% 46%);
+    --surface-tertiary: hsl(0 0% 96%);
+    --surface-tint: hsl(206 100% 97%);
+    --text-secondary: hsl(220 8% 35%);
+    --text-tertiary: hsl(220 6% 47%);
+    --border-secondary: hsl(210 5% 92%);
+
+    /* Sidebar */
+    --sidebar: hsl(0 0% 100%);
+    --sidebar-foreground: hsl(220 24% 12%);
+    --sidebar-primary: hsl(215 87% 51%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(206 100% 97%);
+    --sidebar-accent-foreground: hsl(215 87% 51%);
+    --sidebar-border: hsl(216 6% 85%);
+    --sidebar-ring: hsl(215 87% 51%);
+
+    /* Font variables */
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-serif: Georgia, serif;
+    --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Shadow scale */
+    --shadow-2xs: 0px 0px 0px 0px hsl(0 0% 20% / 0.03);
+    --shadow-xs: 0px 0px 0px 0px hsl(0 0% 20% / 0.03);
+    --shadow-sm:
+      0px 0px 0px 0px hsl(0 0% 20% / 0.05),
+      0px 1px 2px -1px hsl(0 0% 20% / 0.05);
+    --shadow:
+      0px 0px 0px 0px hsl(0 0% 20% / 0.05),
+      0px 1px 2px -1px hsl(0 0% 20% / 0.05);
+    --shadow-md:
+      0px 0px 0px 0px hsl(0 0% 20% / 0.05),
+      0px 2px 4px -1px hsl(0 0% 20% / 0.05);
+    --shadow-lg:
+      0px 0px 0px 0px hsl(0 0% 20% / 0.05),
+      0px 4px 6px -1px hsl(0 0% 20% / 0.05);
+    --shadow-xl:
+      0px 0px 0px 0px hsl(0 0% 20% / 0.05),
+      0px 8px 10px -1px hsl(0 0% 20% / 0.05);
+    --shadow-2xl: 0px 0px 0px 0px hsl(0 0% 20% / 0.13);
+
+    /* Chart colors */
+    --chart-1: hsl(198.6207 93.5484% 93.9216%);
+    --chart-2: hsl(292.5 44.4444% 92.9412%);
+    --chart-3: hsl(198.9041 92.4051% 84.5098%);
+    --chart-4: hsl(176.6667 40.9091% 91.3725%);
+    --chart-5: hsl(124.6154 39.3939% 93.5294%);
+  }
+
+  .dark {
+    color-scheme: dark;
+
+    --background: hsl(0 0% 10.1961%);
+    --foreground: hsl(0 0% 85.098%);
+
+    --card: hsl(0 0% 12.549%);
+    --card-foreground: hsl(0 0% 85.098%);
+
+    --popover: hsl(0 0% 12.549%);
+    --popover-foreground: hsl(0 0% 85.098%);
+
+    --primary: var(--brand-blue);
+    --primary-foreground: hsl(0 0% 96.0784%);
+
+    --secondary: hsl(0 0% 18.8235%);
+    --secondary-foreground: hsl(0 0% 96.0784%);
+
+    --muted: hsl(0 0% 16.4706%);
+    --muted-foreground: hsl(0 0% 95%);
+
+    --accent: hsl(211.9298 80.2817% 41.7647%);
+    --accent-foreground: hsl(0 0% 96.0784%);
+
+    --destructive: hsl(0 66.3043% 63.9216%);
+    --destructive-foreground: hsl(0 0% 100%);
+
+    --border: hsl(0 0% 20.7843%);
+    --input: hsl(0 0% 18.8235%);
+    --ring: var(--brand-blue);
+
+    /* Status colors — same in both themes */
+    --success-color: hsl(142 71% 45%);
+    --success-foreground: hsl(0 0% 100%);
+    --error-color: hsl(0 84% 60%);
+    --error-foreground: hsl(0 0% 100%);
+    --info-color: hsl(217 91% 60%);
+    --info-foreground: hsl(0 0% 100%);
+    --warning-color: hsl(38 92% 50%);
+    --warning-foreground: hsl(0 0% 100%);
+
+    /* Sidebar */
+    --sidebar: hsl(0 0% 12.1569%);
+    --sidebar-foreground: hsl(0 0% 85.098%);
+    --sidebar-primary: hsl(0 0% 62.7451%);
+    --sidebar-primary-foreground: hsl(0 0% 10.1961%);
+    --sidebar-accent: hsl(0 0% 25.098%);
+    --sidebar-accent-foreground: hsl(0 0% 85.098%);
+    --sidebar-border: hsl(0 0% 20.7843%);
+    --sidebar-ring: hsl(0 0% 62.7451%);
+
+    /* Chart colors */
+    --chart-1: hsl(231.6667 45% 84.3137%);
+    --chart-2: hsl(291.2195 46.0674% 82.549%);
+    --chart-3: hsl(198.9041 92.4051% 84.5098%);
+    --chart-4: hsl(174.6667 41.2844% 78.6275%);
+    --chart-5: hsl(122 37.5% 84.3137%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+
+  /* Reset autofill backgrounds to match theme */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: black !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .dark input:-webkit-autofill,
+  .dark input:-webkit-autofill:hover,
+  .dark input:-webkit-autofill:focus,
+  .dark textarea:-webkit-autofill,
+  .dark textarea:-webkit-autofill:hover,
+  .dark textarea:-webkit-autofill:focus,
+  .dark select:-webkit-autofill,
+  .dark select:-webkit-autofill:hover,
+  .dark select:-webkit-autofill:focus {
+    -webkit-text-fill-color: white !important;
+    -webkit-box-shadow: 0 0 0px 1000px #09090b inset !important;
+    transition: background-color 5000s ease-in-out 0s;
+    color: white !important;
+  }
+
+  /* Global Scrollbar Styles - Theme Aware */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted-foreground) / 0.3);
+    border: 2px solid transparent;
+    background-clip: content-box;
+    border-radius: 99px;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Firefox scrollbar support */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+}
+
+/* === Animations === */
+@keyframes dramaticEntrance {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ambientFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Hide text on small screens */
+@media (max-width: 600px) {
+  .hidden-on-mobile {
+    display: none;
+  }
+}
+
+/* Explicit circular style for icon-only buttons */
+.btn-large {
+  height: 42px;
+  min-width: 42px;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  gap: 10px;
+}
+
+.btn-large svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* === Drawer (Common) === */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--background);
+  backdrop-filter: blur(4px);
+  z-index: 3000;
+  display: flex;
+  justify-content: flex-end;
+}
+.drawer-content {
+  width: 100%;
+  max-width: 420px;
+  background: hsl(var(--background) / 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-left: 1px solid hsl(var(--border));
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: -20px 0 50px rgba(0, 0, 0, 0.2);
+}
+
+.drawer-header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.drawer-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+}
+.close-button {
+  background: hsl(var(--muted));
+  border: none;
+  color: hsl(var(--muted-foreground));
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.close-button:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+.drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+/* Confirmation Dialog */
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.confirm-dialog {
+  background: hsl(var(--background));
+  border-radius: 16px;
+  border: 1px solid hsl(var(--border));
+  padding: 24px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.confirm-dialog h4 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.confirm-dialog p {
+  margin: 0 0 20px 0;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* === Modal Dialog === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: hsl(var(--background));
+  border-radius: 20px;
+  border: 1px solid hsl(var(--border));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.3);
+  animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  padding: 10px;
+}
+
+.modal-body .artifact-iframe {
+  pointer-events: auto;
+}
+
+/* === Responsive / Full Screen Modal === */
+.modal-content.modal-fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  border-radius: 0;
+  border: none;
+}
+
+.modal-overlay.full-screen-overlay {
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end; /* Sheet-like or just full cover */
+  }
+
+  .modal-content {
+    width: 100% !important;
+    height: 100dvh !important; /* Use dvh for mobile address bars */
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.badge-count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--primary-accent);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: bold;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* === Animated Button === */
+@property --animated-button-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes animated-button-rotate {
+  from {
+    --animated-button-angle: 0deg;
+  }
+  to {
+    --animated-button-angle: 360deg;
+  }
+}
+
+.animated-button-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.animated-button-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  padding: 2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--animated-button-angle),
+    var(--animated-button-colors, #10b981, #22c55e, #a3e635, #2dd4bf, #10b981)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: animated-button-rotate 4s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.animated-button-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.animated-button-type-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  font-weight: 600;
+  border: none;
+}
+
+.animated-button-type-primary:hover {
+  background: hsl(var(--primary)); /* Prevent shadcn ghost hover */
+  opacity: 0.9;
+}
+
+.animated-button-type-outline {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.animated-button-type-outline:hover {
+  background: hsl(var(--background)); /* Prevent shadcn ghost hover */
+  color: hsl(var(--foreground));
+}
+
+/* For outline, we rely on the mask trick in ::before to show the gradient AS the border. */

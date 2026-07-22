@@ -1,0 +1,269 @@
+{
+  "color": {
+    "Brand Blue": {
+      "$type": "color",
+      "$value": "#1570ef",
+      "$description": "Primary CTA buttons, active nav states, accent text, links, badge foregrounds"
+    },
+    "Surface Primary": {
+      "$type": "color",
+      "$value": "#ffffff",
+      "$description": "Page background, card surfaces, elevated panels"
+    },
+    "Surface Tertiary": {
+      "$type": "color",
+      "$value": "#f5f5f5",
+      "$description": "Secondary surface fills, sidebar backgrounds, subtle section backgrounds"
+    },
+    "Text Primary": {
+      "$type": "color",
+      "$value": "#181d27",
+      "$description": "Hero headings, high-emphasis body text"
+    },
+    "Text Secondary": {
+      "$type": "color",
+      "$value": "#535862",
+      "$description": "Body copy, nav links, secondary labels — most-used text color"
+    },
+    "Text Tertiary": {
+      "$type": "color",
+      "$value": "#717680",
+      "$description": "Supporting labels, meta text, tertiary UI copy"
+    },
+    "Text Muted": {
+      "$type": "color",
+      "$value": "#a4a7ae",
+      "$description": "Placeholder text, disabled states, muted captions"
+    },
+    "Border Primary": {
+      "$type": "color",
+      "$value": "#d5d7da",
+      "$description": "Card borders, dividers, input outlines"
+    },
+    "Border Secondary": {
+      "$type": "color",
+      "$value": "#e9eaeb",
+      "$description": "Subtle dividers, tab borders, secondary separators"
+    },
+    "Surface Tint": {
+      "$type": "color",
+      "$value": "#eff8ff",
+      "$description": "Blue-tinted badge backgrounds, info chip fills"
+    },
+    "Accent Soft": {
+      "$type": "color",
+      "$value": "#2e90fa",
+      "$description": "Hover states, secondary blue accents, progress indicators"
+    },
+    "Link Blue": {
+      "$type": "color",
+      "$value": "#175cd3",
+      "$description": "Hyperlinks, link-style interactive elements"
+    }
+  },
+  "typography": {
+    "Display Hero": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "44px",
+        "fontWeight": 600,
+        "lineHeight": "48.4px",
+        "letterSpacing": "-0.88px"
+      },
+      "$description": "Hero headline — large display text for primary value proposition"
+    },
+    "H1 Probe": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "52px",
+        "fontWeight": 600,
+        "lineHeight": "1.1",
+        "letterSpacing": "-0.88px"
+      },
+      "$description": "Page-level H1 heading (probe-confirmed at 52px)"
+    },
+    "Body Base": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "16px",
+        "fontWeight": 400,
+        "lineHeight": "24px",
+        "letterSpacing": "normal"
+      },
+      "$description": "Primary body copy, nav links, general UI text — most frequent tuple"
+    },
+    "Body Small": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "14px",
+        "fontWeight": 400,
+        "lineHeight": "20px",
+        "letterSpacing": "normal"
+      },
+      "$description": "Secondary body text, card descriptions, form labels"
+    },
+    "Label Medium": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "14px",
+        "fontWeight": 500,
+        "lineHeight": "20px",
+        "letterSpacing": "normal"
+      },
+      "$description": "Medium-weight labels, button text, nav items"
+    },
+    "Label Semibold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "14px",
+        "fontWeight": 600,
+        "lineHeight": "20px",
+        "letterSpacing": "-0.16px"
+      },
+      "$description": "Semibold labels, card titles, emphasized UI text"
+    },
+    "Caption": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "12px",
+        "fontWeight": 600,
+        "lineHeight": "16px",
+        "letterSpacing": "-0.14px"
+      },
+      "$description": "Badge text, chip labels, small metadata"
+    },
+    "Body Semibold": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Plus Jakarta Sans",
+        "fontSize": "16px",
+        "fontWeight": 600,
+        "lineHeight": "24px",
+        "letterSpacing": "-0.16px"
+      },
+      "$description": "Emphasized body text, section subheadings"
+    },
+    "Code Mono": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "Geist Mono",
+        "fontSize": "8px",
+        "fontWeight": 400,
+        "lineHeight": "12px",
+        "letterSpacing": "0.8px"
+      },
+      "$description": "Monospace code snippets, technical labels"
+    }
+  },
+  "spacing": {
+    "spacing-1": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "spacing-2": {
+      "$type": "dimension",
+      "$value": "6px"
+    },
+    "spacing-3": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "spacing-4": {
+      "$type": "dimension",
+      "$value": "10px"
+    },
+    "spacing-5": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "spacing-6": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "spacing-7": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "spacing-8": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "spacing-9": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "spacing-10": {
+      "$type": "dimension",
+      "$value": "28px"
+    },
+    "spacing-11": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "spacing-12": {
+      "$type": "dimension",
+      "$value": "36px"
+    },
+    "spacing-13": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "spacing-14": {
+      "$type": "dimension",
+      "$value": "48px"
+    },
+    "spacing-15": {
+      "$type": "dimension",
+      "$value": "64px"
+    },
+    "spacing-16": {
+      "$type": "dimension",
+      "$value": "78px"
+    },
+    "spacing-17": {
+      "$type": "dimension",
+      "$value": "112px"
+    },
+    "spacing-18": {
+      "$type": "dimension",
+      "$value": "128px"
+    }
+  },
+  "borderRadius": {
+    "radius-md": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "radius-lg": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "radius-xl": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "radius-2xl": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "radius-pill": {
+      "$type": "dimension",
+      "$value": "100px"
+    },
+    "radius-3xl": {
+      "$type": "dimension",
+      "$value": "32px"
+    },
+    "radius-4xl": {
+      "$type": "dimension",
+      "$value": "40px"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: "Dual Theme Design System"
+name: "v2 Dual Theme Clean Modern"
 description: "Supports light and dark themes via Tailwind CSS v4 class-based dark mode. Tokens are full hsl() CSS custom properties in src/index.css. @theme inline maps them to Tailwind utility classes. Dark mode activates via .dark class on the root element, toggled through ThemeContext."
 dark-mode-strategy: "@custom-variant dark (&:is(.dark *))" # Tailwind v4 CSS-first - no tailwind.config.ts
 token-pattern: "full hsl() values in :root/.dark — mapped via @theme inline"
