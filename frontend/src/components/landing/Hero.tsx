@@ -75,9 +75,10 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            A web application project accelerator kit that uses React, Tailwind
-            CSS, shadcn/ui, TypeScript - includes Icons and motion support. Get
-            starting building beautiful web applications faster with this kit.
+            A web application project starter kit that uses React, Tailwind CSS,
+            shadcn/ui, TypeScript - includes design system, icons, and motion
+            support. Get starting building beautiful web apps faster with this
+            kit.
           </motion.p>
 
           {/* Features */}
