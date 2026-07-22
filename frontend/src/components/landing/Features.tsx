@@ -6,6 +6,9 @@ import {
   Code2,
   Zap,
   Layers,
+  Feather,
+  BookOpen,
+  Globe,
 } from "lucide-react";
 // Components
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -16,7 +19,7 @@ export default function Features() {
       icon: Sparkles,
       title: "Modern Tech Stack",
       description:
-        "Built with React 19, TypeScript, Vite, and the latest web technologies for optimal performance and developer experience.",
+        "Built with React 19, TypeScript, Vite, and the latest web technologies for optimal UX and developer experience.",
     },
     {
       icon: Palette,
@@ -47,6 +50,24 @@ export default function Features() {
       title: "Developer Experience",
       description:
         "Hot module replacement, fast builds with Vite, ESLint configuration, and modern development tools for maximum productivity.",
+    },
+    {
+      icon: Feather,
+      title: "Lucide Icons",
+      description:
+        "Hundreds of clean, scalable SVG icons available through Lucide React, ready to use in any component.",
+    },
+    {
+      icon: BookOpen,
+      title: "Design System Docs",
+      description:
+        "Includes a DESIGN.md file documenting the theme tokens, color system, spacing, and Tailwind v4 setup.",
+    },
+    {
+      icon: Globe,
+      title: "Localization Ready",
+      description:
+        "Built with optional localization support in mind, making it easy to add translations and scale globally.",
     },
   ];
 
