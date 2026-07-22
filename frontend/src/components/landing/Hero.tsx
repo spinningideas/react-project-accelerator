@@ -1,23 +1,19 @@
 import { motion } from "framer-motion";
-import { Sparkles, LayoutTemplate, Image, Palette } from "lucide-react";
+import { LayoutTemplate, Image, Palette } from "lucide-react";
 
 const Hero = () => {
   const features = [
-    {
-      icon: Sparkles,
-      text: "Modern React Stack",
-    },
     {
       icon: LayoutTemplate,
       text: "Tailwind CSS + shadcn/ui",
     },
     {
       icon: Image,
-      text: "TypeScript Support",
+      text: "Icons/Motion Included",
     },
     {
       icon: Palette,
-      text: "Dark Mode Ready",
+      text: "Dark/Light Theme",
     },
   ];
 

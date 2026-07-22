@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-// components - ui shared
-import { Button } from "@/components/ui/button";
 // components - app
 import NavigationPublic from "@/components/app/NavigationPublic";
 import LoadingIndicator from "@/components/shared/LoadingIndicator";
 import BackgroundAnimations from "@/components/shared/BackgroundAnimations";
 // components - landing page
 import Hero from "@/components/landing/Hero";
+import AuthSection from "@/components/landing/AuthSection";
 import PricingPlans from "@/components/landing/PricingPlans";
 import GetStarted from "@/components/landing/GetStarted";
 import Features from "@/components/landing/Features";
@@ -18,7 +17,6 @@ import Footer from "@/components/landing/Footer";
 export default function LandingPage() {
   const [loading, setLoading] = useState(true);
   const { user, loadingAuthentication } = useAuth();
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -34,7 +32,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-linear-to-br from-blue-50 via-white to-blue-50 dark:from-black dark:via-black dark:to-black">
-      {/*  <BackgroundAnimations showGradient={true} /> */}
+      {/* OPTIONAL: <BackgroundAnimations showGradient={true} /> */}
 
       <NavigationPublic />
 
@@ -43,7 +41,7 @@ export default function LandingPage() {
           <LoadingIndicator
             loading={true}
             message="Loading..."
-            className="mt-2"
+            className="mt-6"
           />
         </div>
       ) : (
@@ -52,32 +50,7 @@ export default function LandingPage() {
           <Hero />
 
           {/* Auth Section */}
-          <section className="container mx-auto px-4 mt-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              {import.meta.env.VITE_MOCK_AUTH === "true" && (
-                <p className="text-sm text-orange-600 dark:text-orange-400 font-medium mb-3 bg-orange-50 dark:bg-orange-950/30 px-4 py-2 rounded-lg inline-block">
-                  Sign In With Any Email/Password as auth is mocked
-                </p>
-              )}
-              <div className="flex gap-2 justify-center">
-                <Button
-                  size="lg"
-                  className="text-lg rounded-full px-8 h-14 bg-linear-to-r from-green-700 to-green-600 hover:from-green-700 hover:to-green-700 shadow-lg hover:shadow-xl transition-all duration-300"
-                  onClick={() => navigate("/signup")}
-                >
-                  Get Started!
-                </Button>
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="text-lg rounded-full px-8 h-14 bg-linear-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
-                  onClick={() => navigate("/signin")}
-                >
-                  Sign In
-                </Button>
-              </div>
-            </div>
-          </section>
+          <AuthSection />
 
           {/* Features Section */}
           <Features />

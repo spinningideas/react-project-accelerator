@@ -45,7 +45,7 @@ const Navigation = () => {
   };
 
   return (
-    <header className="h-[55px] border-b border-border/40 backdrop-blur-xs bg-background/80 sticky top-0 z-50">
+    <header className="h-[55px] border-b border-border/40 bg-background/80 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between max-w-full">
         <Link
           to="/"

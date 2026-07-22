@@ -51,11 +51,11 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-12 relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-slate-100 mask-[linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:mask-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-green-600 via-green-500 to-green-600 dark:from-green-400 dark:via-green-500 dark:to-green-400 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-green-600 via-green-500 to-green-600 dark:from-green-400 dark:via-green-500 dark:to-green-400 mb-6">
             Built with Industry-Leading Tools
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
