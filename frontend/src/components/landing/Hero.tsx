@@ -65,8 +65,7 @@ const Hero = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground"
           >
-            <span className="text-green-500">React Project</span> Accelerator{" "}
-            <span className="text-green-500">for Modern</span>{" "}
+            <span className="text-green-500">Project Accelerator</span> for{" "}
             <span className="text-blue-500">Web Apps</span>
           </motion.h1>
 
@@ -76,7 +75,9 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
           >
-            A production-ready React starter with Tailwind CSS, shadcn/ui, TypeScript, and modern best practices. Build beautiful web applications faster with this comprehensive accelerator.
+            A web application project accelerator kit that uses React, Tailwind
+            CSS, shadcn/ui, TypeScript - includes Icons and motion support. Get
+            starting building beautiful web applications faster with this kit.
           </motion.p>
 
           {/* Features */}

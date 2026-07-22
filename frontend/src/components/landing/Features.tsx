@@ -73,7 +73,7 @@ export default function Features() {
 
   return (
     <section className="py-12 relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-slate-100 mask-[linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:mask-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
+      <div className="absolute inset-0 bg-grid-gray-100 mask-[linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-gray-700/25 dark:mask-[linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]" />
       <div className="container mx-auto px-4 relative">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-green-600 via-green-500 to-green-600 dark:from-green-400 dark:via-green-500 dark:to-green-400 mb-6">
@@ -90,7 +90,7 @@ export default function Features() {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="group hover:scale-105 transition-all duration-300 border border-gray-100 dark:border-gray-800 bg-white dark:bg-zinc-900/50 backdrop-blur-xs hover:shadow-2xl hover:shadow-blue-500/10"
+              className="group hover:scale-105 transition-all duration-300 border border-gray-300 dark:border-gray-800 bg-white dark:bg-zinc-900/50 backdrop-blur-xs hover:shadow-2xl hover:shadow-blue-500/10"
             >
               <CardHeader>
                 <div className="flex items-center gap-4">
