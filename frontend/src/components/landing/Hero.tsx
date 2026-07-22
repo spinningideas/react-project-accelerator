@@ -94,9 +94,9 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/50 border border-blue-100 hover:border-blue-400 dark:bg-blue-900/20 dark:border-blue-800 dark:hover:border-blue-600 transition-colors"
               >
-                <feature.icon className="w-4 h-4 text-primary" />
+                <feature.icon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span className="text-sm font-medium">{feature.text}</span>
               </motion.div>
             ))}
