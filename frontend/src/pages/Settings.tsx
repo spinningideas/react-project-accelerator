@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import LocalCacheService from "@/services/LocalCacheService";
-import NotificationsService from "@/services/NotificationsService";
+import { useToast } from "@/components/shared/Toast";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 const Settings = () => {
   const { theme, setTheme } = useTheme();
   const localCacheService = LocalCacheService();
-  const notificationsService = NotificationsService();
+  const { toastSuccess } = useToast();
 
   const [colorSetting, setColorSetting] = useState<string>("blue");
 
@@ -32,7 +32,7 @@ const Settings = () => {
   const handleColorChange = (color: string) => {
     localCacheService.set("color", color);
     setColorSetting(color);
-    notificationsService.show("Success", "success");
+    toastSuccess("Success");
   };
 
   const capitalize = (str: string) => {
@@ -80,21 +80,21 @@ const Settings = () => {
             <div className="flex gap-2">
               <Button
                 onClick={() => setTheme("light")}
-                variant={theme === "light" ? "default" : "outline-solid"}
+                variant={theme === "light" ? "default" : "outline"}
               >
                 {theme === "light" && <Check className="h-4 w-4 mr-2" />}
                 Light
               </Button>
               <Button
                 onClick={() => setTheme("dark")}
-                variant={theme === "dark" ? "default" : "outline-solid"}
+                variant={theme === "dark" ? "default" : "outline"}
               >
                 {theme === "dark" && <Check className="h-4 w-4 mr-2" />}
                 Dark
               </Button>
               <Button
                 onClick={() => setTheme("system")}
-                variant={theme === "system" ? "default" : "outline-solid"}
+                variant={theme === "system" ? "default" : "outline"}
               >
                 {theme === "system" && <Check className="h-4 w-4 mr-2" />}
                 System

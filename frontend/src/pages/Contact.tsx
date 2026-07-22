@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import NotificationsService from "@/services/NotificationsService";
+import { useToast } from "@/components/shared/Toast";
 import ContactSubmission from "@/models/ContactSubmission";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -11,7 +11,7 @@ import NavigationPublic from "@/components/app/NavigationPublic";
 
 const Contact = () => {
   const { name } = useParams<{ name?: string }>();
-  const notificationsService = NotificationsService();
+  const { toastSuccess } = useToast();
 
   const {
     register,
@@ -26,7 +26,7 @@ const Contact = () => {
   });
 
   const onSubmit = (data: ContactSubmission) => {
-    notificationsService.show("Success", "success");
+    toastSuccess("Success");
     console.log("Form submitted:", data);
   };
 

@@ -294,9 +294,11 @@ Update `frontend/src/pages/Settings.tsx`:
 ```typescript
 // Update imports
 import { COLOR_PALETTE } from "@/config/colorPalette";
+import { useToast } from "@/components/shared/Toast";
 
 // Update useTheme destructuring
 const { theme, setTheme, primaryColor, setPrimaryColor } = useTheme();
+const { toastSuccess } = useToast();
 
 // Remove local colorSetting state
 // const [colorSetting, setColorSetting] = useState<string>("blue");
@@ -310,7 +312,7 @@ const { theme, setTheme, primaryColor, setPrimaryColor } = useTheme();
 // Update handleColorChange
 const handleColorChange = (color: string) => {
   setPrimaryColor(color);
-  notificationsService.show(locData.success, "success");
+  toastSuccess(locData.success);
 };
 
 // Update colors array to use COLOR_PALETTE

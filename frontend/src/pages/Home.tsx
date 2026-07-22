@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "@/contexts/AuthContext";
 // services
 import GeoService from "@/services/GeoService";
-import NotificationsService from "@/services/NotificationsService";
+import { useToast } from "@/components/shared/Toast";
 // components
 import { Button } from "@/components/ui/button";
 import {
@@ -31,13 +31,25 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const geoService = GeoService();
-  const notificationsService = NotificationsService();
+  const { toastSuccess, toastError, toastInfo, showToast } = useToast();
 
   const showNotification = (
     message: string,
     type: "success" | "error" | "info" | "default",
   ) => {
-    notificationsService.show(message, type);
+    switch (type) {
+      case "success":
+        toastSuccess(message);
+        break;
+      case "error":
+        toastError(message);
+        break;
+      case "info":
+        toastInfo(message);
+        break;
+      default:
+        showToast(message, "default");
+    }
   };
 
   const showIpAddress = async () => {

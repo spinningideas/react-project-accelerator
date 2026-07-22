@@ -11,10 +11,10 @@ export interface AnimatedButtonProps extends Omit<ButtonProps, "type"> {
 
   /**
    * Defines the visual style of the button.
-   * - "outline-solid": Background matches page, border is the animation.
+   * - "outline": Background matches page, border is the animation.
    * - "primary": Solid colored background, border animation visible around edges.
    */
-  type?: "primary" | "outline-solid";
+  type?: "primary" | "outline";
 
   /**
    * The HTML button type behavior.
@@ -28,7 +28,7 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
     {
       className,
       borderColors = ["#10b981", "#22c55e", "#a3e635", "#2dd4bf", "#10b981"],
-      type = "outline-solid",
+      type = "outline",
       htmlType = "button",
       style,
       variant, // We intercept variant to prevent conflict, or we can use it as base
@@ -45,7 +45,7 @@ const AnimatedButton = React.forwardRef<HTMLButtonElement, AnimatedButtonProps>(
     } as React.CSSProperties;
 
     // We map our 'type' prop to specific styling classes
-    // We default the base variant to "ghost" or "outline-solid" to avoid conflicting Shadcn styles
+    // We default the base variant to "ghost" or "outline" to avoid conflicting Shadcn styles
     // However, since we apply our own classes effectively overriding background/border,
     // "ghost" is likely the safest base to avoid default borders.
     const baseVariant = "ghost";
