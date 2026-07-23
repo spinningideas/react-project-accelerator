@@ -1,8 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu } from "lucide-react";
 // components
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/app/ThemeToggle";
 import Logo from "@/components/app/Logo";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 // contexts
 import { useTheme } from "@/contexts/ThemeContext";
 // constants
@@ -11,6 +14,11 @@ import { APPLICATION_NAME } from "@/constants";
 const NavigationPublic = () => {
   const navigate = useNavigate();
   const { themeIsDark } = useTheme();
+  const [sideNavigationOpen, setSideNavigationOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setSideNavigationOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background">
@@ -62,6 +70,61 @@ const NavigationPublic = () => {
                 Sign Up
               </Button>
             </div>
+
+            <Sheet open={sideNavigationOpen} onOpenChange={setSideNavigationOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="rounded-full">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <nav className="flex flex-col gap-4 mt-8">
+                  <Link
+                    to="/"
+                    onClick={handleLinkClick}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/about"
+                    onClick={handleLinkClick}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    to="/contact"
+                    onClick={handleLinkClick}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    Contact
+                  </Link>
+                  <Link
+                    to="/settings"
+                    onClick={handleLinkClick}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    Settings
+                  </Link>
+                  <Link
+                    to="/support/privacy-policy"
+                    onClick={handleLinkClick}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    Privacy
+                  </Link>
+                  <Link
+                    to="/support/terms"
+                    onClick={handleLinkClick}
+                    className="text-lg font-medium hover:text-primary transition-colors"
+                  >
+                    Terms of Service
+                  </Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
