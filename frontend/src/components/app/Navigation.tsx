@@ -45,7 +45,7 @@ const Navigation = () => {
   };
 
   return (
-    <header className="h-[55px] border-b border-border/40 bg-background sticky top-0 z-50">
+    <header className="h-[55px] border-b border-border/60 dark:border-border bg-background sticky top-0 z-50">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between max-w-full">
         <Link
           to="/"
@@ -59,13 +59,13 @@ const Navigation = () => {
 
         <div className="flex items-center gap-0 md:gap-2">
           <div className="hidden md:flex items-center gap-1">
-            <Button title="Home" asChild variant="ghost" size="sm">
+            <Button title="Home" asChild variant="outline" size="sm">
               <Link to="/home">Home</Link>
             </Button>
-            <Button title="About" asChild variant="ghost" size="sm">
+            <Button title="About" asChild variant="outline" size="sm">
               <Link to="/about">About</Link>
             </Button>
-            <Button title="Contact" asChild variant="ghost" size="sm">
+            <Button title="Contact" asChild variant="outline" size="sm">
               <Link to="/contact">Contact</Link>
             </Button>
           </div>
@@ -77,7 +77,7 @@ const Navigation = () => {
           ) : user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
+                <Button variant="outline" size="icon" className="rounded-full">
                   <User className="h-5 w-5" />
                   <span className="sr-only">User menu</span>
                 </Button>
@@ -96,7 +96,7 @@ const Navigation = () => {
           ) : (
             <>
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={() => handleAuthClick("signin")}
                 className="hidden sm:inline-flex"
               >
@@ -115,7 +115,7 @@ const Navigation = () => {
 
           <Sheet open={sideNavigationOpen} onOpenChange={setSideNavigationOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button variant="outline" size="icon" className="rounded-full">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Menu</span>
               </Button>

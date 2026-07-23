@@ -23,7 +23,7 @@ export default function CTA() {
           <Button
             size="lg"
             variant="success"
-            className="text-lg rounded-full px-10 h-16 shadow-2xl transition-all hover:scale-105 font-semibold border-1 border-white/80"
+            className="text-lg rounded-full px-10 h-16 shadow-2xl transition-all hover:scale-105 font-semibold border-1 border-white/30"
             onClick={() => navigate("/signup")}
           >
             Get Started!
@@ -31,7 +31,7 @@ export default function CTA() {
           <Button
             size="lg"
             variant="secondary"
-            className="text-lg rounded-full px-10 shadow-2xl h-16 transition-all hover:scale-105 font-semibold border-1 border-white/80"
+            className="text-lg rounded-full px-10 shadow-2xl h-16 transition-all hover:scale-105 font-semibold border-1 border-white/30"
             onClick={() => navigate("/about")}
           >
             Learn More

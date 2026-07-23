@@ -21,7 +21,7 @@ const NavigationPublic = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background">
+    <header className="sticky top-0 z-50 w-full border-b border-b border-border/60 dark:border-border bg-background">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo and Title */}
@@ -35,19 +35,19 @@ const NavigationPublic = () => {
           {/* Navigation Links */}
           <nav className="hidden md:flex items-center gap-6">
             <Button
-              variant="ghost"
+              variant="outline"
               onClick={() => navigate("/")}
             >
               Home
             </Button>
             <Button
-              variant="ghost"
+              variant="outline"
               onClick={() => navigate("/about")}
             >
               About
             </Button>
             <Button
-              variant="ghost"
+              variant="outline"
               onClick={() => navigate("/contact")}
             >
               Contact
@@ -59,12 +59,13 @@ const NavigationPublic = () => {
             <ThemeToggle />
             <div className="hidden md:flex items-center gap-2">
               <Button
-                variant="ghost"
+                variant="outline"
                 onClick={() => navigate("/signin")}
               >
                 Sign In
               </Button>
               <Button
+                variant="success"
                 onClick={() => navigate("/signup")}
               >
                 Sign Up
@@ -73,7 +74,7 @@ const NavigationPublic = () => {
 
             <Sheet open={sideNavigationOpen} onOpenChange={setSideNavigationOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
+                <Button variant="outline" size="icon" className="rounded-full">
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Menu</span>
                 </Button>
