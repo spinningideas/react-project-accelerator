@@ -167,9 +167,8 @@ export default function GetStarted() {
                       Review and Optimize NPM Packages
                     </CardTitle>
                     <p className="text-muted-foreground leading-relaxed text-[15px]">
-                      Review the installed npm packages and remove any you don't
-                      need for your project. Add any additional packages you
-                      need for your project.
+                      Review the installed npm packages and add or remove any
+                      you don't need for your project.
                     </p>
                   </div>
                 </div>
@@ -218,7 +217,18 @@ export default function GetStarted() {
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>{" "}
                       to visually generate a custom shadcn/ui theme and paste
-                      the output directly into your tailwind config.
+                      the output directly into index.css for tailwind
+                      configuration. You can swap in different fonts via
+                      packages from
+                      <a
+                        href="https://fontsource.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                      >
+                        fontsource.org
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
                     </p>
                   </div>
                 </div>
