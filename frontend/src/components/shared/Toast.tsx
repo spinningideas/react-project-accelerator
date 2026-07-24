@@ -55,8 +55,8 @@ export const useToast = () => {
 interface ToastProviderProps {
   children: ReactNode;
   location?: ToastPosition;
-  duration?: number;
-  maxVisibleNotifications?: number;
+  duration?: number; // Auto-dismiss duration in milliseconds (default: 2000)
+  maxVisibleNotifications?: number; // Maximum number of toasts to show (default: 6)
 }
 
 /**
@@ -67,8 +67,8 @@ interface ToastProviderProps {
 export const ToastProvider = ({
   children,
   location = "bottom-right",
-  duration = 5000,
-  maxVisibleNotifications = 5,
+  duration = 2000,
+  maxVisibleNotifications = 6,
 }: ToastProviderProps) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
@@ -81,19 +81,14 @@ export const ToastProvider = ({
       const id = Date.now();
       setToasts((prev) => {
         const newToasts = [...prev, { id, message, type, title }];
-        // Limit number of visible notifications
-        if (newToasts.length > maxVisibleNotifications) {
-          return newToasts.slice(newToasts.length - maxVisibleNotifications);
-        }
-        return newToasts;
+        // Limit to maxVisibleNotifications
+        return newToasts.slice(-maxVisibleNotifications);
       });
 
-      // Automatically remove toast after specified duration
-      if (duration > 0) {
-        setTimeout(() => {
-          toastDismiss(id);
-        }, duration);
-      }
+      // Automatically remove toast after configured duration
+      setTimeout(() => {
+        toastDismiss(id);
+      }, duration);
     },
     [toastDismiss, duration, maxVisibleNotifications],
   );

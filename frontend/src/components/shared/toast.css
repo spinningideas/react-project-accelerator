@@ -1,4 +1,11 @@
 /* === Toast Notifications === */
+/* Uses semantic color variables from src/index.css:
+   --success-color, --success-foreground,
+   --error-color, --error-foreground,
+   --info-color, --info-foreground,
+   --warning-color, --warning-foreground,
+   --card, --card-foreground, --border, --muted, --muted-foreground
+*/
 .toast-container {
   position: fixed;
   display: flex;
@@ -57,51 +64,31 @@
 
 .toast-success {
   border-left: 4px solid var(--success-color);
-  background-color: var(--card);
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--success-color) 10%, transparent),
-    color-mix(in srgb, var(--success-color) 10%, transparent)
-  );
+  background-color: color-mix(in hsl, var(--success-color) 10%, var(--card));
   color: var(--success-color);
 }
 
 .toast-error {
   border-left: 4px solid var(--error-color);
-  background-color: var(--card);
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--error-color) 10%, transparent),
-    color-mix(in srgb, var(--error-color) 10%, transparent)
-  );
+  background-color: color-mix(in hsl, var(--error-color) 10%, var(--card));
   color: var(--error-color);
 }
 
 .toast-info {
   border-left: 4px solid var(--info-color);
-  background-color: var(--card);
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--info-color) 10%, transparent),
-    color-mix(in srgb, var(--info-color) 10%, transparent)
-  );
+  background-color: color-mix(in hsl, var(--info-color) 10%, var(--card));
   color: var(--info-color);
 }
 
 .toast-warning {
   border-left: 4px solid var(--warning-color);
-  background-color: var(--card);
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--warning-color) 10%, transparent),
-    color-mix(in srgb, var(--warning-color) 10%, transparent)
-  );
+  background-color: color-mix(in hsl, var(--warning-color) 10%, var(--card));
   color: var(--warning-color);
 }
 
 .toast-default {
   border-left: 4px solid var(--border);
-  background-color: var(--card);
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--muted-foreground) 5%, transparent),
-    color-mix(in srgb, var(--muted-foreground) 5%, transparent)
-  );
+  background-color: color-mix(in hsl, var(--muted-foreground) 5%, var(--card));
 }
 
 .toast-close-btn {
