@@ -287,6 +287,29 @@ For detailed information about the multi-language support and localization syste
 - [React Application Building](https://github.com/spinningideas/resources/wiki/React-JS)
 - [React Folder Structure](https://github.com/spinningideas/resources/wiki/React-JS-Folder-Structure)
 
+## Agentic Harness
+
+Use the resources in the `.agent/` folder to provide and out of the box light weight agentic harness for building React applications. See https://addyosmani.com/blog/agent-harness-engineering/
+
+Ask the agent to groom features using the `.agent/skills/feature-groom/SKILL.md` skill. Then ask the agent to develop the feature using the `.agent/skills/feature-developer/SKILL.md` skill. Use the tailwind and frontend ui developer skills as needed along with the code steward skill to ensure code quality and consistency.
+
+### Skills
+
+- [Code Steward](.agent/skills/code-steward/SKILL.md)
+- [Feature Developer](.agent/skills/feature-developer/SKILL.md)
+- [Feature Groom](.agent/skills/feature-groom/SKILL.md)
+- [Senior Frontend Builder](.agent/skills/senior-frontend-builder/SKILL.md)
+- [Tailwind & shadcn/ui](.agent/skills/tailwind-shadui/SKILL.md)
+
+### Rules
+
+- [Browser Testing](.agent/rules/browser-testing.md)
+- [Linting & Imports](.agent/rules/linting-imports.md)
+
+### Workflow
+
+- [Feature Groom Dev](.agent/workflow/feature-groom-dev.md)
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request providing additional details on any feature added, bug fixes, or documentation updates to this project.
