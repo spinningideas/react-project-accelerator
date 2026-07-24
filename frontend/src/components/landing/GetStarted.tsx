@@ -61,7 +61,7 @@ export default function GetStarted() {
                         onClick={() =>
                           handleCopy(
                             "git clone https://github.com/spinningideas/react-project-accelerator.git",
-                            "clone"
+                            "clone",
                           )
                         }
                         className="absolute right-3 top-3 p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800/80 transition-all opacity-0 group-hover/code:opacity-100 focus:opacity-100"
@@ -111,7 +111,7 @@ export default function GetStarted() {
                           onClick={() =>
                             handleCopy(
                               "cd react-project-accelerator/frontend && npm install",
-                              "install"
+                              "install",
                             )
                           }
                           className="absolute right-3 top-3 p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800/80 transition-all opacity-0 group-hover/code:opacity-100 focus:opacity-100"
@@ -168,8 +168,8 @@ export default function GetStarted() {
                     </CardTitle>
                     <p className="text-muted-foreground leading-relaxed text-[15px]">
                       Review the installed npm packages and remove any you don't
-                      need for your project. This ensures a lightweight, fast,
-                      and optimized production bundle.
+                      need for your project. Add any additional packages you
+                      need for your project.
                     </p>
                   </div>
                 </div>
@@ -205,6 +205,16 @@ export default function GetStarted() {
                         className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
                       >
                         tweakcn.com
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>{" "}
+                      or{" "}
+                      <a
+                        href="https://www.design-extractor.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                      >
+                        design-extractor.com
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>{" "}
                       to visually generate a custom shadcn/ui theme and paste
