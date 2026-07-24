@@ -201,7 +201,7 @@ export default function GetStarted() {
                         href="https://tweakcn.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                        className="items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
                       >
                         tweakcn.com
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -211,7 +211,7 @@ export default function GetStarted() {
                         href="https://www.design-extractor.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                        className="items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
                       >
                         design-extractor.com
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -219,7 +219,7 @@ export default function GetStarted() {
                       to visually generate a custom shadcn/ui theme and paste
                       the output directly into index.css for tailwind
                       configuration. You can swap in different fonts via
-                      packages from
+                      packages from{" "}
                       <a
                         href="https://fontsource.org/"
                         target="_blank"
