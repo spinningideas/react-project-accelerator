@@ -201,7 +201,7 @@ export default function GetStarted() {
                         href="https://tweakcn.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                        className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
                       >
                         tweakcn.com
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -211,7 +211,7 @@ export default function GetStarted() {
                         href="https://www.design-extractor.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
+                        className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-semibold hover:underline"
                       >
                         design-extractor.com
                         <ExternalLink className="w-3.5 h-3.5" />
