@@ -33,10 +33,10 @@ const Terms = () => {
               2. Description of Service
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              {APPLICATION_NAME} provides AI-powered user interface generation
-              tools. The Service allows users to input text prompts and receive
-              generated code artifacts. The Service includes features such as
-              code streaming, component variations, and export capabilities.
+              {APPLICATION_NAME} provides an online service accessible through
+              our website. The Service allows users to access and use the
+              features and functionality we make available, which may change
+              over time as we improve and update the Service.
             </p>
           </section>
 

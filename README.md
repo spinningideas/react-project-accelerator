@@ -103,9 +103,7 @@ Runs ESLint to check code quality and style.
    ```bash
    npm run dev
    ```
-
 2. Set a breakpoint in your code within VS Code
-
 3. Press F5 or use the Debug panel and select "Debug via Chrome"
 
 ## Project Structure
@@ -200,18 +198,18 @@ The deployment process uses a combination of Vite configuration and GitHub Pages
    ```
 
    This command will:
+
    - Build the production bundle with `vite build --mode production`
    - Deploy the `dist` folder to the `gh-pages` branch
    - Push to GitHub
-
 2. **Configure GitHub Pages (first time only):**
+
    - Go to your repository on GitHub
    - Navigate to **Settings** → **Pages**
    - Under **Source**, select **Deploy from a branch**
    - Select the **gh-pages** branch
    - Select **/ (root)** folder
    - Click **Save**
-
 3. **Access your deployed site:**
 
    Your site will be available at: `https://spinningideas.github.io/react-project-accelerator/`
@@ -220,7 +218,7 @@ The deployment process uses a combination of Vite configuration and GitHub Pages
 
 #### Manual Build and Deploy
 
-If you need to build and deploy separately:
+If you need to build and deploy separately run these in the frontend folder:
 
 ```bash
 # Build for production
@@ -299,12 +297,12 @@ Ask the agent to groom features using the `.agent/skills/feature-groom/SKILL.md`
 - [Feature Developer](.agent/skills/feature-developer/SKILL.md)
 - [Feature Groom](.agent/skills/feature-groom/SKILL.md)
 - [Senior Frontend Builder](.agent/skills/senior-frontend-builder/SKILL.md)
-- [Tailwind & shadcn/ui](.agent/skills/tailwind-shadui/SKILL.md)
+- [Tailwind &amp; shadcn/ui](.agent/skills/tailwind-shadui/SKILL.md)
 
 ### Rules
 
 - [Browser Testing](.agent/rules/browser-testing.md)
-- [Linting & Imports](.agent/rules/linting-imports.md)
+- [Linting &amp; Imports](.agent/rules/linting-imports.md)
 
 ### Workflow
 

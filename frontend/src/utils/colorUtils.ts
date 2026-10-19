@@ -3,15 +3,7 @@
  * Provides color manipulation and palette generation using OKLCH color space
  */
 
-import {
-  parse,
-  formatHex,
-  formatCss,
-  converter,
-  interpolate,
-  type Oklch,
-  type Color,
-} from "culori";
+import { parse, formatHex, converter, interpolate, type Oklch } from "culori";
 import type { ColorFormat, ColorStep } from "@/models/ColorPalette";
 
 const toOklch = converter("oklch");
